@@ -28,7 +28,7 @@ class TemporalRenderConfig:
     frame_height: int = 720
 
     # Spiral parameters
-    num_turns: float = 7.0
+    num_turns: float = 3.5  # Research-validated (VISUALIZATION_LAWS.md)
     num_frequency_bins: int = 381
     base_point_size: int = 4
 
