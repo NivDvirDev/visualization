@@ -1,0 +1,78 @@
+{
+  "num_experiments": 4,
+  "last_updated": "2026-01-29T10:27:06.200604",
+  "results": [
+    {
+      "experiment_id": "rand_6e6215af3422_0000",
+      "timestamp": "2026-01-29T10:19:47.996441",
+      "duration_seconds": 145.45628666877747,
+      "train_accuracy": 0.8312686251105709,
+      "val_accuracy": 0.8299776380466407,
+      "test_accuracy": 0.7908638696443071,
+      "per_class_accuracy": {},
+      "attention_entropy": 0.6105853141361378,
+      "attention_center_ratio": 0.2654687835471704,
+      "attention_edge_ratio": 0.14368779148903082,
+      "feature_separability": 2.7480470656096947,
+      "confusion_matrix": [],
+      "training_history": {
+        "loss": [],
+        "accuracy": []
+      }
+    },
+    {
+      "experiment_id": "rand_ee62fbb4a6ce_0001",
+      "timestamp": "2026-01-29T10:22:14.350749",
+      "duration_seconds": 146.35108470916748,
+      "train_accuracy": 0.9196465050607323,
+      "val_accuracy": 0.7288588823517932,
+      "test_accuracy": 0.7241790649966213,
+      "per_class_accuracy": {},
+      "attention_entropy": 1.0629653329882962,
+      "attention_center_ratio": 0.2901349862031405,
+      "attention_edge_ratio": 0.26930935533703426,
+      "feature_separability": 2.899890283138841,
+      "confusion_matrix": [],
+      "training_history": {
+        "loss": [],
+        "accuracy": []
+      }
+    },
+    {
+      "experiment_id": "rand_bd7ffa34d89d_0002",
+      "timestamp": "2026-01-29T10:24:40.741259",
+      "duration_seconds": 146.3882601261139,
+      "train_accuracy": 0.8472978662059301,
+      "val_accuracy": 0.6978500532209384,
+      "test_accuracy": 0.8286615290314617,
+      "per_class_accuracy": {},
+      "attention_entropy": 1.3550315438129203,
+      "attention_center_ratio": 0.3840481946027651,
+      "attention_edge_ratio": 0.19147052606185094,
+      "feature_separability": 2.383691124860407,
+      "confusion_matrix": [],
+      "training_history": {
+        "loss": [],
+        "accuracy": []
+      }
+    },
+    {
+      "experiment_id": "rand_fc821cda0739_0003",
+      "timestamp": "2026-01-29T10:27:06.199008",
+      "duration_seconds": 145.44955134391785,
+      "train_accuracy": 0.7840584985435642,
+      "val_accuracy": 0.861453519836506,
+      "test_accuracy": 0.6410499955208107,
+      "per_class_accuracy": {},
+      "attention_entropy": 0.6787103585329672,
+      "attention_center_ratio": 0.4958651203686651,
+      "attention_edge_ratio": 0.19949175908015354,
+      "feature_separability": 0.6020190426465819,
+      "confusion_matrix": [],
+      "training_history": {
+        "loss": [],
+        "accuracy": []
+      }
+    }
+  ]
+}

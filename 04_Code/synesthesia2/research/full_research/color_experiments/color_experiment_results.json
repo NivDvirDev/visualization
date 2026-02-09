@@ -1,0 +1,2406 @@
+{
+  "num_experiments": 96,
+  "timestamp": "2026-01-29T11:48:32.025580",
+  "results": [
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.6,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8042227363702263,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.5990530303030304,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9005877553902977,
+        "mid": 0.7259565117958122,
+        "treble": 0.8355478589756741,
+        "bright": 0.7541001237572035
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.6,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8233733420068938,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.5995535714285715,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.828322452707918,
+        "mid": 0.898592760568553,
+        "treble": 0.7452540460934305,
+        "bright": 0.8088930887574128
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.6,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7946011261223276,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.5990530303030304,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8837652230713071,
+        "mid": 0.8284243304749739,
+        "treble": 0.8504840939815377,
+        "bright": 0.7498086093000571
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.6,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8354545807673665,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.5995535714285715,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.807308745768734,
+        "mid": 0.8887786047305654,
+        "treble": 0.7785990419699207,
+        "bright": 0.8289332420345719
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.75,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8502782613029772,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.6445075757575758,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8353948672121521,
+        "mid": 0.8506216368609527,
+        "treble": 0.8917300002593714,
+        "bright": 0.864650253600898
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.75,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7713365056910341,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.64375,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7797464389848437,
+        "mid": 0.7787857966655578,
+        "treble": 0.7506046769737916,
+        "bright": 0.7947792960370624
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.75,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8236427236757774,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.6445075757575758,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7773183322899906,
+        "mid": 0.7377555184041472,
+        "treble": 0.813587961760534,
+        "bright": 0.8334638205964542
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.75,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8355226789062058,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.64375,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8441169732322923,
+        "mid": 0.7858497072556233,
+        "treble": 0.8684348910112836,
+        "bright": 0.7306919667886251
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.85,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.730534258498577,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.674810606060606,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7786633686179392,
+        "mid": 0.6723490511903618,
+        "treble": 0.7470620917688067,
+        "bright": 0.7738116162872821
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.85,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7747319673887056,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.6745535714285714,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7527356329573995,
+        "mid": 0.7554818081041624,
+        "treble": 0.7626490689951115,
+        "bright": 0.7668919477347509
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.85,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8028291245846039,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.674810606060606,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8105166071486077,
+        "mid": 0.8249033433717764,
+        "treble": 0.8148313170196544,
+        "bright": 0.8434478496551986
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.85,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8229114010541475,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.6745535714285714,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8476305014570412,
+        "mid": 0.8827815071412795,
+        "treble": 0.8162913620560055,
+        "bright": 0.8735967836224919
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.95,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.807073865129442,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.7051136363636366,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.759061595210963,
+        "mid": 0.8325560354446553,
+        "treble": 0.8243864377319479,
+        "bright": 0.7559875050601635
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.95,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8042868164264851,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.7040178571428573,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8392309817216712,
+        "mid": 0.7914858214077274,
+        "treble": 0.8454128782454156,
+        "bright": 0.7795822251571103
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.95,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7669604470450051,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.7051136363636366,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7188224104347686,
+        "mid": 0.8568365658010231,
+        "treble": 0.8242279932208992,
+        "bright": 0.7796310541074609
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "scriabin",
+        "saturation": 0.95,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7953199344258383,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.06250000000000006,
+        "memorability_score": 0.7040178571428573,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8928141992337162,
+        "mid": 0.7739835373078015,
+        "treble": 0.7663645132446059,
+        "bright": 0.8139902500260758
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.6,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8820731763566112,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.8803030303030303,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9020561434046701,
+        "mid": 0.873238592169511,
+        "treble": 0.9493522411431218,
+        "bright": 0.9221993362301102
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.6,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9935325116760841,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.8808035714285714,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9941055620481052,
+        "mid": 1.0,
+        "treble": 1.0,
+        "bright": 1.0
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.6,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9401634775141667,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.8803030303030303,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8821884682136011,
+        "mid": 0.9506224932445465,
+        "treble": 0.8780897887545196,
+        "bright": 0.8631017805645353
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.6,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9216185417141788,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.8808035714285714,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.922023928856589,
+        "mid": 0.8236096823174901,
+        "treble": 0.8948991859476323,
+        "bright": 0.8744171198585637
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.75,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9351953099441579,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.9257575757575757,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9109739996491591,
+        "mid": 1.0,
+        "treble": 0.8485159048562194,
+        "bright": 0.968767381698136
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.75,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9645369960794016,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.9249999999999999,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9486798649942487,
+        "mid": 0.9325563892496019,
+        "treble": 1.0,
+        "bright": 0.9928462196201219
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.75,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9419664382005571,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.9257575757575757,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 1.0,
+        "mid": 0.8522305815618533,
+        "treble": 0.8979475919950328,
+        "bright": 0.938263698326077
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.75,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9569506766877028,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.9249999999999999,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 1.0,
+        "mid": 0.9069167006461311,
+        "treble": 0.950957103878084,
+        "bright": 0.9638537867793127
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.85,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.968745640346667,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.9560606060606059,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9137801940146211,
+        "mid": 0.9964048614100294,
+        "treble": 0.9289517599088881,
+        "bright": 0.8560730580925541
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.85,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9747564294128447,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.9558035714285713,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9531842413594556,
+        "mid": 0.9101061640606654,
+        "treble": 0.9510045371856377,
+        "bright": 0.9924663847029946
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.85,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9413657912250221,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.9560606060606059,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9012159972067391,
+        "mid": 0.8909946063190355,
+        "treble": 0.9727570172577038,
+        "bright": 0.9359898648753477
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.85,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.97304311859409,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.9558035714285713,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9264489406396703,
+        "mid": 1.0,
+        "treble": 0.9249481616913543,
+        "bright": 1.0
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.95,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9528255660987042,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.9863636363636364,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 1.0,
+        "mid": 1.0,
+        "treble": 0.8790834592381227,
+        "bright": 1.0
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.95,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9243763338115168,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.9852678571428571,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.910616557470565,
+        "mid": 0.9248849332566422,
+        "treble": 0.8857028421041114,
+        "bright": 0.852012924331235
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.95,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9085530649329062,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.9863636363636364,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9988829917179426,
+        "mid": 0.918712449968485,
+        "treble": 0.8371212472931872,
+        "bright": 0.8626398541972036
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "rainbow",
+        "saturation": 0.95,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 1.0,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9999999999999999,
+        "memorability_score": 0.9852678571428571,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9697265874600685,
+        "mid": 0.9987796831344984,
+        "treble": 1.0,
+        "bright": 1.0
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.6,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9588002498136123,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.8615530303030303,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 1.0,
+        "mid": 0.9320705553626919,
+        "treble": 0.9334126676917983,
+        "bright": 0.9942971615589021
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.6,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9426451742272723,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.8620535714285714,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9635469319294137,
+        "mid": 0.9151792706028052,
+        "treble": 0.9300606034081867,
+        "bright": 0.962538964539669
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.6,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9446300564004113,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.8615530303030303,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9335552822594213,
+        "mid": 0.848222781652866,
+        "treble": 0.9801025982920105,
+        "bright": 0.9400303485737821
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.6,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9419844432029204,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.8620535714285714,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8812812168700175,
+        "mid": 0.9337291823780356,
+        "treble": 0.9737130230513805,
+        "bright": 0.9387121504411671
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.75,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9047351799125737,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.9070075757575757,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8079139382506529,
+        "mid": 0.9075404961413425,
+        "treble": 0.8008093315713233,
+        "bright": 0.9074543720378554
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.75,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9716094138891436,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.90625,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9938984244986443,
+        "mid": 0.9249599174024388,
+        "treble": 0.9379415948983513,
+        "bright": 0.9784455768563842
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.75,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9751031374630462,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.9070075757575757,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9777549938357571,
+        "mid": 0.9141809527430643,
+        "treble": 0.9593941881822773,
+        "bright": 0.8858435213408837
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.75,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9164765675542266,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.90625,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.861832887808259,
+        "mid": 0.8635520730006472,
+        "treble": 0.852516757911805,
+        "bright": 0.8563423578428346
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.85,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9428768005995453,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.937310606060606,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 1.0,
+        "mid": 0.9154488262274653,
+        "treble": 0.9378157406407406,
+        "bright": 0.9329162596610946
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.85,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.988263705239942,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.9370535714285714,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 1.0,
+        "mid": 0.9445347086375049,
+        "treble": 1.0,
+        "bright": 0.9274824562586352
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.85,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9591888832333574,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.937310606060606,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9885341988927587,
+        "mid": 0.9811191562065378,
+        "treble": 0.9419107033510548,
+        "bright": 1.0
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.85,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8930259745117537,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.9370535714285714,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9513427571460547,
+        "mid": 0.7709225687484696,
+        "treble": 0.8887717162138737,
+        "bright": 0.8943125354221894
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.95,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9824334649132017,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.9676136363636365,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9584092515912367,
+        "mid": 0.970355021946917,
+        "treble": 1.0,
+        "bright": 1.0
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.95,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9519786357215663,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.9665178571428572,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9041902706413943,
+        "mid": 0.9879058880894572,
+        "treble": 0.8431520235956225,
+        "bright": 0.9032845648436842
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.95,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.9373044673043283,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.9676136363636365,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8796094815119646,
+        "mid": 1.0,
+        "treble": 1.0,
+        "bright": 0.9537327439175519
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "mel_rainbow",
+        "saturation": 0.95,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 1.0,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.9375,
+        "memorability_score": 0.9665178571428572,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 1.0,
+        "mid": 0.9881416490582233,
+        "treble": 0.9929399523745048,
+        "bright": 1.0
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.6,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9726317579109942,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0003682257216612141,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.8855480180899176,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9372875733077572,
+        "mid": 0.9212427800274342,
+        "treble": 0.9627929251363877,
+        "bright": 0.840525694119266
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.6,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9922399669125385,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0005395883843733573,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.8857633071885471,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9736652911230357,
+        "mid": 0.9922881207760004,
+        "treble": 0.9485644677827776,
+        "bright": 1.0
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.6,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9848946638289413,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0003682257216612141,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.8855480180899176,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9765470162323271,
+        "mid": 0.9723827546708327,
+        "treble": 1.0,
+        "bright": 0.9528754223919078
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.6,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9095849051034812,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0005395883843733573,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.8857633071885471,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9294366950028783,
+        "mid": 0.952526120395621,
+        "treble": 0.8127965357478516,
+        "bright": 0.8266324838228262
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.75,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9467524488727027,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0003682257216612141,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.9322867542141287,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9194732185008481,
+        "mid": 0.9086945325035731,
+        "treble": 0.9419235844171547,
+        "bright": 0.897386833516033
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.75,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9647763587907429,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0005395883843733573,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.9315317544928419,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9766649936232666,
+        "mid": 0.915817519008176,
+        "treble": 0.958123161648318,
+        "bright": 1.0
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.75,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9487698876416703,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0003682257216612141,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.9322867542141287,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9664052577340956,
+        "mid": 0.9346499961755083,
+        "treble": 0.88767509604973,
+        "bright": 0.8800659994666582
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.75,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9004998551403046,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0005395883843733573,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.9315317544928419,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9116449162048895,
+        "mid": 0.9551308851033877,
+        "treble": 0.7898937231850435,
+        "bright": 0.8527611776554822
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.85,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9785661344236127,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0003682257216612141,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.9634459116302692,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 1.0,
+        "mid": 0.9377659964591889,
+        "treble": 0.9097723031852573,
+        "bright": 1.0
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.85,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9440777403445575,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0005395883843733573,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.9630325731038685,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9241693438069252,
+        "mid": 0.903823200168047,
+        "treble": 0.9562539017709598,
+        "bright": 0.976467166285422
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.85,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9148472335018529,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0003682257216612141,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.9634459116302692,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 1.0,
+        "mid": 0.9196580790033542,
+        "treble": 0.9132211519050366,
+        "bright": 0.975696773342905
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.85,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9568422766749002,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0005395883843733573,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.9630325731038685,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9393228100883394,
+        "mid": 0.9929043428886044,
+        "treble": 0.9493009826975769,
+        "bright": 0.9396024007819869
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.95,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9568929727419317,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0003682257216612141,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.9902760647174056,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9622555464158118,
+        "mid": 0.9598782179141161,
+        "treble": 0.980968205956728,
+        "bright": 0.9715005508460125
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.95,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9695778275125281,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0005395883843733573,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.9894632386536706,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8319778448506892,
+        "mid": 1.0,
+        "treble": 0.9459524434014479,
+        "bright": 1.0
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.95,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9560061954534076,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0003682257216612141,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.9902760647174056,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.945498345041001,
+        "mid": 0.9377551611563752,
+        "treble": 0.9558013471371676,
+        "bright": 0.9393886297709247
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "perceptual",
+        "saturation": 0.95,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": true
+      },
+      "metrics": {
+        "classification_accuracy": 0.9267824674651608,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.0005395883843733573,
+        "hue_coverage": 1.0,
+        "memorability_score": 0.9894632386536706,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.951631777776903,
+        "mid": 0.9454605596623143,
+        "treble": 0.9793835310846956,
+        "bright": 0.9101282345787857
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.6,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.76987247740694,
+        "color_distinctiveness": 0.8701279544590352,
+        "brightness_variance": 0.020461831791540146,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.4668312343340435,
+        "confusion_rate": 0.12987204554096476
+      },
+      "per_category_accuracy": {
+        "bass": 0.8120485157670715,
+        "mid": 0.7574211284131679,
+        "treble": 0.7948327123662464,
+        "bright": 0.7514149330065334
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.6,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8027134799480251,
+        "color_distinctiveness": 0.9624132436037754,
+        "brightness_variance": 0.026189613100142013,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.5041427476286869,
+        "confusion_rate": 0.03758675639622455
+      },
+      "per_category_accuracy": {
+        "bass": 0.7754217909386754,
+        "mid": 0.9209408059052615,
+        "treble": 0.8344154578423331,
+        "bright": 0.8055605484431267
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.6,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7663267693230137,
+        "color_distinctiveness": 0.8701279544590352,
+        "brightness_variance": 0.020461831791540146,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.4668312343340435,
+        "confusion_rate": 0.12987204554096476
+      },
+      "per_category_accuracy": {
+        "bass": 0.7969465270188336,
+        "mid": 0.7538289644660066,
+        "treble": 0.7262910309344796,
+        "bright": 0.7023103010164984
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.6,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8104723513716713,
+        "color_distinctiveness": 0.9624132436037754,
+        "brightness_variance": 0.026189613100142013,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.5041427476286869,
+        "confusion_rate": 0.03758675639622455
+      },
+      "per_category_accuracy": {
+        "bass": 0.7702720246479198,
+        "mid": 0.7706058613590728,
+        "treble": 0.8342494932773323,
+        "bright": 0.7919556798405709
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.75,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8106164169480756,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.03210131111268037,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.5541121138476908,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8303687858659006,
+        "mid": 0.8102303474738524,
+        "treble": 0.8418171353033154,
+        "bright": 0.7848406320318119
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.75,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7674715177147178,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.041383769193952084,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.5531086839207846,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.895750036725145,
+        "mid": 0.7905551930770485,
+        "treble": 0.8049793873247638,
+        "bright": 0.7179638870799392
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.75,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8441071759685168,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.03210131111268037,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.5541121138476908,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9226377503883894,
+        "mid": 0.8103660064462265,
+        "treble": 0.7701332715873495,
+        "bright": 0.8821809647557911
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.75,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8012103047132849,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.041383769193952084,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.5531086839207846,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7901266156698639,
+        "mid": 0.799863554897616,
+        "treble": 0.8101929186474788,
+        "bright": 0.8388783071682985
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.85,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7778825284428004,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.041310955754850956,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.5815100899883509,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7886985333530999,
+        "mid": 0.7775744335927339,
+        "treble": 0.7511999471790791,
+        "bright": 0.7331898658077303
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.85,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.788074508101046,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.052930976312093446,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.5809644283115543,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7847299358918339,
+        "mid": 0.7632689732411811,
+        "treble": 0.8757041428817751,
+        "bright": 0.9035147261580909
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.85,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8413844782495667,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.041310955754850956,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.5815100899883509,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9528587522202745,
+        "mid": 0.8813037092038135,
+        "treble": 0.8138368898700298,
+        "bright": 0.9008628023077903
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.85,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8088263007849241,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.052930976312093446,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.5809644283115543,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7533475289451466,
+        "mid": 0.7497256467817072,
+        "treble": 0.8168077747346769,
+        "bright": 0.917584031309618
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.95,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.84530669697031,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.051680593806149915,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.6166102866019759,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8015453443970815,
+        "mid": 0.8736778968654378,
+        "treble": 0.7907329047620152,
+        "bright": 0.8165761408050781
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.95,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8170560684453635,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.06599094539776694,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.6150484834817905,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8487848812444364,
+        "mid": 0.756385554633373,
+        "treble": 0.753403803376633,
+        "bright": 0.825841864979384
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.95,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8114296942661829,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.051680593806149915,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.6166102866019759,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.9150059325561506,
+        "mid": 0.7681153072744569,
+        "treble": 0.6970880679114162,
+        "bright": 0.6959803235693833
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "categorical",
+        "saturation": 0.95,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8013701117873294,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 0.06599094539776694,
+        "hue_coverage": 0.0,
+        "memorability_score": 0.6150484834817905,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8123981721003929,
+        "mid": 0.8774561151770268,
+        "treble": 0.8190201213533194,
+        "bright": 0.7545592437636472
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.6,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8390219157776087,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.09999999999999995,
+        "memorability_score": 0.6022943722943723,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8182006051041273,
+        "mid": 0.8064812341956459,
+        "treble": 0.8933864398224929,
+        "bright": 0.8381006212042862
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.6,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7990030339386581,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.5987308673469388,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8486696427939695,
+        "mid": 0.774045070056341,
+        "treble": 0.7233457719739896,
+        "bright": 0.7977800657426489
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.6,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8512867843237689,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.09999999999999995,
+        "memorability_score": 0.6022943722943723,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8666816999636664,
+        "mid": 0.9078955283488731,
+        "treble": 0.8279821822557623,
+        "bright": 0.9661710923627527
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.6,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8242906766283135,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.5987308673469388,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8571547941366089,
+        "mid": 0.7578218777428378,
+        "treble": 0.8136089544034987,
+        "bright": 0.9129926447663325
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.75,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7943273270253689,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.6418344155844156,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7307241664317483,
+        "mid": 0.7796082755901963,
+        "treble": 0.8139254774475966,
+        "bright": 0.8494372242917984
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.75,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7926684724567401,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.6417793367346939,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8155606148305181,
+        "mid": 0.7806901117387437,
+        "treble": 0.8803950856836985,
+        "bright": 0.8203249920561293
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.75,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7979413315219466,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.6418344155844156,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7646059413682377,
+        "mid": 0.7226992361673366,
+        "treble": 0.8720020259583097,
+        "bright": 0.8161817849112534
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.75,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8600902689928966,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.6417793367346939,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8358199235844429,
+        "mid": 0.8628852325161612,
+        "treble": 0.8498587859271458,
+        "bright": 0.914938053696297
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.85,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8129070481577506,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.6704058441558441,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8251055758428912,
+        "mid": 0.8071778839653779,
+        "treble": 0.8073546322502924,
+        "bright": 0.812916335122529
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.85,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7894027869884632,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.6705739795918367,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7454043302220225,
+        "mid": 0.8236513266537313,
+        "treble": 0.7881766830117207,
+        "bright": 0.7832353586535011
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.85,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8356952944168072,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.6704058441558441,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.819183771016134,
+        "mid": 0.784764799469539,
+        "treble": 0.8847616094632746,
+        "bright": 0.8606998999836917
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.85,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8088949312196997,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.6705739795918367,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.7824941022434027,
+        "mid": 0.6885256016231533,
+        "treble": 0.805522817009278,
+        "bright": 0.8050540971796425
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.95,
+        "brightness_min": 0.3,
+        "brightness_max": 0.9,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.8032680417691458,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.6994101731601732,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.871073235824711,
+        "mid": 0.8055836155664627,
+        "treble": 0.785698266330117,
+        "bright": 0.7807708720317702
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.95,
+        "brightness_min": 0.4,
+        "brightness_max": 1.0,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7999750957503055,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.6994642857142858,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8245183609703335,
+        "mid": 0.8158869607332163,
+        "treble": 0.7780148029292789,
+        "bright": 0.7658387735531677
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.95,
+        "brightness_min": 0.5,
+        "brightness_max": 0.85,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7761526985641601,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 1.232595164407831e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.6994101731601732,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.6884630883437174,
+        "mid": 0.7613515755188843,
+        "treble": 0.8655018155932753,
+        "bright": 0.7523649900275505
+      }
+    },
+    {
+      "config": {
+        "mapping_name": "harmonic",
+        "saturation": 0.95,
+        "brightness_min": 0.6,
+        "brightness_max": 0.95,
+        "use_amplitude_brightness": true,
+        "hue_offset": 0.0,
+        "perceptual_correction": false
+      },
+      "metrics": {
+        "classification_accuracy": 0.7772148861418122,
+        "color_distinctiveness": 1.0,
+        "brightness_variance": 4.930380657631324e-32,
+        "hue_coverage": 0.08749999999999994,
+        "memorability_score": 0.6994642857142858,
+        "confusion_rate": 0.0
+      },
+      "per_category_accuracy": {
+        "bass": 0.8739652023360971,
+        "mid": 0.7689789919450007,
+        "treble": 0.8221821612342687,
+        "bright": 0.8320325931045641
+      }
+    }
+  ]
+}

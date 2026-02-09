@@ -1,0 +1,32 @@
+{
+  "optimal_trail_length": 50,
+  "optimal_trail_decay": 0.7,
+  "optimal_color_mapping": "rainbow",
+  "optimal_saturation": 0.95,
+  "optimal_rhythm_intensity": 0.2,
+  "optimal_harmony_blend": 1.0,
+  "optimal_atmosphere_window": 60,
+  "melody_research_score": 0.9145292475598514,
+  "color_research_score": 0.992252429401002,
+  "temporal_research_score": 0.6800460507221622,
+  "overall_research_score": 0.8622759092276718,
+  "findings": [
+    "Optimal trail length: 50 frames (coherence: 0.838)",
+    "Best trail decay: 0.70 for smooth melodic visualization",
+    "Best color mapping: rainbow (distinctiveness: 1.000)",
+    "Optimal saturation: 0.95 for visual memorability",
+    "Rhythm intensity 0.2 achieves best beat alignment",
+    "Harmony blend time of 1.0s provides stable chord colors",
+    "Atmosphere window of 60s captures overall mood"
+  ],
+  "recommendations": [
+    "Use perceptual color mapping for best visual distinction",
+    "Set melody trail length to 50 frames",
+    "Apply logarithmic amplitude scaling for natural dynamics",
+    "Enable multi-scale temporal integration",
+    "Test edge cases (noise, clipping) to ensure robustness"
+  ],
+  "total_experiments": 210,
+  "total_samples_analyzed": 2610,
+  "research_duration_hours": 0.011148746388888887
+}

@@ -1,0 +1,1764 @@
+{
+  "num_experiments": 90,
+  "timestamp": "2026-01-29T11:48:31.966646",
+  "results": [
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.9252375905108526,
+        "trail_coherence_score": 0.8415327174239103,
+        "visual_distinctiveness": 0.9683065434847817,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8459444971366497,
+        "trail_coherence_score": 0.8415327174239103,
+        "visual_distinctiveness": 0.9683065434847817,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.961578193202208,
+        "trail_coherence_score": 0.8415327174239103,
+        "visual_distinctiveness": 0.9683065434847817,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8022775444214435,
+        "trail_coherence_score": 0.8478697306048587,
+        "visual_distinctiveness": 0.9695739461209715,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8060286076572329,
+        "trail_coherence_score": 0.8478697306048587,
+        "visual_distinctiveness": 0.9695739461209715,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8229558036592167,
+        "trail_coherence_score": 0.8478697306048587,
+        "visual_distinctiveness": 0.9695739461209715,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8654843807071478,
+        "trail_coherence_score": 0.8495518250060712,
+        "visual_distinctiveness": 0.969910365001214,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8326850455328338,
+        "trail_coherence_score": 0.8495518250060712,
+        "visual_distinctiveness": 0.969910365001214,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8768630004293798,
+        "trail_coherence_score": 0.8495518250060712,
+        "visual_distinctiveness": 0.969910365001214,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8576621785107588,
+        "trail_coherence_score": 0.8498375468531444,
+        "visual_distinctiveness": 0.9699675093706286,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8483130040877662,
+        "trail_coherence_score": 0.8498375468531444,
+        "visual_distinctiveness": 0.9699675093706286,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.9310216589657615,
+        "trail_coherence_score": 0.8498375468531444,
+        "visual_distinctiveness": 0.9699675093706286,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8822320046855227,
+        "trail_coherence_score": 0.8477486264928004,
+        "visual_distinctiveness": 0.9695497252985598,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8662541429735122,
+        "trail_coherence_score": 0.8477486264928004,
+        "visual_distinctiveness": 0.9695497252985598,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 10,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.826792783001578,
+        "trail_coherence_score": 0.8477486264928004,
+        "visual_distinctiveness": 0.9695497252985598,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Short trail may lose melodic context",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.9303490310692509,
+        "trail_coherence_score": 0.843776316190003,
+        "visual_distinctiveness": 0.9687552632380003,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.82233242863612,
+        "trail_coherence_score": 0.843776316190003,
+        "visual_distinctiveness": 0.9687552632380003,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8420263087854404,
+        "trail_coherence_score": 0.843776316190003,
+        "visual_distinctiveness": 0.9687552632380003,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8021987769937572,
+        "trail_coherence_score": 0.839916110521606,
+        "visual_distinctiveness": 0.967983222104321,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7755053521854732,
+        "trail_coherence_score": 0.839916110521606,
+        "visual_distinctiveness": 0.967983222104321,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8434243282483483,
+        "trail_coherence_score": 0.839916110521606,
+        "visual_distinctiveness": 0.967983222104321,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8117593987224782,
+        "trail_coherence_score": 0.8296139559260001,
+        "visual_distinctiveness": 0.9659227911851997,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8565840056691736,
+        "trail_coherence_score": 0.8296139559260001,
+        "visual_distinctiveness": 0.9659227911851997,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8424209808678318,
+        "trail_coherence_score": 0.8296139559260001,
+        "visual_distinctiveness": 0.9659227911851997,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8547705026688337,
+        "trail_coherence_score": 0.8110011355569041,
+        "visual_distinctiveness": 0.9622002271113805,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.9249993228545568,
+        "trail_coherence_score": 0.8110011355569041,
+        "visual_distinctiveness": 0.9622002271113805,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8689665457093197,
+        "trail_coherence_score": 0.8110011355569041,
+        "visual_distinctiveness": 0.9622002271113805,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.919932128539292,
+        "trail_coherence_score": 0.7833496736686012,
+        "visual_distinctiveness": 0.95666993473372,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.9447336275093083,
+        "trail_coherence_score": 0.7833496736686012,
+        "visual_distinctiveness": 0.95666993473372,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 20,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8503991702712579,
+        "trail_coherence_score": 0.7833496736686012,
+        "visual_distinctiveness": 0.95666993473372,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7974139837398445,
+        "trail_coherence_score": 0.8453268551848435,
+        "visual_distinctiveness": 0.9690653710369684,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8249733479084818,
+        "trail_coherence_score": 0.8453268551848435,
+        "visual_distinctiveness": 0.9690653710369684,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.79308890583456,
+        "trail_coherence_score": 0.8453268551848435,
+        "visual_distinctiveness": 0.9690653710369684,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8628376530071822,
+        "trail_coherence_score": 0.8408087875665923,
+        "visual_distinctiveness": 0.9681617575133181,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8237311636866546,
+        "trail_coherence_score": 0.8408087875665923,
+        "visual_distinctiveness": 0.9681617575133181,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8299503951575119,
+        "trail_coherence_score": 0.8408087875665923,
+        "visual_distinctiveness": 0.9681617575133181,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7791123210531801,
+        "trail_coherence_score": 0.8290412894325931,
+        "visual_distinctiveness": 0.9658082578865184,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8018902960071526,
+        "trail_coherence_score": 0.8290412894325931,
+        "visual_distinctiveness": 0.9658082578865184,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8212920329312642,
+        "trail_coherence_score": 0.8290412894325931,
+        "visual_distinctiveness": 0.9658082578865184,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.9043345134404943,
+        "trail_coherence_score": 0.806596086187993,
+        "visual_distinctiveness": 0.9613192172375984,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7331121544738345,
+        "trail_coherence_score": 0.806596086187993,
+        "visual_distinctiveness": 0.9613192172375984,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7195488468394386,
+        "trail_coherence_score": 0.806596086187993,
+        "visual_distinctiveness": 0.9613192172375984,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.769797916376701,
+        "trail_coherence_score": 0.7716984641882909,
+        "visual_distinctiveness": 0.954339692837658,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7008379988379326,
+        "trail_coherence_score": 0.7716984641882909,
+        "visual_distinctiveness": 0.954339692837658,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 30,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7504270158441216,
+        "trail_coherence_score": 0.7716984641882909,
+        "visual_distinctiveness": 0.954339692837658,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8695894772813255,
+        "trail_coherence_score": 0.8465459572701833,
+        "visual_distinctiveness": 0.9693091914540364,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8814510546750789,
+        "trail_coherence_score": 0.8465459572701833,
+        "visual_distinctiveness": 0.9693091914540364,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.9242438122841969,
+        "trail_coherence_score": 0.8465459572701833,
+        "visual_distinctiveness": 0.9693091914540364,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8201029743638208,
+        "trail_coherence_score": 0.8419504821698471,
+        "visual_distinctiveness": 0.9683900964339691,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8472041781392758,
+        "trail_coherence_score": 0.8419504821698471,
+        "visual_distinctiveness": 0.9683900964339691,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8194517558308485,
+        "trail_coherence_score": 0.8419504821698471,
+        "visual_distinctiveness": 0.9683900964339691,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8412279152180459,
+        "trail_coherence_score": 0.8299400722774632,
+        "visual_distinctiveness": 0.9659880144554924,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8591575500370714,
+        "trail_coherence_score": 0.8299400722774632,
+        "visual_distinctiveness": 0.9659880144554924,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8177454083747318,
+        "trail_coherence_score": 0.8299400722774632,
+        "visual_distinctiveness": 0.9659880144554924,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8563546951507539,
+        "trail_coherence_score": 0.8066324403143215,
+        "visual_distinctiveness": 0.961326488062864,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8942042193539702,
+        "trail_coherence_score": 0.8066324403143215,
+        "visual_distinctiveness": 0.961326488062864,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7983065874817551,
+        "trail_coherence_score": 0.8066324403143215,
+        "visual_distinctiveness": 0.961326488062864,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.660789646355888,
+        "trail_coherence_score": 0.770114791148242,
+        "visual_distinctiveness": 0.9540229582296481,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8146981551226532,
+        "trail_coherence_score": 0.770114791148242,
+        "visual_distinctiveness": 0.9540229582296481,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 50,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7992957823541471,
+        "trail_coherence_score": 0.770114791148242,
+        "visual_distinctiveness": 0.9540229582296481,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7078469556054858,
+        "trail_coherence_score": 0.8472104808474733,
+        "visual_distinctiveness": 0.9694420961694944,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7992097910586281,
+        "trail_coherence_score": 0.8472104808474733,
+        "visual_distinctiveness": 0.9694420961694944,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7618412779689416,
+        "trail_coherence_score": 0.8472104808474733,
+        "visual_distinctiveness": 0.9694420961694944,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.842938309747801,
+        "trail_coherence_score": 0.8426112624987823,
+        "visual_distinctiveness": 0.9685222524997562,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8184058176392313,
+        "trail_coherence_score": 0.8426112624987823,
+        "visual_distinctiveness": 0.9685222524997562,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8308094687458812,
+        "trail_coherence_score": 0.8426112624987823,
+        "visual_distinctiveness": 0.9685222524997562,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8303404287742454,
+        "trail_coherence_score": 0.8306144814145662,
+        "visual_distinctiveness": 0.9661228962829129,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8375102033290863,
+        "trail_coherence_score": 0.8306144814145662,
+        "visual_distinctiveness": 0.9661228962829129,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8721066444636274,
+        "trail_coherence_score": 0.8306144814145662,
+        "visual_distinctiveness": 0.9661228962829129,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8184370095578851,
+        "trail_coherence_score": 0.8071845442375993,
+        "visual_distinctiveness": 0.9614369088475196,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8732405845768215,
+        "trail_coherence_score": 0.8071845442375993,
+        "visual_distinctiveness": 0.9614369088475196,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.9052246190588952,
+        "trail_coherence_score": 0.8071845442375993,
+        "visual_distinctiveness": 0.9614369088475196,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7774152729640832,
+        "trail_coherence_score": 0.769740953720315,
+        "visual_distinctiveness": 0.9539481907440628,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7255282155952166,
+        "trail_coherence_score": 0.769740953720315,
+        "visual_distinctiveness": 0.9539481907440628,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 80,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7114658150102354,
+        "trail_coherence_score": 0.769740953720315,
+        "visual_distinctiveness": 0.9539481907440628,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8587784425203194,
+        "trail_coherence_score": 0.8475751192733445,
+        "visual_distinctiveness": 0.9695150238546686,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8137098574474049,
+        "trail_coherence_score": 0.8475751192733445,
+        "visual_distinctiveness": 0.9695150238546686,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.7,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.9223914289461702,
+        "trail_coherence_score": 0.8475751192733445,
+        "visual_distinctiveness": 0.9695150238546686,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "Fast decay creates staccato visual effect",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8357599387057706,
+        "trail_coherence_score": 0.8429741793472165,
+        "visual_distinctiveness": 0.9685948358694431,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7977844790503418,
+        "trail_coherence_score": 0.8429741793472165,
+        "visual_distinctiveness": 0.9685948358694431,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.8,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8195858025309355,
+        "trail_coherence_score": 0.8429741793472165,
+        "visual_distinctiveness": 0.9685948358694431,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.9219895196744878,
+        "trail_coherence_score": 0.8309925834934524,
+        "visual_distinctiveness": 0.9661985166986902,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7971549581284234,
+        "trail_coherence_score": 0.8309925834934524,
+        "visual_distinctiveness": 0.9661985166986902,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.85,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8387246744026758,
+        "trail_coherence_score": 0.8309925834934524,
+        "visual_distinctiveness": 0.9661985166986902,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.792790369772155,
+        "trail_coherence_score": 0.8075837811457728,
+        "visual_distinctiveness": 0.9615167562291542,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8048118878279675,
+        "trail_coherence_score": 0.8075837811457728,
+        "visual_distinctiveness": 0.9615167562291542,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.9,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8690659920314735,
+        "trail_coherence_score": 0.8075837811457728,
+        "visual_distinctiveness": 0.9615167562291542,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": false,
+        "trail_style": "solid"
+      },
+      "metrics": {
+        "classification_accuracy": 0.7862097898596329,
+        "trail_coherence_score": 0.7699535162331519,
+        "visual_distinctiveness": 0.9539907032466302,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "gradient"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8345656982237405,
+        "trail_coherence_score": 0.7699535162331519,
+        "visual_distinctiveness": 0.9539907032466302,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "High coherence suggests smooth visual flow"
+      ]
+    },
+    {
+      "config": {
+        "trail_length": 120,
+        "trail_decay": 0.95,
+        "trail_width_start": 1.0,
+        "trail_width_end": 0.3,
+        "trail_color_fade": true,
+        "trail_style": "glow"
+      },
+      "metrics": {
+        "classification_accuracy": 0.8011985749116018,
+        "trail_coherence_score": 0.7699535162331519,
+        "visual_distinctiveness": 0.9539907032466302,
+        "contour_preservation": 0.9999999999999994
+      },
+      "observations": [
+        "Long trail may cause visual clutter",
+        "High coherence suggests smooth visual flow"
+      ]
+    }
+  ]
+}

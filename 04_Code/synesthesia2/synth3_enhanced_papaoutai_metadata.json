@@ -1,0 +1,27 @@
+{
+  "generator": "SYNESTHESIA 3.0 - Temporal",
+  "audio_source": "papaoutai_audio.wav",
+  "duration_seconds": 8.933333333333334,
+  "total_frames": 268,
+  "resolution": "1920x1080",
+  "frame_rate": 30,
+  "temporal_features": {
+    "melody_trail": true,
+    "rhythm_pulse": true,
+    "harmonic_aura": true,
+    "atmosphere": true
+  },
+  "detected_tempo": 112.5,
+  "detected_chords": [
+    "C#m",
+    "E",
+    "C#m",
+    "F#",
+    "G#m",
+    "E",
+    "C#m",
+    "E",
+    "F#",
+    "G#m"
+  ]
+}

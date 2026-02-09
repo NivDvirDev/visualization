@@ -1,0 +1,53 @@
+{
+  "version": "3.0-research-optimized",
+  "generated": "2026-01-29T11:11:14.272352",
+  "research_score": 0.8622759092276718,
+  "spiral": {
+    "turns": 3.5,
+    "inner_radius": 0.15,
+    "outer_radius": 0.45
+  },
+  "melody_trail": {
+    "length": 50,
+    "decay": 0.7,
+    "width_start": 1.0,
+    "width_end": 0.3,
+    "color_fade": true
+  },
+  "color": {
+    "mapping": "rainbow",
+    "saturation": 0.95,
+    "brightness_min": 0.35,
+    "brightness_max": 1.0
+  },
+  "rhythm": {
+    "pulse_intensity": 0.2,
+    "pulse_decay": 0.25,
+    "window_ms": 30
+  },
+  "harmony": {
+    "blend_time": 1.0,
+    "smoothing": 0.3,
+    "chord_hold_time": 0.5
+  },
+  "atmosphere": {
+    "window": 60,
+    "decay": 1.0,
+    "influence": 0.35
+  },
+  "amplitude": {
+    "scale": "log",
+    "threshold": 0.05,
+    "min_size": 2,
+    "max_size": 12
+  },
+  "multi_scale": {
+    "enabled": true,
+    "weights": {
+      "frame": 0.25,
+      "note": 0.3,
+      "phrase": 0.25,
+      "atmosphere": 0.2
+    }
+  }
+}

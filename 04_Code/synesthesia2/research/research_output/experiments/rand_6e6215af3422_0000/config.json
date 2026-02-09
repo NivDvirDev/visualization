@@ -1,0 +1,34 @@
+{
+  "experiment_id": "rand_6e6215af3422_0000",
+  "visualization_params": {
+    "spiral_turns": 2.0,
+    "inner_radius": 0.2,
+    "outer_radius": 0.45,
+    "point_size_min": 2,
+    "point_size_max": 12,
+    "color_mapping": "chromesthesia",
+    "saturation": 0.85,
+    "brightness_min": 0.3,
+    "brightness_max": 1.0,
+    "melody_trail_length": 20,
+    "melody_trail_decay": 0.9,
+    "rhythm_pulse_intensity": 0.3,
+    "rhythm_pulse_decay": 0.2,
+    "harmony_blend_time": 1.0,
+    "atmosphere_window": 60.0,
+    "amplitude_scale": "log",
+    "amplitude_threshold": 0.05
+  },
+  "classifier_params": {
+    "model_type": "SimpleCNN",
+    "input_size": 224,
+    "num_classes": 8,
+    "learning_rate": 0.0001,
+    "batch_size": 32,
+    "epochs": 50,
+    "augmentation": true
+  },
+  "dataset_path": "research_output/dataset/dataset_metadata.json",
+  "output_dir": "research_output/experiments/rand_6e6215af3422_0000",
+  "description": "Random search #0"
+}

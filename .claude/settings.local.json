@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(source .venv/bin/activate)",
+      "Bash(brew --prefix:*)",
+      "Bash(mdfind:*)",
+      "Bash(/opt/homebrew/bin/ffprobe:*)",
+      "Bash(ffprobe:*)",
+      "Bash(system_profiler:*)",
+      "Bash(ls:*)",
+      "Bash(.venv/bin/python:*)",
+      "Bash(ps:*)"
+    ]
+  }
+}

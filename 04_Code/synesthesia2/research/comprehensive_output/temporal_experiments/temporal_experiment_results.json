@@ -1,0 +1,776 @@
+{
+  "num_experiments": 24,
+  "timestamp": "2026-01-29T11:11:14.264108",
+  "results": [
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.2,
+        "rhythm_pulse_decay": 0.1,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5251531656408898,
+        "chord_recognition_accuracy": 0.849830105347785,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.9318949585384336,
+        "beat_visual_alignment": 0.06944444444444445,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6764293057436659
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.2,
+        "rhythm_pulse_decay": 0.2,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5034432014536594,
+        "chord_recognition_accuracy": 0.8182252033079735,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.9044558086892962,
+        "beat_visual_alignment": 0.09722222222222222,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6792748091071719
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.2,
+        "rhythm_pulse_decay": 0.3,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5664074427714366,
+        "chord_recognition_accuracy": 0.847525311321403,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.8874786834309145,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6800460507221622
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.2,
+        "rhythm_pulse_decay": 0.5,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5183101623643087,
+        "chord_recognition_accuracy": 0.8979287256816655,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.8719247744022415,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6769352689164275
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.4,
+        "rhythm_pulse_decay": 0.1,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5112339902591918,
+        "chord_recognition_accuracy": 0.8626569828002628,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.8724750116929076,
+        "beat_visual_alignment": 0.06944444444444445,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6645453163745607
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.4,
+        "rhythm_pulse_decay": 0.2,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5644421187767644,
+        "chord_recognition_accuracy": 0.8536219529135728,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.8255767461166578,
+        "beat_visual_alignment": 0.09722222222222222,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6634989965926441
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.4,
+        "rhythm_pulse_decay": 0.3,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5735066949539607,
+        "chord_recognition_accuracy": 0.9139396300269597,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.7977183629773656,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6620939866314524
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.4,
+        "rhythm_pulse_decay": 0.5,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5605763553454091,
+        "chord_recognition_accuracy": 0.8410510519799936,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.7729314097295373,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6571365959818867
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.6,
+        "rhythm_pulse_decay": 0.1,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5654861367425718,
+        "chord_recognition_accuracy": 0.8737599464590118,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.8201783917820404,
+        "beat_visual_alignment": 0.06944444444444445,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6540859923923873
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.6,
+        "rhythm_pulse_decay": 0.2,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5495037135899599,
+        "chord_recognition_accuracy": 0.8744397534134337,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.7593523888619617,
+        "beat_visual_alignment": 0.09722222222222222,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6502541251417049
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.6,
+        "rhythm_pulse_decay": 0.3,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.4890205749644938,
+        "chord_recognition_accuracy": 0.8940428073572914,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.7244471820196781,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6474397504399149
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.6,
+        "rhythm_pulse_decay": 0.5,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.549694038796681,
+        "chord_recognition_accuracy": 0.8181628419892659,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.6941244765484929,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6413752093456778
+      },
+      "observations": []
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.8,
+        "rhythm_pulse_decay": 0.1,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5396624250481078,
+        "chord_recognition_accuracy": 0.7537592564149497,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.7737966082710716,
+        "beat_visual_alignment": 0.06944444444444445,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6448096356901936
+      },
+      "observations": [
+        "Strong pulse creates prominent beat visualization",
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.8,
+        "rhythm_pulse_decay": 0.2,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5689212035955928,
+        "chord_recognition_accuracy": 0.8827547851827475,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.7029635554190617,
+        "beat_visual_alignment": 0.09722222222222222,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.638976358453125
+      },
+      "observations": [
+        "Strong pulse creates prominent beat visualization",
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.8,
+        "rhythm_pulse_decay": 0.3,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5485321039379386,
+        "chord_recognition_accuracy": 0.7894984483411372,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.6635037402324956,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6352510620824783
+      },
+      "observations": [
+        "Strong pulse creates prominent beat visualization"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.8,
+        "rhythm_pulse_decay": 0.5,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.3,
+          0.3,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5170752186562555,
+        "chord_recognition_accuracy": 0.8617841782755468,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.6299007373004086,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.628530461496061
+      },
+      "observations": [
+        "Strong pulse creates prominent beat visualization"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.5,
+        "rhythm_pulse_decay": 0.25,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 0.5,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.25,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.2,
+          0.4,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5966675499247447,
+        "chord_recognition_accuracy": 0.7927316859235222,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.7730996981086491,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.7985592021987414,
+        "overall_temporal_score": 0.6274951125949499
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.5,
+        "rhythm_pulse_decay": 0.25,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.2,
+          0.4,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5290856867885112,
+        "chord_recognition_accuracy": 0.8693457898251988,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.7730996981086491,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6571702536577091
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.5,
+        "rhythm_pulse_decay": 0.25,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 2.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 1.0,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.2,
+          0.4,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5377532064880733,
+        "chord_recognition_accuracy": 0.9262026817778257,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.7730996981086491,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.9339941836935455,
+        "overall_temporal_score": 0.6681256070433911
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.5,
+        "rhythm_pulse_decay": 0.25,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 4.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 2.0,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 0.1,
+        "atmosphere_influence": 0.3,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.2,
+          0.4,
+          0.2,
+          0.2
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5525311818589447,
+        "chord_recognition_accuracy": 0.8979541752532986,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.7730996981086491,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.9670510104762791,
+        "overall_temporal_score": 0.6780426550782112
+      },
+      "observations": [
+        "Long blend time smooths chord transitions",
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.5,
+        "rhythm_pulse_decay": 0.25,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 15,
+        "atmosphere_decay": 4.0,
+        "atmosphere_influence": 0.4,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.2,
+          0.2,
+          0.2,
+          0.4
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5121355843479524,
+        "chord_recognition_accuracy": 0.92489934720572,
+        "atmosphere_consistency": 0.9979255360286262,
+        "temporal_coherence": 0.7730996981086491,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.65678128188317
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.5,
+        "rhythm_pulse_decay": 0.25,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 30,
+        "atmosphere_decay": 2.0,
+        "atmosphere_influence": 0.4,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.2,
+          0.2,
+          0.2,
+          0.4
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5601549044320973,
+        "chord_recognition_accuracy": 0.8983848816692949,
+        "atmosphere_consistency": 0.9994813798182995,
+        "temporal_coherence": 0.7730996981086491,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6570924506411047
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.5,
+        "rhythm_pulse_decay": 0.25,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 60,
+        "atmosphere_decay": 1.0,
+        "atmosphere_influence": 0.4,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.2,
+          0.2,
+          0.2,
+          0.4
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5696953662693576,
+        "chord_recognition_accuracy": 0.8684984456516515,
+        "atmosphere_consistency": 0.9998703949013216,
+        "temporal_coherence": 0.7730996981086491,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6571702536577091
+      },
+      "observations": [
+        "High temporal coherence suggests smooth animation"
+      ]
+    },
+    {
+      "config": {
+        "rhythm_pulse_intensity": 0.5,
+        "rhythm_pulse_decay": 0.25,
+        "rhythm_window_ms": 30,
+        "harmony_blend_time": 1.0,
+        "harmony_smoothing": 0.3,
+        "chord_hold_time": 0.5,
+        "atmosphere_window": 120,
+        "atmosphere_decay": 0.5,
+        "atmosphere_influence": 0.4,
+        "use_multi_scale": true,
+        "scale_weights": [
+          0.2,
+          0.2,
+          0.2,
+          0.4
+        ]
+      },
+      "metrics": {
+        "rhythm_detection_accuracy": 0.5104257051657352,
+        "chord_recognition_accuracy": 0.8237778632744805,
+        "atmosphere_consistency": 0.9999676081167154,
+        "temporal_coherence": 0.7730996981086491,
+        "beat_visual_alignment": 0.1111111111111111,
+        "harmonic_color_stability": 0.8974763390746053,
+        "overall_temporal_score": 0.6571896963007878
+      },
+      "observations": [
+        "Large atmosphere window captures overall mood",
+        "High temporal coherence suggests smooth animation"
+      ]
+    }
+  ]
+}

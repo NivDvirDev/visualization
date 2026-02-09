@@ -1,0 +1,71 @@
+{
+  "num_laws": 4,
+  "laws": [
+    {
+      "name": "Cochlear Logarithmic Mapping",
+      "description": "Frequency maps to position logarithmically, matching cochlear tonotopy",
+      "category": "geometry",
+      "formula": "position = log(freq / f_min) / log(f_max / f_min)",
+      "parameters": {
+        "f_min": 20,
+        "f_max": 20000
+      },
+      "experiments_tested": 0,
+      "mean_accuracy_improvement": 0.0,
+      "confidence": 0.9,
+      "conditions": [
+        "biologically inspired"
+      ]
+    },
+    {
+      "name": "Scriabin Chromesthesia",
+      "description": "Pitch class maps to color following Scriabin's synesthetic associations",
+      "category": "color",
+      "formula": "color = scriabin_map[pitch_class % 12]",
+      "parameters": {
+        "base_note": "C"
+      },
+      "experiments_tested": 0,
+      "mean_accuracy_improvement": 0.0,
+      "confidence": 0.7,
+      "conditions": [
+        "pitch-based classification"
+      ]
+    },
+    {
+      "name": "Logarithmic Amplitude Compression",
+      "description": "Amplitude maps to size logarithmically to compress dynamic range",
+      "category": "amplitude",
+      "formula": "size = min_size + log(amp/threshold) / log(1/threshold) * (max_size - min_size)",
+      "parameters": {
+        "threshold": 0.01,
+        "min_size": 2,
+        "max_size": 12
+      },
+      "experiments_tested": 0,
+      "mean_accuracy_improvement": 0.0,
+      "confidence": 0.8,
+      "conditions": [
+        "audio with >40dB dynamic range"
+      ]
+    },
+    {
+      "name": "Hierarchical Temporal Pyramid",
+      "description": "Multi-scale temporal analysis from frames to atmosphere",
+      "category": "temporal",
+      "formula": "features[scale] = pool(extract(audio, windows[scale]))",
+      "parameters": {
+        "frame_ms": 30,
+        "note_ms": 200,
+        "phrase_s": 4,
+        "atmosphere_s": 60
+      },
+      "experiments_tested": 0,
+      "mean_accuracy_improvement": 0.0,
+      "confidence": 0.85,
+      "conditions": [
+        "temporal pattern recognition"
+      ]
+    }
+  ]
+}

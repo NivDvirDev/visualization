@@ -1,0 +1,18 @@
+{
+  "experiment_id": "rand_ee62fbb4a6ce_0001",
+  "timestamp": "2026-01-29T10:22:14.350749",
+  "duration_seconds": 146.35108470916748,
+  "train_accuracy": 0.9196465050607323,
+  "val_accuracy": 0.7288588823517932,
+  "test_accuracy": 0.7241790649966213,
+  "per_class_accuracy": {},
+  "attention_entropy": 1.0629653329882962,
+  "attention_center_ratio": 0.2901349862031405,
+  "attention_edge_ratio": 0.26930935533703426,
+  "feature_separability": 2.899890283138841,
+  "confusion_matrix": [],
+  "training_history": {
+    "loss": [],
+    "accuracy": []
+  }
+}

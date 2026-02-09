@@ -1,0 +1,29 @@
+# Virtual environments
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Large video files (>50MB)
+*.mp4
+
+# Large audio files
+*.wav
+
+# Large archives
+*.7z
+*.rar
+*.zip
+
+# Large images (keep small ones)
+# Excluding specific large outputs
+05_Output/
+07_Media/*.mp4
+
+# IDE
+.idea/
+.vscode/
