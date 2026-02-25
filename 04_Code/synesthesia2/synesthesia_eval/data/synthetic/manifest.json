@@ -1,0 +1,196 @@
+{
+  "description": "Synthetic evaluation dataset for testing",
+  "n_samples": 10,
+  "samples": [
+    {
+      "id": "good_sync_000",
+      "quality": "good",
+      "sync_score": 0.75,
+      "alignment_score": 0.7,
+      "aesthetic_score": 0.65,
+      "annotator_ids": [
+        "ann_synthetic_1",
+        "ann_synthetic_2"
+      ],
+      "confidence": 0.9,
+      "split": "train",
+      "metadata": {
+        "genre": "synthetic_tonal",
+        "tempo": 120,
+        "complexity": "medium",
+        "quality": "good"
+      }
+    },
+    {
+      "id": "good_sync_001",
+      "quality": "good",
+      "sync_score": 0.8,
+      "alignment_score": 0.76,
+      "aesthetic_score": 0.72,
+      "annotator_ids": [
+        "ann_synthetic_1",
+        "ann_synthetic_2"
+      ],
+      "confidence": 0.9,
+      "split": "train",
+      "metadata": {
+        "genre": "synthetic_tonal",
+        "tempo": 120,
+        "complexity": "medium",
+        "quality": "good"
+      }
+    },
+    {
+      "id": "good_sync_002",
+      "quality": "good",
+      "sync_score": 0.85,
+      "alignment_score": 0.82,
+      "aesthetic_score": 0.79,
+      "annotator_ids": [
+        "ann_synthetic_1",
+        "ann_synthetic_2"
+      ],
+      "confidence": 0.9,
+      "split": "train",
+      "metadata": {
+        "genre": "synthetic_tonal",
+        "tempo": 120,
+        "complexity": "medium",
+        "quality": "good"
+      }
+    },
+    {
+      "id": "good_sync_003",
+      "quality": "good",
+      "sync_score": 0.9,
+      "alignment_score": 0.88,
+      "aesthetic_score": 0.86,
+      "annotator_ids": [
+        "ann_synthetic_1",
+        "ann_synthetic_2"
+      ],
+      "confidence": 0.9,
+      "split": "val",
+      "metadata": {
+        "genre": "synthetic_tonal",
+        "tempo": 120,
+        "complexity": "medium",
+        "quality": "good"
+      }
+    },
+    {
+      "id": "good_sync_004",
+      "quality": "good",
+      "sync_score": 0.95,
+      "alignment_score": 0.94,
+      "aesthetic_score": 0.93,
+      "annotator_ids": [
+        "ann_synthetic_1",
+        "ann_synthetic_2"
+      ],
+      "confidence": 0.9,
+      "split": "val",
+      "metadata": {
+        "genre": "synthetic_tonal",
+        "tempo": 120,
+        "complexity": "medium",
+        "quality": "good"
+      }
+    },
+    {
+      "id": "poor_sync_000",
+      "quality": "poor",
+      "sync_score": 0.15,
+      "alignment_score": 0.2,
+      "aesthetic_score": 0.25,
+      "annotator_ids": [
+        "ann_synthetic_1",
+        "ann_synthetic_2"
+      ],
+      "confidence": 0.85,
+      "split": "train",
+      "metadata": {
+        "genre": "synthetic_noise",
+        "tempo": 0,
+        "complexity": "low",
+        "quality": "poor"
+      }
+    },
+    {
+      "id": "poor_sync_001",
+      "quality": "poor",
+      "sync_score": 0.2,
+      "alignment_score": 0.24,
+      "aesthetic_score": 0.3,
+      "annotator_ids": [
+        "ann_synthetic_1",
+        "ann_synthetic_2"
+      ],
+      "confidence": 0.85,
+      "split": "train",
+      "metadata": {
+        "genre": "synthetic_noise",
+        "tempo": 0,
+        "complexity": "low",
+        "quality": "poor"
+      }
+    },
+    {
+      "id": "poor_sync_002",
+      "quality": "poor",
+      "sync_score": 0.25,
+      "alignment_score": 0.28,
+      "aesthetic_score": 0.35,
+      "annotator_ids": [
+        "ann_synthetic_1",
+        "ann_synthetic_2"
+      ],
+      "confidence": 0.85,
+      "split": "train",
+      "metadata": {
+        "genre": "synthetic_noise",
+        "tempo": 0,
+        "complexity": "low",
+        "quality": "poor"
+      }
+    },
+    {
+      "id": "poor_sync_003",
+      "quality": "poor",
+      "sync_score": 0.3,
+      "alignment_score": 0.32,
+      "aesthetic_score": 0.4,
+      "annotator_ids": [
+        "ann_synthetic_1",
+        "ann_synthetic_2"
+      ],
+      "confidence": 0.85,
+      "split": "test",
+      "metadata": {
+        "genre": "synthetic_noise",
+        "tempo": 0,
+        "complexity": "low",
+        "quality": "poor"
+      }
+    },
+    {
+      "id": "poor_sync_004",
+      "quality": "poor",
+      "sync_score": 0.35,
+      "alignment_score": 0.36,
+      "aesthetic_score": 0.45,
+      "annotator_ids": [
+        "ann_synthetic_1",
+        "ann_synthetic_2"
+      ],
+      "confidence": 0.85,
+      "split": "test",
+      "metadata": {
+        "genre": "synthetic_noise",
+        "tempo": 0,
+        "complexity": "low",
+        "quality": "poor"
+      }
+    }
+  ]
+}

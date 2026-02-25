@@ -16,6 +16,8 @@ __pycache__/
 # Large video files (>50MB) - store separately or use Git LFS
 outputs/
 *.mp4
+# Exception: evaluation dataset clips (the public dataset)
+!synesthesia_eval/data/clips/*.mp4
 
 # Large image sequences
 *.png
@@ -30,6 +32,11 @@ outputs/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Environment / secrets
+*.env
+.env
+.env.*
 
 # Temporary files
 *.tmp

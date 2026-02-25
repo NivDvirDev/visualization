@@ -10,6 +10,8 @@ __pycache__/
 
 # Large video files (>50MB)
 *.mp4
+# Exception: evaluation dataset clips (the public dataset)
+!04_Code/synesthesia2/synesthesia_eval/data/clips/*.mp4
 
 # Large audio files
 *.wav

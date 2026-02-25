@@ -1,0 +1,2221 @@
+{
+  "dataset": "synesthesia_eval_v1",
+  "version": "1.1",
+  "total_clips": 123,
+  "clips": [
+    {
+      "id": "01",
+      "filename": "01_deadmau5_pro.mp4",
+      "description": "deadmau5_pro",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "professional",
+        "music_genre": "edm",
+        "energy": "medium"
+      },
+      "size_mb": 2.12,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "02",
+      "filename": "02_aphex_spectrogram.mp4",
+      "description": "aphex_spectrogram",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "spectrogram",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 1.07,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "03",
+      "filename": "03_spectrogram_music.mp4",
+      "description": "spectrogram_music",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "spectrogram",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 1.4,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "04",
+      "filename": "04_touchdesigner_psychedelic.mp4",
+      "description": "touchdesigner_psychedelic",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "geometric",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 0.93,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "05",
+      "filename": "05_streamdiffusion.mp4",
+      "description": "streamdiffusion",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.48,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "06",
+      "filename": "06_portals_trippy.mp4",
+      "description": "portals_trippy",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "geometric",
+        "music_genre": "various",
+        "energy": "medium"
+      },
+      "size_mb": 2.05,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "07",
+      "filename": "07_deadmau5_quezacotl.mp4",
+      "description": "deadmau5_quezacotl",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "professional",
+        "music_genre": "edm",
+        "energy": "medium"
+      },
+      "size_mb": 1.42,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "08",
+      "filename": "08_particles_reactive.mp4",
+      "description": "particles_reactive",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "particles",
+        "music_genre": "various",
+        "energy": "medium"
+      },
+      "size_mb": 2.77,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "101",
+      "filename": "101_lofi_01.mp4",
+      "description": "lofi_01",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 1.18,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "101",
+      "filename": "101_lofi_02.mp4",
+      "description": "lofi_02",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 1.74,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "101",
+      "filename": "101_lofi_03.mp4",
+      "description": "lofi_03",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 1.49,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "101",
+      "filename": "101_lofi_04.mp4",
+      "description": "lofi_04",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 1.86,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "101",
+      "filename": "101_lofi_05.mp4",
+      "description": "lofi_05",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 1.86,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "101",
+      "filename": "101_lofi_06.mp4",
+      "description": "lofi_06",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 0.93,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "107",
+      "filename": "107_vapor_01.mp4",
+      "description": "vapor_01",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "abstract",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 2.85,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "107",
+      "filename": "107_vapor_02.mp4",
+      "description": "vapor_02",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "abstract",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 2.41,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "107",
+      "filename": "107_vapor_03.mp4",
+      "description": "vapor_03",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "abstract",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 0.62,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "107",
+      "filename": "107_vapor_04.mp4",
+      "description": "vapor_04",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "abstract",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 0.83,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "107",
+      "filename": "107_vapor_05.mp4",
+      "description": "vapor_05",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "abstract",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 1.47,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "107",
+      "filename": "107_vapor_06.mp4",
+      "description": "vapor_06",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "abstract",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 2.36,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "10",
+      "filename": "10_oscilloscope_music.mp4",
+      "description": "oscilloscope_music",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "spectrogram",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 1.02,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "113",
+      "filename": "113_space_01.mp4",
+      "description": "space_01",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "nature",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 1.56,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "113",
+      "filename": "113_space_02.mp4",
+      "description": "space_02",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "nature",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 5.3,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "113",
+      "filename": "113_space_03.mp4",
+      "description": "space_03",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "nature",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 1.04,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "113",
+      "filename": "113_space_04.mp4",
+      "description": "space_04",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "nature",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 0.82,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "113",
+      "filename": "113_space_05.mp4",
+      "description": "space_05",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "nature",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 1.77,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "113",
+      "filename": "113_space_06.mp4",
+      "description": "space_06",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "nature",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 1.35,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "119",
+      "filename": "119_glitch_01.mp4",
+      "description": "glitch_01",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "abstract",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 1.77,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "119",
+      "filename": "119_glitch_02.mp4",
+      "description": "glitch_02",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "abstract",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 3.31,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "119",
+      "filename": "119_glitch_03.mp4",
+      "description": "glitch_03",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "abstract",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 1.94,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "119",
+      "filename": "119_glitch_04.mp4",
+      "description": "glitch_04",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "abstract",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 2.51,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "119",
+      "filename": "119_glitch_05.mp4",
+      "description": "glitch_05",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "abstract",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 2.96,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "119",
+      "filename": "119_glitch_06.mp4",
+      "description": "glitch_06",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "abstract",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 3.57,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "11",
+      "filename": "11_abstract_gradient.mp4",
+      "description": "abstract_gradient",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "abstract",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 3.0,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "12",
+      "filename": "12_visualizer_nosound.mp4",
+      "description": "visualizer_nosound",
+      "categories": {
+        "sync_quality": "none",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.65,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "13",
+      "filename": "13_3d_artwork.mp4",
+      "description": "3d_artwork",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "abstract",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.84,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "14",
+      "filename": "14_touchdesigner_tutorial.mp4",
+      "description": "touchdesigner_tutorial",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.97,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "15",
+      "filename": "15_aphex_software.mp4",
+      "description": "aphex_software",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "professional",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 1.14,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "16",
+      "filename": "16_neon_particle.mp4",
+      "description": "neon_particle",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "particles",
+        "music_genre": "various",
+        "energy": "medium"
+      },
+      "size_mb": 0.92,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "17",
+      "filename": "17_jellyfish.mp4",
+      "description": "jellyfish",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "nature",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.15,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "18",
+      "filename": "18_alps_edm.mp4",
+      "description": "alps_edm",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "nature",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 1.42,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "19",
+      "filename": "19_interactive_art.mp4",
+      "description": "interactive_art",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.28,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "20",
+      "filename": "20_zx_spectrogram.mp4",
+      "description": "zx_spectrogram",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "spectrogram",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 1.36,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "21",
+      "filename": "21_nature_nosync.mp4",
+      "description": "nature_nosync",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "nature",
+        "music_genre": "various",
+        "energy": "low"
+      },
+      "size_mb": 1.35,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "22",
+      "filename": "22_nature_relax.mp4",
+      "description": "nature_relax",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "nature",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 2.11,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "23",
+      "filename": "23_funny_random.mp4",
+      "description": "funny_random",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 0.58,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "24",
+      "filename": "24_ambient_scifi.mp4",
+      "description": "ambient_scifi",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 1.94,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "25",
+      "filename": "25_ambient_healing.mp4",
+      "description": "ambient_healing",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 0.94,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "26",
+      "filename": "26_ambient_peaceful.mp4",
+      "description": "ambient_peaceful",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 1.12,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "27",
+      "filename": "27_classical_tchaikovsky.mp4",
+      "description": "classical_tchaikovsky",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "low"
+      },
+      "size_mb": 0.75,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "28",
+      "filename": "28_classical_focus.mp4",
+      "description": "classical_focus",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "low"
+      },
+      "size_mb": 1.03,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "29",
+      "filename": "29_classical_tuscany.mp4",
+      "description": "classical_tuscany",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "nature",
+        "music_genre": "classical",
+        "energy": "low"
+      },
+      "size_mb": 2.26,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "30",
+      "filename": "30_dubstep_rayvolpe.mp4",
+      "description": "dubstep_rayvolpe",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "professional",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 1.92,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "31",
+      "filename": "31_dubstep_rezz.mp4",
+      "description": "dubstep_rezz",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "professional",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 2.29,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "32",
+      "filename": "32_dubstep_spag.mp4",
+      "description": "dubstep_spag",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 2.59,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "33",
+      "filename": "33_spectrogram_reaper.mp4",
+      "description": "spectrogram_reaper",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "spectrogram",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 0.74,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "34",
+      "filename": "34_spectrogram_hidden.mp4",
+      "description": "spectrogram_hidden",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "spectrogram",
+        "music_genre": "experimental",
+        "energy": "various"
+      },
+      "size_mb": 0.21,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "35",
+      "filename": "35_psychedelic_neon.mp4",
+      "description": "psychedelic_neon",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "geometric",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 0.96,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "36",
+      "filename": "36_cyberpunk_city.mp4",
+      "description": "cyberpunk_city",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "nature",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.65,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "37",
+      "filename": "37_puredata_reactive.mp4",
+      "description": "puredata_reactive",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "particles",
+        "music_genre": "various",
+        "energy": "medium"
+      },
+      "size_mb": 2.95,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "38",
+      "filename": "38_vertexshader_art.mp4",
+      "description": "vertexshader_art",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.37,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "39",
+      "filename": "39_432hz_meditation.mp4",
+      "description": "432hz_meditation",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 1.13,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "40",
+      "filename": "40_lavalamp_relax.mp4",
+      "description": "lavalamp_relax",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "nature",
+        "music_genre": "ambient",
+        "energy": "low"
+      },
+      "size_mb": 0.73,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "41",
+      "filename": "41_deadmau5_input2.mp4",
+      "description": "deadmau5_input2",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "professional",
+        "music_genre": "edm",
+        "energy": "medium"
+      },
+      "size_mb": 1.98,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "42",
+      "filename": "42_static_nosound2.mp4",
+      "description": "static_nosound2",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.4,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "43",
+      "filename": "43_portal_trippy2.mp4",
+      "description": "portal_trippy2",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "geometric",
+        "music_genre": "various",
+        "energy": "medium"
+      },
+      "size_mb": 2.96,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "44",
+      "filename": "44_deadmau5_live.mp4",
+      "description": "deadmau5_live",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "professional",
+        "music_genre": "edm",
+        "energy": "medium"
+      },
+      "size_mb": 1.54,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "45",
+      "filename": "45_edm_01.mp4",
+      "description": "edm_01",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 1.39,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "45",
+      "filename": "45_edm_02.mp4",
+      "description": "edm_02",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 1.93,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "45",
+      "filename": "45_edm_03.mp4",
+      "description": "edm_03",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 2.4,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "45",
+      "filename": "45_edm_04.mp4",
+      "description": "edm_04",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 3.0,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "45",
+      "filename": "45_edm_05.mp4",
+      "description": "edm_05",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 3.11,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "45",
+      "filename": "45_edm_06.mp4",
+      "description": "edm_06",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 2.46,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "45",
+      "filename": "45_edm_07.mp4",
+      "description": "edm_07",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 1.82,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "45",
+      "filename": "45_edm_08.mp4",
+      "description": "edm_08",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 3.0,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "53",
+      "filename": "53_synth_01.mp4",
+      "description": "synth_01",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "synthwave",
+        "energy": "medium"
+      },
+      "size_mb": 1.83,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "53",
+      "filename": "53_synth_02.mp4",
+      "description": "synth_02",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "synthwave",
+        "energy": "medium"
+      },
+      "size_mb": 1.6,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "53",
+      "filename": "53_synth_03.mp4",
+      "description": "synth_03",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "synthwave",
+        "energy": "medium"
+      },
+      "size_mb": 2.19,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "53",
+      "filename": "53_synth_04.mp4",
+      "description": "synth_04",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "synthwave",
+        "energy": "medium"
+      },
+      "size_mb": 1.79,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "53",
+      "filename": "53_synth_05.mp4",
+      "description": "synth_05",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "synthwave",
+        "energy": "medium"
+      },
+      "size_mb": 2.09,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "53",
+      "filename": "53_synth_06.mp4",
+      "description": "synth_06",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "synthwave",
+        "energy": "medium"
+      },
+      "size_mb": 1.05,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "53",
+      "filename": "53_synth_07.mp4",
+      "description": "synth_07",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "synthwave",
+        "energy": "medium"
+      },
+      "size_mb": 1.33,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "53",
+      "filename": "53_synth_08.mp4",
+      "description": "synth_08",
+      "categories": {
+        "sync_quality": "medium",
+        "visual_style": "various",
+        "music_genre": "synthwave",
+        "energy": "medium"
+      },
+      "size_mb": 2.46,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "61",
+      "filename": "61_psych_01.mp4",
+      "description": "psych_01",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.46,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "61",
+      "filename": "61_psych_02.mp4",
+      "description": "psych_02",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.51,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "61",
+      "filename": "61_psych_03.mp4",
+      "description": "psych_03",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.88,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "61",
+      "filename": "61_psych_04.mp4",
+      "description": "psych_04",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 3.16,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "61",
+      "filename": "61_psych_05.mp4",
+      "description": "psych_05",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 3.12,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "61",
+      "filename": "61_psych_06.mp4",
+      "description": "psych_06",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.88,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "61",
+      "filename": "61_psych_07.mp4",
+      "description": "psych_07",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 3.13,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "61",
+      "filename": "61_psych_08.mp4",
+      "description": "psych_08",
+      "categories": {
+        "sync_quality": "various",
+        "visual_style": "various",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.71,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "69",
+      "filename": "69_bass_01.mp4",
+      "description": "bass_01",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 2.84,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "69",
+      "filename": "69_bass_02.mp4",
+      "description": "bass_02",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 1.33,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "69",
+      "filename": "69_bass_03.mp4",
+      "description": "bass_03",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 1.58,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "69",
+      "filename": "69_bass_04.mp4",
+      "description": "bass_04",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 2.66,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "69",
+      "filename": "69_bass_05.mp4",
+      "description": "bass_05",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 1.7,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "69",
+      "filename": "69_bass_06.mp4",
+      "description": "bass_06",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 3.32,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "69",
+      "filename": "69_bass_07.mp4",
+      "description": "bass_07",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 2.24,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "69",
+      "filename": "69_bass_08.mp4",
+      "description": "bass_08",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 0.86,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "77",
+      "filename": "77_trance_01.mp4",
+      "description": "trance_01",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "geometric",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 3.94,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "77",
+      "filename": "77_trance_02.mp4",
+      "description": "trance_02",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "geometric",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 2.99,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "77",
+      "filename": "77_trance_03.mp4",
+      "description": "trance_03",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "geometric",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 3.08,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "77",
+      "filename": "77_trance_04.mp4",
+      "description": "trance_04",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "geometric",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 1.86,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "77",
+      "filename": "77_trance_05.mp4",
+      "description": "trance_05",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "geometric",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 2.55,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "77",
+      "filename": "77_trance_06.mp4",
+      "description": "trance_06",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "geometric",
+        "music_genre": "edm",
+        "energy": "high"
+      },
+      "size_mb": 3.15,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "83",
+      "filename": "83_house_01.mp4",
+      "description": "house_01",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "medium"
+      },
+      "size_mb": 3.15,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "83",
+      "filename": "83_house_02.mp4",
+      "description": "house_02",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "medium"
+      },
+      "size_mb": 0.62,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "83",
+      "filename": "83_house_03.mp4",
+      "description": "house_03",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "medium"
+      },
+      "size_mb": 2.21,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "83",
+      "filename": "83_house_04.mp4",
+      "description": "house_04",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "medium"
+      },
+      "size_mb": 2.91,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "83",
+      "filename": "83_house_05.mp4",
+      "description": "house_05",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "medium"
+      },
+      "size_mb": 2.08,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "83",
+      "filename": "83_house_06.mp4",
+      "description": "house_06",
+      "categories": {
+        "sync_quality": "good",
+        "visual_style": "various",
+        "music_genre": "edm",
+        "energy": "medium"
+      },
+      "size_mb": 3.1,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "89",
+      "filename": "89_orchestra_01.mp4",
+      "description": "orchestra_01",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "various"
+      },
+      "size_mb": 0.78,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "89",
+      "filename": "89_orchestra_02.mp4",
+      "description": "orchestra_02",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "various"
+      },
+      "size_mb": 0.38,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "89",
+      "filename": "89_orchestra_03.mp4",
+      "description": "orchestra_03",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "various"
+      },
+      "size_mb": 1.23,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "89",
+      "filename": "89_orchestra_04.mp4",
+      "description": "orchestra_04",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "various"
+      },
+      "size_mb": 1.12,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "89",
+      "filename": "89_orchestra_05.mp4",
+      "description": "orchestra_05",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "various"
+      },
+      "size_mb": 0.72,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "89",
+      "filename": "89_orchestra_06.mp4",
+      "description": "orchestra_06",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "various"
+      },
+      "size_mb": 1.8,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "95",
+      "filename": "95_piano_01.mp4",
+      "description": "piano_01",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "low"
+      },
+      "size_mb": 0.33,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "95",
+      "filename": "95_piano_02.mp4",
+      "description": "piano_02",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "low"
+      },
+      "size_mb": 0.68,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "95",
+      "filename": "95_piano_03.mp4",
+      "description": "piano_03",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "low"
+      },
+      "size_mb": 1.09,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "95",
+      "filename": "95_piano_04.mp4",
+      "description": "piano_04",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "low"
+      },
+      "size_mb": 0.77,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "95",
+      "filename": "95_piano_05.mp4",
+      "description": "piano_05",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "low"
+      },
+      "size_mb": 0.95,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "95",
+      "filename": "95_piano_06.mp4",
+      "description": "piano_06",
+      "categories": {
+        "sync_quality": "poor",
+        "visual_style": "various",
+        "music_genre": "classical",
+        "energy": "low"
+      },
+      "size_mb": 0.87,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    }
+  ]
+}

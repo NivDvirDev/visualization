@@ -1,0 +1,17 @@
+{
+  "sync_score": 0.35,
+  "alignment_score": 0.36,
+  "aesthetic_score": 0.45,
+  "annotator_ids": [
+    "ann_synthetic_1",
+    "ann_synthetic_2"
+  ],
+  "confidence": 0.85,
+  "split": "test",
+  "metadata": {
+    "genre": "synthetic_noise",
+    "tempo": 0,
+    "complexity": "low",
+    "quality": "poor"
+  }
+}

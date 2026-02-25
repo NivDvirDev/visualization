@@ -1,0 +1,17 @@
+{
+  "sync_score": 0.85,
+  "alignment_score": 0.82,
+  "aesthetic_score": 0.79,
+  "annotator_ids": [
+    "ann_synthetic_1",
+    "ann_synthetic_2"
+  ],
+  "confidence": 0.9,
+  "split": "train",
+  "metadata": {
+    "genre": "synthetic_tonal",
+    "tempo": 120,
+    "complexity": "medium",
+    "quality": "good"
+  }
+}

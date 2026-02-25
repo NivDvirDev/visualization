@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Synesthesia Annotation",
+  "description": "Ground truth annotation for a synesthesia evaluation sample.",
+  "type": "object",
+  "required": ["sync_score", "alignment_score", "aesthetic_score"],
+  "properties": {
+    "sync_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Audio-visual temporal synchronization quality (0=poor, 1=perfect)."
+    },
+    "alignment_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Semantic/feature alignment quality (0=poor, 1=perfect)."
+    },
+    "aesthetic_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Overall visual aesthetic quality (0=poor, 1=perfect)."
+    },
+    "annotator_ids": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Identifiers of the annotators who rated this sample."
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 1.0,
+      "description": "Mean annotator confidence in their ratings."
+    },
+    "split": {
+      "type": "string",
+      "enum": ["train", "val", "test"],
+      "default": "train",
+      "description": "Dataset partition this sample belongs to."
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "genre": {"type": "string"},
+        "tempo": {"type": "number"},
+        "complexity": {"type": "string", "enum": ["low", "medium", "high"]}
+      },
+      "additionalProperties": true,
+      "description": "Additional metadata about the sample."
+    }
+  },
+  "additionalProperties": false
+}

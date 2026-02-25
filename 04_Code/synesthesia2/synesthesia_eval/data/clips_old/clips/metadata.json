@@ -1,0 +1,511 @@
+{
+  "dataset": "synesthesia_eval_v2",
+  "version": "2.0",
+  "total_clips": 28,
+  "clips": [
+    {
+      "id": "01",
+      "filename": "01_4t3BsZ0pMg4.mp4",
+      "description": "youtube_4t3BsZ0pMg4",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 2.37,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "02",
+      "filename": "02_VTWKNBzSEss.mp4",
+      "description": "youtube_VTWKNBzSEss",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 1.12,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "03",
+      "filename": "03_-sEXfs8CfoA.mp4",
+      "description": "youtube_-sEXfs8CfoA",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 1.01,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "04",
+      "filename": "04_jtNGnkscgds.mp4",
+      "description": "youtube_jtNGnkscgds",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 0.69,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "05",
+      "filename": "05_exCe3WuT1nw.mp4",
+      "description": "youtube_exCe3WuT1nw",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 0.91,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "06",
+      "filename": "06_O2l6bmdfzko.mp4",
+      "description": "youtube_O2l6bmdfzko",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 2.03,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "08",
+      "filename": "08__wIw14Q99Ao.mp4",
+      "description": "youtube__wIw14Q99Ao",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 1.67,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "09",
+      "filename": "09_cdsRYQ-E9M4.mp4",
+      "description": "youtube_cdsRYQ-E9M4",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 0.31,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "10",
+      "filename": "10_c2q6nVCtaDs.mp4",
+      "description": "youtube_c2q6nVCtaDs",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 1.95,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "11",
+      "filename": "11__c_GexHrOsA.mp4",
+      "description": "youtube__c_GexHrOsA",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 0.98,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "12",
+      "filename": "12_rxMqCQffcI4.mp4",
+      "description": "youtube_rxMqCQffcI4",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 1.13,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "13",
+      "filename": "13_06w930byMhU.mp4",
+      "description": "youtube_06w930byMhU",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 2.47,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "14",
+      "filename": "14_9WawdG0JUJU.mp4",
+      "description": "youtube_9WawdG0JUJU",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 0.51,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "15",
+      "filename": "15_sV4fk1RqAf4.mp4",
+      "description": "youtube_sV4fk1RqAf4",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 0.96,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "16",
+      "filename": "16_4Lu4ozue1xs.mp4",
+      "description": "youtube_4Lu4ozue1xs",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 4.17,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "17",
+      "filename": "17_c6fb5SPsalk.mp4",
+      "description": "youtube_c6fb5SPsalk",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 1.26,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "18",
+      "filename": "18_hnsfjxCTg0g.mp4",
+      "description": "youtube_hnsfjxCTg0g",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 1.26,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "19",
+      "filename": "19_JAT54nGTxvo.mp4",
+      "description": "youtube_JAT54nGTxvo",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 2.52,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "20",
+      "filename": "20_3mwD_CTQ4xs.mp4",
+      "description": "youtube_3mwD_CTQ4xs",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 5.46,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "21",
+      "filename": "21_oHqBzN9Oiz8.mp4",
+      "description": "youtube_oHqBzN9Oiz8",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 1.04,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "22",
+      "filename": "22_UetJixsUjzA.mp4",
+      "description": "youtube_UetJixsUjzA",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 0.31,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "23",
+      "filename": "23_o4UL6lJT6D8.mp4",
+      "description": "youtube_o4UL6lJT6D8",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 0.66,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "24",
+      "filename": "24_x1ydFcmupRs.mp4",
+      "description": "youtube_x1ydFcmupRs",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 2.07,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "25",
+      "filename": "25_nmgnHS96OT4.mp4",
+      "description": "youtube_nmgnHS96OT4",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 3.27,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "26",
+      "filename": "26_eMoeu9YNS-Q.mp4",
+      "description": "youtube_eMoeu9YNS-Q",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 1.01,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "27",
+      "filename": "27_BFCq8u4402w.mp4",
+      "description": "youtube_BFCq8u4402w",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 4.81,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "28",
+      "filename": "28_GM0L4kHH_UY.mp4",
+      "description": "youtube_GM0L4kHH_UY",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 1.14,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    },
+    {
+      "id": "29",
+      "filename": "29_d1rJhn1mrac.mp4",
+      "description": "youtube_d1rJhn1mrac",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "unknown",
+        "music_genre": "unknown",
+        "energy": "unknown"
+      },
+      "size_mb": 1.65,
+      "annotations": {
+        "sync_score": null,
+        "alignment_score": null,
+        "aesthetic_score": null,
+        "annotator": null
+      }
+    }
+  ]
+}

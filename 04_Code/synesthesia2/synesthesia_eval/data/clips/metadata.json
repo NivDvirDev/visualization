@@ -1,0 +1,355 @@
+{
+  "dataset": "synesthesia_eval_youtube_v1",
+  "version": "1.0",
+  "total_clips": 29,
+  "clips": [
+    {
+      "id": "001",
+      "filename": "001_Loud Speaker + Candle = Epic Sound Wave Visualizat.mp4",
+      "description": "Loud Speaker + Candle = Epic Sound Wave Visualizat",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "002",
+      "filename": "002_2003 Beats per minute, visualized in Blender.mp4",
+      "description": "2003 Beats per minute, visualized in Blender",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "003",
+      "filename": "003_The Sound OM - Cymatics\ud83d\udd0a #om #sound #cymatics.mp4",
+      "description": "The Sound OM - Cymatics\ud83d\udd0a #om #sound #cymatics",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "004",
+      "filename": "004_A Nightingale's Song Translated Into Data.mp4",
+      "description": "A Nightingale's Song Translated Into Data",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "005",
+      "filename": "005_Sound visualization ! Subscribe @SuperGamerandRead.mp4",
+      "description": "Sound visualization ! Subscribe @SuperGamerandRead",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "006",
+      "filename": "006_Audio visualization with Processing - 2nd experime.mp4",
+      "description": "Audio visualization with Processing - 2nd experime",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "007",
+      "filename": "007_Audio-reactive Voice Animations #audiovisualizer #.mp4",
+      "description": "Audio-reactive Voice Animations #audiovisualizer #",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "008",
+      "filename": "008_Severance Main Theme Melody Visualization #b3d #se.mp4",
+      "description": "Severance Main Theme Melody Visualization #b3d #se",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "009",
+      "filename": "009_Pawn Promotion #b3d.mp4",
+      "description": "Pawn Promotion #b3d",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "010",
+      "filename": "010_Ferrofluid art meets sound visualization #ferroflu.mp4",
+      "description": "Ferrofluid art meets sound visualization #ferroflu",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "011",
+      "filename": "011_Experimenting with audio-reactive visuals using #T.mp4",
+      "description": "Experimenting with audio-reactive visuals using #T",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "012",
+      "filename": "012_Visualization Of Sound #shorts #amazing #facts #sc.mp4",
+      "description": "Visualization Of Sound #shorts #amazing #facts #sc",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "013",
+      "filename": "013_Mandelbrot Set \uff5c \ud83c\udfa5 Short Zoom #4 \uff5c Sound Visualiza.mp4",
+      "description": "Mandelbrot Set \uff5c \ud83c\udfa5 Short Zoom #4 \uff5c Sound Visualiza",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "014",
+      "filename": "014_Sound Visualization Emotional Bass \ud83c\udfa7.mp4",
+      "description": "Sound Visualization Emotional Bass \ud83c\udfa7",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "015",
+      "filename": "015_Visualizing a Nightingale's Song.mp4",
+      "description": "Visualizing a Nightingale's Song",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "016",
+      "filename": "016_MagnusTheMagnus - Area ( Sound Visualization ).mp4",
+      "description": "MagnusTheMagnus - Area ( Sound Visualization )",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "017",
+      "filename": "017_Sound visualization \u29f8 Whales singing.mp4",
+      "description": "Sound visualization \u29f8 Whales singing",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "018",
+      "filename": "018_WaveBinder\uff1a Audio Visualization #unity3d #nocode #.mp4",
+      "description": "WaveBinder\uff1a Audio Visualization #unity3d #nocode #",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "019",
+      "filename": "019_\ud835\udcdb\ud835\udcf2\ud835\udcfc\ud835\udcfd\ud835\udcee\ud835\udcf7 \ud835\udcea\ud835\udcf7\ud835\udced \ud835\udce6\ud835\udcea\ud835\udcfd\ud835\udcec\ud835\udcf1 \u2014 \ud835\udcd0\ud835\udcfe\ud835\udced\ud835\udcf2\ud835\udcf8 \ud835\udce5\ud835\udcf2\ud835\udcfc\ud835\udcfe\ud835\udcea\ud835\udcf5\ud835\udcf2\ud835\udd03\ud835\udcea\ud835\udcfd\ud835\udcf2\ud835\udcf8\ud835\udcf7 \ud835\udcd8\ud835\udcf7 \ud835\udcd0\ud835\udcec\ud835\udcfd\ud835\udcf2\ud835\udcf8\ud835\udcf7 #.mp4",
+      "description": "\ud835\udcdb\ud835\udcf2\ud835\udcfc\ud835\udcfd\ud835\udcee\ud835\udcf7 \ud835\udcea\ud835\udcf7\ud835\udced \ud835\udce6\ud835\udcea\ud835\udcfd\ud835\udcec\ud835\udcf1 \u2014 \ud835\udcd0\ud835\udcfe\ud835\udced\ud835\udcf2\ud835\udcf8 \ud835\udce5\ud835\udcf2\ud835\udcfc\ud835\udcfe\ud835\udcea\ud835\udcf5\ud835\udcf2\ud835\udd03\ud835\udcea\ud835\udcfd\ud835\udcf2\ud835\udcf8\ud835\udcf7 \ud835\udcd8\ud835\udcf7 \ud835\udcd0\ud835\udcec\ud835\udcfd\ud835\udcf2\ud835\udcf8\ud835\udcf7 #",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "020",
+      "filename": "020_Audio Visualization in Blender #1.mp4",
+      "description": "Audio Visualization in Blender #1",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "021",
+      "filename": "021_audio visualization.mp4",
+      "description": "audio visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "022",
+      "filename": "022_Synth party \uff5c #blender audio visualization.mp4",
+      "description": "Synth party \uff5c #blender audio visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "023",
+      "filename": "023_Audio visualisation with   #music #art #visualizat.mp4",
+      "description": "Audio visualisation with   #music #art #visualizat",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "024",
+      "filename": "024_Python Demo\uff1a Visuals Generated from Audio Files \uff5c .mp4",
+      "description": "Python Demo\uff1a Visuals Generated from Audio Files \uff5c ",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "025",
+      "filename": "025_Sound visualization with AE\ud83c\udfa7 #motiongraphics #grap.mp4",
+      "description": "Sound visualization with AE\ud83c\udfa7 #motiongraphics #grap",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "026",
+      "filename": "026_Audio Visualization \uff5c Files on Patreon \uff5c Unreal En.mp4",
+      "description": "Audio Visualization \uff5c Files on Patreon \uff5c Unreal En",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "027",
+      "filename": "027_Visamp.io visualization\uff1a Wavepoint \uff5c audio by Neon.mp4",
+      "description": "Visamp.io visualization\uff1a Wavepoint \uff5c audio by Neon",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "028",
+      "filename": "028_audio visualization in blender #shorts.mp4",
+      "description": "audio visualization in blender #shorts",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    },
+    {
+      "id": "029",
+      "filename": "029_Spectral view of music #synesthesia #music #visual.mp4",
+      "description": "Spectral view of music #synesthesia #music #visual",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      }
+    }
+  ]
+}
