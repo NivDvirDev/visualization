@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Clip Annotator</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0f0f0f;
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px;
+    gap: 20px;
+  }
+  h1 { font-size: 18px; font-weight: 500; color: #aaa; letter-spacing: 0.05em; }
+  #clip-info { font-size: 13px; color: #666; }
+
+  /* Player */
+  #player-wrap {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  #player-wrap iframe { width: 100%; height: 100%; }
+
+  /* Controls */
+  #controls {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .time-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  label { font-size: 12px; color: #888; width: 40px; text-align: right; }
+  input[type=number] {
+    width: 80px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #e0e0e0;
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+  .time-display {
+    font-family: monospace;
+    font-size: 14px;
+    color: #aaa;
+    min-width: 60px;
+  }
+
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  button {
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  button:hover { opacity: 0.85; }
+  .btn-primary { background: #ff4444; color: #fff; }
+  .btn-secondary { background: #2a2a2a; color: #e0e0e0; border: 1px solid #444; }
+  .btn-success { background: #22c55e; color: #fff; }
+
+  /* Progress / heatmap bar */
+  #bar-container {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    height: 48px;
+    background: #1a1a1a;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  #heatmap-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  #progress-bar {
+    position: absolute;
+    top: 0; left: 0; width: 0; height: 100%;
+    background: rgba(255,255,255,0.15);
+    pointer-events: none;
+  }
+  #clip-region {
+    position: absolute;
+    top: 0; height: 100%;
+    background: rgba(255,68,68,0.25);
+    border-left: 2px solid #ff4444;
+    border-right: 2px solid #ff4444;
+    pointer-events: none;
+  }
+  #bar-time-label {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: #888;
+    pointer-events: none;
+  }
+
+  /* Chapters */
+  #chapters-section { width: 100%; max-width: 800px; }
+  #chapters-section h3 { font-size: 13px; color: #666; margin-bottom: 8px; }
+  #chapters-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chapter-btn {
+    padding: 4px 10px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #ccc;
+    cursor: pointer;
+  }
+  .chapter-btn:hover { background: #2a2a2a; color: #fff; }
+
+  /* Output */
+  #output {
+    width: 100%;
+    max-width: 800px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 14px;
+    font-family: monospace;
+    font-size: 13px;
+    color: #7dcfff;
+    display: none;
+  }
+
+  /* Current time display */
+  #current-time-display {
+    font-family: monospace;
+    font-size: 16px;
+    color: #fff;
+    background: #1a1a1a;
+    padding: 8px 16px;
+    border-radius: 6px;
+  }
+
+  .loop-indicator {
+    font-size: 12px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #666; }
+  .dot.active { background: #ff4444; animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+</style>
+</head>
+<body>
+
+<h1>CLIP ANNOTATOR</h1>
+<div id="clip-info">loading...</div>
+
+<div id="player-wrap">
+  <div id="player"></div>
+</div>
+
+<!-- Heatmap/progress bar -->
+<div id="bar-container" title="Click to seek">
+  <canvas id="heatmap-canvas"></canvas>
+  <div id="progress-bar"></div>
+  <div id="clip-region"></div>
+  <div id="bar-time-label"></div>
+</div>
+
+<!-- Controls -->
+<div id="controls">
+  <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+    <div id="current-time-display">0:00</div>
+    <div class="loop-indicator">
+      <div class="dot" id="loop-dot"></div>
+      <span id="loop-label">loop: off</span>
+    </div>
+  </div>
+
+  <div class="time-row">
+    <label>start</label>
+    <input type="number" id="start-input" min="0" step="1">
+    <span class="time-display" id="start-display">0:00</span>
+    <button class="btn-secondary" onclick="setStartToCurrent()">← now</button>
+    <button class="btn-secondary" onclick="seekTo(getStart())">go</button>
+  </div>
+
+  <div class="time-row">
+    <label>end</label>
+    <input type="number" id="end-input" min="0" step="1">
+    <span class="time-display" id="end-display">0:00</span>
+    <button class="btn-secondary" onclick="setEndToCurrent()">← now</button>
+    <button class="btn-secondary" onclick="seekTo(getEnd())">go</button>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn-primary" onclick="toggleLoop()">⟳ Loop Clip</button>
+    <button class="btn-secondary" onclick="previewClip()">▶ Preview once</button>
+    <button class="btn-secondary" onclick="adjustStart(-1)">start -1s</button>
+    <button class="btn-secondary" onclick="adjustStart(1)">start +1s</button>
+    <button class="btn-secondary" onclick="adjustEnd(-1)">end -1s</button>
+    <button class="btn-secondary" onclick="adjustEnd(1)">end +1s</button>
+    <button class="btn-success" onclick="exportClip()">Export CLI command</button>
+  </div>
+</div>
+
+<!-- Chapters -->
+<div id="chapters-section" style="display:none;">
+  <h3>Chapters (click to set as clip window)</h3>
+  <div id="chapters-list"></div>
+</div>
+
+<!-- Output command -->
+<pre id="output"></pre>
+
+<script>
+// ─── Parse URL params ───────────────────────────────────────────────────────
+const params = new URLSearchParams(location.search);
+const VIDEO_ID = params.get('vid') || '';
+const CLIP_ID  = params.get('id')  || '';
+let startSec   = parseInt(params.get('start') || '0');
+let endSec     = parseInt(params.get('end')   || '30');
+
+// ─── YouTube IFrame API ─────────────────────────────────────────────────────
+let player;
+let loopActive = false;
+let tickInterval;
+let videoDuration = 0;
+let heatmapData = [];  // [{start_time, end_time, value}]
+
+window.onYouTubeIframeAPIReady = function() {
+  player = new YT.Player('player', {
+    videoId: VIDEO_ID,
+    playerVars: {
+      start: startSec,
+      autoplay: 0,
+      controls: 1,
+      modestbranding: 1,
+      rel: 0,
+    },
+    events: {
+      onReady: onPlayerReady,
+      onStateChange: onStateChange,
+    }
+  });
+};
+
+function onPlayerReady(event) {
+  videoDuration = player.getDuration();
+  updateInputs();
+  renderClipRegion();
+  updateClipInfo();
+  startTick();
+
+  // Try to load heatmap via yt-dlp (not possible from browser directly)
+  // Instead we show a note about it
+}
+
+function onStateChange(event) {
+  if (loopActive && event.data === YT.PlayerState.ENDED) {
+    seekTo(startSec);
+    player.playVideo();
+  }
+}
+
+function startTick() {
+  tickInterval = setInterval(() => {
+    if (!player || !player.getCurrentTime) return;
+    const t = player.getCurrentTime();
+    updateCurrentTime(t);
+    updateProgressBar(t);
+
+    // Auto-loop: if past end, restart
+    if (loopActive && t >= endSec) {
+      seekTo(startSec);
+    }
+  }, 200);
+}
+
+// ─── UI helpers ─────────────────────────────────────────────────────────────
+function getStart() { return parseInt(document.getElementById('start-input').value) || 0; }
+function getEnd()   { return parseInt(document.getElementById('end-input').value) || 0; }
+
+function updateInputs() {
+  document.getElementById('start-input').value = startSec;
+  document.getElementById('end-input').value = endSec;
+  updateTimeDisplays();
+}
+
+document.getElementById('start-input').addEventListener('input', () => {
+  startSec = getStart();
+  updateTimeDisplays();
+  renderClipRegion();
+});
+document.getElementById('end-input').addEventListener('input', () => {
+  endSec = getEnd();
+  updateTimeDisplays();
+  renderClipRegion();
+});
+
+function updateTimeDisplays() {
+  document.getElementById('start-display').textContent = fmtTime(getStart());
+  document.getElementById('end-display').textContent = fmtTime(getEnd());
+}
+
+function fmtTime(s) {
+  s = Math.round(s);
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return `${m}:${sec.toString().padStart(2, '0')}`;
+}
+
+function updateCurrentTime(t) {
+  document.getElementById('current-time-display').textContent = fmtTime(t);
+}
+
+function updateClipInfo() {
+  const dur = videoDuration ? `  |  duration: ${fmtTime(videoDuration)}` : '';
+  document.getElementById('clip-info').textContent =
+    `video: ${VIDEO_ID}  |  clip id: ${CLIP_ID || '—'}${dur}`;
+}
+
+// ─── Loop & playback ────────────────────────────────────────────────────────
+function toggleLoop() {
+  loopActive = !loopActive;
+  const dot = document.getElementById('loop-dot');
+  const label = document.getElementById('loop-label');
+  dot.classList.toggle('active', loopActive);
+  label.textContent = loopActive ? 'loop: ON' : 'loop: off';
+  if (loopActive) {
+    startSec = getStart();
+    endSec = getEnd();
+    seekTo(startSec);
+    player.playVideo();
+  }
+}
+
+function previewClip() {
+  loopActive = false;
+  document.getElementById('loop-dot').classList.remove('active');
+  document.getElementById('loop-label').textContent = 'loop: off';
+  seekTo(getStart());
+  player.playVideo();
+}
+
+function seekTo(t) {
+  if (player && player.seekTo) player.seekTo(t, true);
+}
+
+function setStartToCurrent() {
+  if (!player) return;
+  const t = Math.floor(player.getCurrentTime());
+  startSec = t;
+  document.getElementById('start-input').value = t;
+  updateTimeDisplays();
+  renderClipRegion();
+}
+function setEndToCurrent() {
+  if (!player) return;
+  const t = Math.ceil(player.getCurrentTime());
+  endSec = t;
+  document.getElementById('end-input').value = t;
+  updateTimeDisplays();
+  renderClipRegion();
+}
+
+function adjustStart(delta) {
+  startSec = Math.max(0, getStart() + delta);
+  document.getElementById('start-input').value = startSec;
+  updateTimeDisplays();
+  renderClipRegion();
+}
+function adjustEnd(delta) {
+  endSec = Math.max(startSec + 1, getEnd() + delta);
+  document.getElementById('end-input').value = endSec;
+  updateTimeDisplays();
+  renderClipRegion();
+}
+
+// ─── Progress bar ────────────────────────────────────────────────────────────
+const barContainer = document.getElementById('bar-container');
+
+function updateProgressBar(t) {
+  if (!videoDuration) return;
+  const pct = (t / videoDuration) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('bar-time-label').textContent = fmtTime(t);
+}
+
+function renderClipRegion() {
+  if (!videoDuration) return;
+  const region = document.getElementById('clip-region');
+  const startPct = (getStart() / videoDuration) * 100;
+  const endPct   = (getEnd()   / videoDuration) * 100;
+  region.style.left  = startPct + '%';
+  region.style.width = (endPct - startPct) + '%';
+}
+
+barContainer.addEventListener('click', (e) => {
+  if (!videoDuration) return;
+  const rect = barContainer.getBoundingClientRect();
+  const pct = (e.clientX - rect.left) / rect.width;
+  seekTo(Math.floor(pct * videoDuration));
+});
+
+// ─── Heatmap canvas rendering ────────────────────────────────────────────────
+function renderHeatmap(data) {
+  heatmapData = data;
+  const canvas = document.getElementById('heatmap-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = barContainer.offsetWidth;
+  canvas.height = barContainer.offsetHeight;
+
+  if (!data || !data.length || !videoDuration) return;
+
+  const maxVal = Math.max(...data.map(d => d.value));
+
+  data.forEach(entry => {
+    const x1 = (entry.start_time / videoDuration) * canvas.width;
+    const x2 = (entry.end_time   / videoDuration) * canvas.width;
+    const alpha = (entry.value / maxVal) * 0.7;
+    ctx.fillStyle = `rgba(255, 160, 0, ${alpha})`;
+    ctx.fillRect(x1, 0, x2 - x1, canvas.height);
+  });
+}
+
+// ─── Chapters ────────────────────────────────────────────────────────────────
+function loadChapters(chapters) {
+  if (!chapters || !chapters.length) return;
+  const section = document.getElementById('chapters-section');
+  const list    = document.getElementById('chapters-list');
+  section.style.display = '';
+  chapters.forEach(ch => {
+    const btn = document.createElement('button');
+    btn.className = 'chapter-btn';
+    btn.textContent = `${fmtTime(ch.start_time)} ${ch.title}`;
+    btn.onclick = () => {
+      startSec = ch.start_time;
+      endSec   = ch.end_time;
+      document.getElementById('start-input').value = startSec;
+      document.getElementById('end-input').value   = endSec;
+      updateTimeDisplays();
+      renderClipRegion();
+      seekTo(startSec);
+    };
+    list.appendChild(btn);
+  });
+}
+
+// ─── Export ──────────────────────────────────────────────────────────────────
+function exportClip() {
+  const s = getStart();
+  const e = getEnd();
+  const url = `https://www.youtube.com/watch?v=${VIDEO_ID}`;
+  const cmd = CLIP_ID
+    ? `# Update existing clip ${CLIP_ID}\npython cli.py enrich ${CLIP_ID}\n# (then edit 05_Data/yt_clips_db.json directly to change start/end)`
+    : `python cli.py add "${url}" --start ${s} --end ${e}`;
+
+  const out = document.getElementById('output');
+  out.style.display = 'block';
+  out.textContent = `# Clip: ${fmtTime(s)} → ${fmtTime(e)}  (${e-s}s)\n${cmd}`;
+}
+
+// ─── Load YouTube IFrame API ──────────────────────────────────────────────────
+if (VIDEO_ID) {
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+} else {
+  document.getElementById('clip-info').textContent = 'No video ID — open via: python cli.py annotate <id>';
+}
+</script>
+</body>
+</html>

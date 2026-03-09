@@ -1,0 +1,26 @@
+{
+  "clips": [
+    {
+      "id": "45a73920",
+      "url": "https://www.youtube.com/watch?v=8k_f2QK77ew",
+      "video_id": "8k_f2QK77ew",
+      "title": "Burial, Archangel",
+      "channel": "Hyperdub",
+      "duration": 238,
+      "start": 90,
+      "end": 120,
+      "added_at": "2026-02-22T23:52:21.606251+00:00",
+      "notes": "atmospheric break, rain samples",
+      "tags": [
+        "ambient",
+        "burial",
+        "electronic"
+      ],
+      "heatmap_peak": 1,
+      "chapters": [],
+      "spotify": null,
+      "transcript_snippet": null
+    }
+  ],
+  "version": 1
+}
