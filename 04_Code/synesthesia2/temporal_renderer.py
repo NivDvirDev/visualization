@@ -56,6 +56,9 @@ class TemporalRenderConfig:
     atmosphere_particle_density: float = 0.3
     atmosphere_blur_amount: float = 0.0
 
+    # Harmonic connections
+    enable_harmonic_connections: bool = True
+
     # Background
     base_background_color: Tuple[int, int, int] = (15, 20, 30)
 
@@ -321,6 +324,12 @@ class TemporalSpiralRenderer:
         self.harmonic_aura = HarmonicAura(self.config)
         self.atmosphere = AtmosphereField(self.config)
 
+        # Harmonic connections
+        self.harmonic_connections = None
+        if self.config.enable_harmonic_connections:
+            from harmonic_connections import HarmonicConnectionRenderer
+            self.harmonic_connections = HarmonicConnectionRenderer()
+
         # Animation state
         self.rotation_angle = 0.0
         self.wave_phase = 0.0
@@ -454,6 +463,11 @@ class TemporalSpiralRenderer:
         # Calculate positions
         x_coords = self.center_x + r_animated * np.cos(theta)
         y_coords = self.center_y + r_animated * np.sin(theta)
+
+        # Harmonic connections (draw lines before circles; apply displacement)
+        if self.harmonic_connections is not None and frequencies is not None:
+            x_coords, y_coords = self.harmonic_connections.render(
+                draw, amp_normalized, frequencies, x_coords, y_coords, self.colors)
 
         # Frequency labels tracking
         label_frequencies = [73, 110, 147, 220, 294, 440, 587, 880, 1175, 1760, 2349, 3136, 4186]

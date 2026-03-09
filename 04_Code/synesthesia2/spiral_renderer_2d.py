@@ -43,6 +43,9 @@ class Render2DConfig:
     show_labels: bool = True
     label_font_size: int = 14
 
+    # Harmonic connections
+    enable_harmonic_connections: bool = True
+
 
 # Solfège definitions
 SOLFEGE = [
@@ -98,6 +101,12 @@ class FastSpiralRenderer:
         # Precompute gradient background pattern
         if self.config.enable_gradient_bg:
             self._precompute_gradient()
+
+        # Harmonic connections
+        self.harmonic_connections = None
+        if self.config.enable_harmonic_connections:
+            from harmonic_connections import HarmonicConnectionRenderer
+            self.harmonic_connections = HarmonicConnectionRenderer()
 
         # Animation state
         self.rotation_angle = 0.0
@@ -190,6 +199,11 @@ class FastSpiralRenderer:
 
         # Normalize amplitude for sizing
         amp_normalized = amplitude_data / (np.max(amplitude_data) + 1e-6)
+
+        # Harmonic connections (draw lines before circles; apply displacement)
+        if self.harmonic_connections is not None and frequencies is not None:
+            x_rot, y_rot = self.harmonic_connections.render(
+                draw, amp_normalized, frequencies, x_rot, y_rot, self.colors)
 
         # Radial wave modulation
         if wave_enabled:

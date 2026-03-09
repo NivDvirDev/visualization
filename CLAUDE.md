@@ -11,7 +11,11 @@ SYNESTHESIA is a psychoacoustic visualization system that transforms audio into 
 - `04_Code/synesthesia2/` - Main Python visualization pipeline (SYNESTHESIA 2.0/3.0)
 - `04_Code/modern_classifier/` - PyTorch Vision Transformer (ViT) and Audio Spectrogram Transformer (AST) classifiers
 - `04_Code/Mesh3/` - Original MATLAB implementation
+- `04_Code/synesthesia2/synesthesia_eval/` - Evaluation framework (auto-labeling, dataset, scoring)
+- `04_Code/synesthesia2/synesthesia_eval/web-labeler/` - Crowd-sourcing labeling platform (Node.js/React)
 - `VISUALIZATION_LAWS.md` - Research-validated visualization parameters
+
+Component-specific instructions are in `.claude/rules/` (web-labeler, evaluation, classifier, visualization).
 
 ## Commands
 
@@ -61,6 +65,21 @@ python research_cli.py run-study -d ./data/metadata.json -o ./experiments --spac
 
 # Full research pipeline
 python research_cli.py full-pipeline -o ./research --num-experiments 20
+```
+
+### Evaluation & Labeling
+
+```bash
+# Auto-label clips with Gemini AI
+export GEMINI_API_KEY="your-key"
+cd 04_Code/synesthesia2
+.venv/bin/python synesthesia_eval/tools/auto_labeler.py
+
+# Web labeler (live): https://synesthesia-labeler.onrender.com
+# Local dev:
+cd 04_Code/synesthesia2/synesthesia_eval/web-labeler
+cd server && npm run dev   # Backend (port 3001)
+cd client && npm start     # Frontend (port 3000)
 ```
 
 ## Architecture

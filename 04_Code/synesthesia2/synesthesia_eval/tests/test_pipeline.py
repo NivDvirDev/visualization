@@ -108,17 +108,19 @@ def _make_sample(
     """Build a synthetic VideoSample with ground truth."""
     if quality == "good":
         gt = GroundTruth(
-            sync_score=0.85,
-            alignment_score=0.80,
-            aesthetic_score=0.75,
+            sync_score=4.5,
+            alignment_score=4.0,
+            aesthetic_score=4.0,
+            motion_smoothness_score=4.5,
             annotator_ids=["ann1", "ann2"],
             confidence=0.9,
         )
     else:
         gt = GroundTruth(
-            sync_score=0.25,
-            alignment_score=0.30,
-            aesthetic_score=0.35,
+            sync_score=1.5,
+            alignment_score=2.0,
+            aesthetic_score=2.0,
+            motion_smoothness_score=1.5,
             annotator_ids=["ann1", "ann2"],
             confidence=0.9,
         )
@@ -155,27 +157,27 @@ def synthetic_dataset():
 
 class TestDatasetSchema:
     def test_ground_truth_validation(self):
-        gt = GroundTruth(sync_score=0.5, alignment_score=0.6, aesthetic_score=0.7)
+        gt = GroundTruth(sync_score=3.0, alignment_score=3.5, aesthetic_score=4.0)
         assert 0.0 <= gt.composite_score <= 1.0
 
     def test_ground_truth_score_range_error(self):
         with pytest.raises(ValueError):
-            GroundTruth(sync_score=1.5, alignment_score=0.5, aesthetic_score=0.5)
+            GroundTruth(sync_score=6.0, alignment_score=3.0, aesthetic_score=3.0)
 
     def test_video_sample_has_ground_truth(self):
         s = VideoSample(sample_id="a", video_path="v", audio_path="a")
         assert not s.has_ground_truth()
 
         s.ground_truth = GroundTruth(
-            sync_score=0.5, alignment_score=0.5, aesthetic_score=0.5
+            sync_score=3.0, alignment_score=3.0, aesthetic_score=3.0
         )
         assert s.has_ground_truth()
 
     def test_composite_score_weights(self):
-        gt = GroundTruth(sync_score=1.0, alignment_score=1.0, aesthetic_score=1.0)
+        gt = GroundTruth(sync_score=5.0, alignment_score=5.0, aesthetic_score=5.0, motion_smoothness_score=5.0)
         assert abs(gt.composite_score - 1.0) < 1e-6
 
-        gt2 = GroundTruth(sync_score=0.0, alignment_score=0.0, aesthetic_score=0.0)
+        gt2 = GroundTruth(sync_score=1.0, alignment_score=1.0, aesthetic_score=1.0, motion_smoothness_score=1.0)
         assert abs(gt2.composite_score - 0.0) < 1e-6
 
 
@@ -188,9 +190,10 @@ class TestDatasetLoader:
             (d / "video.mp4").write_text("fake")
             (d / "audio.wav").write_text("fake")
             ann = {
-                "sync_score": 0.5 + i * 0.1,
-                "alignment_score": 0.6,
-                "aesthetic_score": 0.7,
+                "sync_score": 2.5 + i * 0.5,
+                "alignment_score": 3.0,
+                "aesthetic_score": 3.5,
+                "motion_smoothness_score": 3.0,
                 "annotator_ids": ["ann1"],
                 "confidence": 0.9,
                 "split": "train",
@@ -206,9 +209,9 @@ class TestDatasetLoader:
     def test_load_from_csv(self, tmp_path):
         csv_file = tmp_path / "dataset.csv"
         csv_file.write_text(
-            "sample_id,video_path,audio_path,sync_score,alignment_score,aesthetic_score,split\n"
-            "s1,v1.mp4,a1.wav,0.8,0.7,0.6,train\n"
-            "s2,v2.mp4,a2.wav,0.3,0.4,0.5,val\n"
+            "sample_id,video_path,audio_path,sync_score,alignment_score,aesthetic_score,motion_smoothness_score,split\n"
+            "s1,v1.mp4,a1.wav,4.0,3.5,3.0,4.0,train\n"
+            "s2,v2.mp4,a2.wav,2.0,2.5,2.5,2.0,val\n"
         )
 
         loader = DatasetLoader()
@@ -221,7 +224,7 @@ class TestDatasetLoader:
         d.mkdir()
         (d / "video.mp4").write_text("fake")
         (d / "audio.wav").write_text("fake")
-        ann = {"sync_score": 0.5, "alignment_score": 0.5, "aesthetic_score": 0.5}
+        ann = {"sync_score": 3.0, "alignment_score": 3.0, "aesthetic_score": 3.0, "motion_smoothness_score": 3.0}
         (d / "annotation.json").write_text(json.dumps(ann))
 
         loader = DatasetLoader().load_from_directory(str(tmp_path))

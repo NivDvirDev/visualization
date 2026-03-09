@@ -1,0 +1,38 @@
+{
+  "title": "Synesthesia Eval: Audio Visualization Quality Dataset",
+  "description": "A curated dataset of ~123 audio/video clips for evaluating audio visualization quality. Each clip is rated on sync quality, visual-audio alignment, aesthetic quality, and motion smoothness by an automated labeler (Google Gemini). Designed for benchmarking audio-reactive visualization systems.",
+  "upload_type": "dataset",
+  "publication_date": "2026-02-28",
+  "creators": [
+    {
+      "name": "Dvir, Niv",
+      "affiliation": ""
+    }
+  ],
+  "keywords": [
+    "audio visualization",
+    "synesthesia",
+    "spectrograms",
+    "music visualization",
+    "video quality assessment",
+    "psychoacoustics",
+    "audio-visual correspondence"
+  ],
+  "license": {
+    "id": "cc-by-nc-sa-4.0"
+  },
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://huggingface.co/datasets/nivdvir/synesthesia-eval",
+      "relation": "isAlternateIdentifier",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://youtube.com/@NivDvir-ND",
+      "relation": "isReferencedBy",
+      "scheme": "url"
+    }
+  ],
+  "notes": "Part of the SYNESTHESIA project - AI-enhanced psychoacoustic audio visualization."
+}

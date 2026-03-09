@@ -11,3 +11,5 @@ scikit-learn
 opencv-python
 tqdm
 numpy
+huggingface_hub
+google-genai

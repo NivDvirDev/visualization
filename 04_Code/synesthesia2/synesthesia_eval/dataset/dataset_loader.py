@@ -87,9 +87,10 @@ class DatasetLoader:
                 with open(annotation_file) as f:
                     ann = json.load(f)
                 ground_truth = GroundTruth(
-                    sync_score=ann.get("sync_score", 0.0),
-                    alignment_score=ann.get("alignment_score", 0.0),
-                    aesthetic_score=ann.get("aesthetic_score", 0.0),
+                    sync_score=ann.get("sync_score", 3.0),
+                    alignment_score=ann.get("alignment_score", 3.0),
+                    aesthetic_score=ann.get("aesthetic_score", 3.0),
+                    motion_smoothness_score=ann.get("motion_smoothness_score", 3.0),
                     annotator_ids=ann.get("annotator_ids", []),
                     confidence=ann.get("confidence", 1.0),
                 )
@@ -140,8 +141,9 @@ class DatasetLoader:
                     )
                     ground_truth = GroundTruth(
                         sync_score=float(row["sync_score"]),
-                        alignment_score=float(row.get("alignment_score", 0)),
-                        aesthetic_score=float(row.get("aesthetic_score", 0)),
+                        alignment_score=float(row.get("alignment_score", 3)),
+                        aesthetic_score=float(row.get("aesthetic_score", 3)),
+                        motion_smoothness_score=float(row.get("motion_smoothness_score", 3)),
                         annotator_ids=annotator_ids,
                         confidence=float(row.get("confidence", 1.0)),
                     )
@@ -166,6 +168,196 @@ class DatasetLoader:
                 )
 
         logger.info("Loaded %d samples from %s", len(self.samples), csv_path)
+        return self
+
+    def load_from_clips_dir(
+        self, clips_dir: str, labels_file: str, metadata_file: Optional[str] = None
+    ) -> "DatasetLoader":
+        """Load from the synesthesia_eval local format: clips/*.mp4 + labels JSON.
+
+        This bridges the actual data format (auto_labels.json or unified_labels.json)
+        with the evaluation pipeline.
+
+        Args:
+            clips_dir: Directory containing .mp4 clip files.
+            labels_file: Path to labels JSON (auto_labels.json format).
+            metadata_file: Optional path to metadata.json for clip descriptions.
+
+        Returns:
+            self, for chaining.
+        """
+        clips_path = Path(clips_dir)
+        labels_path = Path(labels_file)
+
+        if not clips_path.is_dir():
+            raise FileNotFoundError(f"Clips directory not found: {clips_dir}")
+        if not labels_path.exists():
+            raise FileNotFoundError(f"Labels file not found: {labels_file}")
+
+        with open(labels_path) as f:
+            labels = json.load(f)
+
+        # Load optional metadata
+        clip_metadata: Dict[str, dict] = {}
+        if metadata_file:
+            meta_path = Path(metadata_file)
+            if meta_path.exists():
+                with open(meta_path) as f:
+                    meta = json.load(f)
+                for clip in meta.get("clips", []):
+                    clip_metadata[clip.get("id", "")] = clip
+
+        # Find video files and match with labels
+        video_files = sorted(clips_path.glob("*.mp4"))
+        for video_path in video_files:
+            # Extract clip ID from filename (e.g., "001_something.mp4" -> "001")
+            import re
+            match = re.match(r"^(\d+)", video_path.name)
+            clip_id = match.group(1) if match else video_path.stem
+
+            ground_truth = None
+            if clip_id in labels:
+                entry = labels[clip_id]
+                ground_truth = GroundTruth(
+                    sync_score=float(entry.get("sync_quality", 3)),
+                    alignment_score=float(entry.get("visual_audio_alignment", 3)),
+                    aesthetic_score=float(entry.get("aesthetic_quality", 3)),
+                    motion_smoothness_score=float(entry.get("motion_smoothness", 3)),
+                    annotator_ids=[entry.get("model", "unknown")],
+                    confidence=1.0,
+                )
+
+            metadata = clip_metadata.get(clip_id, {})
+
+            self.samples.append(
+                VideoSample(
+                    sample_id=clip_id,
+                    video_path=str(video_path),
+                    audio_path="",  # Audio extracted from video at processing time
+                    metadata=metadata,
+                    ground_truth=ground_truth,
+                    split=DatasetSplit.TRAIN,
+                )
+            )
+
+        logger.info("Loaded %d samples from %s (%d labeled)", len(self.samples), clips_dir,
+                     sum(1 for s in self.samples if s.has_ground_truth()))
+        return self
+
+    def load_from_huggingface(
+        self, dataset_id: str = "NivDvir/synesthesia-eval", token: Optional[str] = None
+    ) -> "DatasetLoader":
+        """Load clips and labels from a HuggingFace dataset.
+
+        Fetches clip list, auto_labels.json, and community_labels.json from HF.
+        Videos are referenced by HF URL (not downloaded).
+
+        Args:
+            dataset_id: HuggingFace dataset identifier.
+            token: Optional HF API token for private datasets.
+
+        Returns:
+            self, for chaining.
+        """
+        import urllib.request
+
+        hf_base = f"https://huggingface.co/datasets/{dataset_id}"
+        api_base = f"https://huggingface.co/api/datasets/{dataset_id}"
+
+        def _fetch_json(url: str) -> Optional[dict]:
+            req = urllib.request.Request(url)
+            if token:
+                req.add_header("Authorization", f"Bearer {token}")
+            try:
+                with urllib.request.urlopen(req) as resp:
+                    return json.loads(resp.read().decode())
+            except urllib.error.HTTPError as e:
+                if e.code == 404:
+                    return None
+                raise
+
+        # Fetch file list from HF API
+        tree = _fetch_json(f"{api_base}/tree/main/data/clips")
+        if not tree:
+            raise RuntimeError(f"Could not fetch clip list from {dataset_id}")
+
+        clip_files = [
+            f for f in tree
+            if f.get("type") == "file" and f["path"].lower().endswith(".mp4")
+        ]
+
+        # Fetch labels
+        auto_labels = _fetch_json(f"{hf_base}/resolve/main/data/auto_labels.json") or {}
+        community_raw = _fetch_json(f"{hf_base}/resolve/main/data/community_labels.json") or []
+
+        # Index community labels by clip_id (may have multiple per clip)
+        community_by_clip: Dict[str, List[dict]] = {}
+        for entry in community_raw:
+            cid = entry.get("clip_id", "")
+            community_by_clip.setdefault(cid, []).append(entry)
+
+        # Build samples
+        import re
+        for f in clip_files:
+            filename = f["path"].split("/")[-1]
+            match = re.match(r"^(\d+)", filename)
+            clip_id = match.group(1) if match else filename.rsplit(".", 1)[0]
+
+            video_url = f"{hf_base}/resolve/main/{f['path']}"
+
+            # Prefer human labels over auto labels
+            ground_truth = None
+            source = "none"
+
+            human_entries = community_by_clip.get(clip_id, [])
+            if human_entries:
+                # Average human ratings if multiple
+                scores = {"sync_quality": [], "visual_audio_alignment": [],
+                          "aesthetic_quality": [], "motion_smoothness": []}
+                annotators = []
+                for he in human_entries:
+                    s = he.get("scores", he)
+                    for k in scores:
+                        if k in s:
+                            scores[k].append(float(s[k]))
+                    annotators.append(he.get("user", "human"))
+
+                ground_truth = GroundTruth(
+                    sync_score=np.mean(scores["sync_quality"]) if scores["sync_quality"] else 3.0,
+                    alignment_score=np.mean(scores["visual_audio_alignment"]) if scores["visual_audio_alignment"] else 3.0,
+                    aesthetic_score=np.mean(scores["aesthetic_quality"]) if scores["aesthetic_quality"] else 3.0,
+                    motion_smoothness_score=np.mean(scores["motion_smoothness"]) if scores["motion_smoothness"] else 3.0,
+                    annotator_ids=annotators,
+                    confidence=1.0,
+                )
+                source = "human"
+
+            elif clip_id in auto_labels:
+                entry = auto_labels[clip_id]
+                ground_truth = GroundTruth(
+                    sync_score=float(entry.get("sync_quality", 3)),
+                    alignment_score=float(entry.get("visual_audio_alignment", 3)),
+                    aesthetic_score=float(entry.get("aesthetic_quality", 3)),
+                    motion_smoothness_score=float(entry.get("motion_smoothness", 3)),
+                    annotator_ids=[entry.get("model", "gemini")],
+                    confidence=0.8,  # Lower confidence for AI labels
+                )
+                source = "auto"
+
+            self.samples.append(
+                VideoSample(
+                    sample_id=clip_id,
+                    video_path=video_url,
+                    audio_path="",
+                    metadata={"source": source, "filename": filename},
+                    ground_truth=ground_truth,
+                    split=DatasetSplit.TRAIN,
+                )
+            )
+
+        logger.info("Loaded %d samples from HuggingFace %s (%d labeled)",
+                     len(self.samples), dataset_id,
+                     sum(1 for s in self.samples if s.has_ground_truth()))
         return self
 
     # ------------------------------------------------------------------
@@ -256,6 +448,7 @@ class DatasetLoader:
             sync = np.array([s.ground_truth.sync_score for s in annotated])
             align = np.array([s.ground_truth.alignment_score for s in annotated])
             aesthetic = np.array([s.ground_truth.aesthetic_score for s in annotated])
+            motion = np.array([s.ground_truth.motion_smoothness_score for s in annotated])
 
             def _dist(arr: np.ndarray) -> Dict[str, float]:
                 return {
@@ -269,6 +462,7 @@ class DatasetLoader:
             stats["sync_score"] = _dist(sync)
             stats["alignment_score"] = _dist(align)
             stats["aesthetic_score"] = _dist(aesthetic)
+            stats["motion_smoothness_score"] = _dist(motion)
 
         # Genre distribution
         genres: Dict[str, int] = {}

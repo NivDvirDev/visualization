@@ -1,5 +1,8 @@
 const { Router } = require('express');
 const Label = require('../models/label');
+const { authRequired } = require('../middleware/auth');
+const HuggingFace = require('../services/huggingface');
+const { USE_HUGGINGFACE } = require('../config');
 
 const router = Router();
 
@@ -33,30 +36,35 @@ router.get('/:clip_id', async (req, res, next) => {
   }
 });
 
-// PUT /api/labels/:clip_id
-router.put('/:clip_id', async (req, res, next) => {
+// PUT /api/labels/:clip_id — requires authentication
+router.put('/:clip_id', authRequired, async (req, res, next) => {
   try {
-    const { labeler, sync_quality, visual_audio_alignment, aesthetic_quality, motion_smoothness, notes } = req.body;
-    if (!labeler) {
-      return res.status(400).json({ error: 'labeler is required' });
-    }
+    const { sync_quality, visual_audio_alignment, aesthetic_quality, motion_smoothness, notes } = req.body;
     const label = await Label.upsert(req.params.clip_id, {
-      labeler,
+      labeler: req.user.username,
+      user_id: req.user.id,
       sync_quality,
       visual_audio_alignment,
       aesthetic_quality,
       motion_smoothness,
       notes,
     });
+    // Push to HuggingFace in background if enabled
+    if (USE_HUGGINGFACE) {
+      HuggingFace.pushLabels().catch(err => console.error('[HF push error]', err.message));
+    }
     res.json(label);
   } catch (err) {
     next(err);
   }
 });
 
-// DELETE /api/labels/:clip_id/:labeler
-router.delete('/:clip_id/:labeler', async (req, res, next) => {
+// DELETE /api/labels/:clip_id/:labeler — users can only delete their own labels
+router.delete('/:clip_id/:labeler', authRequired, async (req, res, next) => {
   try {
+    if (req.params.labeler !== req.user.username) {
+      return res.status(403).json({ error: 'You can only delete your own labels' });
+    }
     const deleted = await Label.delete(req.params.clip_id, req.params.labeler);
     if (!deleted) return res.status(404).json({ error: 'Label not found' });
     res.json({ success: true });

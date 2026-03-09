@@ -19,14 +19,15 @@ class DatasetSplit(Enum):
 
 @dataclass
 class GroundTruth:
-    """Human-annotated ground truth scores for a video sample.
+    """Human or AI-annotated ground truth scores for a video sample.
 
-    All scores are normalized to [0, 1] where 1.0 is best.
+    Scores are on a 1-5 integer scale matching the labeling interface.
 
     Attributes:
-        sync_score: Audio-visual temporal synchronization quality.
-        alignment_score: Semantic/feature alignment quality.
-        aesthetic_score: Overall visual aesthetic quality.
+        sync_score: Audio-visual temporal synchronization quality (1-5).
+        alignment_score: Semantic/feature alignment quality (1-5).
+        aesthetic_score: Overall visual aesthetic quality (1-5).
+        motion_smoothness_score: Fluidity and smoothness of motion (1-5).
         annotator_ids: List of annotator identifiers who rated this sample.
         confidence: Mean annotator confidence in their ratings (0-1).
     """
@@ -34,23 +35,28 @@ class GroundTruth:
     sync_score: float
     alignment_score: float
     aesthetic_score: float
+    motion_smoothness_score: float = 3.0
     annotator_ids: List[str] = field(default_factory=list)
     confidence: float = 1.0
 
     def __post_init__(self) -> None:
-        for attr in ("sync_score", "alignment_score", "aesthetic_score", "confidence"):
+        for attr in ("sync_score", "alignment_score", "aesthetic_score", "motion_smoothness_score"):
             val = getattr(self, attr)
-            if not 0.0 <= val <= 1.0:
-                raise ValueError(f"{attr} must be in [0, 1], got {val}")
+            if not 1.0 <= val <= 5.0:
+                raise ValueError(f"{attr} must be in [1, 5], got {val}")
+        if not 0.0 <= self.confidence <= 1.0:
+            raise ValueError(f"confidence must be in [0, 1], got {self.confidence}")
 
     @property
     def composite_score(self) -> float:
-        """Weighted average of all sub-scores."""
-        return (
-            0.4 * self.sync_score
-            + 0.35 * self.alignment_score
-            + 0.25 * self.aesthetic_score
+        """Weighted average of all sub-scores, normalized to [0, 1]."""
+        raw = (
+            0.30 * self.sync_score
+            + 0.30 * self.alignment_score
+            + 0.20 * self.aesthetic_score
+            + 0.20 * self.motion_smoothness_score
         )
+        return (raw - 1.0) / 4.0  # Map 1-5 to 0-1
 
 
 @dataclass

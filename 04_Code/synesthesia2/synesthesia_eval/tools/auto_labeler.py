@@ -15,6 +15,9 @@ Usage:
 
 import json
 import argparse
+import re
+import shutil
+import tempfile
 import time
 from pathlib import Path
 from typing import Optional
@@ -128,18 +131,33 @@ def get_unlabeled_clips(metadata: dict, labels: dict) -> list:
     return unlabeled
 
 
+def sanitize_filename(name: str) -> str:
+    """Replace non-ASCII characters with underscores for API compatibility."""
+    return re.sub(r'[^\x20-\x7E]', '_', name)
+
+
 def analyze_clip(client: genai.Client, video_path: Path, clip_id: str) -> Optional[dict]:
     """Analyze a single video clip using Gemini"""
     print(f"\n🎬 Analyzing clip {clip_id}: {video_path.name}")
-    
+
     if not video_path.exists():
         print(f"   ❌ File not found: {video_path}")
         return None
-    
+
+    temp_dir = None
     try:
+        # Copy to temp path with ASCII-safe name if filename has non-ASCII chars
+        safe_name = sanitize_filename(video_path.name)
+        if safe_name != video_path.name:
+            temp_dir = tempfile.mkdtemp()
+            upload_path = Path(temp_dir) / safe_name
+            shutil.copy2(video_path, upload_path)
+        else:
+            upload_path = video_path
+
         # Upload the video file
         print(f"   📤 Uploading video...")
-        video_file = client.files.upload(file=video_path)
+        video_file = client.files.upload(file=upload_path)
         
         # Wait for processing
         print(f"   ⏳ Processing...")
@@ -213,6 +231,39 @@ def analyze_clip(client: genai.Client, video_path: Path, clip_id: str) -> Option
     except Exception as e:
         print(f"   ❌ Error: {e}")
         return None
+    finally:
+        if temp_dir:
+            shutil.rmtree(temp_dir, ignore_errors=True)
+
+
+def push_to_huggingface(labels: dict, dataset_id: str):
+    """Push auto_labels.json to HuggingFace dataset."""
+    hf_token = os.environ.get("HF_TOKEN")
+    if not hf_token:
+        print("\n⚠️ HF_TOKEN not set. Skipping HuggingFace push.")
+        print("   Set HF_TOKEN environment variable with a write-access token.")
+        return
+
+    try:
+        from huggingface_hub import HfApi
+    except ImportError:
+        print("\n⚠️ huggingface_hub not installed. Skipping HuggingFace push.")
+        print("   Install with: pip install huggingface_hub")
+        return
+
+    print(f"\n📤 Pushing auto_labels.json to HuggingFace ({dataset_id})...")
+    try:
+        api = HfApi(token=hf_token)
+        api.upload_file(
+            path_or_fileobj=str(AUTO_LABELS_FILE),
+            path_in_repo="data/auto_labels.json",
+            repo_id=dataset_id,
+            repo_type="dataset",
+            commit_message=f"Update auto_labels.json ({len(labels)} entries)",
+        )
+        print(f"   ✅ Pushed {len(labels)} labels to {dataset_id}")
+    except Exception as e:
+        print(f"   ❌ HuggingFace push failed: {e}")
 
 
 def main():
@@ -224,6 +275,10 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Preview without saving")
     parser.add_argument("--model", type=str, default=MODEL, help=f"Gemini model to use (default: {MODEL})")
     parser.add_argument("--limit", type=int, help="Limit number of clips to process")
+    parser.add_argument("--push-hf", action="store_true",
+                        help="Push auto_labels.json to HuggingFace after labeling")
+    parser.add_argument("--hf-dataset", type=str, default="NivDvir/synesthesia-eval",
+                        help="HuggingFace dataset ID (default: NivDvir/synesthesia-eval)")
     args = parser.parse_args()
     
     MODEL = args.model
@@ -319,6 +374,10 @@ def main():
     print(f"   ❌ Failed: {failed}")
     print(f"   📁 Total labeled: {len(labels)}")
     print(f"\n💾 Results saved to: {AUTO_LABELS_FILE}")
+
+    # Push to HuggingFace if requested
+    if args.push_hf and processed > 0:
+        push_to_huggingface(labels, args.hf_dataset)
 
 
 if __name__ == "__main__":
