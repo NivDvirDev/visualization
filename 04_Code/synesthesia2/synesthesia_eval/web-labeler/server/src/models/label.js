@@ -34,40 +34,50 @@ const Label = {
   },
 
   async upsert(clipId, data) {
-    const { labeler, sync_quality, visual_audio_alignment, aesthetic_quality, motion_smoothness, notes, user_id } = data;
+    const {
+      labeler, user_id, notes,
+      // Axis 1: Perceptual
+      sync_quality, harmony, aesthetic_quality, motion_smoothness,
+      // Axis 2: Psychoacoustic
+      pitch_accuracy, rhythm_accuracy, dynamics_accuracy, timbre_accuracy, melody_accuracy,
+    } = data;
+
+    const cols = 'clip_id, labeler, sync_quality, harmony, aesthetic_quality, motion_smoothness, pitch_accuracy, rhythm_accuracy, dynamics_accuracy, timbre_accuracy, melody_accuracy, notes';
+    const updates = `
+           labeler = EXCLUDED.labeler,
+           sync_quality = EXCLUDED.sync_quality,
+           harmony = EXCLUDED.harmony,
+           aesthetic_quality = EXCLUDED.aesthetic_quality,
+           motion_smoothness = EXCLUDED.motion_smoothness,
+           pitch_accuracy = EXCLUDED.pitch_accuracy,
+           rhythm_accuracy = EXCLUDED.rhythm_accuracy,
+           dynamics_accuracy = EXCLUDED.dynamics_accuracy,
+           timbre_accuracy = EXCLUDED.timbre_accuracy,
+           melody_accuracy = EXCLUDED.melody_accuracy,
+           notes = EXCLUDED.notes,
+           updated_at = NOW()`;
 
     let row;
     if (user_id) {
-      // User-authenticated label: upsert on (clip_id, user_id)
       const result = await pool.query(
-        `INSERT INTO labels (clip_id, labeler, user_id, sync_quality, visual_audio_alignment, aesthetic_quality, motion_smoothness, notes)
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-         ON CONFLICT (clip_id, user_id) WHERE user_id IS NOT NULL DO UPDATE SET
-           labeler = EXCLUDED.labeler,
-           sync_quality = EXCLUDED.sync_quality,
-           visual_audio_alignment = EXCLUDED.visual_audio_alignment,
-           aesthetic_quality = EXCLUDED.aesthetic_quality,
-           motion_smoothness = EXCLUDED.motion_smoothness,
-           notes = EXCLUDED.notes,
-           updated_at = NOW()
+        `INSERT INTO labels (${cols}, user_id)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+         ON CONFLICT (clip_id, user_id) WHERE user_id IS NOT NULL DO UPDATE SET ${updates}
          RETURNING *`,
-        [clipId, labeler, user_id, sync_quality, visual_audio_alignment, aesthetic_quality, motion_smoothness, notes]
+        [clipId, labeler, sync_quality, harmony, aesthetic_quality, motion_smoothness,
+         pitch_accuracy || null, rhythm_accuracy || null, dynamics_accuracy || null,
+         timbre_accuracy || null, melody_accuracy || null, notes, user_id]
       );
       row = result.rows[0];
     } else {
-      // Auto label (no user): upsert on (clip_id, labeler)
       const result = await pool.query(
-        `INSERT INTO labels (clip_id, labeler, sync_quality, visual_audio_alignment, aesthetic_quality, motion_smoothness, notes)
-         VALUES ($1, $2, $3, $4, $5, $6, $7)
-         ON CONFLICT (clip_id, labeler) WHERE user_id IS NULL DO UPDATE SET
-           sync_quality = EXCLUDED.sync_quality,
-           visual_audio_alignment = EXCLUDED.visual_audio_alignment,
-           aesthetic_quality = EXCLUDED.aesthetic_quality,
-           motion_smoothness = EXCLUDED.motion_smoothness,
-           notes = EXCLUDED.notes,
-           updated_at = NOW()
+        `INSERT INTO labels (${cols})
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+         ON CONFLICT (clip_id, labeler) WHERE user_id IS NULL DO UPDATE SET ${updates}
          RETURNING *`,
-        [clipId, labeler, sync_quality, visual_audio_alignment, aesthetic_quality, motion_smoothness, notes]
+        [clipId, labeler, sync_quality, harmony, aesthetic_quality, motion_smoothness,
+         pitch_accuracy || null, rhythm_accuracy || null, dynamics_accuracy || null,
+         timbre_accuracy || null, melody_accuracy || null, notes]
       );
       row = result.rows[0];
     }
@@ -93,9 +103,14 @@ const Label = {
     for (const row of rows) {
       const entry = {
         sync_quality: row.sync_quality,
-        visual_audio_alignment: row.visual_audio_alignment,
+        harmony: row.harmony,
         aesthetic_quality: row.aesthetic_quality,
         motion_smoothness: row.motion_smoothness,
+        pitch_accuracy: row.pitch_accuracy,
+        rhythm_accuracy: row.rhythm_accuracy,
+        dynamics_accuracy: row.dynamics_accuracy,
+        timbre_accuracy: row.timbre_accuracy,
+        melody_accuracy: row.melody_accuracy,
         notes: row.notes,
       };
       if (row.user_id) {
@@ -132,7 +147,7 @@ const Label = {
     const { rows: [avgs] } = await pool.query(`
       SELECT
         ROUND(AVG(sync_quality)::numeric, 2) AS sync_quality,
-        ROUND(AVG(visual_audio_alignment)::numeric, 2) AS visual_audio_alignment,
+        ROUND(AVG(harmony)::numeric, 2) AS harmony,
         ROUND(AVG(aesthetic_quality)::numeric, 2) AS aesthetic_quality,
         ROUND(AVG(motion_smoothness)::numeric, 2) AS motion_smoothness
       FROM labels
@@ -147,7 +162,7 @@ const Label = {
       recent_users_7d: parseInt(counts.recent_users_7d, 10),
       avg_scores: {
         sync_quality: avgs.sync_quality ? parseFloat(avgs.sync_quality) : null,
-        visual_audio_alignment: avgs.visual_audio_alignment ? parseFloat(avgs.visual_audio_alignment) : null,
+        harmony: avgs.harmony ? parseFloat(avgs.harmony) : null,
         aesthetic_quality: avgs.aesthetic_quality ? parseFloat(avgs.aesthetic_quality) : null,
         motion_smoothness: avgs.motion_smoothness ? parseFloat(avgs.motion_smoothness) : null,
       },

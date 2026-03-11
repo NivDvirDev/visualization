@@ -14,6 +14,16 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+// GET /api/clips/rankings — public clip rankings by average score
+router.get('/rankings', async (req, res, next) => {
+  try {
+    const clips = await Clip.rankings();
+    res.json(clips);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // GET /api/clips/:id
 router.get('/:id', async (req, res, next) => {
   try {

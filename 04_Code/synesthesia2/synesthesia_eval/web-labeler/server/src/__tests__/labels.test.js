@@ -49,21 +49,69 @@ describe('GET /api/labels/:clip_id', () => {
 describe('PUT /api/labels/:clip_id', () => {
   beforeEach(() => jest.clearAllMocks());
 
-  it('upserts label when authenticated', async () => {
-    const mockLabel = { id: 1, clip_id: '01', labeler: 'testuser', sync_quality: 4, visual_audio_alignment: 3, aesthetic_quality: 5, motion_smoothness: 4 };
+  it('upserts label with Axis 1 only (harmony field)', async () => {
+    const mockLabel = { id: 1, clip_id: '01', labeler: 'testuser', sync_quality: 4, harmony: 3, aesthetic_quality: 5, motion_smoothness: 4 };
     Label.upsert.mockResolvedValue(mockLabel);
     const token = generateToken();
 
     const res = await request(app)
       .put('/api/labels/01')
       .set('Authorization', `Bearer ${token}`)
-      .send({ sync_quality: 4, visual_audio_alignment: 3, aesthetic_quality: 5, motion_smoothness: 4 });
+      .send({ sync_quality: 4, harmony: 3, aesthetic_quality: 5, motion_smoothness: 4 });
 
     expect(res.status).toBe(200);
     expect(Label.upsert).toHaveBeenCalledWith('01', expect.objectContaining({
       labeler: 'testuser',
       user_id: 1,
       sync_quality: 4,
+      harmony: 3,
+      aesthetic_quality: 5,
+      motion_smoothness: 4,
+    }));
+  });
+
+  it('upserts label with both axes (Axis 1 + Axis 2)', async () => {
+    const fullLabel = {
+      id: 1, clip_id: '01', labeler: 'testuser',
+      sync_quality: 4, harmony: 3, aesthetic_quality: 5, motion_smoothness: 4,
+      pitch_accuracy: 3, rhythm_accuracy: 4, dynamics_accuracy: 2, timbre_accuracy: 3, melody_accuracy: 1,
+    };
+    Label.upsert.mockResolvedValue(fullLabel);
+    const token = generateToken();
+
+    const payload = {
+      sync_quality: 4, harmony: 3, aesthetic_quality: 5, motion_smoothness: 4,
+      pitch_accuracy: 3, rhythm_accuracy: 4, dynamics_accuracy: 2, timbre_accuracy: 3, melody_accuracy: 1,
+    };
+
+    const res = await request(app)
+      .put('/api/labels/01')
+      .set('Authorization', `Bearer ${token}`)
+      .send(payload);
+
+    expect(res.status).toBe(200);
+    expect(Label.upsert).toHaveBeenCalledWith('01', expect.objectContaining({
+      pitch_accuracy: 3,
+      rhythm_accuracy: 4,
+      dynamics_accuracy: 2,
+      timbre_accuracy: 3,
+      melody_accuracy: 1,
+    }));
+  });
+
+  it('accepts partial Axis 2 (some psychoacoustic fields)', async () => {
+    Label.upsert.mockResolvedValue({ id: 1, clip_id: '01' });
+    const token = generateToken();
+
+    const res = await request(app)
+      .put('/api/labels/01')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ sync_quality: 4, harmony: 3, aesthetic_quality: 5, motion_smoothness: 4, pitch_accuracy: 3 });
+
+    expect(res.status).toBe(200);
+    expect(Label.upsert).toHaveBeenCalledWith('01', expect.objectContaining({
+      pitch_accuracy: 3,
+      rhythm_accuracy: undefined,
     }));
   });
 
@@ -99,5 +147,19 @@ describe('DELETE /api/labels/:clip_id/:labeler', () => {
       .set('Authorization', `Bearer ${token}`);
 
     expect(res.status).toBe(403);
+  });
+});
+
+describe('GET /api/labels/export', () => {
+  beforeEach(() => jest.clearAllMocks());
+
+  it('returns exported labels', async () => {
+    Label.exportJson.mockResolvedValue({ human: {}, auto: {} });
+
+    const res = await request(app).get('/api/labels/export');
+
+    expect(res.status).toBe(200);
+    expect(res.body).toHaveProperty('human');
+    expect(res.body).toHaveProperty('auto');
   });
 });

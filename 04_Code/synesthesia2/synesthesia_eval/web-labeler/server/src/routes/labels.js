@@ -39,14 +39,16 @@ router.get('/:clip_id', async (req, res, next) => {
 // PUT /api/labels/:clip_id — requires authentication
 router.put('/:clip_id', authRequired, async (req, res, next) => {
   try {
-    const { sync_quality, visual_audio_alignment, aesthetic_quality, motion_smoothness, notes } = req.body;
+    const {
+      sync_quality, harmony, aesthetic_quality, motion_smoothness,
+      pitch_accuracy, rhythm_accuracy, dynamics_accuracy, timbre_accuracy, melody_accuracy,
+      notes,
+    } = req.body;
     const label = await Label.upsert(req.params.clip_id, {
       labeler: req.user.username,
       user_id: req.user.id,
-      sync_quality,
-      visual_audio_alignment,
-      aesthetic_quality,
-      motion_smoothness,
+      sync_quality, harmony, aesthetic_quality, motion_smoothness,
+      pitch_accuracy, rhythm_accuracy, dynamics_accuracy, timbre_accuracy, melody_accuracy,
       notes,
     });
     // Push to HuggingFace in background if enabled

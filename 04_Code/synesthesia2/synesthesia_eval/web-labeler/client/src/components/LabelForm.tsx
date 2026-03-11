@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Dimension, DimensionKey, Label, LabelData, RatingValue } from '../types';
+import { Dimension, DimensionKey, PerceptualDimensionKey, PsychoacousticDimensionKey, Label, LabelData, RatingValue } from '../types';
 
 const DOT_COLORS = ['#ff4444', '#ff8844', '#ffcc44', '#88cc44', '#44cc88'];
 
-const DIMENSIONS: (Dimension & { icon: React.ReactNode })[] = [
+const PERCEPTUAL_DIMENSIONS: (Dimension & { icon: React.ReactNode })[] = [
   {
     key: 'sync_quality',
     label: 'Sync',
@@ -14,6 +14,18 @@ const DIMENSIONS: (Dimension & { icon: React.ReactNode })[] = [
       3: 'Moderate sync',
       4: 'Good sync',
       5: 'Perfect sync',
+    },
+  },
+  {
+    key: 'harmony',
+    label: 'Harmony',
+    icon: <svg width="20" height="20" viewBox="0 0 20 20" stroke="currentColor" strokeWidth={2} fill="none"><path d="M10 2C14 6 14 14 10 18"/><path d="M10 2C6 6 6 14 10 18"/><line x1={4} y1={10} x2={16} y2={10}/></svg>,
+    descriptions: {
+      1: 'Feels disconnected',
+      2: 'Slightly unified',
+      3: 'Moderately harmonious',
+      4: 'Feels well unified',
+      5: 'Perfectly harmonious',
     },
   },
   {
@@ -29,18 +41,6 @@ const DIMENSIONS: (Dimension & { icon: React.ReactNode })[] = [
     },
   },
   {
-    key: 'visual_audio_alignment',
-    label: 'Alignment',
-    icon: <svg width="20" height="20" viewBox="0 0 20 20" stroke="currentColor" strokeWidth={2} fill="none"><line x1={3} y1={7} x2={17} y2={7}/><line x1={3} y1={13} x2={17} y2={13}/><circle cx={7} cy={7} r={2} fill="currentColor"/><circle cx={13} cy={13} r={2} fill="currentColor"/></svg>,
-    descriptions: {
-      1: 'Completely mismatched',
-      2: 'Poorly aligned',
-      3: 'Somewhat aligned',
-      4: 'Well aligned',
-      5: 'Perfect alignment',
-    },
-  },
-  {
     key: 'motion_smoothness',
     label: 'Motion',
     icon: <svg width="20" height="20" viewBox="0 0 20 20" stroke="currentColor" strokeWidth={2} fill="none"><path d="M2 10C5 4 9 16 12 10S16 4 18 10"/><path d="M15 7L18 10L15 13"/></svg>,
@@ -53,6 +53,71 @@ const DIMENSIONS: (Dimension & { icon: React.ReactNode })[] = [
     },
   },
 ];
+
+const PSYCHOACOUSTIC_DIMENSIONS: (Dimension & { icon: React.ReactNode })[] = [
+  {
+    key: 'pitch_accuracy',
+    label: 'Pitch',
+    icon: <svg width="20" height="20" viewBox="0 0 20 20" stroke="currentColor" strokeWidth={2} fill="none"><path d="M4 16L8 4L12 12L16 2"/></svg>,
+    descriptions: {
+      1: 'Pitches indistinguishable',
+      2: 'Barely distinguishable',
+      3: 'Somewhat distinguishable',
+      4: 'Clearly distinguishable',
+      5: 'Perfectly mapped',
+    },
+  },
+  {
+    key: 'rhythm_accuracy',
+    label: 'Rhythm',
+    icon: <svg width="20" height="20" viewBox="0 0 20 20" stroke="currentColor" strokeWidth={2} fill="none"><rect x={3} y={8} width={3} height={8}/><rect x={8.5} y={4} width={3} height={12}/><rect x={14} y={6} width={3} height={10}/></svg>,
+    descriptions: {
+      1: 'No rhythmic patterns visible',
+      2: 'Faint rhythmic hints',
+      3: 'Some beats visible',
+      4: 'Rhythmic patterns clear',
+      5: 'Beat-perfect visualization',
+    },
+  },
+  {
+    key: 'dynamics_accuracy',
+    label: 'Dynamics',
+    icon: <svg width="20" height="20" viewBox="0 0 20 20" stroke="currentColor" strokeWidth={2} fill="none"><path d="M4 10h2l2-4 2 8 2-6 2 4h2"/></svg>,
+    descriptions: {
+      1: 'Loudness changes invisible',
+      2: 'Barely shows dynamics',
+      3: 'Some dynamic range visible',
+      4: 'Dynamics well represented',
+      5: 'Perfect dynamic mapping',
+    },
+  },
+  {
+    key: 'timbre_accuracy',
+    label: 'Timbre',
+    icon: <svg width="20" height="20" viewBox="0 0 20 20" stroke="currentColor" strokeWidth={2} fill="none"><circle cx={10} cy={10} r={7}/><circle cx={10} cy={10} r={4} strokeDasharray="2 2"/><circle cx={10} cy={10} r={1} fill="currentColor"/></svg>,
+    descriptions: {
+      1: 'Instruments indistinguishable',
+      2: 'Barely distinguishable',
+      3: 'Some timbral differences',
+      4: 'Instruments distinguishable',
+      5: 'Timbres perfectly separated',
+    },
+  },
+  {
+    key: 'melody_accuracy',
+    label: 'Melody',
+    icon: <svg width="20" height="20" viewBox="0 0 20 20" stroke="currentColor" strokeWidth={2} fill="none"><path d="M2 14C5 14 6 6 8 6S10 10 12 10S14 4 16 4L18 6"/><circle cx={16} cy={4} r={2} fill="currentColor"/></svg>,
+    descriptions: {
+      1: 'Melodic line invisible',
+      2: 'Faint melodic hints',
+      3: 'Melody partially visible',
+      4: 'Melody clearly followable',
+      5: 'Melody perfectly traced',
+    },
+  },
+];
+
+const ALL_DIMENSIONS = [...PERCEPTUAL_DIMENSIONS, ...PSYCHOACOUSTIC_DIMENSIONS];
 
 interface LabelFormProps {
   clipId: string;
@@ -71,18 +136,31 @@ function getInitialRatings(label?: Label): Ratings {
   if (label) {
     return {
       sync_quality: label.sync_quality ?? null,
-      visual_audio_alignment: label.visual_audio_alignment ?? null,
+      harmony: label.harmony ?? null,
       aesthetic_quality: label.aesthetic_quality ?? null,
       motion_smoothness: label.motion_smoothness ?? null,
+      pitch_accuracy: label.pitch_accuracy ?? null,
+      rhythm_accuracy: label.rhythm_accuracy ?? null,
+      dynamics_accuracy: label.dynamics_accuracy ?? null,
+      timbre_accuracy: label.timbre_accuracy ?? null,
+      melody_accuracy: label.melody_accuracy ?? null,
     };
   }
   return {
     sync_quality: null,
-    visual_audio_alignment: null,
+    harmony: null,
     aesthetic_quality: null,
     motion_smoothness: null,
+    pitch_accuracy: null,
+    rhythm_accuracy: null,
+    dynamics_accuracy: null,
+    timbre_accuracy: null,
+    melody_accuracy: null,
   };
 }
+
+const PERCEPTUAL_KEYS = PERCEPTUAL_DIMENSIONS.map(d => d.key) as PerceptualDimensionKey[];
+const PSYCHOACOUSTIC_KEYS = PSYCHOACOUSTIC_DIMENSIONS.map(d => d.key) as PsychoacousticDimensionKey[];
 
 function LabelForm({ clipId, existingLabel, autoLabel, onSave, onSkip, onPrev, onNext, saving }: LabelFormProps) {
   const [ratings, setRatings] = useState<Ratings>(() => getInitialRatings(existingLabel));
@@ -91,12 +169,18 @@ function LabelForm({ clipId, existingLabel, autoLabel, onSave, onSkip, onPrev, o
   const [activeDimension, setActiveDimension] = useState(0);
   const [justRated, setJustRated] = useState<string | null>(null);
   const [hoveredDot, setHoveredDot] = useState<{ dim: string; val: number } | null>(null);
+  const [activeAxis, setActiveAxis] = useState<'perceptual' | 'psychoacoustic'>('perceptual');
 
   const animTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoSaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const isComplete = DIMENSIONS.every((d) => ratings[d.key] != null);
-  const rated = DIMENSIONS.filter((d) => ratings[d.key] != null).length;
+  const perceptualComplete = PERCEPTUAL_KEYS.every((k) => ratings[k] != null);
+  const psychoacousticComplete = PSYCHOACOUSTIC_KEYS.every((k) => ratings[k] != null);
+  const perceptualRated = PERCEPTUAL_KEYS.filter((k) => ratings[k] != null).length;
+  const psychoacousticRated = PSYCHOACOUSTIC_KEYS.filter((k) => ratings[k] != null).length;
+  const isComplete = perceptualComplete; // Only Axis 1 required
+
+  const currentDimensions = activeAxis === 'perceptual' ? PERCEPTUAL_DIMENSIONS : PSYCHOACOUSTIC_DIMENSIONS;
 
   const handleSave = useCallback(() => {
     onSave(clipId, { ...ratings, notes });
@@ -109,19 +193,19 @@ function LabelForm({ clipId, existingLabel, autoLabel, onSave, onSkip, onPrev, o
     setNotes(existingLabel?.notes || '');
     setShowNotes(!!existingLabel?.notes);
     setActiveDimension(0);
+    setActiveAxis('perceptual');
     setJustRated(null);
     setHoveredDot(null);
-  }, [clipId]); // Only reset on clipId change, existingLabel read at call time
+  }, [clipId]); // Only reset on clipId change
 
-  // Auto-save when all dimensions are rated for the first time
+  // Auto-save when Axis 1 is complete for the first time
   const prevCompleteRef = useRef(false);
   useEffect(() => {
     const wasComplete = prevCompleteRef.current;
     prevCompleteRef.current = isComplete;
 
     if (!wasComplete && isComplete && !existingLabel && !saving) {
-      if (autoSaveTimer.current) clearTimeout(autoSaveTimer.current);
-      autoSaveTimer.current = setTimeout(() => handleSave(), 800);
+      // Don't auto-save — wait for user to optionally rate Axis 2
     }
 
     return () => {
@@ -144,12 +228,16 @@ function LabelForm({ clipId, existingLabel, autoLabel, onSave, onSkip, onPrev, o
       setJustRated(null);
     }, 500);
 
-    const idx = DIMENSIONS.findIndex((d) => d.key === dimKey);
+    // Auto-advance to next unrated dimension within current axis
+    const dims = PERCEPTUAL_KEYS.includes(dimKey as PerceptualDimensionKey)
+      ? PERCEPTUAL_DIMENSIONS
+      : PSYCHOACOUSTIC_DIMENSIONS;
+    const idx = dims.findIndex((d) => d.key === dimKey);
     setRatings((prev) => {
       const updated = { ...prev, [dimKey]: value };
-      for (let i = 1; i <= DIMENSIONS.length; i++) {
-        const nextIdx = (idx + i) % DIMENSIONS.length;
-        const nextDim = DIMENSIONS[nextIdx];
+      for (let i = 1; i <= dims.length; i++) {
+        const nextIdx = (idx + i) % dims.length;
+        const nextDim = dims[nextIdx];
         if (updated[nextDim.key] == null) {
           setActiveDimension(nextIdx);
           return updated;
@@ -171,16 +259,15 @@ function LabelForm({ clipId, existingLabel, autoLabel, onSave, onSkip, onPrev, o
       if (key >= '1' && key <= '5') {
         e.preventDefault();
         setActiveDimension((current) => {
-          const dim = DIMENSIONS[current];
-          handleRatingChange(dim.key, parseInt(key, 10) as RatingValue);
+          const dim = currentDimensions[current];
+          if (dim) handleRatingChange(dim.key, parseInt(key, 10) as RatingValue);
           return current;
         });
       } else if (key === 'Tab') {
         e.preventDefault();
-        setActiveDimension((s) => (s + 1) % DIMENSIONS.length);
+        setActiveDimension((s) => (s + 1) % currentDimensions.length);
       } else if (key === 'Enter') {
         e.preventDefault();
-        // handleSave is called via ref to get latest state
         handleSaveRef.current();
       } else if (key === 'n') {
         e.preventDefault();
@@ -196,9 +283,8 @@ function LabelForm({ clipId, existingLabel, autoLabel, onSave, onSkip, onPrev, o
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [onNext, onPrev, handleRatingChange]);
+  }, [onNext, onPrev, handleRatingChange, currentDimensions]);
 
-  // Ref to always have latest handleSave + isComplete for keyboard handler
   const handleSaveRef = useRef(() => {});
   handleSaveRef.current = () => {
     if (isComplete) handleSave();
@@ -212,74 +298,107 @@ function LabelForm({ clipId, existingLabel, autoLabel, onSave, onSkip, onPrev, o
     };
   }, []);
 
+  const renderDimensionGroup = (dimensions: (Dimension & { icon: React.ReactNode })[]) => (
+    <div className="rating-dimensions">
+      {dimensions.map((dim, i) => {
+        const currentValue = ratings[dim.key];
+        const isActive = activeAxis === (PERCEPTUAL_KEYS.includes(dim.key as PerceptualDimensionKey) ? 'perceptual' : 'psychoacoustic')
+          && activeDimension === i;
+        const wasJustRated = justRated === dim.key;
+
+        return (
+          <div
+            key={dim.key}
+            className={
+              'rating-dim' +
+              (isActive ? ' active' : '') +
+              (wasJustRated ? ' just-rated' : '')
+            }
+            onClick={() => {
+              const axis = PERCEPTUAL_KEYS.includes(dim.key as PerceptualDimensionKey) ? 'perceptual' : 'psychoacoustic';
+              setActiveAxis(axis);
+              setActiveDimension(i);
+            }}
+          >
+            <span className="rating-dim-icon">{dim.icon}</span>
+            <span className="rating-dim-label">{dim.label}</span>
+            <div className="rating-dots">
+              {([1, 2, 3, 4, 5] as RatingValue[]).map((val) => {
+                const isSelected = currentValue === val;
+                const isHovered = hoveredDot?.dim === dim.key && hoveredDot?.val === val;
+
+                return (
+                  <div key={val} className="rating-dot-wrapper">
+                    <button
+                      className={
+                        'rating-dot' +
+                        (isSelected ? ' selected' : '') +
+                        (isHovered ? ' hovered' : '') +
+                        (isSelected && wasJustRated ? ' pulse' : '')
+                      }
+                      style={{ '--dot-color': DOT_COLORS[val - 1] } as React.CSSProperties}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleRatingChange(dim.key, val);
+                      }}
+                      onMouseEnter={() => setHoveredDot({ dim: dim.key, val })}
+                      onMouseLeave={() => setHoveredDot(null)}
+                    >
+                      {val}
+                    </button>
+                    {isHovered && (
+                      <span className="rating-tooltip">
+                        {val} &mdash; {dim.descriptions[val]}
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+
   return (
     <div className={'label-form glass-panel' + (isComplete ? ' label-form-complete' : '')}>
       <div className="label-form-header">
         <span className="label-form-title">Rate This Clip</span>
         <span className="label-form-progress">
-          {isComplete ? (
+          {perceptualComplete && psychoacousticComplete ? (
+            <span className="label-form-check">{'\u2713\u2713'}</span>
+          ) : perceptualComplete ? (
             <span className="label-form-check">{'\u2713'}</span>
           ) : (
-            <span className="label-form-counter">{rated}/4</span>
+            <span className="label-form-counter">{perceptualRated}/4</span>
           )}
         </span>
       </div>
 
-      <div className="rating-dimensions">
-        {DIMENSIONS.map((dim, i) => {
-          const currentValue = ratings[dim.key];
-          const isActive = activeDimension === i;
-          const wasJustRated = justRated === dim.key;
-
-          return (
-            <div
-              key={dim.key}
-              className={
-                'rating-dim' +
-                (isActive ? ' active' : '') +
-                (wasJustRated ? ' just-rated' : '')
-              }
-              onClick={() => setActiveDimension(i)}
-            >
-              <span className="rating-dim-icon">{dim.icon}</span>
-              <span className="rating-dim-label">{dim.label}</span>
-              <div className="rating-dots">
-                {([1, 2, 3, 4, 5] as RatingValue[]).map((val) => {
-                  const isSelected = currentValue === val;
-                  const isHovered = hoveredDot?.dim === dim.key && hoveredDot?.val === val;
-
-                  return (
-                    <div key={val} className="rating-dot-wrapper">
-                      <button
-                        className={
-                          'rating-dot' +
-                          (isSelected ? ' selected' : '') +
-                          (isHovered ? ' hovered' : '') +
-                          (isSelected && wasJustRated ? ' pulse' : '')
-                        }
-                        style={{ '--dot-color': DOT_COLORS[val - 1] } as React.CSSProperties}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleRatingChange(dim.key, val);
-                        }}
-                        onMouseEnter={() => setHoveredDot({ dim: dim.key, val })}
-                        onMouseLeave={() => setHoveredDot(null)}
-                      >
-                        {val}
-                      </button>
-                      {isHovered && (
-                        <span className="rating-tooltip">
-                          {val} &mdash; {dim.descriptions[val]}
-                        </span>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
+      {/* Axis Tabs */}
+      <div className="axis-tabs">
+        <button
+          className={`axis-tab${activeAxis === 'perceptual' ? ' active' : ''}${perceptualComplete ? ' complete' : ''}`}
+          onClick={() => { setActiveAxis('perceptual'); setActiveDimension(0); }}
+        >
+          How Does It Feel?
+          <span className="axis-tab-count">{perceptualRated}/4</span>
+        </button>
+        <button
+          className={`axis-tab${activeAxis === 'psychoacoustic' ? ' active' : ''}${psychoacousticComplete ? ' complete' : ''}`}
+          onClick={() => { setActiveAxis('psychoacoustic'); setActiveDimension(0); }}
+        >
+          How Accurately Does It Represent?
+          <span className="axis-tab-count">{psychoacousticRated}/5</span>
+        </button>
       </div>
+
+      {/* Active Axis Dimensions */}
+      {activeAxis === 'perceptual'
+        ? renderDimensionGroup(PERCEPTUAL_DIMENSIONS)
+        : renderDimensionGroup(PSYCHOACOUSTIC_DIMENSIONS)
+      }
 
       <div className="label-form-actions">
         <button

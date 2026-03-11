@@ -87,9 +87,11 @@ const HuggingFace = {
 
     // Gather all labels with user info
     const { rows } = await pool.query(`
-      SELECT l.clip_id, u.username, l.sync_quality, l.visual_audio_alignment,
-             l.aesthetic_quality, l.motion_smoothness, l.notes, l.labeler,
-             l.created_at, l.updated_at
+      SELECT l.clip_id, u.username, l.sync_quality, l.harmony,
+             l.aesthetic_quality, l.motion_smoothness,
+             l.pitch_accuracy, l.rhythm_accuracy, l.dynamics_accuracy,
+             l.timbre_accuracy, l.melody_accuracy,
+             l.notes, l.labeler, l.created_at, l.updated_at
       FROM labels l
       LEFT JOIN users u ON l.user_id = u.id
       ORDER BY l.clip_id, l.created_at
@@ -98,11 +100,18 @@ const HuggingFace = {
     const communityLabels = rows.map(r => ({
       clip_id: r.clip_id,
       user: r.username || r.labeler,
-      scores: {
+      perceptual: {
         sync_quality: r.sync_quality,
-        visual_audio_alignment: r.visual_audio_alignment,
+        harmony: r.harmony,
         aesthetic_quality: r.aesthetic_quality,
         motion_smoothness: r.motion_smoothness,
+      },
+      psychoacoustic: {
+        pitch_accuracy: r.pitch_accuracy,
+        rhythm_accuracy: r.rhythm_accuracy,
+        dynamics_accuracy: r.dynamics_accuracy,
+        timbre_accuracy: r.timbre_accuracy,
+        melody_accuracy: r.melody_accuracy,
       },
       notes: r.notes || '',
       timestamp: r.updated_at || r.created_at,

@@ -1,4 +1,4 @@
-import { ClipSummary, ClipDetail, ClipMode, Label, LabelData, Stats, AuthResponse, User, AppConfig, LeaderboardEntry, MyStats } from './types';
+import { ClipSummary, ClipDetail, ClipMode, Label, LabelData, Stats, AuthResponse, User, AppConfig, LeaderboardEntry, MyStats, ClipRanking } from './types';
 
 const API = '/api';
 
@@ -109,3 +109,7 @@ export const getMyStats = (): Promise<MyStats> =>
     if (!r.ok) throw new Error('Failed to fetch stats');
     return r.json();
   });
+
+// Clip Rankings API
+export const getClipRankings = (): Promise<ClipRanking[]> =>
+  fetch(`${API}/clips/rankings`).then((r) => r.json());

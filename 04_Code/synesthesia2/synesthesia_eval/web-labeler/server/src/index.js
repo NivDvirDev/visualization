@@ -12,6 +12,7 @@ const HuggingFace = require('./services/huggingface');
 
 const app = express();
 
+app.set('trust proxy', 1);
 app.use(cors());
 app.use(express.json());
 
@@ -100,6 +101,17 @@ async function startServer() {
     console.log('[DB] Migration 004_add_google_oauth applied');
   } catch (err) {
     if (!err.message.includes('already exists')) {
+      console.error('[DB] Migration warning:', err.message);
+    }
+  }
+
+  // Migration 005: Two-axis rating framework
+  try {
+    const migrationSql = fs.readFileSync(path.join(__dirname, 'migrate/005_two_axis_ratings.sql'), 'utf-8');
+    await pool.query(migrationSql);
+    console.log('[DB] Migration 005_two_axis_ratings applied');
+  } catch (err) {
+    if (!err.message.includes('already exists') && !err.message.includes('does not exist')) {
       console.error('[DB] Migration warning:', err.message);
     }
   }

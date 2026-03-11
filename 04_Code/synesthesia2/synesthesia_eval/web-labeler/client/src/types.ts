@@ -1,10 +1,21 @@
 // Shared types for the Web Labeler application
 
-export type DimensionKey =
+// Axis 1: Perceptual/Emotional
+export type PerceptualDimensionKey =
   | 'sync_quality'
-  | 'visual_audio_alignment'
+  | 'harmony'
   | 'aesthetic_quality'
   | 'motion_smoothness';
+
+// Axis 2: Psychoacoustic Accuracy
+export type PsychoacousticDimensionKey =
+  | 'pitch_accuracy'
+  | 'rhythm_accuracy'
+  | 'dynamics_accuracy'
+  | 'timbre_accuracy'
+  | 'melody_accuracy';
+
+export type DimensionKey = PerceptualDimensionKey | PsychoacousticDimensionKey;
 
 export type RatingValue = 1 | 2 | 3 | 4 | 5;
 
@@ -20,10 +31,17 @@ export interface Label {
   labeler: string;
   username?: string;
   user_id?: number | null;
+  // Axis 1: Perceptual
   sync_quality?: number | null;
-  visual_audio_alignment?: number | null;
+  harmony?: number | null;
   aesthetic_quality?: number | null;
   motion_smoothness?: number | null;
+  // Axis 2: Psychoacoustic
+  pitch_accuracy?: number | null;
+  rhythm_accuracy?: number | null;
+  dynamics_accuracy?: number | null;
+  timbre_accuracy?: number | null;
+  melody_accuracy?: number | null;
   notes?: string;
   created_at?: string;
   updated_at?: string;
@@ -48,7 +66,7 @@ export interface ClipDetail {
 
 export interface AvgScores {
   sync_quality: number | null;
-  visual_audio_alignment: number | null;
+  harmony: number | null;
   aesthetic_quality: number | null;
   motion_smoothness: number | null;
 }
@@ -62,10 +80,17 @@ export interface Stats {
 }
 
 export interface LabelData {
+  // Axis 1: Perceptual
   sync_quality: number | null;
-  visual_audio_alignment: number | null;
+  harmony: number | null;
   aesthetic_quality: number | null;
   motion_smoothness: number | null;
+  // Axis 2: Psychoacoustic (optional)
+  pitch_accuracy?: number | null;
+  rhythm_accuracy?: number | null;
+  dynamics_accuracy?: number | null;
+  timbre_accuracy?: number | null;
+  melody_accuracy?: number | null;
   notes: string;
 }
 
@@ -102,4 +127,15 @@ export interface MyStats {
   clips_remaining: number;
   current_streak: number;
   badges: BadgeKey[];
+}
+
+export interface ClipRanking {
+  id: string;
+  filename: string;
+  rater_count: number;
+  avg_sync: number | null;
+  avg_harmony: number | null;
+  avg_aesthetic: number | null;
+  avg_motion: number | null;
+  avg_overall: number | null;
 }

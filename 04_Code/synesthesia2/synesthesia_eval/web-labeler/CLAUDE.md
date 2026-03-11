@@ -58,6 +58,24 @@ client/src/
 Requires: `DATABASE_URL`, `JWT_SECRET`, `HF_TOKEN`
 Optional: `USE_HUGGINGFACE`, `GOOGLE_CLIENT_ID`, `CLIPS_DIR`, `PORT`
 
+## Figma Design System
+
+The platform's visual design system is maintained in a **Figma Make** project:
+- **Figma Make URL:** https://www.figma.com/make/YiCH6aAmkGOU3ShdPLKFbD/Web-platform-UI-UX-design
+- **File Key:** `YiCH6aAmkGOU3ShdPLKFbD`
+- **Integration:** `figma@claude-plugins-official` plugin (installed at user scope, provides MCP server + Agent Skills)
+
+Key Figma Make components:
+- `src/app/components/FlameIcon.tsx` — Small icon (cochlear flame spiral)
+- `src/app/components/WellspringLogo.tsx` — Main logo (burning spiral)
+- `src/app/components/DesignShowcase.tsx` — Full design system showcase
+- `src/app/components/IconographyBreakdown.tsx` — Icon symbolism breakdown
+- `src/app/components/SoundWaveVisualization.tsx` — Audio wave bars
+- `src/styles/design-system.css` — Brand tokens (flame spectrum, codex palette)
+
+Use Figma MCP tools (`get_design_context`, `ReadMcpResourceTool`) to read components.
+Figma Make files are edited via Figma's own AI chat — the MCP server is read-only for Make projects.
+
 ---
 
-*Last updated: 2026-03-09*
+*Last updated: 2026-03-11*

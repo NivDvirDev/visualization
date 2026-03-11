@@ -6,12 +6,22 @@ interface RatingsTableProps {
   currentUsername?: string;
 }
 
-const DIM_LABELS: { key: DimensionKey; short: string }[] = [
+const PERCEPTUAL_DIMS: { key: DimensionKey; short: string }[] = [
   { key: 'sync_quality', short: 'Sync' },
-  { key: 'visual_audio_alignment', short: 'Align' },
+  { key: 'harmony', short: 'Harm' },
   { key: 'aesthetic_quality', short: 'Aesth' },
   { key: 'motion_smoothness', short: 'Motion' },
 ];
+
+const PSYCHOACOUSTIC_DIMS: { key: DimensionKey; short: string }[] = [
+  { key: 'pitch_accuracy', short: 'Pitch' },
+  { key: 'rhythm_accuracy', short: 'Rhythm' },
+  { key: 'dynamics_accuracy', short: 'Dyn' },
+  { key: 'timbre_accuracy', short: 'Timbre' },
+  { key: 'melody_accuracy', short: 'Melody' },
+];
+
+const ALL_DIMS = [...PERCEPTUAL_DIMS, ...PSYCHOACOUSTIC_DIMS];
 
 function averageScore(labels: Label[], key: DimensionKey): string {
   const vals = labels.map((l) => l[key]).filter((v) => v != null) as number[];
@@ -33,6 +43,12 @@ const RatingsTable: React.FC<RatingsTableProps> = ({ labels, currentUsername }) 
     return null;
   }
 
+  // Check if any label has psychoacoustic data
+  const hasPsychoacoustic = labels.some((l) =>
+    PSYCHOACOUSTIC_DIMS.some((d) => l[d.key] != null)
+  );
+  const displayDims = hasPsychoacoustic ? ALL_DIMS : PERCEPTUAL_DIMS;
+
   return (
     <div className="ratings-table-container">
       <h4 className="ratings-table-title">
@@ -45,9 +61,17 @@ const RatingsTable: React.FC<RatingsTableProps> = ({ labels, currentUsername }) 
           <thead>
             <tr>
               <th>Rater</th>
-              {DIM_LABELS.map((d) => (
-                <th key={d.key}>{d.short}</th>
+              {PERCEPTUAL_DIMS.map((d) => (
+                <th key={d.key} className="ratings-th-perceptual">{d.short}</th>
               ))}
+              {hasPsychoacoustic && (
+                <>
+                  <th className="ratings-th-separator"></th>
+                  {PSYCHOACOUSTIC_DIMS.map((d) => (
+                    <th key={d.key} className="ratings-th-psychoacoustic">{d.short}</th>
+                  ))}
+                </>
+              )}
               <th>Notes</th>
               <th>Date</th>
             </tr>
@@ -57,11 +81,21 @@ const RatingsTable: React.FC<RatingsTableProps> = ({ labels, currentUsername }) 
             {userLabels.length > 1 && (
               <tr className="ratings-row-avg">
                 <td className="ratings-rater">Average</td>
-                {DIM_LABELS.map((d) => (
+                {PERCEPTUAL_DIMS.map((d) => (
                   <td key={d.key} className="ratings-score ratings-score-avg">
                     {averageScore(userLabels, d.key)}
                   </td>
                 ))}
+                {hasPsychoacoustic && (
+                  <>
+                    <td className="ratings-separator"></td>
+                    {PSYCHOACOUSTIC_DIMS.map((d) => (
+                      <td key={d.key} className="ratings-score ratings-score-avg">
+                        {averageScore(userLabels, d.key)}
+                      </td>
+                    ))}
+                  </>
+                )}
                 <td></td>
                 <td></td>
               </tr>
@@ -75,11 +109,21 @@ const RatingsTable: React.FC<RatingsTableProps> = ({ labels, currentUsername }) 
                     {label.username || label.labeler}
                     {isMe && <span className="ratings-you-badge">you</span>}
                   </td>
-                  {DIM_LABELS.map((d) => (
+                  {PERCEPTUAL_DIMS.map((d) => (
                     <td key={d.key} className="ratings-score">
                       {label[d.key] ?? '\u2014'}
                     </td>
                   ))}
+                  {hasPsychoacoustic && (
+                    <>
+                      <td className="ratings-separator"></td>
+                      {PSYCHOACOUSTIC_DIMS.map((d) => (
+                        <td key={d.key} className="ratings-score">
+                          {label[d.key] ?? '\u2014'}
+                        </td>
+                      ))}
+                    </>
+                  )}
                   <td className="ratings-notes">{label.notes || '\u2014'}</td>
                   <td className="ratings-date">{formatDate(label.updated_at || label.created_at)}</td>
                 </tr>
@@ -92,11 +136,21 @@ const RatingsTable: React.FC<RatingsTableProps> = ({ labels, currentUsername }) 
                   {label.labeler}
                   <span className="ratings-auto-badge">AI</span>
                 </td>
-                {DIM_LABELS.map((d) => (
+                {PERCEPTUAL_DIMS.map((d) => (
                   <td key={d.key} className="ratings-score ratings-score-auto">
                     {label[d.key] ?? '\u2014'}
                   </td>
                 ))}
+                {hasPsychoacoustic && (
+                  <>
+                    <td className="ratings-separator"></td>
+                    {PSYCHOACOUSTIC_DIMS.map((d) => (
+                      <td key={d.key} className="ratings-score ratings-score-auto">
+                        {label[d.key] ?? '\u2014'}
+                      </td>
+                    ))}
+                  </>
+                )}
                 <td className="ratings-notes">{label.notes || '\u2014'}</td>
                 <td className="ratings-date">{formatDate(label.created_at)}</td>
               </tr>
