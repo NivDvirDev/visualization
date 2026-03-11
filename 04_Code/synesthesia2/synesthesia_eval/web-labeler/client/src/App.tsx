@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { getClips, getClip, getStats, saveLabel, getMe, getConfig } from './api';
 import ClipList from './components/ClipList';
 import VideoPlayer from './components/VideoPlayer';
@@ -8,9 +9,12 @@ import RatingsTable from './components/RatingsTable';
 import ProgressBar from './components/ProgressBar';
 import LoginPage from './components/LoginPage';
 import Leaderboard from './components/Leaderboard';
+import RankingsPage from './components/RankingsPage';
+import ClipDetailPage from './components/ClipDetailPage';
+import { FlameIcon } from './components/FlameIcon';
 import { ClipSummary, ClipDetail, ClipMode, Label, LabelData, Stats, User, AppConfig } from './types';
 
-const App: React.FC = () => {
+const LabelerApp: React.FC = () => {
   const [clips, setClips] = useState<ClipSummary[]>([]);
   const [selectedClipId, setSelectedClipId] = useState<string | null>(null);
   const [selectedClip, setSelectedClip] = useState<ClipDetail | null>(null);
@@ -22,6 +26,7 @@ const App: React.FC = () => {
   const [appConfig, setAppConfig] = useState<AppConfig | null>(null);
   const [showRatings, setShowRatings] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const navigate = useNavigate();
 
   const loadClips = useCallback((m: ClipMode) => {
     getClips(m).then((c) => setClips(c));
@@ -99,7 +104,6 @@ const App: React.FC = () => {
         loadClips(mode);
         loadStats();
         loadClip(clipId);
-        // goToNext inline - need current clips/selectedClipId at call time
         setClips((prevClips) => {
           setSelectedClipId((prevId) => {
             const idx = prevClips.findIndex((c) => c.id === prevId);
@@ -201,9 +205,16 @@ const App: React.FC = () => {
       )}
 
       <header className="app-header">
-        <h1>Synesthesia</h1>
+        <FlameIcon size={40} className="app-logo" />
         {stats && <StatsPanel stats={stats} />}
         <div className="user-info">
+          <button
+            className="btn-rankings-link"
+            onClick={() => navigate('/rankings')}
+            title="Public Rankings"
+          >
+            Rankings
+          </button>
           <button
             className={`btn-trophy${showLeaderboard ? ' active' : ''}`}
             onClick={() => setShowLeaderboard(!showLeaderboard)}
@@ -280,6 +291,16 @@ const App: React.FC = () => {
       </main>
       <footer className="app-footer">Synesthesia Eval</footer>
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <Routes>
+      <Route path="/rankings" element={<RankingsPage />} />
+      <Route path="/clip/:id" element={<ClipDetailPage />} />
+      <Route path="*" element={<LabelerApp />} />
+    </Routes>
   );
 };
 

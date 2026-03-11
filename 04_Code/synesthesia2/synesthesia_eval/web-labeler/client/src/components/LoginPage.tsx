@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { GoogleOAuthProvider, GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import { login, register, googleLogin } from '../api';
 import { User } from '../types';
+import { WellspringLogo } from './WellspringLogo';
 
 interface LoginPageProps {
   onLogin: (user: User, token: string) => void;
@@ -68,7 +69,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, googleClientId }) => {
   return (
     <div className="login-page">
       <div className="login-card">
-        <h1 className="login-title">Synesthesia Web Labeler</h1>
+        <WellspringLogo size={80} className="login-logo" />
+        <h1 className="login-title">Web Labeler</h1>
         <p className="login-subtitle">
           {mode === 'login' ? 'Sign in to start labeling' : 'Create your account'}
         </p>
