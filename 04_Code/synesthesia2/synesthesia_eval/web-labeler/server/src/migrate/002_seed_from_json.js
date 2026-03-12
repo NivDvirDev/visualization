@@ -20,14 +20,15 @@ async function migrate() {
       const clips = metadata.clips || [];
       for (const clip of clips) {
         await client.query(
-          `INSERT INTO clips (id, filename, description, source, categories)
-           VALUES ($1, $2, $3, $4, $5)
+          `INSERT INTO clips (id, filename, description, source, categories, youtube_video_id)
+           VALUES ($1, $2, $3, $4, $5, $6)
            ON CONFLICT (id) DO UPDATE SET
              filename = EXCLUDED.filename,
              description = EXCLUDED.description,
              source = EXCLUDED.source,
-             categories = EXCLUDED.categories`,
-          [clip.id, clip.filename, clip.description, clip.source || 'youtube_playlist', JSON.stringify(clip.categories || {})]
+             categories = EXCLUDED.categories,
+             youtube_video_id = COALESCE(EXCLUDED.youtube_video_id, clips.youtube_video_id)`,
+          [clip.id, clip.filename, clip.description, clip.source || 'youtube_playlist', JSON.stringify(clip.categories || {}), clip.youtube_source?.video_id || null]
         );
         clipCount++;
       }

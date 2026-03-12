@@ -116,6 +116,41 @@ async function startServer() {
     }
   }
 
+  // Migration 006: Add youtube_video_id column
+  try {
+    const migrationSql = fs.readFileSync(path.join(__dirname, 'migrate/006_add_youtube_video_id.sql'), 'utf-8');
+    await pool.query(migrationSql);
+    console.log('[DB] Migration 006_add_youtube_video_id applied');
+  } catch (err) {
+    if (!err.message.includes('already exists')) {
+      console.error('[DB] Migration warning:', err.message);
+    }
+  }
+
+  // Populate youtube_video_id from local metadata.json (local mode)
+  if (!USE_HUGGINGFACE) {
+    try {
+      const metadataPath = path.join(CLIPS_DIR, 'metadata.json');
+      if (fs.existsSync(metadataPath)) {
+        const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+        const clips = metadata.clips || [];
+        let updated = 0;
+        for (const clip of clips) {
+          const videoId = clip.youtube_source?.video_id;
+          if (!videoId) continue;
+          const { rowCount } = await pool.query(
+            `UPDATE clips SET youtube_video_id = $1 WHERE id = $2 AND (youtube_video_id IS NULL OR youtube_video_id != $1)`,
+            [videoId, clip.id]
+          );
+          if (rowCount > 0) updated++;
+        }
+        if (updated > 0) console.log(`[DB] Updated youtube_video_id for ${updated} clips`);
+      }
+    } catch (err) {
+      console.error('[DB] youtube_video_id populate warning:', err.message);
+    }
+  }
+
   // Sync clips from HuggingFace if enabled
   if (USE_HUGGINGFACE) {
     try {

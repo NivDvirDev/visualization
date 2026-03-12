@@ -60,7 +60,45 @@ const HuggingFace = {
     }
 
     console.log(`[HuggingFace] Synced ${synced} clips from ${files.length} files`);
+
+    // Also fetch metadata to populate youtube_video_id
+    try {
+      await this.fetchMetadata();
+    } catch (err) {
+      console.error('[HuggingFace] Metadata fetch failed:', err.message);
+    }
+
     return { synced, total: files.length };
+  },
+
+  /**
+   * Fetch metadata.json from HuggingFace and update youtube_video_id for clips
+   */
+  async fetchMetadata() {
+    const url = `${HF_RESOLVE_BASE}/${HF_DATASET}/resolve/main/data/clips/metadata.json`;
+    const res = await fetch(url, { headers: headers() });
+    if (!res.ok) {
+      if (res.status === 404) return 0;
+      throw new Error(`HuggingFace metadata fetch error: ${res.status}`);
+    }
+    const metadata = await res.json();
+    const clips = metadata.clips || [];
+    let updated = 0;
+
+    for (const clip of clips) {
+      const videoId = clip.youtube_source?.video_id;
+      if (!videoId) continue;
+      const { rowCount } = await pool.query(
+        `UPDATE clips SET youtube_video_id = $1 WHERE id = $2 AND (youtube_video_id IS NULL OR youtube_video_id != $1)`,
+        [videoId, clip.id]
+      );
+      if (rowCount > 0) updated++;
+    }
+
+    if (updated > 0) {
+      console.log(`[HuggingFace] Updated youtube_video_id for ${updated} clips`);
+    }
+    return updated;
   },
 
   /**

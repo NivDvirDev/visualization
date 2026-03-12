@@ -1,4 +1,4 @@
-import { ClipSummary, ClipDetail, ClipMode, Label, LabelData, Stats, AuthResponse, User, AppConfig, LeaderboardEntry, MyStats, ClipRanking } from './types';
+import { ClipSummary, ClipDetail, ClipMode, Label, LabelData, Stats, AuthResponse, User, AppConfig, LeaderboardEntry, MyStats, ClipRanking, Challenge } from './types';
 
 const API = '/api';
 
@@ -113,3 +113,7 @@ export const getMyStats = (): Promise<MyStats> =>
 // Clip Rankings API
 export const getClipRankings = (): Promise<ClipRanking[]> =>
   fetch(`${API}/clips/rankings`).then((r) => r.json());
+
+// Weekly Challenge API
+export const getChallenge = (): Promise<Challenge> =>
+  fetch(`${API}/stats/challenge`).then((r) => r.json());

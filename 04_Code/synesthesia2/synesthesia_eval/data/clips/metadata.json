@@ -1,23 +1,12 @@
 {
-  "dataset": "synesthesia_eval_youtube_v1",
-  "version": "1.0",
-  "total_clips": 29,
+  "dataset": "synesthesia_eval_youtube_v2",
+  "version": "2.0",
+  "playlist_url": "https://youtube.com/playlist?list=PLpkBXaYFttw_UnR3RZ9fbTvOh-vsBQ3Y4",
+  "total_clips": 81,
   "clips": [
     {
       "id": "001",
-      "filename": "001_Loud Speaker + Candle = Epic Sound Wave Visualizat.mp4",
-      "description": "Loud Speaker + Candle = Epic Sound Wave Visualizat",
-      "source": "youtube_playlist",
-      "categories": {
-        "sync_quality": "unknown",
-        "visual_style": "youtube_curated",
-        "music_genre": "various",
-        "energy": "various"
-      }
-    },
-    {
-      "id": "002",
-      "filename": "002_2003 Beats per minute, visualized in Blender.mp4",
+      "filename": "001_2003 Beats per minute, visualized in Blender.mp4",
       "description": "2003 Beats per minute, visualized in Blender",
       "source": "youtube_playlist",
       "categories": {
@@ -25,23 +14,18 @@
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 1.12,
+      "youtube_source": {
+        "video_id": "VTWKNBzSEss",
+        "url": "https://www.youtube.com/watch?v=VTWKNBzSEss",
+        "channel": "Polyfjord",
+        "duration": 24
       }
     },
     {
-      "id": "003",
-      "filename": "003_The Sound OM - Cymatics\ud83d\udd0a #om #sound #cymatics.mp4",
-      "description": "The Sound OM - Cymatics\ud83d\udd0a #om #sound #cymatics",
-      "source": "youtube_playlist",
-      "categories": {
-        "sync_quality": "unknown",
-        "visual_style": "youtube_curated",
-        "music_genre": "various",
-        "energy": "various"
-      }
-    },
-    {
-      "id": "004",
-      "filename": "004_A Nightingale's Song Translated Into Data.mp4",
+      "id": "002",
+      "filename": "002_A Nightingale's Song Translated Into Data.mp4",
       "description": "A Nightingale's Song Translated Into Data",
       "source": "youtube_playlist",
       "categories": {
@@ -49,59 +33,94 @@
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 0.69,
+      "youtube_source": {
+        "video_id": "jtNGnkscgds",
+        "url": "https://www.youtube.com/watch?v=jtNGnkscgds",
+        "channel": "Lucio Arese",
+        "duration": 16
+      }
+    },
+    {
+      "id": "003",
+      "filename": "003_Sound visualization ! Subscribe @SuperGamerandRead.mp4",
+      "description": "Sound visualization ! Subscribe @SuperGamerandReader #science #projects",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 0.91,
+      "youtube_source": {
+        "video_id": "exCe3WuT1nw",
+        "url": "https://www.youtube.com/watch?v=exCe3WuT1nw",
+        "channel": "Super Gamer & Reader",
+        "duration": 16
+      }
+    },
+    {
+      "id": "004",
+      "filename": "004_Audio visualization with Processing - 2nd experime.mp4",
+      "description": "Audio visualization with Processing - 2nd experiment",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.03,
+      "youtube_source": {
+        "video_id": "O2l6bmdfzko",
+        "url": "https://www.youtube.com/watch?v=O2l6bmdfzko",
+        "channel": "Alberto Giachino",
+        "duration": 39
       }
     },
     {
       "id": "005",
-      "filename": "005_Sound visualization ! Subscribe @SuperGamerandRead.mp4",
-      "description": "Sound visualization ! Subscribe @SuperGamerandRead",
+      "filename": "005_Audio-reactive Voice Animations #audiovisualizer #.mp4",
+      "description": "Audio-reactive Voice Animations #audiovisualizer #b3d",
       "source": "youtube_playlist",
       "categories": {
         "sync_quality": "unknown",
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 5.63,
+      "youtube_source": {
+        "video_id": "nt-2YUipmYw",
+        "url": "https://www.youtube.com/watch?v=nt-2YUipmYw",
+        "channel": "Polyfjord",
+        "duration": 81
       }
     },
     {
       "id": "006",
-      "filename": "006_Audio visualization with Processing - 2nd experime.mp4",
-      "description": "Audio visualization with Processing - 2nd experime",
+      "filename": "006_Severance Main Theme Melody Visualization #b3d #se.mp4",
+      "description": "Severance Main Theme Melody Visualization #b3d #severance",
       "source": "youtube_playlist",
       "categories": {
         "sync_quality": "unknown",
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 1.67,
+      "youtube_source": {
+        "video_id": "_wIw14Q99Ao",
+        "url": "https://www.youtube.com/watch?v=_wIw14Q99Ao",
+        "channel": "Polyfjord",
+        "duration": 38
       }
     },
     {
       "id": "007",
-      "filename": "007_Audio-reactive Voice Animations #audiovisualizer #.mp4",
-      "description": "Audio-reactive Voice Animations #audiovisualizer #",
-      "source": "youtube_playlist",
-      "categories": {
-        "sync_quality": "unknown",
-        "visual_style": "youtube_curated",
-        "music_genre": "various",
-        "energy": "various"
-      }
-    },
-    {
-      "id": "008",
-      "filename": "008_Severance Main Theme Melody Visualization #b3d #se.mp4",
-      "description": "Severance Main Theme Melody Visualization #b3d #se",
-      "source": "youtube_playlist",
-      "categories": {
-        "sync_quality": "unknown",
-        "visual_style": "youtube_curated",
-        "music_genre": "various",
-        "energy": "various"
-      }
-    },
-    {
-      "id": "009",
-      "filename": "009_Pawn Promotion #b3d.mp4",
+      "filename": "007_Pawn Promotion #b3d.mp4",
       "description": "Pawn Promotion #b3d",
       "source": "youtube_playlist",
       "categories": {
@@ -109,71 +128,113 @@
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 0.31,
+      "youtube_source": {
+        "video_id": "cdsRYQ-E9M4",
+        "url": "https://www.youtube.com/watch?v=cdsRYQ-E9M4",
+        "channel": "Polyfjord",
+        "duration": 11
+      }
+    },
+    {
+      "id": "008",
+      "filename": "008_Ferrofluid art meets sound visualization #ferroflu.mp4",
+      "description": "Ferrofluid art meets sound visualization #ferrofluid",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.95,
+      "youtube_source": {
+        "video_id": "c2q6nVCtaDs",
+        "url": "https://www.youtube.com/watch?v=c2q6nVCtaDs",
+        "channel": "Wood Campbell",
+        "duration": 29
+      }
+    },
+    {
+      "id": "009",
+      "filename": "009_Experimenting with audio-reactive visuals using #T.mp4",
+      "description": "Experimenting with audio-reactive visuals using #TouchDesigner",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 0.98,
+      "youtube_source": {
+        "video_id": "_c_GexHrOsA",
+        "url": "https://www.youtube.com/watch?v=_c_GexHrOsA",
+        "channel": "ally crupi",
+        "duration": 12
       }
     },
     {
       "id": "010",
-      "filename": "010_Ferrofluid art meets sound visualization #ferroflu.mp4",
-      "description": "Ferrofluid art meets sound visualization #ferroflu",
+      "filename": "010_Visualization Of Sound #shorts #amazing #facts #sc.mp4",
+      "description": "Visualization Of Sound #shorts #amazing #facts #science #physics",
       "source": "youtube_playlist",
       "categories": {
         "sync_quality": "unknown",
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 1.13,
+      "youtube_source": {
+        "video_id": "rxMqCQffcI4",
+        "url": "https://www.youtube.com/watch?v=rxMqCQffcI4",
+        "channel": "Deep Facts",
+        "duration": 15
       }
     },
     {
       "id": "011",
-      "filename": "011_Experimenting with audio-reactive visuals using #T.mp4",
-      "description": "Experimenting with audio-reactive visuals using #T",
+      "filename": "011_Mandelbrot Set _ 🎥 Short Zoom #4 _ Sound Visualiza.mp4",
+      "description": "Mandelbrot Set | 🎥 Short Zoom #4 | Sound Visualization | Behringer TD-3",
       "source": "youtube_playlist",
       "categories": {
         "sync_quality": "unknown",
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 2.47,
+      "youtube_source": {
+        "video_id": "06w930byMhU",
+        "url": "https://www.youtube.com/watch?v=06w930byMhU",
+        "channel": "Aleksey Osipenkov | Art",
+        "duration": 34
       }
     },
     {
       "id": "012",
-      "filename": "012_Visualization Of Sound #shorts #amazing #facts #sc.mp4",
-      "description": "Visualization Of Sound #shorts #amazing #facts #sc",
+      "filename": "012_Sound Visualization Emotional Bass 🎧.mp4",
+      "description": "Sound Visualization Emotional Bass 🎧",
       "source": "youtube_playlist",
       "categories": {
         "sync_quality": "unknown",
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 0.51,
+      "youtube_source": {
+        "video_id": "9WawdG0JUJU",
+        "url": "https://www.youtube.com/watch?v=9WawdG0JUJU",
+        "channel": "Somnambulist Jam (Videos)",
+        "duration": 11
       }
     },
     {
       "id": "013",
-      "filename": "013_Mandelbrot Set \uff5c \ud83c\udfa5 Short Zoom #4 \uff5c Sound Visualiza.mp4",
-      "description": "Mandelbrot Set \uff5c \ud83c\udfa5 Short Zoom #4 \uff5c Sound Visualiza",
-      "source": "youtube_playlist",
-      "categories": {
-        "sync_quality": "unknown",
-        "visual_style": "youtube_curated",
-        "music_genre": "various",
-        "energy": "various"
-      }
-    },
-    {
-      "id": "014",
-      "filename": "014_Sound Visualization Emotional Bass \ud83c\udfa7.mp4",
-      "description": "Sound Visualization Emotional Bass \ud83c\udfa7",
-      "source": "youtube_playlist",
-      "categories": {
-        "sync_quality": "unknown",
-        "visual_style": "youtube_curated",
-        "music_genre": "various",
-        "energy": "various"
-      }
-    },
-    {
-      "id": "015",
-      "filename": "015_Visualizing a Nightingale's Song.mp4",
+      "filename": "013_Visualizing a Nightingale's Song.mp4",
       "description": "Visualizing a Nightingale's Song",
       "source": "youtube_playlist",
       "categories": {
@@ -181,11 +242,18 @@
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 0.96,
+      "youtube_source": {
+        "video_id": "sV4fk1RqAf4",
+        "url": "https://www.youtube.com/watch?v=sV4fk1RqAf4",
+        "channel": "Lucio Arese",
+        "duration": 16
       }
     },
     {
-      "id": "016",
-      "filename": "016_MagnusTheMagnus - Area ( Sound Visualization ).mp4",
+      "id": "014",
+      "filename": "014_MagnusTheMagnus - Area ( Sound Visualization ).mp4",
       "description": "MagnusTheMagnus - Area ( Sound Visualization )",
       "source": "youtube_playlist",
       "categories": {
@@ -193,47 +261,75 @@
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 4.17,
+      "youtube_source": {
+        "video_id": "4Lu4ozue1xs",
+        "url": "https://www.youtube.com/watch?v=4Lu4ozue1xs",
+        "channel": "Crumble",
+        "duration": 37
+      }
+    },
+    {
+      "id": "015",
+      "filename": "015_Sound visualization _ Whales singing.mp4",
+      "description": "Sound visualization / Whales singing",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.26,
+      "youtube_source": {
+        "video_id": "c6fb5SPsalk",
+        "url": "https://www.youtube.com/watch?v=c6fb5SPsalk",
+        "channel": "barbe_generative_diary",
+        "duration": 32
+      }
+    },
+    {
+      "id": "016",
+      "filename": "016_WaveBinder_ Audio Visualization #unity3d #nocode #.mp4",
+      "description": "WaveBinder: Audio Visualization #unity3d #nocode #visualizer #unityasset #unityassetstore",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.26,
+      "youtube_source": {
+        "video_id": "hnsfjxCTg0g",
+        "url": "https://www.youtube.com/watch?v=hnsfjxCTg0g",
+        "channel": "BabyBatStudio",
+        "duration": 16
       }
     },
     {
       "id": "017",
-      "filename": "017_Sound visualization \u29f8 Whales singing.mp4",
-      "description": "Sound visualization \u29f8 Whales singing",
+      "filename": "017_𝓛𝓲𝓼𝓽𝓮𝓷 𝓪𝓷𝓭 𝓦𝓪𝓽𝓬𝓱 — 𝓐𝓾𝓭𝓲𝓸 𝓥𝓲𝓼𝓾𝓪𝓵𝓲𝔃𝓪𝓽𝓲𝓸𝓷 𝓘𝓷 𝓐𝓬𝓽𝓲𝓸𝓷 #.mp4",
+      "description": "𝓛𝓲𝓼𝓽𝓮𝓷 𝓪𝓷𝓭 𝓦𝓪𝓽𝓬𝓱 — 𝓐𝓾𝓭𝓲𝓸 𝓥𝓲𝓼𝓾𝓪𝓵𝓲𝔃𝓪𝓽𝓲𝓸𝓷 𝓘𝓷 𝓐𝓬𝓽𝓲𝓸𝓷 #shorts #musicVisualizer #audioVisualizer",
       "source": "youtube_playlist",
       "categories": {
         "sync_quality": "unknown",
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 2.52,
+      "youtube_source": {
+        "video_id": "JAT54nGTxvo",
+        "url": "https://www.youtube.com/watch?v=JAT54nGTxvo",
+        "channel": "",
+        "duration": 51
       }
     },
     {
       "id": "018",
-      "filename": "018_WaveBinder\uff1a Audio Visualization #unity3d #nocode #.mp4",
-      "description": "WaveBinder\uff1a Audio Visualization #unity3d #nocode #",
-      "source": "youtube_playlist",
-      "categories": {
-        "sync_quality": "unknown",
-        "visual_style": "youtube_curated",
-        "music_genre": "various",
-        "energy": "various"
-      }
-    },
-    {
-      "id": "019",
-      "filename": "019_\ud835\udcdb\ud835\udcf2\ud835\udcfc\ud835\udcfd\ud835\udcee\ud835\udcf7 \ud835\udcea\ud835\udcf7\ud835\udced \ud835\udce6\ud835\udcea\ud835\udcfd\ud835\udcec\ud835\udcf1 \u2014 \ud835\udcd0\ud835\udcfe\ud835\udced\ud835\udcf2\ud835\udcf8 \ud835\udce5\ud835\udcf2\ud835\udcfc\ud835\udcfe\ud835\udcea\ud835\udcf5\ud835\udcf2\ud835\udd03\ud835\udcea\ud835\udcfd\ud835\udcf2\ud835\udcf8\ud835\udcf7 \ud835\udcd8\ud835\udcf7 \ud835\udcd0\ud835\udcec\ud835\udcfd\ud835\udcf2\ud835\udcf8\ud835\udcf7 #.mp4",
-      "description": "\ud835\udcdb\ud835\udcf2\ud835\udcfc\ud835\udcfd\ud835\udcee\ud835\udcf7 \ud835\udcea\ud835\udcf7\ud835\udced \ud835\udce6\ud835\udcea\ud835\udcfd\ud835\udcec\ud835\udcf1 \u2014 \ud835\udcd0\ud835\udcfe\ud835\udced\ud835\udcf2\ud835\udcf8 \ud835\udce5\ud835\udcf2\ud835\udcfc\ud835\udcfe\ud835\udcea\ud835\udcf5\ud835\udcf2\ud835\udd03\ud835\udcea\ud835\udcfd\ud835\udcf2\ud835\udcf8\ud835\udcf7 \ud835\udcd8\ud835\udcf7 \ud835\udcd0\ud835\udcec\ud835\udcfd\ud835\udcf2\ud835\udcf8\ud835\udcf7 #",
-      "source": "youtube_playlist",
-      "categories": {
-        "sync_quality": "unknown",
-        "visual_style": "youtube_curated",
-        "music_genre": "various",
-        "energy": "various"
-      }
-    },
-    {
-      "id": "020",
-      "filename": "020_Audio Visualization in Blender #1.mp4",
+      "filename": "018_Audio Visualization in Blender #1.mp4",
       "description": "Audio Visualization in Blender #1",
       "source": "youtube_playlist",
       "categories": {
@@ -241,11 +337,18 @@
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 5.46,
+      "youtube_source": {
+        "video_id": "3mwD_CTQ4xs",
+        "url": "https://www.youtube.com/watch?v=3mwD_CTQ4xs",
+        "channel": "Ayden3D",
+        "duration": 40
       }
     },
     {
-      "id": "021",
-      "filename": "021_audio visualization.mp4",
+      "id": "019",
+      "filename": "019_audio visualization.mp4",
       "description": "audio visualization",
       "source": "youtube_playlist",
       "categories": {
@@ -253,83 +356,132 @@
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 1.04,
+      "youtube_source": {
+        "video_id": "oHqBzN9Oiz8",
+        "url": "https://www.youtube.com/watch?v=oHqBzN9Oiz8",
+        "channel": "Лидия Хаит",
+        "duration": 36
+      }
+    },
+    {
+      "id": "020",
+      "filename": "020_Synth party _ #blender audio visualization.mp4",
+      "description": "Synth party | #blender audio visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 0.31,
+      "youtube_source": {
+        "video_id": "UetJixsUjzA",
+        "url": "https://www.youtube.com/watch?v=UetJixsUjzA",
+        "channel": "Almighty J",
+        "duration": 10
+      }
+    },
+    {
+      "id": "021",
+      "filename": "021_Audio visualisation with   #music #art #visualizat.mp4",
+      "description": "Audio visualisation with   #music #art #visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 0.66,
+      "youtube_source": {
+        "video_id": "o4UL6lJT6D8",
+        "url": "https://www.youtube.com/watch?v=o4UL6lJT6D8",
+        "channel": "NonCon Beats",
+        "duration": 32
       }
     },
     {
       "id": "022",
-      "filename": "022_Synth party \uff5c #blender audio visualization.mp4",
-      "description": "Synth party \uff5c #blender audio visualization",
+      "filename": "022_Python Demo_ Visuals Generated from Audio Files _ .mp4",
+      "description": "Python Demo: Visuals Generated from Audio Files | Sound-to-Image Visualization",
       "source": "youtube_playlist",
       "categories": {
         "sync_quality": "unknown",
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 2.07,
+      "youtube_source": {
+        "video_id": "x1ydFcmupRs",
+        "url": "https://www.youtube.com/watch?v=x1ydFcmupRs",
+        "channel": "ToboLab",
+        "duration": 60
       }
     },
     {
       "id": "023",
-      "filename": "023_Audio visualisation with   #music #art #visualizat.mp4",
-      "description": "Audio visualisation with   #music #art #visualizat",
+      "filename": "023_Sound visualization with AE🎧 #motiongraphics #grap.mp4",
+      "description": "Sound visualization with AE🎧 #motiongraphics #graphicdesign #digitalart #aftereffects #soundeffects",
       "source": "youtube_playlist",
       "categories": {
         "sync_quality": "unknown",
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 3.27,
+      "youtube_source": {
+        "video_id": "nmgnHS96OT4",
+        "url": "https://www.youtube.com/watch?v=nmgnHS96OT4",
+        "channel": "in_motion_lab",
+        "duration": 36
       }
     },
     {
       "id": "024",
-      "filename": "024_Python Demo\uff1a Visuals Generated from Audio Files \uff5c .mp4",
-      "description": "Python Demo\uff1a Visuals Generated from Audio Files \uff5c ",
+      "filename": "024_Audio Visualization _ Files on Patreon _ Unreal En.mp4",
+      "description": "Audio Visualization | Files on Patreon | Unreal Engine Niagara Tutorial | UE4 Niagara Audio Spectrum",
       "source": "youtube_playlist",
       "categories": {
         "sync_quality": "unknown",
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 1.01,
+      "youtube_source": {
+        "video_id": "eMoeu9YNS-Q",
+        "url": "https://www.youtube.com/watch?v=eMoeu9YNS-Q",
+        "channel": "CGHOW",
+        "duration": 12
       }
     },
     {
       "id": "025",
-      "filename": "025_Sound visualization with AE\ud83c\udfa7 #motiongraphics #grap.mp4",
-      "description": "Sound visualization with AE\ud83c\udfa7 #motiongraphics #grap",
+      "filename": "025_Visamp.io visualization_ Wavepoint _ audio by Neon.mp4",
+      "description": "Visamp.io visualization: Wavepoint | audio by Neon Nox: Rogue",
       "source": "youtube_playlist",
       "categories": {
         "sync_quality": "unknown",
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 4.81,
+      "youtube_source": {
+        "video_id": "BFCq8u4402w",
+        "url": "https://www.youtube.com/watch?v=BFCq8u4402w",
+        "channel": "Visamp",
+        "duration": 60
       }
     },
     {
       "id": "026",
-      "filename": "026_Audio Visualization \uff5c Files on Patreon \uff5c Unreal En.mp4",
-      "description": "Audio Visualization \uff5c Files on Patreon \uff5c Unreal En",
-      "source": "youtube_playlist",
-      "categories": {
-        "sync_quality": "unknown",
-        "visual_style": "youtube_curated",
-        "music_genre": "various",
-        "energy": "various"
-      }
-    },
-    {
-      "id": "027",
-      "filename": "027_Visamp.io visualization\uff1a Wavepoint \uff5c audio by Neon.mp4",
-      "description": "Visamp.io visualization\uff1a Wavepoint \uff5c audio by Neon",
-      "source": "youtube_playlist",
-      "categories": {
-        "sync_quality": "unknown",
-        "visual_style": "youtube_curated",
-        "music_genre": "various",
-        "energy": "various"
-      }
-    },
-    {
-      "id": "028",
-      "filename": "028_audio visualization in blender #shorts.mp4",
+      "filename": "026_audio visualization in blender #shorts.mp4",
       "description": "audio visualization in blender #shorts",
       "source": "youtube_playlist",
       "categories": {
@@ -337,18 +489,1058 @@
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 1.14,
+      "youtube_source": {
+        "video_id": "GM0L4kHH_UY",
+        "url": "https://www.youtube.com/watch?v=GM0L4kHH_UY",
+        "channel": "Meta Shader",
+        "duration": 25
       }
     },
     {
-      "id": "029",
-      "filename": "029_Spectral view of music #synesthesia #music #visual.mp4",
-      "description": "Spectral view of music #synesthesia #music #visual",
+      "id": "027",
+      "filename": "027_Spectral view of music #synesthesia #music #visual.mp4",
+      "description": "Spectral view of music #synesthesia #music #visualization",
       "source": "youtube_playlist",
       "categories": {
         "sync_quality": "unknown",
         "visual_style": "youtube_curated",
         "music_genre": "various",
         "energy": "various"
+      },
+      "size_mb": 1.65,
+      "youtube_source": {
+        "video_id": "d1rJhn1mrac",
+        "url": "https://www.youtube.com/watch?v=d1rJhn1mrac",
+        "channel": "Ady Wilder",
+        "duration": 38
+      }
+    },
+    {
+      "id": "028",
+      "filename": "028_A Blackcap's Timbral Manifold.mp4",
+      "description": "A Blackcap's Timbral Manifold",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.11,
+      "youtube_source": {
+        "video_id": "lVrTHYjqNXI",
+        "url": "https://www.youtube.com/watch?v=lVrTHYjqNXI",
+        "channel": "Lucio Arese",
+        "duration": 19
+      }
+    },
+    {
+      "id": "029",
+      "filename": "029_Visualization ur beat 🏰 #design #visualeffects #ra.mp4",
+      "description": "Visualization ur beat 🏰 #design #visualeffects #rap #music #visualization #mixedmedia #beats #beat",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 4.2,
+      "youtube_source": {
+        "video_id": "5alad9LmmLI",
+        "url": "https://www.youtube.com/watch?v=5alad9LmmLI",
+        "channel": "Miso",
+        "duration": 61
+      }
+    },
+    {
+      "id": "030",
+      "filename": "030_Oscar Maydon & Fuerza Regida - Tu Boda 1.mp4",
+      "description": "Oscar Maydon & Fuerza Regida - Tu Boda 1",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.68,
+      "youtube_source": {
+        "video_id": "A1k4yGiI8dA",
+        "url": "https://www.youtube.com/watch?v=A1k4yGiI8dA",
+        "channel": "Soul Sync Viz",
+        "duration": 51
+      }
+    },
+    {
+      "id": "031",
+      "filename": "031_Paranoid (Just Raw).mp4",
+      "description": "Paranoid (Just Raw)",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.04,
+      "youtube_source": {
+        "video_id": "h2jhLQelUhM",
+        "url": "https://www.youtube.com/watch?v=h2jhLQelUhM",
+        "channel": "Aloboi",
+        "duration": 20
+      }
+    },
+    {
+      "id": "032",
+      "filename": "032_Black Waters (Music Visualization)  #cinematicmusi.mp4",
+      "description": "Black Waters (Music Visualization)  #cinematicmusic #visualizer #visualization #instrumentalmusic",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.51,
+      "youtube_source": {
+        "video_id": "-pOP3BTZEvk",
+        "url": "https://www.youtube.com/watch?v=-pOP3BTZEvk",
+        "channel": "Göran Bäckman",
+        "duration": 18
+      }
+    },
+    {
+      "id": "033",
+      "filename": "033_music visualization.mp4",
+      "description": "music visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 21.07,
+      "youtube_source": {
+        "video_id": "Op1eizg2uJ8",
+        "url": "https://www.youtube.com/watch?v=Op1eizg2uJ8",
+        "channel": "Jeremy Low",
+        "duration": 197
+      }
+    },
+    {
+      "id": "035",
+      "filename": "035_Music Visualisation using Processing (Java) Combin.mp4",
+      "description": "Music Visualisation using Processing (Java) Combining Sound and Graphics #coding #processing #design",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 0.43,
+      "youtube_source": {
+        "video_id": "ocx3V2ZqzAA",
+        "url": "https://www.youtube.com/watch?v=ocx3V2ZqzAA",
+        "channel": "5pr1ght",
+        "duration": 21
+      }
+    },
+    {
+      "id": "036",
+      "filename": "036_Audio visualizer simulation experiment #b3d.mp4",
+      "description": "Audio visualizer simulation experiment #b3d",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 0.91,
+      "youtube_source": {
+        "video_id": "SjUEuBe7j_I",
+        "url": "https://www.youtube.com/watch?v=SjUEuBe7j_I",
+        "channel": "Polyfjord",
+        "duration": 19
+      }
+    },
+    {
+      "id": "037",
+      "filename": "037_Simple Sound Visualization with Blender.mp4",
+      "description": "Simple Sound Visualization with Blender",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 4.52,
+      "youtube_source": {
+        "video_id": "Hsj532pjdSU",
+        "url": "https://www.youtube.com/watch?v=Hsj532pjdSU",
+        "channel": "taucher1945",
+        "duration": 38
+      }
+    },
+    {
+      "id": "038",
+      "filename": "038_Audio Visualization FX in UE 4 Niagara _ @UnrealEn.mp4",
+      "description": "Audio Visualization FX in UE 4 Niagara | @UnrealEngine",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.26,
+      "youtube_source": {
+        "video_id": "NwDKhjzRfwI",
+        "url": "https://www.youtube.com/watch?v=NwDKhjzRfwI",
+        "channel": "CG ARTVISION",
+        "duration": 29
+      }
+    },
+    {
+      "id": "039",
+      "filename": "039_Cloud2 realtime webGL sound visualization demo.mp4",
+      "description": "Cloud2 realtime webGL sound visualization demo",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 17.89,
+      "youtube_source": {
+        "video_id": "4yeJu731jD8",
+        "url": "https://www.youtube.com/watch?v=4yeJu731jD8",
+        "channel": "Damien Benoit",
+        "duration": 146
+      }
+    },
+    {
+      "id": "040",
+      "filename": "040_Sound Visualization.mp4",
+      "description": "Sound Visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 10.35,
+      "youtube_source": {
+        "video_id": "GJ7-1AZiPVA",
+        "url": "https://www.youtube.com/watch?v=GJ7-1AZiPVA",
+        "channel": "Sivix",
+        "duration": 51
+      }
+    },
+    {
+      "id": "041",
+      "filename": "041_Sound Visualization _ Motion Graphics.mp4",
+      "description": "Sound Visualization | Motion Graphics",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 17.45,
+      "youtube_source": {
+        "video_id": "dqnMoWHon40",
+        "url": "https://www.youtube.com/watch?v=dqnMoWHon40",
+        "channel": "YUJAEHO",
+        "duration": 91
+      }
+    },
+    {
+      "id": "042",
+      "filename": "042_Audio Visualization With After Effects.mp4",
+      "description": "Audio Visualization With After Effects",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 8.75,
+      "youtube_source": {
+        "video_id": "4L4nWAoBpeg",
+        "url": "https://www.youtube.com/watch?v=4L4nWAoBpeg",
+        "channel": "Michael Mokhtar",
+        "duration": 33
+      }
+    },
+    {
+      "id": "043",
+      "filename": "043_UE4 Audio Visualization - Sound Beam Circle.mp4",
+      "description": "UE4 Audio Visualization - Sound Beam Circle",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 26.11,
+      "youtube_source": {
+        "video_id": "QH2cAOLJ_cs",
+        "url": "https://www.youtube.com/watch?v=QH2cAOLJ_cs",
+        "channel": "drb8462",
+        "duration": 143
+      }
+    },
+    {
+      "id": "044",
+      "filename": "044_Sound Visualization HD.mp4",
+      "description": "Sound Visualization HD",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 24.25,
+      "youtube_source": {
+        "video_id": "BWrfvmSZRxA",
+        "url": "https://www.youtube.com/watch?v=BWrfvmSZRxA",
+        "channel": "PleasePhunkOff",
+        "duration": 91
+      }
+    },
+    {
+      "id": "045",
+      "filename": "045_Sound Visualization Polygon Ocean Daytime.mp4",
+      "description": "Sound Visualization Polygon Ocean Daytime",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 33.94,
+      "youtube_source": {
+        "video_id": "AqUvhgTV70A",
+        "url": "https://www.youtube.com/watch?v=AqUvhgTV70A",
+        "channel": "podcast mechanics",
+        "duration": 179
+      }
+    },
+    {
+      "id": "046",
+      "filename": "046_MV_ Believing(Processing sound visualization study.mp4",
+      "description": "MV: Believing(Processing sound visualization study) by Sad Juno",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 36.25,
+      "youtube_source": {
+        "video_id": "8OjJnXsUcvE",
+        "url": "https://www.youtube.com/watch?v=8OjJnXsUcvE",
+        "channel": "SadJuno",
+        "duration": 139
+      }
+    },
+    {
+      "id": "047",
+      "filename": "047_3D _ Aural Psynapse Audio Visualization.mp4",
+      "description": "3D | Aural Psynapse Audio Visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 17.24,
+      "youtube_source": {
+        "video_id": "uxDakuYsUz8",
+        "url": "https://www.youtube.com/watch?v=uxDakuYsUz8",
+        "channel": "Mark Scott",
+        "duration": 106
+      }
+    },
+    {
+      "id": "048",
+      "filename": "048_vj visual sound visualization made with blender.mp4",
+      "description": "vj visual sound visualization made with blender",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 34.94,
+      "youtube_source": {
+        "video_id": "Sa9EhPiSnCA",
+        "url": "https://www.youtube.com/watch?v=Sa9EhPiSnCA",
+        "channel": "patrickkorf",
+        "duration": 120
+      }
+    },
+    {
+      "id": "049",
+      "filename": "049_Audio Visualization in Unreal Engine.mp4",
+      "description": "Audio Visualization in Unreal Engine",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.53,
+      "youtube_source": {
+        "video_id": "KO5sQiZ8tJ0",
+        "url": "https://www.youtube.com/watch?v=KO5sQiZ8tJ0",
+        "channel": "Kyle Geske",
+        "duration": 63
+      }
+    },
+    {
+      "id": "050",
+      "filename": "050__Bleep Bloop_ - a 2D Abstract Audio Visualization .mp4",
+      "description": "\"Bleep Bloop\" - a 2D Abstract Audio Visualization HD",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.57,
+      "youtube_source": {
+        "video_id": "EdaB5y2QW0s",
+        "url": "https://www.youtube.com/watch?v=EdaB5y2QW0s",
+        "channel": "Joe Marranca's Portfolio",
+        "duration": 62
+      }
+    },
+    {
+      "id": "051",
+      "filename": "051_Processing - Simple sound visualization.mp4",
+      "description": "Processing - Simple sound visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 3.17,
+      "youtube_source": {
+        "video_id": "EjGGrYw-8-w",
+        "url": "https://www.youtube.com/watch?v=EjGGrYw-8-w",
+        "channel": "Will Marx",
+        "duration": 31
+      }
+    },
+    {
+      "id": "052",
+      "filename": "052_Audio Visualization- Cinema 4D & After Effects.mp4",
+      "description": "Audio Visualization- Cinema 4D & After Effects",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 16.47,
+      "youtube_source": {
+        "video_id": "Dxm_C8xV3xk",
+        "url": "https://www.youtube.com/watch?v=Dxm_C8xV3xk",
+        "channel": "akash bose",
+        "duration": 78
+      }
+    },
+    {
+      "id": "053",
+      "filename": "053_DEMO _ Sound Visualization Study.mp4",
+      "description": "DEMO / Sound Visualization Study",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 44.27,
+      "youtube_source": {
+        "video_id": "Kjp6Ej28wM4",
+        "url": "https://www.youtube.com/watch?v=Kjp6Ej28wM4",
+        "channel": "Jimmy “Blender Sushi Guy” Gunawan",
+        "duration": 179
+      }
+    },
+    {
+      "id": "054",
+      "filename": "054_Sound Visualization - Processing.mp4",
+      "description": "Sound Visualization - Processing",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 28.27,
+      "youtube_source": {
+        "video_id": "f2ECVWpNvPA",
+        "url": "https://www.youtube.com/watch?v=f2ECVWpNvPA",
+        "channel": "Magdalena Samonigg",
+        "duration": 107
+      }
+    },
+    {
+      "id": "055",
+      "filename": "055_Ring Audio Visualization.mp4",
+      "description": "Ring Audio Visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 4.11,
+      "youtube_source": {
+        "video_id": "GfR5iPDUu_A",
+        "url": "https://www.youtube.com/watch?v=GfR5iPDUu_A",
+        "channel": "Bear Hagen",
+        "duration": 33
+      }
+    },
+    {
+      "id": "056",
+      "filename": "056_Sound Visualization.mp4",
+      "description": "Sound Visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 3.09,
+      "youtube_source": {
+        "video_id": "v38VSmhwKyU",
+        "url": "https://www.youtube.com/watch?v=v38VSmhwKyU",
+        "channel": "mitotet",
+        "duration": 33
+      }
+    },
+    {
+      "id": "057",
+      "filename": "057_Sound Visualization - Blender 2.6.mp4",
+      "description": "Sound Visualization - Blender 2.6",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 7.8,
+      "youtube_source": {
+        "video_id": "zxFSLfYfLxc",
+        "url": "https://www.youtube.com/watch?v=zxFSLfYfLxc",
+        "channel": "JoaoYates",
+        "duration": 108
+      }
+    },
+    {
+      "id": "058",
+      "filename": "058_Processing Sound Visualization #4.mp4",
+      "description": "Processing Sound Visualization #4",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 29.5,
+      "youtube_source": {
+        "video_id": "NsfxVLcOfmg",
+        "url": "https://www.youtube.com/watch?v=NsfxVLcOfmg",
+        "channel": "strckture",
+        "duration": 83
+      }
+    },
+    {
+      "id": "059",
+      "filename": "059_Sound Resonance Music Visualizer _ How to Create a.mp4",
+      "description": "Sound Resonance Music Visualizer | How to Create a Music Visualization Template",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 9.12,
+      "youtube_source": {
+        "video_id": "JxWGQwz8K7Q",
+        "url": "https://www.youtube.com/watch?v=JxWGQwz8K7Q",
+        "channel": "Renderforest",
+        "duration": 51
+      }
+    },
+    {
+      "id": "060",
+      "filename": "060_Audio visualization 3d.mp4",
+      "description": "Audio visualization 3d",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 12.55,
+      "youtube_source": {
+        "video_id": "Kt-XWzGHgdM",
+        "url": "https://www.youtube.com/watch?v=Kt-XWzGHgdM",
+        "channel": "Jeremy Low",
+        "duration": 129
+      }
+    },
+    {
+      "id": "061",
+      "filename": "061_Free After Effects Audio Visualization Template - .mp4",
+      "description": "Free After Effects Audio Visualization Template - Stock Music: Surfing the charts",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 14.71,
+      "youtube_source": {
+        "video_id": "A5dXAoseGps",
+        "url": "https://www.youtube.com/watch?v=A5dXAoseGps",
+        "channel": "MeGustaMusicTube",
+        "duration": 153
+      }
+    },
+    {
+      "id": "062",
+      "filename": "062_Audio Visualization - _Quipkick - Dark Matter_.mp4",
+      "description": "Audio Visualization - \"Quipkick - Dark Matter\"",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 23.46,
+      "youtube_source": {
+        "video_id": "ln5CSIuVgLc",
+        "url": "https://www.youtube.com/watch?v=ln5CSIuVgLc",
+        "channel": "Mitsuma",
+        "duration": 157
+      }
+    },
+    {
+      "id": "063",
+      "filename": "063_Phlylow - Audio Visualization [Unity][WIP#2].mp4",
+      "description": "Phlylow - Audio Visualization [Unity][WIP#2]",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 45.7,
+      "youtube_source": {
+        "video_id": "_yrkNyiXhXE",
+        "url": "https://www.youtube.com/watch?v=_yrkNyiXhXE",
+        "channel": "Peer Play",
+        "duration": 113
+      }
+    },
+    {
+      "id": "064",
+      "filename": "064_After Effects Audio Visualization Lightning - Prev.mp4",
+      "description": "After Effects Audio Visualization Lightning - Preview",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 3.8,
+      "youtube_source": {
+        "video_id": "A29BqYe753I",
+        "url": "https://www.youtube.com/watch?v=A29BqYe753I",
+        "channel": "Dorion2210",
+        "duration": 61
+      }
+    },
+    {
+      "id": "065",
+      "filename": "065_Audio-Visualization---Waveform, Spectrum, Sine.mp4",
+      "description": "Audio-Visualization---Waveform, Spectrum, Sine",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 8.28,
+      "youtube_source": {
+        "video_id": "M1vgzOlViHw",
+        "url": "https://www.youtube.com/watch?v=M1vgzOlViHw",
+        "channel": "N7Z6O6ypHI",
+        "duration": 31
+      }
+    },
+    {
+      "id": "066",
+      "filename": "066_Fall - audio visualization in blender.mp4",
+      "description": "Fall - audio visualization in blender",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 13.78,
+      "youtube_source": {
+        "video_id": "TEglyK0igh8",
+        "url": "https://www.youtube.com/watch?v=TEglyK0igh8",
+        "channel": "LighToueR",
+        "duration": 82
+      }
+    },
+    {
+      "id": "067",
+      "filename": "067_Unreal Engine 5 _ Niagara Audio Visualization.mp4",
+      "description": "Unreal Engine 5 : Niagara Audio Visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 10.4,
+      "youtube_source": {
+        "video_id": "hWF49MqVunk",
+        "url": "https://www.youtube.com/watch?v=hWF49MqVunk",
+        "channel": "S RB",
+        "duration": 38
+      }
+    },
+    {
+      "id": "068",
+      "filename": "068_Crumbled [kimchi] • Audio Visualization • Trapcode.mp4",
+      "description": "Crumbled [kimchi] • Audio Visualization • Trapcode Tao • Trapcode Soundkeys",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 14.13,
+      "youtube_source": {
+        "video_id": "3OIpzoOURWw",
+        "url": "https://www.youtube.com/watch?v=3OIpzoOURWw",
+        "channel": "Ben Wade",
+        "duration": 85
+      }
+    },
+    {
+      "id": "069",
+      "filename": "069_Processing Sound Visualization #5.mp4",
+      "description": "Processing Sound Visualization #5",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 25.38,
+      "youtube_source": {
+        "video_id": "11qwLAIMI8g",
+        "url": "https://www.youtube.com/watch?v=11qwLAIMI8g",
+        "channel": "strckture",
+        "duration": 112
+      }
+    },
+    {
+      "id": "070",
+      "filename": "070_Audio visualization with Processing3 ~ Blue Blur B.mp4",
+      "description": "Audio visualization with Processing3 ~ Blue Blur Blow~",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 35.65,
+      "youtube_source": {
+        "video_id": "AxyUGSDqLYU",
+        "url": "https://www.youtube.com/watch?v=AxyUGSDqLYU",
+        "channel": "Noriyuki Matsumoto (リ・ウェブ)",
+        "duration": 134
+      }
+    },
+    {
+      "id": "071",
+      "filename": "071_Unity audio visualization - funky marble.mp4",
+      "description": "Unity audio visualization - funky marble",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 12.07,
+      "youtube_source": {
+        "video_id": "lYuYKaFcWnQ",
+        "url": "https://www.youtube.com/watch?v=lYuYKaFcWnQ",
+        "channel": "Acetix",
+        "duration": 48
+      }
+    },
+    {
+      "id": "072",
+      "filename": "072_Audio visualization test.mp4",
+      "description": "Audio visualization test",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.66,
+      "youtube_source": {
+        "video_id": "cd-iGbgpMxo",
+        "url": "https://www.youtube.com/watch?v=cd-iGbgpMxo",
+        "channel": "dwsel",
+        "duration": 43
+      }
+    },
+    {
+      "id": "074",
+      "filename": "074_Piano Jazz - Audio Visualization - Generative Grap.mp4",
+      "description": "Piano Jazz - Audio Visualization - Generative Graphics",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 1.17,
+      "youtube_source": {
+        "video_id": "pj5rlf8-368",
+        "url": "https://www.youtube.com/watch?v=pj5rlf8-368",
+        "channel": "Walon Cab",
+        "duration": 36
+      }
+    },
+    {
+      "id": "075",
+      "filename": "075_After Effects - Sound Visualized.mp4",
+      "description": "After Effects - Sound Visualized",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 12.56,
+      "youtube_source": {
+        "video_id": "XZ3UqdG7Qts",
+        "url": "https://www.youtube.com/watch?v=XZ3UqdG7Qts",
+        "channel": "caseymustach",
+        "duration": 93
+      }
+    },
+    {
+      "id": "076",
+      "filename": "076_Audio Visualization test 1.mp4",
+      "description": "Audio Visualization test 1",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 9.78,
+      "youtube_source": {
+        "video_id": "mXuW_mcO2Lo",
+        "url": "https://www.youtube.com/watch?v=mXuW_mcO2Lo",
+        "channel": "the_Sean712",
+        "duration": 45
+      }
+    },
+    {
+      "id": "077",
+      "filename": "077_Lines Audio Visualization.mp4",
+      "description": "Lines Audio Visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 23.1,
+      "youtube_source": {
+        "video_id": "-Dr9f8_RE44",
+        "url": "https://www.youtube.com/watch?v=-Dr9f8_RE44",
+        "channel": "JR",
+        "duration": 95
+      }
+    },
+    {
+      "id": "078",
+      "filename": "078_Sound Visualization.mp4",
+      "description": "Sound Visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 19.33,
+      "youtube_source": {
+        "video_id": "LRtIoxgE0b8",
+        "url": "https://www.youtube.com/watch?v=LRtIoxgE0b8",
+        "channel": "Ryan Rasmussen",
+        "duration": 76
+      }
+    },
+    {
+      "id": "079",
+      "filename": "079_Sound Visualization I.mp4",
+      "description": "Sound Visualization I",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 3.57,
+      "youtube_source": {
+        "video_id": "T3cf264esf0",
+        "url": "https://www.youtube.com/watch?v=T3cf264esf0",
+        "channel": "och8",
+        "duration": 37
+      }
+    },
+    {
+      "id": "080",
+      "filename": "080_Audio Visualization of the Music_ Deep Space.mp4",
+      "description": "Audio Visualization of the Music: Deep Space",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 32.0,
+      "youtube_source": {
+        "video_id": "Jt6mFtYF-s4",
+        "url": "https://www.youtube.com/watch?v=Jt6mFtYF-s4",
+        "channel": "João",
+        "duration": 155
+      }
+    },
+    {
+      "id": "081",
+      "filename": "081_sound visualization.mp4",
+      "description": "sound visualization",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 12.75,
+      "youtube_source": {
+        "video_id": "MxX2Q-K2arI",
+        "url": "https://www.youtube.com/watch?v=MxX2Q-K2arI",
+        "channel": "Prawpim Yongchaiyudt",
+        "duration": 48
+      }
+    },
+    {
+      "id": "082",
+      "filename": "082_Sound Visualization_ NASA Space Audio Mix.mp4",
+      "description": "Sound Visualization: NASA Space Audio Mix",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.49,
+      "youtube_source": {
+        "video_id": "AQjULhOJ7EI",
+        "url": "https://www.youtube.com/watch?v=AQjULhOJ7EI",
+        "channel": "崔嵬 CuiWei",
+        "duration": 68
+      }
+    },
+    {
+      "id": "083",
+      "filename": "083_RINGS MELODY Short Polyrhythmic  Ambient #threejs .mp4",
+      "description": "RINGS MELODY Short Polyrhythmic  Ambient #threejs #experimental   #polyrhythm #ambientmusic",
+      "source": "youtube_playlist",
+      "categories": {
+        "sync_quality": "unknown",
+        "visual_style": "youtube_curated",
+        "music_genre": "various",
+        "energy": "various"
+      },
+      "size_mb": 2.61,
+      "youtube_source": {
+        "video_id": "KEONgihUSLA",
+        "url": "https://www.youtube.com/watch?v=KEONgihUSLA",
+        "channel": "WOLFKANG music and coding",
+        "duration": 61
       }
     }
   ]

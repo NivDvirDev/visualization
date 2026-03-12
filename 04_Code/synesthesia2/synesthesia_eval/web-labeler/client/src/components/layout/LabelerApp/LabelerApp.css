@@ -1,0 +1,93 @@
+/* =============================================
+   Main layout
+   ============================================= */
+.app-main {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* =============================================
+   Labeling layout — side-by-side on desktop
+   ============================================= */
+.labeling-layout {
+  display: flex;
+  gap: 20px;
+  min-height: calc(100vh - 200px);
+  padding-top: 4px;
+}
+
+.workspace-video {
+  flex: 0 0 60%;
+  max-width: 60%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rating-panel {
+  flex: 0 0 38%;
+  max-width: 38%;
+  padding: 16px 16px 16px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================================
+   Ratings toggle (below video)
+   ============================================= */
+.ratings-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--color-accent-08);
+  border: 1px solid var(--color-accent-15);
+  border-radius: 6px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: fit-content;
+}
+
+.ratings-toggle:hover {
+  background: var(--color-accent-15);
+  color: var(--color-text-lightest);
+}
+
+.ratings-toggle-count {
+  background: var(--color-accent-20);
+  color: var(--color-accent-soft);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+  .labeling-layout {
+    flex-direction: column;
+  }
+
+  .workspace-video {
+    flex: none;
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  .rating-panel {
+    flex: none;
+    max-width: 100%;
+    padding: 0 12px 12px;
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+  }
+
+  .rating-panel .glass-panel {
+    box-shadow:
+      0 -4px 20px var(--color-bg-shadow-heavy),
+      inset 0 1px 0 var(--color-glass-highlight);
+  }
+}

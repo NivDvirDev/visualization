@@ -1,0 +1,364 @@
+/* =============================================
+   Label form — glassmorphism panel
+   ============================================= */
+.label-form {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--color-glass-bg-strong);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-accent-20);
+  border-radius: 12px;
+}
+
+.label-form-complete {
+  border-color: var(--color-success-25);
+  box-shadow:
+    0 4px 30px var(--color-bg-shadow-deep),
+    0 0 20px var(--color-success-06),
+    inset 0 1px 0 var(--color-glass-highlight);
+}
+
+.label-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label-form-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.label-form-progress {
+  font-size: 13px;
+}
+
+.label-form-check {
+  color: var(--color-success);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.label-form-counter {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =============================================
+   Axis tabs
+   ============================================= */
+.axis-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.axis-tab {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid var(--color-glass-border-light);
+  border-radius: 8px;
+  background: var(--color-glass-bg-light);
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.axis-tab:hover {
+  background: var(--color-glass-bg-hover);
+  color: var(--color-text-light);
+}
+
+.axis-tab.active {
+  background: var(--color-accent-solid-12);
+  border-color: var(--color-accent-solid-30);
+  color: var(--color-accent-muted);
+}
+
+.axis-tab.complete {
+  border-color: rgba(46, 125, 50, 0.3);
+}
+
+.axis-tab.complete.active {
+  border-color: rgba(46, 125, 50, 0.4);
+}
+
+.axis-tab-count {
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+/* =============================================
+   Rating dimensions — emoji dot rows
+   ============================================= */
+.rating-dimensions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rating-dim {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+
+.rating-dim:hover {
+  background: var(--color-accent-04);
+}
+
+.rating-dim.active {
+  background: var(--color-accent-08);
+  border-color: var(--color-accent-20);
+}
+
+.rating-dim.just-rated {
+  animation: rowFlash 0.4s ease-out;
+}
+
+@keyframes rowFlash {
+  0% { background: rgba(255, 182, 39, 0.15); }
+  100% { background: transparent; }
+}
+
+.rating-dim-icon {
+  font-size: 24px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.rating-dim-label {
+  width: 70px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-mid);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.rating-dim.active .rating-dim-label {
+  color: var(--color-text-primary);
+}
+
+/* =============================================
+   Rating dots — colored circle buttons
+   ============================================= */
+.rating-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.rating-dot-wrapper {
+  position: relative;
+}
+
+.rating-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent-30);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.rating-dot:hover,
+.rating-dot.hovered {
+  border-color: var(--dot-color);
+  transform: scale(1.15);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--dot-color) 40%, transparent);
+  color: var(--dot-color);
+}
+
+.rating-dot.selected {
+  background: var(--dot-color);
+  border-color: var(--dot-color);
+  color: #FFFFFF;
+  box-shadow: 0 0 12px var(--dot-color);
+}
+
+.rating-dot.pulse {
+  animation: dotPulse 0.4s ease;
+}
+
+@keyframes dotPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* =============================================
+   Rating tooltip
+   ============================================= */
+.rating-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-bg-primary);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  color: var(--color-text-lightest);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  margin-bottom: 4px;
+}
+
+/* =============================================
+   Label form actions
+   ============================================= */
+.label-form-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.btn-save {
+  background: var(--color-success-15);
+  color: var(--color-success);
+  border: 1px solid var(--color-success-20);
+}
+
+.btn-save:hover:not(:disabled) {
+  background: var(--color-success-25);
+  box-shadow: 0 0 12px var(--color-success-20);
+}
+
+.btn-save.ready {
+  background: var(--gradient-success-solid);
+  color: var(--color-bg-primary);
+  border-color: transparent;
+  box-shadow: 0 0 10px var(--color-success-20);
+}
+
+.btn-save.ready:hover:not(:disabled) {
+  box-shadow: 0 0 16px rgba(255, 182, 39, 0.35);
+}
+
+.btn-skip {
+  background: var(--color-glass-btn-bg);
+  color: var(--color-text-lightest);
+  border: 1px solid var(--color-glass-border-light);
+}
+
+.btn-skip:hover {
+  background: var(--color-glass-btn-hover);
+}
+
+.btn-nav {
+  background: var(--color-accent-12);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-accent-20);
+  padding: 8px 12px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.btn-nav:hover {
+  background: var(--color-accent-25);
+  border-color: var(--color-accent-40);
+}
+
+/* =============================================
+   Label form extras (notes)
+   ============================================= */
+.label-form-extras {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.notes-toggle {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-size: 11px;
+  padding: 2px 0;
+  text-align: left;
+  transition: color 0.15s;
+}
+
+.notes-toggle:hover {
+  color: var(--color-text-secondary);
+}
+
+.notes-input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--color-accent-20);
+  background: var(--color-bg-deep);
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 12px;
+  resize: vertical;
+}
+
+.notes-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-solid-15);
+}
+
+/* =============================================
+   Keyboard hint
+   ============================================= */
+.keyboard-hint {
+  font-family: var(--font-mono);
+  color: var(--color-text-dim);
+  font-size: 10px;
+  text-align: center;
+  padding-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .rating-dim-label {
+    width: 55px;
+    font-size: 11px;
+  }
+
+  .rating-dim-icon {
+    font-size: 20px;
+  }
+
+  .rating-dot {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .keyboard-hint {
+    display: none;
+  }
+}

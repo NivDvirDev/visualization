@@ -51,6 +51,7 @@ export interface ClipSummary {
   id: string;
   filename: string;
   description?: string;
+  youtube_video_id?: string;
   has_human_label: boolean;
   has_auto_label: boolean;
   rater_count: number;
@@ -118,15 +119,28 @@ export interface AppConfig {
 export interface LeaderboardEntry {
   username: string;
   total_labels: number;
+  level: number;
+  level_title: string;
 }
 
-export type BadgeKey = 'first_label' | 'five_streak' | 'ten_labels' | 'completionist';
+export type BadgeKey = 'first_label' | 'five_streak' | 'ten_labels' | 'completionist' | 'consensus_rater';
 
 export interface MyStats {
   total_labels: number;
   clips_remaining: number;
   current_streak: number;
   badges: BadgeKey[];
+  level: number;
+  level_title: string;
+  rank: number;
+  labels_this_week: number;
+}
+
+export interface Challenge {
+  emoji: string;
+  title: string;
+  description: string;
+  goal: number;
 }
 
 export interface ClipRanking {

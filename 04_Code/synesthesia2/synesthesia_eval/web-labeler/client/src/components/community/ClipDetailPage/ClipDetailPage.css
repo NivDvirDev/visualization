@@ -1,0 +1,121 @@
+/* =============================================
+   Clip Detail Page — Public
+   ============================================= */
+.clip-detail-page {
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.clip-detail-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.clip-detail-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 16px;
+  padding: 60px;
+  color: var(--color-text-secondary);
+}
+
+.clip-detail-content {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.clip-detail-video {
+  flex: 0 0 65%;
+  max-width: 65%;
+}
+
+.clip-detail-sidebar {
+  flex: 1;
+}
+
+.clip-detail-score-card {
+  background: var(--color-glass-bg-strong);
+  border: 1px solid var(--color-accent-20);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.clip-detail-overall {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.clip-detail-overall-value {
+  display: block;
+  font-size: 48px;
+  font-weight: 700;
+  background: var(--gradient-success);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.clip-detail-overall-label {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.clip-detail-dims {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.clip-detail-dim-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.clip-detail-dim-name {
+  font-size: 12px;
+  color: var(--color-text-mid);
+  width: 70px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.clip-detail-meta {
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  padding-top: 12px;
+  border-top: 1px solid var(--color-accent-10);
+}
+
+.clip-detail-ratings {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 24px 24px;
+}
+
+@media (max-width: 768px) {
+  .clip-detail-content {
+    flex-direction: column;
+    padding: 16px;
+  }
+  .clip-detail-video {
+    flex: none;
+    max-width: 100%;
+  }
+  .clip-detail-nav {
+    flex-wrap: wrap;
+  }
+}

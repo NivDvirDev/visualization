@@ -1,0 +1,44 @@
+/* =============================================
+   Global Progress Bar
+   ============================================= */
+.global-progress {
+  background: var(--color-bg-secondary);
+  padding: 6px 20px;
+  border-bottom: 1px solid var(--color-accent-10);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.global-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--color-accent-10);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.global-progress-fill {
+  height: 100%;
+  background: var(--gradient-progress);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px var(--color-bright-30);
+}
+
+.global-progress-text {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .global-progress {
+    padding: 4px 12px;
+    gap: 8px;
+  }
+
+  .global-progress-text {
+    font-size: 10px;
+  }
+}

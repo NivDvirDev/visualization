@@ -1,0 +1,48 @@
+/* =============================================
+   Footer
+   ============================================= */
+.app-footer {
+  text-align: center;
+  padding: 48px 24px 32px;
+  background: transparent;
+  color: #E0DDD5;
+  border-top: none;
+  position: relative;
+}
+
+.app-footer .footer-logo {
+  margin-bottom: 12px;
+}
+
+.app-footer .footer-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 6px;
+  letter-spacing: 0.04em;
+}
+
+.app-footer .footer-tagline {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #C9A66B;
+  margin: 0 0 16px;
+}
+
+.app-footer .footer-copy {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(224, 221, 213, 0.5);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .app-footer {
+    padding: 32px 16px 20px;
+  }
+
+  .app-footer .footer-title {
+    font-size: 15px;
+  }
+}
