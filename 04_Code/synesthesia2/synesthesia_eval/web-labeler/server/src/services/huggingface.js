@@ -102,6 +102,55 @@ const HuggingFace = {
   },
 
   /**
+   * Fetch auto_labels.json from HuggingFace and sync into the labels table
+   */
+  async fetchAutoLabels() {
+    if (!USE_HUGGINGFACE) return { synced: 0 };
+
+    const url = `${HF_RESOLVE_BASE}/${HF_DATASET}/resolve/main/data/auto_labels.json`;
+    const res = await fetch(url, { headers: headers() });
+    if (!res.ok) {
+      if (res.status === 404) {
+        console.log('[HuggingFace] No auto_labels.json found');
+        return { synced: 0 };
+      }
+      throw new Error(`HuggingFace auto_labels fetch error: ${res.status}`);
+    }
+
+    const autoLabels = await res.json();
+    let synced = 0;
+
+    for (const [clipId, entry] of Object.entries(autoLabels)) {
+      const labeler = entry.model || 'gemini-2.5-flash-lite';
+      // auto_labels.json uses visual_audio_alignment, DB column is harmony (renamed in migration 005)
+      const harmony = entry.visual_audio_alignment || entry.harmony;
+
+      await pool.query(
+        `INSERT INTO labels (clip_id, labeler, sync_quality, harmony, aesthetic_quality, motion_smoothness, notes, created_at)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+         ON CONFLICT (clip_id, labeler) WHERE user_id IS NULL DO UPDATE SET
+           sync_quality = EXCLUDED.sync_quality,
+           harmony = EXCLUDED.harmony,
+           aesthetic_quality = EXCLUDED.aesthetic_quality,
+           motion_smoothness = EXCLUDED.motion_smoothness,
+           notes = EXCLUDED.notes,
+           updated_at = NOW()`,
+        [
+          clipId, labeler,
+          entry.sync_quality, harmony,
+          entry.aesthetic_quality, entry.motion_smoothness,
+          entry.notes || null,
+          entry.timestamp || new Date().toISOString(),
+        ]
+      );
+      synced++;
+    }
+
+    console.log(`[HuggingFace] Synced ${synced} auto-labels from auto_labels.json`);
+    return { synced };
+  },
+
+  /**
    * Fetch existing community labels from HuggingFace
    */
   async fetchCommunityLabels() {

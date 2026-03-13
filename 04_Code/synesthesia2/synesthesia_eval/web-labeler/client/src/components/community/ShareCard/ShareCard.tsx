@@ -10,7 +10,7 @@ interface ShareCardProps {
 
 const ShareCard: React.FC<ShareCardProps> = ({ username, totalLabels, rank, onClose }) => {
   const siteUrl = 'https://synesthesia-labeler.onrender.com';
-  const tweetText = `I rated ${totalLabels} audio visualizations on Synesthesia Labeler — I'm rank #${rank} on the leaderboard! 🎧\n\nHelp rank visualizations and compete: ${siteUrl}`;
+  const tweetText = `I rated ${totalLabels} audio visualizations on The Wellspring — I'm rank #${rank} on the leaderboard! 🎧\n\nRate & compete: ${siteUrl}`;
   const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
 
   return (

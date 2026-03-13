@@ -71,13 +71,15 @@ describe('GET /api/stats/leaderboard', () => {
   beforeEach(() => jest.clearAllMocks());
 
   it('returns ranked users', async () => {
-    pool.query.mockResolvedValue({
-      rows: [
-        { username: 'alice', total_labels: 25 },
-        { username: 'bob', total_labels: 10 },
-        { username: 'carol', total_labels: 5 },
-      ],
-    });
+    pool.query
+      .mockResolvedValueOnce({                                // leaderboard query
+        rows: [
+          { username: 'alice', total_labels: 25 },
+          { username: 'bob', total_labels: 10 },
+          { username: 'carol', total_labels: 5 },
+        ],
+      })
+      .mockResolvedValueOnce({ rows: [{ total: 81 }] });     // clip count
 
     const res = await request(app).get('/api/stats/leaderboard');
 
@@ -90,7 +92,9 @@ describe('GET /api/stats/leaderboard', () => {
   });
 
   it('returns empty array when no users', async () => {
-    pool.query.mockResolvedValue({ rows: [] });
+    pool.query
+      .mockResolvedValueOnce({ rows: [] })                    // leaderboard query
+      .mockResolvedValueOnce({ rows: [{ total: 81 }] });      // clip count
 
     const res = await request(app).get('/api/stats/leaderboard');
 
@@ -113,7 +117,10 @@ describe('GET /api/stats/me', () => {
           { d: new Date().toISOString().split('T')[0] },
           { d: new Date(Date.now() - 86400000).toISOString().split('T')[0] },
         ],
-      });
+      })
+      .mockResolvedValueOnce({ rows: [{ rank: 0 }] })      // rank query
+      .mockResolvedValueOnce({ rows: [{ total: 3 }] })     // labels this week
+      .mockResolvedValueOnce({ rows: [{ matching_clips: 0 }] }); // consensus
 
     const res = await request(app)
       .get('/api/stats/me')
@@ -139,7 +146,10 @@ describe('GET /api/stats/me', () => {
     pool.query
       .mockResolvedValueOnce({ rows: [{ total: 81 }] })    // label count = total
       .mockResolvedValueOnce({ rows: [{ total: 81 }] })    // clip count
-      .mockResolvedValueOnce({ rows: [] });                  // no streak
+      .mockResolvedValueOnce({ rows: [] })                   // no streak
+      .mockResolvedValueOnce({ rows: [{ rank: 0 }] })       // rank query
+      .mockResolvedValueOnce({ rows: [{ total: 0 }] })      // labels this week
+      .mockResolvedValueOnce({ rows: [{ matching_clips: 0 }] }); // consensus
 
     const res = await request(app)
       .get('/api/stats/me')

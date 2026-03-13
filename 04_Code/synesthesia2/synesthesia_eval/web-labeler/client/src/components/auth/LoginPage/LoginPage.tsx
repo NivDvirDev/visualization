@@ -71,9 +71,13 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, googleClientId }) => {
     <div className="login-page">
       <div className="login-card">
         <WellspringLogo size={80} className="login-logo" />
-        <h1 className="login-title">Web Labeler</h1>
+        <h1 className="login-title">The Wellspring</h1>
+        <p className="login-tagline">
+          Rate audio visualizations. Earn badges. Compete globally.<br />
+          Your ratings help train AI to understand visual music.
+        </p>
         <p className="login-subtitle">
-          {mode === 'login' ? 'Sign in to start labeling' : 'Create your account'}
+          {mode === 'login' ? 'Sign in to start rating' : 'Create your account'}
         </p>
 
         {googleClientId && (

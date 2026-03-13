@@ -50,6 +50,22 @@ app.get('/api/config', (_req, res) => {
   });
 });
 
+// Admin: force re-sync auto-labels from HuggingFace (protected by HF_TOKEN)
+app.post('/api/admin/sync', async (req, res) => {
+  const { HF_TOKEN } = require('./config');
+  const token = req.headers.authorization?.replace('Bearer ', '');
+  if (!token || token !== HF_TOKEN) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  try {
+    const clips = await HuggingFace.syncClips();
+    const labels = await HuggingFace.fetchAutoLabels();
+    res.json({ clips, labels });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // API routes
 app.use('/api/auth', authRouter);
 app.use('/api/clips', clipsRouter);
@@ -151,12 +167,28 @@ async function startServer() {
     }
   }
 
-  // Sync clips from HuggingFace if enabled
+  // Sync clips and auto-labels from HuggingFace if enabled
+  // Only sync what's missing — skip if already populated to avoid slow cold starts
   if (USE_HUGGINGFACE) {
     try {
-      await HuggingFace.syncClips();
+      const { rows: [{ clips, auto_labels }] } = await pool.query(
+        `SELECT
+           (SELECT COUNT(*)::int FROM clips) AS clips,
+           (SELECT COUNT(*)::int FROM labels WHERE user_id IS NULL) AS auto_labels`
+      );
+      if (clips === 0) {
+        console.log('[HuggingFace] No clips — running initial sync...');
+        await HuggingFace.syncClips();
+      }
+      if (auto_labels === 0) {
+        console.log('[HuggingFace] No auto-labels — fetching from HuggingFace...');
+        await HuggingFace.fetchAutoLabels();
+      }
+      if (clips > 0 && auto_labels > 0) {
+        console.log(`[HuggingFace] DB ready (${clips} clips, ${auto_labels} auto-labels) — skipping sync`);
+      }
     } catch (err) {
-      console.error('[HuggingFace] Sync failed:', err.message);
+      console.error('[HuggingFace] Sync check failed:', err.message);
     }
   }
 

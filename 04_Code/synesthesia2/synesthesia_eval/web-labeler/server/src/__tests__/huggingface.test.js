@@ -86,6 +86,14 @@ describe('HuggingFace.pushLabels', () => {
   });
 });
 
+describe('HuggingFace.fetchAutoLabels', () => {
+  it('returns early when USE_HUGGINGFACE is false', async () => {
+    const result = await HuggingFace.fetchAutoLabels();
+    expect(result).toEqual({ synced: 0 });
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
+});
+
 describe('HuggingFace.fetchCommunityLabels', () => {
   it('returns empty array on 404', async () => {
     global.fetch.mockResolvedValue({ ok: false, status: 404 });
