@@ -128,6 +128,10 @@ const ClipList: React.FC<ClipListProps> = ({
                   <span className={'clip-thumb-badge ' + getStatusClass(clip)}>
                     {getStatusLabel(clip)}
                   </span>
+                  {/* Hot badge — recently rated */}
+                  {clip.is_hot && (
+                    <span className="clip-thumb-hot" title="Recently rated">🔥</span>
+                  )}
                 </div>
                 {/* Label below thumbnail */}
                 <div className="clip-thumb-label">

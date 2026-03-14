@@ -8,6 +8,7 @@ const clipsRouter = require('./routes/clips');
 const labelsRouter = require('./routes/labels');
 const statsRouter = require('./routes/stats');
 const authRouter = require('./routes/auth');
+const usersRouter = require('./routes/users');
 const HuggingFace = require('./services/huggingface');
 
 const app = express();
@@ -71,6 +72,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/clips', clipsRouter);
 app.use('/api/labels', labelsRouter);
 app.use('/api/stats', statsRouter);
+app.use('/api/users', usersRouter);
 
 // Serve React build in production
 const clientBuild = path.join(__dirname, '../../client/build');

@@ -1,4 +1,4 @@
-import { ClipSummary, ClipDetail, ClipMode, Label, LabelData, Stats, AuthResponse, User, AppConfig, LeaderboardEntry, MyStats, ClipRanking, Challenge } from './types';
+import { ClipSummary, ClipDetail, ClipMode, Label, LabelData, Stats, AuthResponse, User, AppConfig, LeaderboardEntry, MyStats, ClipRanking, Challenge, TasteProfile, UserProfile } from './types';
 
 const API = '/api';
 
@@ -117,3 +117,19 @@ export const getClipRankings = (): Promise<ClipRanking[]> =>
 // Weekly Challenge API
 export const getChallenge = (): Promise<Challenge> =>
   fetch(`${API}/stats/challenge`).then((r) => r.json());
+
+// Taste Profile API
+export const getMyTasteProfile = (): Promise<TasteProfile> =>
+  fetch(`${API}/stats/me/profile`, {
+    headers: authHeaders(),
+  }).then(async (r) => {
+    if (!r.ok) throw new Error('Failed to fetch taste profile');
+    return r.json();
+  });
+
+// Public User Profile API
+export const getUserProfile = (username: string): Promise<UserProfile> =>
+  fetch(`${API}/users/${encodeURIComponent(username)}`).then(async (r) => {
+    if (!r.ok) throw new Error('User not found');
+    return r.json();
+  });

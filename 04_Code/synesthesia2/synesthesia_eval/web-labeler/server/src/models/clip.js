@@ -6,7 +6,8 @@ const Clip = {
       SELECT c.*,
         EXISTS(SELECT 1 FROM labels l WHERE l.clip_id = c.id AND l.user_id IS NOT NULL) AS has_human_label,
         EXISTS(SELECT 1 FROM labels l WHERE l.clip_id = c.id AND l.user_id IS NULL) AS has_auto_label,
-        (SELECT COUNT(DISTINCT l.user_id) FROM labels l WHERE l.clip_id = c.id AND l.user_id IS NOT NULL) AS rater_count
+        (SELECT COUNT(DISTINCT l.user_id) FROM labels l WHERE l.clip_id = c.id AND l.user_id IS NOT NULL) AS rater_count,
+        EXISTS(SELECT 1 FROM labels l WHERE l.clip_id = c.id AND l.user_id IS NOT NULL AND l.created_at >= NOW() - INTERVAL '7 days') AS is_hot
       FROM clips c`;
 
     let query;

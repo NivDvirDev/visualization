@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { getLeaderboard, getMyStats } from '../../../api';
 import { LeaderboardEntry, MyStats } from '../../../types';
 import WeeklyChallenge from '../WeeklyChallenge/WeeklyChallenge';
+import TasteProfile from '../TasteProfile/TasteProfile';
 import './Leaderboard.css';
 
 const BADGE_MAP: Record<string, { icon: string; label: string }> = {
@@ -77,6 +79,7 @@ const Leaderboard: React.FC<{ user: any }> = ({ user }) => {
             </div>
           )}
 
+          <TasteProfile />
           <WeeklyChallenge labelsThisWeek={myStats.labels_this_week ?? 0} />
         </div>
       )}
@@ -105,7 +108,15 @@ const Leaderboard: React.FC<{ user: any }> = ({ user }) => {
                 className={user?.username === entry.username ? 'leaderboard-me' : ''}
               >
                 <td>{MEDALS[i] || i + 1}</td>
-                <td>{entry.username}</td>
+                <td>
+                  <Link
+                    to={`/user/${encodeURIComponent(entry.username)}`}
+                    className="leaderboard-username-link"
+                    title={`View ${entry.username}'s profile`}
+                  >
+                    {entry.username}
+                  </Link>
+                </td>
                 <td className="leaderboard-level">{entry.level_title}</td>
                 <td>{entry.total_labels}</td>
               </tr>

@@ -29,3 +29,15 @@
 
 /* badges-row spacing before weekly challenge */
 .badges-row { margin-bottom: 16px; }
+
+/* Clickable username links in leaderboard */
+.leaderboard-username-link {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.leaderboard-username-link:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}

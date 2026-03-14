@@ -55,6 +55,44 @@ export interface ClipSummary {
   has_human_label: boolean;
   has_auto_label: boolean;
   rater_count: number;
+  is_hot?: boolean;
+}
+
+export interface TastePersonality {
+  key: string;
+  emoji: string;
+  label: string;
+  desc: string;
+}
+
+export interface TasteProfile {
+  perceptual: {
+    sync_quality: number | null;
+    harmony: number | null;
+    aesthetic_quality: number | null;
+    motion_smoothness: number | null;
+  };
+  psychoacoustic: {
+    pitch_accuracy: number | null;
+    rhythm_accuracy: number | null;
+    dynamics_accuracy: number | null;
+    timbre_accuracy: number | null;
+    melody_accuracy: number | null;
+  };
+  personality: TastePersonality | null;
+  label_count: number;
+}
+
+export interface UserProfile {
+  username: string;
+  created_at: string;
+  total_labels: number;
+  rank: number;
+  level: number;
+  level_title: string;
+  badges: BadgeKey[];
+  perceptual: TasteProfile['perceptual'];
+  personality: TastePersonality | null;
 }
 
 export interface ClipDetail {

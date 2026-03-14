@@ -176,6 +176,65 @@ router.get('/me', authRequired, async (req, res, next) => {
   }
 });
 
+// GET /api/stats/me/profile — taste profile (avg per dimension + personality label)
+router.get('/me/profile', authRequired, async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const { rows } = await pool.query(
+      `SELECT
+        ROUND(AVG(sync_quality)::numeric, 2)      AS avg_sync,
+        ROUND(AVG(harmony)::numeric, 2)           AS avg_harmony,
+        ROUND(AVG(aesthetic_quality)::numeric, 2) AS avg_aesthetic,
+        ROUND(AVG(motion_smoothness)::numeric, 2) AS avg_motion,
+        ROUND(AVG(pitch_accuracy)::numeric, 2)    AS avg_pitch,
+        ROUND(AVG(rhythm_accuracy)::numeric, 2)   AS avg_rhythm,
+        ROUND(AVG(dynamics_accuracy)::numeric, 2) AS avg_dynamics,
+        ROUND(AVG(timbre_accuracy)::numeric, 2)   AS avg_timbre,
+        ROUND(AVG(melody_accuracy)::numeric, 2)   AS avg_melody,
+        COUNT(*)::int                              AS label_count
+       FROM labels
+       WHERE user_id = $1 AND sync_quality IS NOT NULL`,
+      [userId]
+    );
+
+    const r = rows[0];
+    const parse = v => (v ? parseFloat(v) : null);
+
+    const perceptual = {
+      sync_quality:      parse(r.avg_sync),
+      harmony:           parse(r.avg_harmony),
+      aesthetic_quality: parse(r.avg_aesthetic),
+      motion_smoothness: parse(r.avg_motion),
+    };
+    const psychoacoustic = {
+      pitch_accuracy:    parse(r.avg_pitch),
+      rhythm_accuracy:   parse(r.avg_rhythm),
+      dynamics_accuracy: parse(r.avg_dynamics),
+      timbre_accuracy:   parse(r.avg_timbre),
+      melody_accuracy:   parse(r.avg_melody),
+    };
+
+    // Derive personality from the highest perceptual average
+    const PERSONALITIES = [
+      { key: 'sync_quality',      emoji: '⚡', label: 'Sync Purist',        desc: 'You live for the beat-lock.' },
+      { key: 'harmony',           emoji: '🌊', label: 'Harmony Seeker',      desc: 'Coherence is everything to you.' },
+      { key: 'aesthetic_quality', emoji: '🎨', label: 'Aesthetic Visionary', desc: 'Beauty above all.' },
+      { key: 'motion_smoothness', emoji: '🌀', label: 'Motion Master',       desc: 'Flow and fluidity define you.' },
+    ];
+    let personality = null;
+    if (r.label_count > 0) {
+      const best = PERSONALITIES.reduce((a, b) =>
+        (perceptual[a.key] || 0) >= (perceptual[b.key] || 0) ? a : b
+      );
+      personality = best;
+    }
+
+    res.json({ perceptual, psychoacoustic, personality, label_count: r.label_count });
+  } catch (err) {
+    next(err);
+  }
+});
+
 // GET /api/stats/challenge
 router.get('/challenge', async (req, res, next) => {
   try {
