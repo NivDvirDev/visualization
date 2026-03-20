@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { Button, GlassPanel, Tabs, TabPanel, Tooltip, Badge } from '../../atoms';
 import { Dimension, DimensionKey, PerceptualDimensionKey, PsychoacousticDimensionKey, Label, LabelData, RatingValue } from '../../../types';
 import './LabelForm.css';
 
@@ -299,6 +300,11 @@ function LabelForm({ clipId, existingLabel, autoLabel, onSave, onSkip, onPrev, o
     };
   }, []);
 
+  const axisTabs = [
+    { id: 'perceptual', label: `How Does It Feel? ${perceptualRated}/4` },
+    { id: 'psychoacoustic', label: `How Accurately Does It Represent? ${psychoacousticRated}/5` },
+  ];
+
   const renderDimensionGroup = (dimensions: (Dimension & { icon: React.ReactNode })[]) => (
     <div className="rating-dimensions">
       {dimensions.map((dim, i) => {
@@ -329,30 +335,31 @@ function LabelForm({ clipId, existingLabel, autoLabel, onSave, onSkip, onPrev, o
                 const isHovered = hoveredDot?.dim === dim.key && hoveredDot?.val === val;
 
                 return (
-                  <div key={val} className="rating-dot-wrapper">
-                    <button
-                      className={
-                        'rating-dot' +
-                        (isSelected ? ' selected' : '') +
-                        (isHovered ? ' hovered' : '') +
-                        (isSelected && wasJustRated ? ' pulse' : '')
-                      }
-                      style={{ '--dot-color': DOT_COLORS[val - 1] } as React.CSSProperties}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleRatingChange(dim.key, val);
-                      }}
-                      onMouseEnter={() => setHoveredDot({ dim: dim.key, val })}
-                      onMouseLeave={() => setHoveredDot(null)}
-                    >
-                      {val}
-                    </button>
-                    {isHovered && (
-                      <span className="rating-tooltip">
-                        {val} &mdash; {dim.descriptions[val]}
-                      </span>
-                    )}
-                  </div>
+                  <Tooltip
+                    key={val}
+                    content={`${val} — ${dim.descriptions[val]}`}
+                    placement="top"
+                  >
+                    <div className="rating-dot-wrapper">
+                      <button
+                        className={
+                          'rating-dot' +
+                          (isSelected ? ' selected' : '') +
+                          (isHovered ? ' hovered' : '') +
+                          (isSelected && wasJustRated ? ' pulse' : '')
+                        }
+                        style={{ '--dot-color': DOT_COLORS[val - 1] } as React.CSSProperties}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleRatingChange(dim.key, val);
+                        }}
+                        onMouseEnter={() => setHoveredDot({ dim: dim.key, val })}
+                        onMouseLeave={() => setHoveredDot(null)}
+                      >
+                        {val}
+                      </button>
+                    </div>
+                  </Tooltip>
                 );
               })}
             </div>
@@ -363,85 +370,88 @@ function LabelForm({ clipId, existingLabel, autoLabel, onSave, onSkip, onPrev, o
   );
 
   return (
-    <div className={'label-form glass-panel' + (isComplete ? ' label-form-complete' : '')}>
-      <div className="label-form-header">
-        <span className="label-form-title">Rate This Clip</span>
-        <span className="label-form-progress">
-          {perceptualComplete && psychoacousticComplete ? (
-            <span className="label-form-check">{'\u2713\u2713'}</span>
-          ) : perceptualComplete ? (
-            <span className="label-form-check">{'\u2713'}</span>
-          ) : (
-            <span className="label-form-counter">{perceptualRated}/4</span>
-          )}
-        </span>
-      </div>
+    <div className={'label-form-layout' + (isComplete ? ' label-form-complete' : '')}>
+      <GlassPanel variant="default" padding="none">
+        <div className="label-form-inner">
+          <div className="label-form-header">
+            <span className="label-form-title">Rate This Clip</span>
+            <span className="label-form-progress">
+              {perceptualComplete && psychoacousticComplete ? (
+                <span className="label-form-check">{'\u2713\u2713'}</span>
+              ) : perceptualComplete ? (
+                <span className="label-form-check">{'\u2713'}</span>
+              ) : (
+                <Badge variant="accent">{perceptualRated}/4</Badge>
+              )}
+            </span>
+          </div>
 
-      {/* Axis Tabs */}
-      <div className="axis-tabs">
-        <button
-          className={`axis-tab${activeAxis === 'perceptual' ? ' active' : ''}${perceptualComplete ? ' complete' : ''}`}
-          onClick={() => { setActiveAxis('perceptual'); setActiveDimension(0); }}
-        >
-          How Does It Feel?
-          <span className="axis-tab-count">{perceptualRated}/4</span>
-        </button>
-        <button
-          className={`axis-tab${activeAxis === 'psychoacoustic' ? ' active' : ''}${psychoacousticComplete ? ' complete' : ''}`}
-          onClick={() => { setActiveAxis('psychoacoustic'); setActiveDimension(0); }}
-        >
-          How Accurately Does It Represent?
-          <span className="axis-tab-count">{psychoacousticRated}/5</span>
-        </button>
-      </div>
-
-      {/* Active Axis Dimensions */}
-      {activeAxis === 'perceptual'
-        ? renderDimensionGroup(PERCEPTUAL_DIMENSIONS)
-        : renderDimensionGroup(PSYCHOACOUSTIC_DIMENSIONS)
-      }
-
-      <div className="label-form-actions">
-        <button
-          className={'btn btn-save' + (isComplete ? ' ready' : '')}
-          onClick={handleSave}
-          disabled={!isComplete || saving}
-          title="Save (Enter)"
-        >
-          {saving ? '...' : '\uD83D\uDCBE'}
-        </button>
-        <button className="btn btn-nav" onClick={onPrev} title="Previous (p)">
-          {'\u25C0'}
-        </button>
-        <button className="btn btn-nav" onClick={onNext} title="Next (n)">
-          {'\u25B6'}
-        </button>
-        <button className="btn btn-skip" onClick={onSkip} title="Skip">
-          {'\u23ED'}
-        </button>
-      </div>
-
-      <div className="label-form-extras">
-        <button
-          className="notes-toggle"
-          onClick={() => setShowNotes((s) => !s)}
-        >
-          {showNotes ? '\u25BE Notes' : '\u25B8 Notes'}
-        </button>
-        {showNotes && (
-          <textarea
-            className="notes-input"
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-            placeholder="Optional notes..."
-            rows={2}
+          {/* Axis Tabs */}
+          <Tabs
+            tabs={axisTabs}
+            activeTab={activeAxis}
+            onChange={(id) => {
+              setActiveAxis(id as 'perceptual' | 'psychoacoustic');
+              setActiveDimension(0);
+            }}
+            variant="default"
+            size="sm"
           />
-        )}
-      </div>
 
-      <div className="keyboard-hint">
-        1-5 rate &middot; Tab cycle &middot; Enter save &middot; n/p nav &middot; {'\u2318'}S save
-      </div>
+          {/* Active Axis Dimensions */}
+          <TabPanel id="perceptual" activeTab={activeAxis}>
+            {renderDimensionGroup(PERCEPTUAL_DIMENSIONS)}
+          </TabPanel>
+          <TabPanel id="psychoacoustic" activeTab={activeAxis}>
+            {renderDimensionGroup(PSYCHOACOUSTIC_DIMENSIONS)}
+          </TabPanel>
+
+          <div className="label-form-actions">
+            <Button
+              variant="primary"
+              size="md"
+              loading={saving}
+              onClick={handleSave}
+              disabled={!isComplete || saving}
+              title="Save (Enter)"
+            >
+              {'\uD83D\uDCBE'}
+            </Button>
+            <Button variant="secondary" size="sm" onClick={onPrev} title="Previous (p)">
+              {'\u25C0'}
+            </Button>
+            <Button variant="secondary" size="sm" onClick={onNext} title="Next (n)">
+              {'\u25B6'}
+            </Button>
+            <Button variant="ghost" size="sm" onClick={onSkip} title="Skip">
+              {'\u23ED'}
+            </Button>
+          </div>
+
+          <div className="label-form-extras">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setShowNotes((s) => !s)}
+            >
+              {showNotes ? '\u25BE Notes' : '\u25B8 Notes'}
+            </Button>
+            {showNotes && (
+              <textarea
+                className="notes-input"
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                placeholder="Optional notes..."
+                rows={2}
+              />
+            )}
+          </div>
+
+          <div className="keyboard-hint">
+            1-5 rate &middot; Tab cycle &middot; Enter save &middot; n/p nav &middot; {'\u2318'}S save
+          </div>
+        </div>
+      </GlassPanel>
     </div>
   );
 }

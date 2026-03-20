@@ -82,16 +82,15 @@ afterEach(() => {
 });
 
 describe('App routing', () => {
-  test('root path renders LabelerApp (login page when unauthenticated)', async () => {
+  test('root path renders LandingPage', async () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
       </MemoryRouter>
     );
-    // LabelerApp checks auth → shows LoginPage when not authenticated
+    // Root now shows LandingPage (public landing)
     await waitFor(() => {
-      expect(screen.getByText('Web Labeler')).toBeInTheDocument();
-      expect(document.querySelector('.login-page')).toBeInTheDocument();
+      expect(document.querySelector('.landing-page')).toBeInTheDocument();
     });
   });
 

@@ -1,0 +1,150 @@
+.swipe-mode {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  /* Match body's radial gradient so the blue-deep bottom-right shows */
+  background: radial-gradient(ellipse at bottom right, #2D4263 0%, var(--color-bg-primary) 80%);
+  overflow: hidden;
+  font-family: var(--font-body);
+}
+
+/* Loading / done states */
+.swipe-mode--loading,
+.swipe-mode--done {
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: var(--color-text-primary);
+  text-align: center;
+  padding: 32px;
+}
+
+.swipe-mode--done h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.swipe-mode--done p,
+.swipe-mode--loading p {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ── Header ─────────────────────────────── */
+.swipe-header {
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: var(--color-glass-bg-strong);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-accent-20);
+  box-shadow: 0 1px 12px var(--color-glow);
+}
+
+.swipe-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.swipe-header-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.swipe-header-brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  opacity: 0.8;
+}
+
+.swipe-header-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  white-space: nowrap;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.swipe-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.swipe-header-user {
+  color: var(--color-accent-bright);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ── Arena (stays dark — video is the focus) */
+.swipe-arena {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 16px;
+  gap: 12px;
+  background: #111318;
+}
+
+.swipe-hint {
+  font-size: 1.8rem;
+  opacity: 0.3;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* ── Footer ─────────────────────────────── */
+.swipe-footer {
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: var(--color-glass-bg-strong);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--color-accent-20);
+}
+
+.swipe-footer-instructions {
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.swipe-footer-count {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+/* ── Mobile ─────────────────────────────── */
+@media (max-width: 600px) {
+  .swipe-hint { display: none; }
+  .swipe-arena { padding: 8px; }
+  .swipe-header-brand-name { display: none; }
+}

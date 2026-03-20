@@ -40,9 +40,11 @@ const Label = {
       sync_quality, harmony, aesthetic_quality, motion_smoothness,
       // Axis 2: Psychoacoustic
       pitch_accuracy, rhythm_accuracy, dynamics_accuracy, timbre_accuracy, melody_accuracy,
+      // Swipe mode
+      overall_impression,
     } = data;
 
-    const cols = 'clip_id, labeler, sync_quality, harmony, aesthetic_quality, motion_smoothness, pitch_accuracy, rhythm_accuracy, dynamics_accuracy, timbre_accuracy, melody_accuracy, notes';
+    const cols = 'clip_id, labeler, sync_quality, harmony, aesthetic_quality, motion_smoothness, pitch_accuracy, rhythm_accuracy, dynamics_accuracy, timbre_accuracy, melody_accuracy, notes, overall_impression';
     const updates = `
            labeler = EXCLUDED.labeler,
            sync_quality = EXCLUDED.sync_quality,
@@ -55,29 +57,30 @@ const Label = {
            timbre_accuracy = EXCLUDED.timbre_accuracy,
            melody_accuracy = EXCLUDED.melody_accuracy,
            notes = EXCLUDED.notes,
+           overall_impression = EXCLUDED.overall_impression,
            updated_at = NOW()`;
 
     let row;
     if (user_id) {
       const result = await pool.query(
         `INSERT INTO labels (${cols}, user_id)
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
          ON CONFLICT (clip_id, user_id) WHERE user_id IS NOT NULL DO UPDATE SET ${updates}
          RETURNING *`,
         [clipId, labeler, sync_quality, harmony, aesthetic_quality, motion_smoothness,
          pitch_accuracy || null, rhythm_accuracy || null, dynamics_accuracy || null,
-         timbre_accuracy || null, melody_accuracy || null, notes, user_id]
+         timbre_accuracy || null, melody_accuracy || null, notes, overall_impression || null, user_id]
       );
       row = result.rows[0];
     } else {
       const result = await pool.query(
         `INSERT INTO labels (${cols})
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
          ON CONFLICT (clip_id, labeler) WHERE user_id IS NULL DO UPDATE SET ${updates}
          RETURNING *`,
         [clipId, labeler, sync_quality, harmony, aesthetic_quality, motion_smoothness,
          pitch_accuracy || null, rhythm_accuracy || null, dynamics_accuracy || null,
-         timbre_accuracy || null, melody_accuracy || null, notes]
+         timbre_accuracy || null, melody_accuracy || null, notes, overall_impression || null]
       );
       row = result.rows[0];
     }
@@ -111,6 +114,7 @@ const Label = {
         dynamics_accuracy: row.dynamics_accuracy,
         timbre_accuracy: row.timbre_accuracy,
         melody_accuracy: row.melody_accuracy,
+        overall_impression: row.overall_impression,
         notes: row.notes,
       };
       if (row.user_id) {

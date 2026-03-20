@@ -69,9 +69,9 @@ describe('Component imports resolve correctly', () => {
     const mod = require('../components/brand/FlameIcon/FlameIcon');
     expect(mod.FlameIcon).toBeDefined();
   });
-  test('WellspringLogo', () => {
-    const mod = require('../components/brand/WellspringLogo/WellspringLogo');
-    expect(mod.WellspringLogo).toBeDefined();
+  test('WellspringIcon', () => {
+    const mod = require('../components/brand/WellspringLogo/WellspringIcon/WellspringIcon');
+    expect(mod.WellspringIcon).toBeDefined();
   });
 });
 

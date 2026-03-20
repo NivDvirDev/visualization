@@ -2,7 +2,8 @@ import React, { useState, useCallback } from 'react';
 import { GoogleOAuthProvider, GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import { login, register, googleLogin } from '../../../api';
 import { User } from '../../../types';
-import { WellspringLogo } from '../../brand/WellspringLogo/WellspringLogo';
+import { WellspringIcon } from '../../brand/WellspringLogo/WellspringIcon/WellspringIcon';
+import { Button, Input, GlassPanel, Alert, Divider } from '../../atoms';
 import './LoginPage.css';
 
 interface LoginPageProps {
@@ -69,8 +70,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, googleClientId }) => {
 
   return (
     <div className="login-page">
-      <div className="login-card">
-        <WellspringLogo size={80} className="login-logo" />
+      <GlassPanel variant="strong" padding="lg">
+        <WellspringIcon size={80} className="login-logo" />
         <h1 className="login-title">The Wellspring</h1>
         <p className="login-tagline">
           Rate audio visualizations. Earn badges. Compete globally.<br />
@@ -94,79 +95,69 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, googleClientId }) => {
                   shape="rectangular"
                 />
               </div>
-              <div className="login-divider">
-                <span className="login-divider-line" />
-                <span className="login-divider-text">or</span>
-                <span className="login-divider-line" />
-              </div>
+              <Divider variant="default" spacing="md" />
             </div>
           </GoogleOAuthProvider>
         )}
 
         <form onSubmit={handleSubmit} className="login-form">
           {mode === 'register' && (
-            <div className="login-field">
-              <label htmlFor="username">Username</label>
-              <input
-                id="username"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Choose a username"
-                autoComplete="username"
-              />
-            </div>
+            <Input
+              id="username"
+              label="Username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Choose a username"
+              autoComplete="username"
+            />
           )}
 
-          <div className="login-field">
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
-              autoComplete="email"
-            />
-          </div>
+          <Input
+            id="email"
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@example.com"
+            autoComplete="email"
+          />
 
-          <div className="login-field">
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder={mode === 'register' ? 'Min 6 characters' : 'Your password'}
-              autoComplete={mode === 'register' ? 'new-password' : 'current-password'}
-            />
-          </div>
+          <Input
+            id="password"
+            label="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder={mode === 'register' ? 'Min 6 characters' : 'Your password'}
+            autoComplete={mode === 'register' ? 'new-password' : 'current-password'}
+          />
 
-          {error && <div className="login-error">{error}</div>}
+          {error && <Alert variant="error" icon>{error}</Alert>}
 
-          <button type="submit" className="btn btn-login" disabled={loading}>
-            {loading ? 'Please wait...' : mode === 'login' ? 'Sign In' : 'Create Account'}
-          </button>
+          <Button variant="primary" size="md" type="submit" loading={loading}>
+            {mode === 'login' ? 'Sign In' : 'Create Account'}
+          </Button>
         </form>
 
         <div className="login-switch">
           {mode === 'login' ? (
             <span>
               Don't have an account?{' '}
-              <button className="login-link" onClick={toggleMode}>
+              <Button variant="ghost" size="sm" onClick={toggleMode}>
                 Register
-              </button>
+              </Button>
             </span>
           ) : (
             <span>
               Already have an account?{' '}
-              <button className="login-link" onClick={toggleMode}>
+              <Button variant="ghost" size="sm" onClick={toggleMode}>
                 Sign In
-              </button>
+              </Button>
             </span>
           )}
         </div>
-      </div>
+      </GlassPanel>
     </div>
   );
 };

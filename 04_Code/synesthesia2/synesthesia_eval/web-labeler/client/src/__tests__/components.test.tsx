@@ -22,7 +22,7 @@ import {
 // ── Brand Components ────────────────────────────────────────────────────────
 
 import { FlameIcon } from '../components/brand/FlameIcon/FlameIcon';
-import { WellspringLogo } from '../components/brand/WellspringLogo/WellspringLogo';
+import { WellspringIcon } from '../components/brand/WellspringLogo/WellspringIcon/WellspringIcon';
 
 describe('FlameIcon', () => {
   test('renders SVG', () => {
@@ -43,14 +43,14 @@ describe('FlameIcon', () => {
   });
 });
 
-describe('WellspringLogo', () => {
+describe('WellspringIcon', () => {
   test('renders SVG', () => {
-    const { container } = render(<WellspringLogo size={200} />);
+    const { container } = render(<WellspringIcon size={200} />);
     expect(container.querySelector('svg')).toBeInTheDocument();
   });
 
   test('respects size prop', () => {
-    const { container } = render(<WellspringLogo size={120} />);
+    const { container } = render(<WellspringIcon size={120} />);
     const svg = container.querySelector('svg');
     expect(svg).toHaveAttribute('width', '120');
     expect(svg).toHaveAttribute('height', '120');
@@ -65,7 +65,7 @@ import Header from '../components/layout/Header/Header';
 
 describe('Footer', () => {
   test('renders branding text', () => {
-    render(<Footer />);
+    render(<MemoryRouter><Footer /></MemoryRouter>);
     expect(screen.getByText(/The Wellspring/i)).toBeInTheDocument();
   });
 });
@@ -75,7 +75,8 @@ describe('ProgressBar', () => {
     const { container } = render(
       <ProgressBar total={83} labeled={29} remaining={54} />
     );
-    expect(container.querySelector('.global-progress-bar')).toBeInTheDocument();
+    expect(container.querySelector('.global-progress')).toBeInTheDocument();
+    expect(container.querySelector('.atom-score-bar')).toBeInTheDocument();
   });
 });
 
@@ -207,7 +208,7 @@ import LoginPage from '../components/auth/LoginPage/LoginPage';
 describe('LoginPage', () => {
   test('renders login form', () => {
     render(<LoginPage onLogin={jest.fn()} googleClientId={null} />);
-    expect(screen.getByText('Web Labeler')).toBeInTheDocument();
+    expect(screen.getByText('The Wellspring')).toBeInTheDocument();
     expect(screen.getByLabelText('Email')).toBeInTheDocument();
     expect(screen.getByLabelText('Password')).toBeInTheDocument();
   });

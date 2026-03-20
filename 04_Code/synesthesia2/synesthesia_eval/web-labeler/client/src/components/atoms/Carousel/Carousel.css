@@ -1,0 +1,108 @@
+/* =============================================
+   Atom: Carousel
+   Pure CSS + React — no external library
+   ============================================= */
+
+.atom-carousel {
+  position: relative;
+  width: 100%;
+  outline: none;
+  user-select: none;
+}
+
+/* ---- Viewport: clips the track to one slide width ---- */
+.atom-carousel-viewport {
+  overflow: hidden;
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* ---- Track: holds all slides in a row ---- */
+.atom-carousel-track {
+  display: flex;
+  align-items: stretch;
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* ---- Individual slide: exactly one viewport width ---- */
+.atom-carousel-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+/* ---- Arrow buttons ---- */
+.atom-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent-20);
+  background: var(--color-glass-bg-strong);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--color-text-primary);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, opacity 0.15s;
+  box-shadow: 0 2px 8px var(--color-bg-shadow);
+}
+
+.atom-carousel-arrow--prev {
+  left: 10px;
+}
+
+.atom-carousel-arrow--next {
+  right: 10px;
+}
+
+.atom-carousel-arrow:hover:not(:disabled) {
+  background: var(--color-glass-highlight);
+  border-color: var(--color-accent-40);
+  box-shadow: 0 4px 14px var(--color-accent-15);
+  color: var(--color-accent);
+}
+
+.atom-carousel-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ---- Dot indicators ---- */
+.atom-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.atom-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-bg-deep);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.18s, transform 0.18s, width 0.18s;
+  flex-shrink: 0;
+}
+
+.atom-carousel-dot--active {
+  background: var(--color-accent);
+  transform: scale(1.25);
+  width: 20px;
+  border-radius: 4px;
+}
+
+.atom-carousel-dot:hover:not(.atom-carousel-dot--active) {
+  background: var(--color-accent-40);
+}

@@ -5,7 +5,7 @@ import SwipeGuestPrompt from '../SwipeGuestPrompt/SwipeGuestPrompt';
 import SwipeCategoryTuner, { CategoryScores } from '../SwipeCategoryTuner/SwipeCategoryTuner';
 import { WellspringIcon } from '../../brand/WellspringLogo/WellspringIcon/WellspringIcon';
 import { Button, useToast, ToastContainer } from '../../atoms';
-import { saveSwipeLabel, getMe } from '../../../api';
+import { saveSwipeLabel, saveAnonymousLabel, getMe } from '../../../api';
 import './SwipeMode.css';
 
 const trackEvent = (name: string, params?: Record<string, unknown>) => {
@@ -43,6 +43,14 @@ const SwipeMode: React.FC = () => {
   const [skipCategories, setSkipCategories] = useState(() =>
     localStorage.getItem('swipe_skip_categories') === 'true'
   );
+  const [sessionId] = useState(() => {
+    let sid = sessionStorage.getItem('anon_session');
+    if (!sid) {
+      sid = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+      sessionStorage.setItem('anon_session', sid);
+    }
+    return sid;
+  });
 
   // Check auth and load clips on mount
   useEffect(() => {
@@ -111,7 +119,7 @@ const SwipeMode: React.FC = () => {
       swipe_number: swipedCount + 1,
     });
 
-    // Guest mode: warn on first swipe, block after 3
+    // Guest mode: save anonymously, prompt sign-up after 3
     if (!user) {
       if (guestSwipeCount >= 3) {
         trackEvent('guest_limit_reached');
@@ -120,10 +128,13 @@ const SwipeMode: React.FC = () => {
         return;
       }
       if (guestSwipeCount === 0) {
-        toast('Sign in to save your ratings', { variant: 'warning', duration: 4000 });
+        toast('Rating saved! Sign in to track your rank', { variant: 'success', duration: 4000 });
       }
       setGuestSwipeCount(c => c + 1);
-      // Don't call saveSwipeLabel — it will 401 anyway
+      // Save anonymously — no auth required
+      saveAnonymousLabel(clip.id, score, sessionId).catch(err =>
+        console.error('Anonymous save failed:', err)
+      );
       advanceCard();
       return;
     }

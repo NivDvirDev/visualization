@@ -1,0 +1,99 @@
+/* =============================================
+   Atom: Typography
+   Variant classes map to the three type scales:
+   Display (Orbitron) · Body (Inter) · Mono (Space Mono)
+   ============================================= */
+
+/* ---- Display scale (Orbitron) ---- */
+.atom-type--display-xl {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+.atom-type--display-lg {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+.atom-type--display-md {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+}
+.atom-type--display-sm {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* ---- Body scale (Inter) ---- */
+.atom-type--body-lg {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+.atom-type--body-md {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.atom-type--body-sm {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* ---- Label / Caption ---- */
+.atom-type--label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.atom-type--caption {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* ---- Mono scale (Space Mono) ---- */
+.atom-type--mono {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.atom-type--mono-stat {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ---- Color modifiers ---- */
+.atom-type-color--primary  { color: var(--color-text-primary); }
+.atom-type-color--secondary { color: var(--color-text-secondary); }
+.atom-type-color--muted    { color: var(--color-text-muted); }
+.atom-type-color--accent   { color: var(--color-accent); }
+.atom-type-color--bright   { color: var(--color-accent-bright); }
+.atom-type-color--gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

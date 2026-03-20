@@ -88,6 +88,19 @@ const UserProfilePage: React.FC = () => {
           </div>
         )}
 
+        {profile.claimed_clips && profile.claimed_clips.length > 0 && (
+          <section className="user-profile__creations">
+            <h3>Their Creations</h3>
+            <ul>
+              {profile.claimed_clips.map(c => (
+                <li key={c.id}>
+                  <a href={`/clip/${c.id}`}>{c.display_credit || c.filename}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {profile.personality && (
           <div className="user-profile-taste-section">
             <h2 className="user-profile-section-title">Taste Profile</h2>

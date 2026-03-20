@@ -145,6 +145,49 @@ async function startServer() {
     }
   }
 
+  // Migration 007: Add overall_impression for swipe mode
+  try {
+    const migrationSql = fs.readFileSync(path.join(__dirname, 'migrate/007_swipe_mode.sql'), 'utf-8');
+    await pool.query(migrationSql);
+    console.log('[DB] Migration 007_swipe_mode applied');
+  } catch (err) {
+    if (!err.message.includes('already exists')) {
+      console.error('[DB] Migration warning:', err.message);
+    }
+  }
+
+  // Migration 008: Creator attribution columns
+  try {
+    const migrationSql = fs.readFileSync(path.join(__dirname, 'migrate/008_creator_attribution.sql'), 'utf-8');
+    await pool.query(migrationSql);
+    console.log('[DB] Migration 008_creator_attribution applied');
+  } catch (err) {
+    if (!err.message.includes('already exists')) {
+      console.error('[DB] Migration warning:', err.message);
+    }
+  }
+
+  // Populate creator_name + creator_url from metadata.json (runs once per clip, idempotent)
+  try {
+    const metadataPath = path.join(CLIPS_DIR, 'metadata.json');
+    if (fs.existsSync(metadataPath)) {
+      const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+      const clips = metadata.clips || [];
+      let populated = 0;
+      for (const clip of clips) {
+        if (!clip.youtube_source?.channel) continue;
+        const { rowCount } = await pool.query(
+          `UPDATE clips SET creator_name = $1, creator_url = $2 WHERE id = $3 AND creator_name IS NULL`,
+          [clip.youtube_source.channel, clip.youtube_source.url, clip.id]
+        );
+        if (rowCount > 0) populated++;
+      }
+      if (populated > 0) console.log(`[DB] Populated creator_name for ${populated} clips`);
+    }
+  } catch (err) {
+    console.error('[DB] Creator populate warning:', err.message);
+  }
+
   // Populate youtube_video_id from local metadata.json (local mode)
   if (!USE_HUGGINGFACE) {
     try {

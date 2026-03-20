@@ -98,28 +98,9 @@
   background: var(--color-warning-04);
 }
 
-.ratings-you-badge {
-  display: inline-block;
-  margin-left: 6px;
-  padding: 1px 5px;
-  font-size: 9px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--color-accent-bright);
-  background: var(--color-bright-12);
-  border-radius: 3px;
-}
-
+.ratings-you-badge,
 .ratings-auto-badge {
-  display: inline-block;
   margin-left: 6px;
-  padding: 1px 5px;
-  font-size: 9px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--color-warning);
-  background: var(--color-warning-12);
-  border-radius: 3px;
 }
 
 /* Ratings table axis separators */

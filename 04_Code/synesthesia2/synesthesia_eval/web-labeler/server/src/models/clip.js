@@ -74,6 +74,70 @@ const Clip = {
     const { rows: [{ count }] } = await pool.query('SELECT COUNT(*) FROM clips');
     return parseInt(count, 10);
   },
+
+  // --- Creator attribution ---
+
+  async claim(clipId, userId) {
+    // Returns the updated clip row; caller must verify video ID match before calling
+    const { rows: [clip] } = await pool.query(
+      `UPDATE clips
+       SET claimed_by_user_id = $1, claimed_at = NOW(),
+           display_credit = COALESCE(display_credit, creator_name)
+       WHERE id = $2
+       RETURNING *`,
+      [userId, clipId]
+    );
+    return clip || null;
+  },
+
+  async unclaim(clipId, userId) {
+    // Only clears if this user is the current claimer
+    const { rows: [clip] } = await pool.query(
+      `UPDATE clips
+       SET claimed_by_user_id = NULL, claimed_at = NULL,
+           display_credit = NULL, display_link = NULL, credit_visible = TRUE
+       WHERE id = $1 AND claimed_by_user_id = $2
+       RETURNING *`,
+      [clipId, userId]
+    );
+    return clip || null;
+  },
+
+  async updateCreatorDisplay(clipId, userId, { display_credit, display_link, credit_visible }) {
+    const { rows: [clip] } = await pool.query(
+      `UPDATE clips
+       SET display_credit  = COALESCE($1, display_credit),
+           display_link    = COALESCE($2, display_link),
+           credit_visible  = COALESCE($3, credit_visible)
+       WHERE id = $4 AND claimed_by_user_id = $5
+       RETURNING *`,
+      [display_credit ?? null, display_link ?? null, credit_visible ?? null, clipId, userId]
+    );
+    return clip || null;
+  },
+
+  async getCreatorInfo(clipId) {
+    const { rows: [row] } = await pool.query(
+      `SELECT c.id, c.creator_name, c.creator_url,
+              c.claimed_by_user_id, c.claimed_at,
+              c.display_credit, c.display_link, c.credit_visible,
+              u.username AS claimed_by_username
+       FROM clips c
+       LEFT JOIN users u ON c.claimed_by_user_id = u.id
+       WHERE c.id = $1`,
+      [clipId]
+    );
+    if (!row) return null;
+    return {
+      creator_name: row.creator_name,
+      creator_url: row.creator_url,
+      claimed: row.claimed_by_user_id !== null,
+      claimed_by_username: row.claimed_by_username || null,
+      display_credit: row.display_credit,
+      display_link: row.display_link,
+      credit_visible: row.credit_visible,
+    };
+  },
 };
 
 module.exports = Clip;

@@ -33,7 +33,7 @@ router.get('/:username', async (req, res, next) => {
     const user = userRows[0];
     const userId = user.id;
 
-    const [labelResult, clipResult, rankResult, profileResult] = await Promise.all([
+    const [labelResult, clipResult, rankResult, profileResult, claimedResult] = await Promise.all([
       pool.query('SELECT COUNT(*)::int AS total FROM labels WHERE user_id = $1', [userId]),
       pool.query('SELECT COUNT(*)::int AS total FROM clips'),
       pool.query(
@@ -57,6 +57,13 @@ router.get('/:username', async (req, res, next) => {
           COUNT(*)::int                              AS label_count
          FROM labels
          WHERE user_id = $1 AND sync_quality IS NOT NULL`,
+        [userId]
+      ),
+      pool.query(
+        `SELECT id, filename, display_credit, creator_name
+         FROM clips
+         WHERE claimed_by_user_id = $1
+         ORDER BY claimed_at DESC`,
         [userId]
       ),
     ]);
@@ -89,6 +96,12 @@ router.get('/:username', async (req, res, next) => {
     if (total_labels >= 10) badges.push('ten_labels');
     if (total_labels >= total_clips && total_clips > 0) badges.push('completionist');
 
+    const claimed_clips = claimedResult.rows.map(c => ({
+      id: c.id,
+      filename: c.filename,
+      display_credit: c.display_credit || c.creator_name,
+    }));
+
     res.json({
       username: user.username,
       created_at: user.created_at,
@@ -99,6 +112,7 @@ router.get('/:username', async (req, res, next) => {
       badges,
       perceptual,
       personality,
+      claimed_clips,
     });
   } catch (err) {
     next(err);

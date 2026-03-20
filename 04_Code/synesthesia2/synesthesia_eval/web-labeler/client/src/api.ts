@@ -109,6 +109,32 @@ export const saveSwipeLabel = async (
   return r.json();
 };
 
+// Save anonymous guest rating — no auth required
+export const saveAnonymousLabel = async (
+  clipId: string,
+  score: number,
+  sessionId: string,
+): Promise<unknown> => {
+  const r = await fetch(`${API}/labels/anonymous`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      clip_id: clipId,
+      overall_score: score,
+      sync_quality: score,
+      harmony: score,
+      aesthetic_quality: score,
+      motion_smoothness: score,
+      session_id: sessionId,
+    }),
+  });
+  if (!r.ok) {
+    const json = await r.json().catch(() => ({ error: 'Unknown error' }));
+    throw new Error(json.error || `Anonymous save failed (${r.status})`);
+  }
+  return r.json();
+};
+
 export const deleteLabel = (clipId: string, labeler: string): Promise<unknown> =>
   fetch(`${API}/labels/${clipId}/${encodeURIComponent(labeler)}`, {
     method: 'DELETE',

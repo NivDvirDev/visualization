@@ -245,10 +245,10 @@ router.get('/challenge', async (req, res, next) => {
 });
 
 // GET /api/stats/users
-router.get('/users', async (req, res, next) => {
+router.get('/users', authRequired, async (req, res, next) => {
   try {
     const { rows } = await pool.query(
-      'SELECT id, username, email, created_at FROM users ORDER BY created_at DESC'
+      'SELECT id, username, created_at FROM users ORDER BY created_at DESC'
     );
     res.json(rows);
   } catch (err) {

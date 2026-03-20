@@ -1,0 +1,180 @@
+/* =============================================
+   Atom: Tag
+   Variants: default | accent | teal | success | warning | error | outline
+   Sizes: sm | md
+   States: interactive | active | removable
+   ============================================= */
+
+.atom-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 999px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  line-height: 1;
+  cursor: default;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+/* ---- Sizes ---- */
+.atom-tag--sm {
+  padding: 2px 8px;
+  font-size: 11px;
+}
+.atom-tag--md {
+  padding: 4px 11px;
+  font-size: 12px;
+}
+
+/* ---- Variants ---- */
+.atom-tag--default {
+  background: var(--color-bg-deep);
+  color: var(--color-text-secondary);
+  border-color: var(--color-bg-deepest);
+}
+
+.atom-tag--accent {
+  background: var(--color-accent-12);
+  color: var(--color-accent-muted);
+  border-color: var(--color-accent-25);
+}
+
+.atom-tag--teal {
+  background: rgba(43, 165, 165, 0.12);
+  color: #1a8f8f;
+  border-color: rgba(43, 165, 165, 0.28);
+}
+
+.atom-tag--success {
+  background: var(--color-success-15);
+  color: var(--color-success);
+  border-color: var(--color-success-25);
+}
+
+.atom-tag--warning {
+  background: var(--color-warning-12);
+  color: var(--color-warning);
+  border-color: var(--color-warning-20);
+}
+
+.atom-tag--error {
+  background: var(--color-error-12);
+  color: var(--color-error-text);
+  border-color: var(--color-error-25);
+}
+
+.atom-tag--outline {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border-color: var(--color-text-muted);
+}
+
+/* ---- Interactive state ---- */
+.atom-tag--interactive {
+  cursor: pointer;
+  outline: none;
+}
+
+.atom-tag--interactive:hover {
+  box-shadow: 0 2px 8px var(--color-bg-shadow);
+}
+
+.atom-tag--interactive.atom-tag--default:hover {
+  background: var(--color-bg-deepest);
+}
+
+.atom-tag--interactive.atom-tag--accent:hover {
+  background: var(--color-accent-20);
+}
+
+.atom-tag--interactive.atom-tag--teal:hover {
+  background: rgba(43, 165, 165, 0.2);
+}
+
+.atom-tag--interactive.atom-tag--success:hover {
+  background: var(--color-success-20);
+}
+
+.atom-tag--interactive.atom-tag--warning:hover {
+  background: var(--color-warning-20);
+}
+
+.atom-tag--interactive.atom-tag--error:hover {
+  background: var(--color-error-15);
+}
+
+.atom-tag--interactive.atom-tag--outline:hover {
+  background: var(--color-bg-deep);
+}
+
+.atom-tag--interactive:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-accent-40);
+}
+
+/* ---- Active (toggled on) ---- */
+.atom-tag--active.atom-tag--accent {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+.atom-tag--active.atom-tag--teal {
+  background: #2BA5A5;
+  color: #fff;
+  border-color: #2BA5A5;
+}
+
+.atom-tag--active.atom-tag--default {
+  background: var(--color-text-secondary);
+  color: var(--color-bg-primary);
+  border-color: var(--color-text-secondary);
+}
+
+/* ---- Icon slot ---- */
+.atom-tag__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+/* ---- Label ---- */
+.atom-tag__label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* ---- Remove button ---- */
+.atom-tag__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 1px;
+  cursor: pointer;
+  line-height: 1;
+  font-size: 1.2em;
+  opacity: 0.55;
+  color: inherit;
+  transition: opacity 100ms ease;
+}
+
+.atom-tag__remove:hover {
+  opacity: 1;
+}
+
+/* ---- TagGroup ---- */
+.atom-tag-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.atom-tag-group--gap-sm { gap: 4px; }
+.atom-tag-group--gap-md { gap: 8px; }

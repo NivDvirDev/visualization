@@ -42,6 +42,7 @@ router.put('/:clip_id', authRequired, async (req, res, next) => {
     const {
       sync_quality, harmony, aesthetic_quality, motion_smoothness,
       pitch_accuracy, rhythm_accuracy, dynamics_accuracy, timbre_accuracy, melody_accuracy,
+      overall_impression,
       notes,
     } = req.body;
     const label = await Label.upsert(req.params.clip_id, {
@@ -49,6 +50,7 @@ router.put('/:clip_id', authRequired, async (req, res, next) => {
       user_id: req.user.id,
       sync_quality, harmony, aesthetic_quality, motion_smoothness,
       pitch_accuracy, rhythm_accuracy, dynamics_accuracy, timbre_accuracy, melody_accuracy,
+      overall_impression,
       notes,
     });
     // Push to HuggingFace in background if enabled
@@ -56,6 +58,28 @@ router.put('/:clip_id', authRequired, async (req, res, next) => {
       HuggingFace.pushLabels().catch(err => console.error('[HF push error]', err.message));
     }
     res.json(label);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// POST /api/labels/anonymous — save anonymous guest rating (no auth required)
+router.post('/anonymous', async (req, res, next) => {
+  try {
+    const { clip_id, overall_score, sync_quality, harmony, aesthetic_quality, motion_smoothness, session_id } = req.body;
+    if (!clip_id || overall_score == null) {
+      return res.status(400).json({ error: 'clip_id and overall_score are required' });
+    }
+    const labeler = `anon_${session_id || Date.now()}`;
+    const label = await Label.upsert(clip_id, {
+      labeler,
+      sync_quality: sync_quality ?? overall_score,
+      harmony: harmony ?? overall_score,
+      aesthetic_quality: aesthetic_quality ?? overall_score,
+      motion_smoothness: motion_smoothness ?? overall_score,
+      overall_impression: overall_score,
+    });
+    res.json({ success: true, labeler, clip_id });
   } catch (err) {
     next(err);
   }

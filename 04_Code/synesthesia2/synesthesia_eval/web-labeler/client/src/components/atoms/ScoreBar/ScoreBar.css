@@ -1,0 +1,43 @@
+/* =============================================
+   Atom: ScoreBar
+   Visual score/progress bar.
+   Sizes: sm | md | lg
+   ============================================= */
+
+.atom-score-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.atom-score-bar__track {
+  flex: 1;
+  background: var(--color-accent-08);
+  border-radius: 99px;
+  position: relative;
+  overflow: hidden;
+}
+
+.atom-score-bar--sm .atom-score-bar__track { height: 6px; }
+.atom-score-bar--md .atom-score-bar__track { height: 10px; }
+.atom-score-bar--lg .atom-score-bar__track { height: 14px; }
+
+.atom-score-bar__fill {
+  height: 100%;
+  background: var(--gradient-accent);
+  border-radius: 99px;
+  transition: width 0.35s ease;
+}
+
+.atom-score-bar__label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+  min-width: 2ch;
+  text-align: right;
+}
+.atom-score-bar--sm .atom-score-bar__label { font-size: 10px; }
+.atom-score-bar--md .atom-score-bar__label { font-size: 11px; }
+.atom-score-bar--lg .atom-score-bar__label { font-size: 13px; }

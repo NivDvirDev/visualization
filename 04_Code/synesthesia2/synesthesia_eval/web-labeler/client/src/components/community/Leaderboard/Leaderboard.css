@@ -7,7 +7,6 @@
 .stat-value { display: block; font-family: var(--font-mono); font-size: 28px; font-weight: bold; color: var(--color-accent-deep); }
 .stat-label { display: block; font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; }
 .badges-row { display: flex; gap: 8px; margin-top: 16px; justify-content: center; flex-wrap: wrap; }
-.badge-pill { background: var(--color-accent-deep-20); border: 1px solid var(--color-accent-deep-30); padding: 4px 12px; border-radius: 12px; font-size: 12px; color: var(--color-accent-deep-light); }
 .leaderboard-title { text-align: center; margin: 24px 0 12px; color: var(--color-text-primary); }
 .leaderboard-table { width: 100%; border-collapse: collapse; }
 .leaderboard-table th { color: var(--color-text-secondary); text-align: left; padding: 8px 12px; border-bottom: var(--border-separator); font-size: 13px; }

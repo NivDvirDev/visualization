@@ -1,0 +1,186 @@
+/* =============================================
+   Atom: Select
+   Custom dropdown — matches Input atom styling
+   Sizes: sm | md | lg
+   States: default | open | error | disabled
+   ============================================= */
+
+.atom-select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  position: relative;
+}
+
+/* ---- Label — mirrors Input atom label ---- */
+.atom-select-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---- Trigger button — mirrors Input atom field ---- */
+.atom-select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background: var(--color-glass-bg-strong);
+  border: 1px solid var(--color-accent-15);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+}
+
+/* ---- Sizes ---- */
+.atom-select-trigger--sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+.atom-select-trigger--md {
+  padding: 9px 13px;
+  font-size: 14px;
+}
+.atom-select-trigger--lg {
+  padding: 12px 16px;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+/* ---- States ---- */
+.atom-select-trigger:hover:not(:disabled) {
+  border-color: var(--color-accent-30);
+}
+
+.atom-select-trigger--open,
+.atom-select-trigger:focus:not(:disabled) {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-12);
+}
+
+.atom-select-trigger--error {
+  border-color: var(--color-error);
+}
+
+.atom-select-trigger--error.atom-select-trigger--open,
+.atom-select-trigger--error:focus:not(:disabled) {
+  box-shadow: 0 0 0 3px var(--color-error-12);
+}
+
+.atom-select-trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--color-bg-deep);
+}
+
+/* ---- Value text ---- */
+.atom-select-value {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.atom-select-trigger--placeholder .atom-select-value {
+  color: var(--color-text-muted);
+}
+
+/* ---- Chevron ---- */
+.atom-select-chevron {
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+
+.atom-select-trigger--open .atom-select-chevron {
+  transform: rotate(180deg);
+}
+
+/* ---- Dropdown panel ---- */
+.atom-select-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 200;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  background: var(--color-glass-bg-strong);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-accent-15);
+  border-radius: 10px;
+  box-shadow: 0 8px 28px var(--color-bg-shadow-heavy), 0 2px 8px var(--color-accent-08);
+  max-height: 240px;
+  overflow-y: auto;
+  animation: atom-select-open 0.14s ease-out;
+}
+
+@keyframes atom-select-open {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* custom scrollbar for the dropdown */
+.atom-select-dropdown::-webkit-scrollbar {
+  width: 4px;
+}
+.atom-select-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+.atom-select-dropdown::-webkit-scrollbar-thumb {
+  background: var(--color-accent-20);
+  border-radius: 2px;
+}
+
+/* ---- Option items ---- */
+.atom-select-option {
+  padding: 8px 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+
+.atom-select-option:hover,
+.atom-select-option--focused {
+  background: var(--color-accent-10);
+  color: var(--color-accent);
+}
+
+.atom-select-option--selected {
+  background: var(--color-accent-15);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.atom-select-option--selected.atom-select-option--focused {
+  background: var(--color-accent-20);
+}
+
+.atom-select-option--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ---- Error message — mirrors Input atom ---- */
+.atom-select-error {
+  font-size: 11px;
+  color: var(--color-error-text);
+}

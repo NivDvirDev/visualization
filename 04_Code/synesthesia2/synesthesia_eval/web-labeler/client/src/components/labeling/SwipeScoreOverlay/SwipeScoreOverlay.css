@@ -1,0 +1,34 @@
+.swipe-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+  z-index: 10;
+  gap: 8px;
+}
+
+.swipe-overlay-score {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  line-height: 1;
+}
+
+.swipe-overlay-emoji {
+  font-size: 2.5rem;
+}
+
+.swipe-overlay-label {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,98 @@
+/* =============================================
+   Atom: Toast + ToastContainer
+   Variants: default | success | warning | error
+   Fixed bottom-right stack, slide-up + fade-in
+   ============================================= */
+
+/* ---- Container ---- */
+.atom-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+/* ---- Individual Toast ---- */
+.atom-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px 12px 16px;
+  border-radius: 10px;
+  min-width: 240px;
+  max-width: 380px;
+  pointer-events: auto;
+
+  background: var(--color-glass-bg-strong);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-accent-15);
+  box-shadow:
+    0 4px 24px rgba(26, 26, 46, 0.15),
+    inset 0 1px 0 var(--color-glass-highlight);
+
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-primary);
+
+  /* Enter state — invisible, shifted down */
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+/* ---- Visible state (triggered by JS) ---- */
+.atom-toast--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Variant left-border accents ---- */
+.atom-toast--default {
+  border-left: 3px solid var(--color-accent);
+}
+
+.atom-toast--success {
+  border-left: 3px solid var(--color-success);
+}
+
+.atom-toast--warning {
+  border-left: 3px solid var(--color-warning);
+}
+
+.atom-toast--error {
+  border-left: 3px solid var(--color-error);
+}
+
+/* ---- Parts ---- */
+.atom-toast__icon {
+  font-size: 15px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.atom-toast__message {
+  flex: 1;
+  line-height: 1.45;
+}
+
+.atom-toast__dismiss {
+  background: none;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 0 2px;
+  border-radius: 3px;
+  transition: color 0.12s;
+  flex-shrink: 0;
+}
+.atom-toast__dismiss:hover {
+  color: var(--color-text-primary);
+}

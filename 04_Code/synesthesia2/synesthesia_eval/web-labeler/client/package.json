@@ -17,6 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "test": "react-scripts test",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

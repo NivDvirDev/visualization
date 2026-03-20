@@ -1,5 +1,6 @@
 import React, { useRef, useCallback } from 'react';
 import { ClipSummary, ClipMode } from '../../../types';
+import { Button, Badge } from '../../atoms';
 import './ClipList.css';
 
 interface ClipListProps {
@@ -63,29 +64,32 @@ const ClipList: React.FC<ClipListProps> = ({
       <div className="clip-strip-controls">
         <div className="mode-selector">
           {MODES.map((m) => (
-            <button
+            <Button
               key={m.key}
-              className={'mode-btn' + (mode === m.key ? ' active' : '')}
+              variant={mode === m.key ? 'primary' : 'secondary'}
+              size="sm"
               onClick={() => onModeChange(m.key)}
             >
               {m.label}
-            </button>
+            </Button>
           ))}
         </div>
-        <button className="random-btn" onClick={onRandom}>
+        <Button variant="ghost" size="sm" onClick={onRandom}>
           ↻ Random
-        </button>
+        </Button>
       </div>
 
       {/* Horizontal carousel */}
       <div className="clip-carousel">
-        <button
+        <Button
+          variant="ghost"
+          size="sm"
           className="clip-arrow clip-arrow-left"
           onClick={() => scroll('left')}
           aria-label="Scroll left"
         >
           ‹
-        </button>
+        </Button>
 
         <div className="clip-track" ref={trackRef}>
           {clips.length === 0 && (
@@ -125,9 +129,16 @@ const ClipList: React.FC<ClipListProps> = ({
                     </svg>
                   )}
                   {/* Status badge overlay */}
-                  <span className={'clip-thumb-badge ' + getStatusClass(clip)}>
+                  <Badge
+                    variant={
+                      clip.has_human_label ? 'success' :
+                      clip.has_auto_label ? 'accent' :
+                      'neutral'
+                    }
+                    className="clip-thumb-badge"
+                  >
                     {getStatusLabel(clip)}
-                  </span>
+                  </Badge>
                   {/* Hot badge — recently rated */}
                   {clip.is_hot && (
                     <span className="clip-thumb-hot" title="Recently rated">🔥</span>
@@ -145,13 +156,15 @@ const ClipList: React.FC<ClipListProps> = ({
           })}
         </div>
 
-        <button
+        <Button
+          variant="ghost"
+          size="sm"
           className="clip-arrow clip-arrow-right"
           onClick={() => scroll('right')}
           aria-label="Scroll right"
         >
           ›
-        </button>
+        </Button>
       </div>
     </section>
   );

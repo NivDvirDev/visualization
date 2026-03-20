@@ -1,0 +1,190 @@
+/* =============================================
+   Atom: Checkbox
+   States: default | checked | indeterminate | disabled | error
+   Sizes:  sm | md | lg
+   ============================================= */
+
+/* ---- Wrapper ---- */
+.atom-checkbox-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.atom-checkbox-wrapper--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ---- Row (label element that groups control + text) ---- */
+.atom-checkbox-row {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ---- Hide native input ---- */
+.atom-checkbox-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- Custom visual control ---- */
+.atom-checkbox-control {
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 1.5px solid var(--color-accent-30);
+  background: var(--color-glass-bg-strong);
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+
+/* Sizes — control box dimensions */
+.atom-checkbox-wrapper--sm .atom-checkbox-control {
+  width: 14px;
+  height: 14px;
+  margin-top: 2px;
+}
+.atom-checkbox-wrapper--md .atom-checkbox-control {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+}
+.atom-checkbox-wrapper--lg .atom-checkbox-control {
+  width: 22px;
+  height: 22px;
+}
+
+/* Checked state: flame gradient fill + white checkmark */
+.atom-checkbox-input:checked + .atom-checkbox-control {
+  background: var(--gradient-accent);
+  border-color: transparent;
+}
+
+/* CSS checkmark via pseudo-element */
+.atom-checkbox-input:checked + .atom-checkbox-control::after {
+  content: '';
+  display: block;
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg) translateY(-1px);
+  transition: opacity 0.1s;
+}
+
+.atom-checkbox-wrapper--sm .atom-checkbox-input:checked + .atom-checkbox-control::after {
+  width: 6px;
+  height: 3.5px;
+  margin-bottom: 1px;
+}
+.atom-checkbox-wrapper--md .atom-checkbox-input:checked + .atom-checkbox-control::after {
+  width: 8px;
+  height: 4.5px;
+  margin-bottom: 1px;
+}
+.atom-checkbox-wrapper--lg .atom-checkbox-input:checked + .atom-checkbox-control::after {
+  width: 10px;
+  height: 5.5px;
+  margin-bottom: 2px;
+}
+
+/* Indeterminate state: horizontal bar */
+.atom-checkbox-input:checked + .atom-checkbox-control--indeterminate::after,
+.atom-checkbox-control--indeterminate::after {
+  content: '';
+  display: block;
+  border: none;
+  background: #fff;
+  border-radius: 2px;
+  transform: none;
+  margin-bottom: 0;
+}
+
+.atom-checkbox-wrapper--sm .atom-checkbox-input:checked + .atom-checkbox-control--indeterminate::after,
+.atom-checkbox-wrapper--sm .atom-checkbox-control--indeterminate::after {
+  width: 8px;
+  height: 2px;
+}
+.atom-checkbox-wrapper--md .atom-checkbox-input:checked + .atom-checkbox-control--indeterminate::after,
+.atom-checkbox-wrapper--md .atom-checkbox-control--indeterminate::after {
+  width: 10px;
+  height: 2px;
+}
+.atom-checkbox-wrapper--lg .atom-checkbox-input:checked + .atom-checkbox-control--indeterminate::after,
+.atom-checkbox-wrapper--lg .atom-checkbox-control--indeterminate::after {
+  width: 13px;
+  height: 2.5px;
+}
+
+/* Indeterminate box fill (even when not :checked) */
+.atom-checkbox-control--indeterminate {
+  background: var(--gradient-accent);
+  border-color: transparent;
+}
+
+/* Focus ring via sibling selector on the hidden input */
+.atom-checkbox-input:focus-visible + .atom-checkbox-control {
+  box-shadow: 0 0 0 3px var(--color-accent-12);
+  border-color: var(--color-accent);
+}
+
+/* Error state */
+.atom-checkbox-wrapper--error .atom-checkbox-control {
+  border-color: var(--color-error);
+}
+.atom-checkbox-wrapper--error .atom-checkbox-input:focus-visible + .atom-checkbox-control {
+  box-shadow: 0 0 0 3px var(--color-error-12);
+}
+
+/* Hover */
+.atom-checkbox-row:hover .atom-checkbox-control {
+  border-color: var(--color-accent);
+}
+.atom-checkbox-wrapper--error .atom-checkbox-row:hover .atom-checkbox-control {
+  border-color: var(--color-error);
+}
+
+/* ---- Text stack ---- */
+.atom-checkbox-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.atom-checkbox-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.atom-checkbox-wrapper--sm .atom-checkbox-label { font-size: 13px; }
+.atom-checkbox-wrapper--md .atom-checkbox-label { font-size: 14px; }
+.atom-checkbox-wrapper--lg .atom-checkbox-label { font-size: 15px; }
+
+.atom-checkbox-description {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* ---- Error message ---- */
+.atom-checkbox-error {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--color-error-text);
+  padding-left: 28px; /* aligns under label, not box */
+}
+
+.atom-checkbox-wrapper--sm .atom-checkbox-error { padding-left: 24px; }
+.atom-checkbox-wrapper--lg .atom-checkbox-error { padding-left: 32px; }

@@ -19,51 +19,6 @@
   gap: 4px;
 }
 
-.mode-btn {
-  padding: 5px 14px;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border: 1px solid var(--color-accent-25);
-  background: transparent;
-  color: var(--color-text-secondary);
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-
-.mode-btn:hover {
-  background: var(--color-accent-15);
-  color: var(--color-text-bright);
-  border-color: var(--color-accent-40);
-}
-
-.mode-btn.active {
-  background: var(--gradient-accent);
-  border-color: transparent;
-  color: #fff;
-  box-shadow: 0 0 12px var(--color-accent-solid-30);
-}
-
-.random-btn {
-  padding: 5px 14px;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  background: var(--color-glass-btn-bg);
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-glass-border-light);
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-
-.random-btn:hover {
-  background: var(--color-glass-btn-hover);
-  border-color: var(--color-accent-20);
-}
 
 .clip-carousel {
   display: flex;
@@ -75,32 +30,17 @@
   flex-shrink: 0;
   width: 40px;
   height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  color: var(--color-text-secondary);
   font-size: 28px;
-  cursor: pointer;
-  transition: all 0.15s;
   z-index: 2;
   user-select: none;
 }
 
 .clip-arrow-left {
   border-radius: 0 8px 8px 0;
-  border-left: none;
 }
 
 .clip-arrow-right {
   border-radius: 8px 0 0 8px;
-  border-right: none;
-}
-
-.clip-arrow:hover {
-  background: var(--color-glass-bg);
-  color: var(--color-text-bright);
 }
 
 .clip-track {
@@ -215,32 +155,6 @@
   position: absolute;
   top: 5px;
   right: 5px;
-  font-family: var(--font-mono);
-  font-size: 8px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.clip-thumb-badge.labeled-human {
-  color: var(--color-success);
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 0 4px var(--color-success-20);
-}
-
-.clip-thumb-badge.labeled-auto {
-  color: var(--color-warning);
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 0 4px var(--color-warning-20);
-}
-
-.clip-thumb-badge.unlabeled {
-  color: var(--color-text-secondary);
-  background: rgba(255, 255, 255, 0.7);
 }
 
 /* Hot badge — recently rated */

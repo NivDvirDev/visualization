@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScoreBar } from '../../atoms';
 import './ProgressBar.css';
 
 interface ProgressBarProps {
@@ -12,12 +13,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ total, labeled }) => {
 
   return (
     <div className="global-progress">
-      <div className="global-progress-bar">
-        <div
-          className="global-progress-fill"
-          style={{ width: pct + '%' }}
-        />
-      </div>
+      <ScoreBar value={labeled} max={total} showLabel={false} size="sm" className="global-progress-bar-atom" />
       <span className="global-progress-text">
         {labeled}/{total} labeled ({pct}%)
       </span>

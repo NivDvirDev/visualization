@@ -1,0 +1,144 @@
+/* =============================================
+   Atom: Tabs
+   Variants: default | pills | underline
+   Sizes: sm | md | lg
+   ============================================= */
+
+.atom-tabs {
+  display: inline-flex;
+  align-items: stretch;
+}
+
+/* ---- Shared tab button base ---- */
+.atom-tabs-tab {
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.15s, background 0.15s, border-color 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+  position: relative;
+  outline: none;
+}
+
+.atom-tabs-tab:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ---- Sizes ---- */
+.atom-tabs--sm .atom-tabs-tab {
+  padding: 5px 12px;
+  font-size: 11px;
+}
+.atom-tabs--md .atom-tabs-tab {
+  padding: 8px 18px;
+  font-size: 13px;
+}
+.atom-tabs--lg .atom-tabs-tab {
+  padding: 11px 24px;
+  font-size: 15px;
+}
+
+/* ============================================
+   Variant: default
+   Bordered tab bar, flame accent bottom border
+   ============================================ */
+.atom-tabs--default {
+  border-bottom: 2px solid var(--color-bg-deep);
+  gap: 2px;
+}
+
+.atom-tabs--default .atom-tabs-tab {
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px; /* overlap the container border */
+  border-radius: 6px 6px 0 0;
+}
+
+.atom-tabs--default .atom-tabs-tab:hover:not(:disabled) {
+  color: var(--color-text-primary);
+  background: var(--color-accent-06);
+  border-bottom-color: var(--color-accent-30);
+}
+
+.atom-tabs--default .atom-tabs-tab--active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+  background: var(--color-accent-06);
+}
+
+/* ============================================
+   Variant: pills
+   Rounded pill buttons with glass background
+   ============================================ */
+.atom-tabs--pills {
+  background: var(--color-bg-deep);
+  border-radius: 50px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.atom-tabs--pills .atom-tabs-tab {
+  color: var(--color-text-secondary);
+  border-radius: 50px;
+}
+
+.atom-tabs--pills .atom-tabs-tab:hover:not(:disabled) {
+  color: var(--color-text-primary);
+  background: var(--color-glass-bg);
+}
+
+.atom-tabs--pills .atom-tabs-tab--active {
+  background: var(--color-glass-bg-strong);
+  color: var(--color-accent);
+  box-shadow: 0 1px 4px var(--color-bg-shadow);
+}
+
+/* ============================================
+   Variant: underline
+   Minimal underline only, no background chrome
+   ============================================ */
+.atom-tabs--underline {
+  gap: 0;
+}
+
+.atom-tabs--underline .atom-tabs-tab {
+  color: var(--color-text-muted);
+  padding-left: 0;
+  padding-right: 0;
+  margin-right: 24px;
+}
+
+.atom-tabs--underline .atom-tabs-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 1px;
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+
+.atom-tabs--underline .atom-tabs-tab:hover:not(:disabled) {
+  color: var(--color-text-primary);
+}
+
+.atom-tabs--underline .atom-tabs-tab--active {
+  color: var(--color-accent);
+}
+
+.atom-tabs--underline .atom-tabs-tab--active::after {
+  transform: scaleX(1);
+}
+
+/* ============================================
+   TabPanel content area
+   ============================================ */
+.atom-tab-panel {
+  width: 100%;
+}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getLeaderboard, getMyStats } from '../../../api';
 import { LeaderboardEntry, MyStats } from '../../../types';
+import { Badge } from '../../atoms';
 import WeeklyChallenge from '../WeeklyChallenge/WeeklyChallenge';
 import TasteProfile from '../TasteProfile/TasteProfile';
 import './Leaderboard.css';
@@ -71,10 +72,14 @@ const Leaderboard: React.FC<{ user: any }> = ({ user }) => {
           </div>
           {myStats.badges.length > 0 && (
             <div className="badges-row">
-              {myStats.badges.map((b) => (
-                <span key={b} className="badge-pill" title={BADGE_MAP[b]?.label || b}>
+              {myStats.badges.map((b, i) => (
+                <Badge
+                  key={b}
+                  variant={i === 0 ? 'accent' : 'neutral'}
+                  className="badge-pill"
+                >
                   {BADGE_MAP[b]?.icon || '🏅'} {BADGE_MAP[b]?.label || b}
-                </span>
+                </Badge>
               ))}
             </div>
           )}

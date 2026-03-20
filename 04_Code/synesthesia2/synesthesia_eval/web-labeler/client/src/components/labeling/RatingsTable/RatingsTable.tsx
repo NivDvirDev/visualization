@@ -1,5 +1,6 @@
 import React from 'react';
 import { Label, DimensionKey } from '../../../types';
+import { Badge } from '../../atoms';
 import './RatingsTable.css';
 
 interface RatingsTableProps {
@@ -108,7 +109,7 @@ const RatingsTable: React.FC<RatingsTableProps> = ({ labels, currentUsername }) 
                 <tr key={`user-${i}`} className={isMe ? 'ratings-row-me' : ''}>
                   <td className="ratings-rater">
                     {label.username || label.labeler}
-                    {isMe && <span className="ratings-you-badge">you</span>}
+                    {isMe && <Badge variant="accent" className="ratings-you-badge">you</Badge>}
                   </td>
                   {PERCEPTUAL_DIMS.map((d) => (
                     <td key={d.key} className="ratings-score">
@@ -135,7 +136,7 @@ const RatingsTable: React.FC<RatingsTableProps> = ({ labels, currentUsername }) 
               <tr key={`auto-${i}`} className="ratings-row-auto">
                 <td className="ratings-rater">
                   {label.labeler}
-                  <span className="ratings-auto-badge">AI</span>
+                  <Badge variant="neutral" className="ratings-auto-badge">AI</Badge>
                 </td>
                 {PERCEPTUAL_DIMS.map((d) => (
                   <td key={d.key} className="ratings-score ratings-score-auto">

@@ -10,20 +10,9 @@
   gap: 12px;
 }
 
-.global-progress-bar {
+/* Stretch the ScoreBar atom to fill available space */
+.global-progress-bar-atom {
   flex: 1;
-  height: 6px;
-  background: var(--color-accent-10);
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.global-progress-fill {
-  height: 100%;
-  background: var(--gradient-progress);
-  border-radius: 3px;
-  transition: width 0.3s ease;
-  box-shadow: 0 0 8px var(--color-bright-30);
 }
 
 .global-progress-text {

@@ -1,0 +1,124 @@
+/* =============================================
+   Atom: Modal
+   Sizes: sm | md | lg | full
+   Portal-rendered into document.body
+   ============================================= */
+
+/* ---- Backdrop ---- */
+.atom-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 26, 46, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 20px;
+  animation: atom-modal-backdrop-in 0.18s ease;
+}
+
+@keyframes atom-modal-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---- Panel ---- */
+.atom-modal {
+  background: var(--color-glass-bg-strong);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-accent-15);
+  border-radius: 16px;
+  box-shadow:
+    0 8px 48px rgba(26, 26, 46, 0.24),
+    inset 0 1px 0 var(--color-glass-highlight);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 40px);
+  width: 100%;
+  animation: atom-modal-slide-in 0.22s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+@keyframes atom-modal-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---- Sizes ---- */
+.atom-modal--sm   { max-width: 380px; }
+.atom-modal--md   { max-width: 560px; }
+.atom-modal--lg   { max-width: 760px; }
+.atom-modal--full {
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  border-radius: 0;
+  margin: 0;
+}
+
+/* ---- Header ---- */
+.atom-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--color-glass-border-light);
+  flex-shrink: 0;
+}
+
+.atom-modal__title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  flex: 1;
+}
+
+.atom-modal__close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color 0.12s, background 0.12s;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+.atom-modal__close:hover {
+  color: var(--color-text-primary);
+  background: var(--color-accent-08);
+}
+
+/* ---- Body ---- */
+.atom-modal__body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+/* ---- Footer ---- */
+.atom-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 14px 24px 20px;
+  border-top: 1px solid var(--color-glass-border-light);
+  flex-shrink: 0;
+}

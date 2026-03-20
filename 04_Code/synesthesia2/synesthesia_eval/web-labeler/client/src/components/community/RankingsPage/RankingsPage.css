@@ -82,30 +82,7 @@ svg.rankings-logo {
 .rankings-tabs {
   display: flex;
   justify-content: center;
-  gap: 4px;
   padding: 16px 20px 0;
-}
-
-.rankings-tab {
-  padding: 10px 28px;
-  font-size: 13px;
-  font-weight: 600;
-  border: 1px solid var(--color-accent-20);
-  background: transparent;
-  color: var(--color-text-mid);
-  border-radius: 8px 8px 0 0;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.rankings-tab:hover {
-  background: var(--color-accent-10);
-  color: var(--color-text-lighter);
-}
-.rankings-tab.active {
-  background: var(--color-accent-15);
-  border-color: var(--color-accent-30);
-  border-bottom-color: transparent;
-  color: var(--color-accent-muted);
 }
 
 .rankings-content {
@@ -251,6 +228,11 @@ svg.rankings-logo {
   font-size: 16px;
 }
 
+.rank-na {
+  color: var(--color-text-muted);
+  font-size: 11px;
+}
+
 /* Rankings footer */
 .rankings-footer {
   text-align: center;
@@ -259,22 +241,8 @@ svg.rankings-logo {
   color: var(--color-text-muted);
   font-size: 12px;
 }
-.btn-join-footer {
+.rankings-footer .atom-btn {
   margin-top: 12px;
-  padding: 10px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  background: var(--gradient-accent);
-  color: var(--color-text-bright);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 0 20px var(--color-accent-solid-30);
-  transition: all 0.15s;
-}
-.btn-join-footer:hover {
-  box-shadow: 0 0 30px var(--color-accent-solid-50);
-  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {

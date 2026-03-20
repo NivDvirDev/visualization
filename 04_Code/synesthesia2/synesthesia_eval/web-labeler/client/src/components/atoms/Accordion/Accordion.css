@@ -1,0 +1,159 @@
+/* =============================================
+   Atom: Accordion
+   Variants: default | flush | glass
+   ============================================= */
+
+.atom-accordion {
+  width: 100%;
+}
+
+/* ---- Shared item ---- */
+.atom-accordion-item {
+  overflow: hidden;
+}
+
+.atom-accordion-item--disabled {
+  opacity: 0.45;
+}
+
+/* ---- Trigger button ---- */
+.atom-accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+}
+
+.atom-accordion-trigger:disabled {
+  cursor: not-allowed;
+}
+
+.atom-accordion-title {
+  flex: 1;
+}
+
+.atom-accordion-chevron {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  margin-left: 12px;
+  display: inline-block;
+}
+
+.atom-accordion-item--open .atom-accordion-chevron {
+  transform: rotate(180deg);
+}
+
+/* ---- Collapsible body ---- */
+.atom-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.atom-accordion-content {
+  padding: 0 16px 16px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   Variant: default — bordered cards
+   ============================================ */
+.atom-accordion--default .atom-accordion-item {
+  border: 1px solid var(--color-bg-deep);
+  border-radius: 8px;
+  background: var(--color-bg-elevated);
+}
+
+.atom-accordion--default .atom-accordion-item + .atom-accordion-item {
+  margin-top: 6px;
+}
+
+.atom-accordion--default .atom-accordion-trigger:hover:not(:disabled) {
+  background: var(--color-accent-04);
+}
+
+.atom-accordion--default .atom-accordion-item--open {
+  border-color: var(--color-accent-20);
+}
+
+.atom-accordion--default .atom-accordion-item--open .atom-accordion-trigger {
+  color: var(--color-accent);
+}
+
+/* ============================================
+   Variant: flush — edge-to-edge, separator lines
+   ============================================ */
+.atom-accordion--flush .atom-accordion-item {
+  border-bottom: 1px solid var(--color-bg-deep);
+}
+
+.atom-accordion--flush .atom-accordion-item:first-child {
+  border-top: 1px solid var(--color-bg-deep);
+}
+
+.atom-accordion--flush .atom-accordion-trigger {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.atom-accordion--flush .atom-accordion-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.atom-accordion--flush .atom-accordion-trigger:hover:not(:disabled) {
+  color: var(--color-accent);
+}
+
+.atom-accordion--flush .atom-accordion-item--open .atom-accordion-trigger {
+  color: var(--color-accent);
+}
+
+/* ============================================
+   Variant: glass — glass morphism cards
+   ============================================ */
+.atom-accordion--glass .atom-accordion-item {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border-light);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px var(--color-bg-shadow-deep);
+}
+
+.atom-accordion--glass .atom-accordion-item + .atom-accordion-item {
+  margin-top: 8px;
+}
+
+.atom-accordion--glass .atom-accordion-trigger:hover:not(:disabled) {
+  background: var(--color-glass-bg-hover);
+}
+
+.atom-accordion--glass .atom-accordion-item--open {
+  background: var(--color-glass-bg-strong);
+  border-color: var(--color-accent-15);
+  box-shadow: 0 4px 16px var(--color-accent-08);
+}
+
+.atom-accordion--glass .atom-accordion-item--open .atom-accordion-trigger {
+  color: var(--color-accent);
+}
+
+.atom-accordion--glass .atom-accordion-chevron {
+  color: var(--color-accent-soft);
+}

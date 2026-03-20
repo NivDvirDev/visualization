@@ -1,0 +1,105 @@
+/* =============================================
+   Atom: Tooltip
+   Placements: top | bottom | left | right
+   ============================================= */
+
+.atom-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Bubble ---- */
+.atom-tooltip {
+  position: absolute;
+  z-index: 1000;
+  padding: 6px 10px;
+  background: var(--color-glass-bg-strong);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-glass-border-light);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  white-space: normal;
+  word-break: break-word;
+  pointer-events: none;
+  box-shadow: 0 4px 16px var(--color-bg-shadow-heavy);
+  animation: tooltip-fade-in 140ms ease;
+}
+
+@keyframes tooltip-fade-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ---- Placement positioning ---- */
+.atom-tooltip--top {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.atom-tooltip--bottom {
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.atom-tooltip--left {
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.atom-tooltip--right {
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ---- Arrow ---- */
+.atom-tooltip__arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.atom-tooltip--top .atom-tooltip__arrow {
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--color-glass-bg-strong);
+}
+
+.atom-tooltip--bottom .atom-tooltip__arrow {
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--color-glass-bg-strong);
+}
+
+.atom-tooltip--left .atom-tooltip__arrow {
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid var(--color-glass-bg-strong);
+}
+
+.atom-tooltip--right .atom-tooltip__arrow {
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid var(--color-glass-bg-strong);
+}

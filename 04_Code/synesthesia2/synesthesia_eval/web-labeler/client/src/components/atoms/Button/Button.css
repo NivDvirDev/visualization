@@ -1,0 +1,117 @@
+/* =============================================
+   Atom: Button
+   Variants: primary | secondary | ghost | danger
+   Sizes: sm | md | lg
+   ============================================= */
+
+.atom-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* ---- Sizes ---- */
+.atom-btn--sm {
+  padding: 5px 12px;
+  font-size: 11px;
+  border-radius: 4px;
+}
+.atom-btn--md {
+  padding: 8px 20px;
+  font-size: 13px;
+}
+.atom-btn--lg {
+  padding: 11px 28px;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
+/* ---- Variants ---- */
+.atom-btn--primary {
+  background: var(--gradient-accent);
+  color: #fff;
+  box-shadow: 0 0 14px var(--color-accent-solid-25, rgba(255,107,53,0.25));
+}
+.atom-btn--primary:hover:not(:disabled) {
+  box-shadow: 0 0 20px var(--color-accent-30);
+  transform: translateY(-1px);
+}
+.atom-btn--primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 0 8px var(--color-accent-20);
+}
+
+.atom-btn--secondary {
+  background: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  padding: 6px 18px;
+}
+.atom-btn--secondary.atom-btn--sm { padding: 3px 10px; }
+.atom-btn--secondary.atom-btn--lg { padding: 9px 26px; }
+.atom-btn--secondary:hover:not(:disabled) {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.atom-btn--ghost {
+  background: var(--color-accent-08);
+  color: var(--color-accent-soft);
+  border: 1px solid var(--color-accent-15);
+}
+.atom-btn--ghost:hover:not(:disabled) {
+  background: var(--color-accent-15);
+  border-color: var(--color-accent-25);
+}
+
+.atom-btn--danger {
+  background: var(--color-error-12);
+  color: var(--color-error-text);
+  border: 1px solid var(--color-error-25);
+}
+.atom-btn--danger:hover:not(:disabled) {
+  background: var(--color-error-25);
+  border-color: var(--color-error-50);
+}
+
+/* ---- Disabled ---- */
+.atom-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ---- Loading spinner ---- */
+.atom-btn--loading {
+  pointer-events: none;
+}
+.atom-btn-spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: atom-btn-spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+.atom-btn--ghost .atom-btn-spinner,
+.atom-btn--secondary .atom-btn-spinner,
+.atom-btn--danger .atom-btn-spinner {
+  border-color: currentColor;
+  border-top-color: transparent;
+}
+
+@keyframes atom-btn-spin {
+  to { transform: rotate(360deg); }
+}

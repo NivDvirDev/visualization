@@ -1,0 +1,66 @@
+/* =============================================
+   Atom: Badge
+   Variants: accent | success | error | warning | neutral | bright
+   Sizes: sm | md
+   ============================================= */
+
+.atom-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+/* ---- Sizes ---- */
+.atom-badge--sm {
+  padding: 2px 7px;
+  font-size: 10px;
+}
+.atom-badge--md {
+  padding: 3px 10px;
+  font-size: 12px;
+}
+
+/* ---- Variants ---- */
+.atom-badge--accent {
+  background: var(--color-accent-20);
+  color: var(--color-accent-soft);
+  border: 1px solid var(--color-accent-30);
+}
+.atom-badge--success {
+  background: var(--color-success-15);
+  color: var(--color-success);
+  border: 1px solid var(--color-success-25);
+}
+.atom-badge--error {
+  background: var(--color-error-12);
+  color: var(--color-error-text);
+  border: 1px solid var(--color-error-25);
+}
+.atom-badge--warning {
+  background: var(--color-warning-12);
+  color: var(--color-warning);
+  border: 1px solid var(--color-warning-20);
+}
+.atom-badge--neutral {
+  background: var(--color-bg-deep);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--border-separator);
+}
+.atom-badge--bright {
+  background: var(--color-bright-12);
+  color: var(--color-bright);
+  border: 1px solid var(--color-bright-30);
+}
+
+/* ---- Dot indicator ---- */
+.atom-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}

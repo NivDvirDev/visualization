@@ -1,0 +1,37 @@
+/* =============================================
+   Atom: GlassPanel
+   The glassmorphism container used throughout the UI.
+   Variants: default | strong | overlay
+   Padding: none | sm | md | lg
+   ============================================= */
+
+.atom-glass {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 12px;
+  box-shadow:
+    0 4px 30px var(--color-bg-shadow-deep),
+    inset 0 1px 0 var(--color-glass-highlight);
+}
+
+/* ---- Variants ---- */
+.atom-glass--default {
+  background: var(--color-glass-bg);
+  border: 1px solid var(--color-accent-15);
+}
+.atom-glass--strong {
+  background: var(--color-glass-bg-strong);
+  border: 1px solid var(--color-accent-20);
+}
+.atom-glass--overlay {
+  background: var(--color-glass-overlay);
+  border: 1px solid var(--color-accent-08);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* ---- Padding ---- */
+.atom-glass--pad-none  { padding: 0; }
+.atom-glass--pad-sm    { padding: 12px; }
+.atom-glass--pad-md    { padding: 20px 24px; }
+.atom-glass--pad-lg    { padding: 32px; }
