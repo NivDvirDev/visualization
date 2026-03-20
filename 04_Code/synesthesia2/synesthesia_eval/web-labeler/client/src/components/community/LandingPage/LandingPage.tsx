@@ -78,8 +78,8 @@ const LandingPage: React.FC = () => {
             </Card>
             <Card variant="glass" padding="md" className="landing-stat-card-wrap accent">
               <CardContent>
-                <span className="landing-stat-value">{stats.unlabeled}</span>
-                <span className="landing-stat-label">Waiting for You</span>
+                <span className="landing-stat-value">{stats.total_users}</span>
+                <span className="landing-stat-label">Human Raters</span>
               </CardContent>
             </Card>
           </div>
@@ -137,7 +137,7 @@ const LandingPage: React.FC = () => {
             ))}
           </div>
           <div className="landing-section-cta">
-            <Link to="/app" onClick={() => trackEvent('landing_cta_clicked', { cta: 'join_leaderboard' })}><Button variant="primary">Join the Leaderboard</Button></Link>
+            <Link to="/swipe" onClick={() => trackEvent('landing_cta_clicked', { cta: 'join_leaderboard' })}><Button variant="primary">Join the Leaderboard</Button></Link>
           </div>
         </section>
       )}

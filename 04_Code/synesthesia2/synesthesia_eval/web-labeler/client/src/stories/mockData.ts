@@ -126,6 +126,8 @@ export const mockStats: Stats = {
   labeled_human: 29,
   labeled_auto: 29,
   unlabeled: 54,
+  total_users: 5,
+  recent_users_7d: 3,
   avg_scores: {
     sync_quality: 3.8,
     harmony: 3.5,
