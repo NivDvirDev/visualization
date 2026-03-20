@@ -2,9 +2,10 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SwipeCard from '../SwipeCard/SwipeCard';
 import SwipeGuestPrompt from '../SwipeGuestPrompt/SwipeGuestPrompt';
+import SwipeCategoryTuner, { CategoryScores } from '../SwipeCategoryTuner/SwipeCategoryTuner';
 import { WellspringIcon } from '../../brand/WellspringLogo/WellspringIcon/WellspringIcon';
-import { Button } from '../../atoms';
-import { saveSwipeLabel } from '../../../api';
+import { Button, useToast, ToastContainer } from '../../atoms';
+import { saveSwipeLabel, getMe } from '../../../api';
 import './SwipeMode.css';
 
 const trackEvent = (name: string, params?: Record<string, unknown>) => {
@@ -27,6 +28,7 @@ interface SwipeUser {
 
 const SwipeMode: React.FC = () => {
   const navigate = useNavigate();
+  const { toasts, toast, dismiss } = useToast();
   const [clips, setClips] = useState<ClipItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [user, setUser] = useState<SwipeUser | null>(null);
@@ -37,16 +39,37 @@ const SwipeMode: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [swipedCount, setSwipedCount] = useState(0);
   const [muted, setMuted] = useState(false);
+  const [pendingScore, setPendingScore] = useState<{ clipId: string; score: number } | null>(null);
+  const [skipCategories, setSkipCategories] = useState(() =>
+    localStorage.getItem('swipe_skip_categories') === 'true'
+  );
 
   // Check auth and load clips on mount
   useEffect(() => {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
     const userId = localStorage.getItem('userId');
+
     if (token && username) {
       setUser({ id: Number(userId), username, token });
+      setAuthChecked(true);
+    } else if (token) {
+      // Token exists but username missing — restore from server
+      getMe()
+        .then((u) => {
+          localStorage.setItem('username', u.username);
+          localStorage.setItem('userId', String(u.id));
+          setUser({ id: u.id, username: u.username, token });
+          setAuthChecked(true);
+        })
+        .catch(() => {
+          // Token invalid — clear and continue as guest
+          localStorage.removeItem('token');
+          setAuthChecked(true);
+        });
+    } else {
+      setAuthChecked(true);
     }
-    setAuthChecked(true);
 
     // Load clips from API
     const apiBase = '/api';
@@ -54,14 +77,12 @@ const SwipeMode: React.FC = () => {
     fetch(url, token ? { headers: { Authorization: `Bearer ${token}` } } : {})
       .then(r => r.json())
       .then((data: ClipItem[]) => {
-        // Shuffle for variety
         const shuffled = [...data].sort(() => Math.random() - 0.5);
         setClips(shuffled);
         setLoading(false);
         trackEvent('clip_loaded', { clip_count: shuffled.length });
       })
       .catch(() => {
-        // Fall back to all clips
         fetch(`${apiBase}/clips`, token ? { headers: { Authorization: `Bearer ${token}` } } : {})
           .then(r => r.json())
           .then((data: ClipItem[]) => {
@@ -72,6 +93,11 @@ const SwipeMode: React.FC = () => {
           })
           .catch(() => setLoading(false));
       });
+  }, []);
+
+  const advanceCard = useCallback(() => {
+    setSwipedCount(c => c + 1);
+    setCurrentIndex(i => i + 1);
   }, []);
 
   const handleCommit = useCallback(async (score: number) => {
@@ -85,7 +111,7 @@ const SwipeMode: React.FC = () => {
       swipe_number: swipedCount + 1,
     });
 
-    // Guest mode: only allow 3 free swipes
+    // Guest mode: warn on first swipe, block after 3
     if (!user) {
       if (guestSwipeCount >= 3) {
         trackEvent('guest_limit_reached');
@@ -93,26 +119,79 @@ const SwipeMode: React.FC = () => {
         setShowGuestPrompt(true);
         return;
       }
-      setGuestSwipeCount(c => c + 1);
-      // Try to save (will likely 401), ignore error
-      saveSwipeLabel(clip.id, score, null).catch(() => {});
-    } else {
-      setSaving(true);
-      try {
-        await saveSwipeLabel(clip.id, score, user.token);
-      } catch (e) {
-        console.error('Save failed:', e);
+      if (guestSwipeCount === 0) {
+        toast('Sign in to save your ratings', { variant: 'warning', duration: 4000 });
       }
-      setSaving(false);
+      setGuestSwipeCount(c => c + 1);
+      // Don't call saveSwipeLabel — it will 401 anyway
+      advanceCard();
+      return;
     }
 
-    setSwipedCount(c => c + 1);
-    setCurrentIndex(i => i + 1);
-  }, [clips, currentIndex, user, guestSwipeCount, swipedCount]);
+    // Authenticated path
+    if (skipCategories) {
+      // Auto-fill categories with overall score, save immediately
+      setSaving(true);
+      try {
+        await saveSwipeLabel(clip.id, score, user.token, {
+          sync_quality: score, harmony: score,
+          aesthetic_quality: score, motion_smoothness: score,
+        });
+        trackEvent('swipe_save_success', { clip_id: clip.id });
+      } catch (e) {
+        console.error('Save failed:', e);
+        toast('Rating failed to save — try again', { variant: 'error', duration: 4000 });
+        trackEvent('swipe_save_failed', { clip_id: clip.id, error: String(e) });
+      }
+      setSaving(false);
+      advanceCard();
+    } else {
+      // Show category tuner overlay
+      setPendingScore({ clipId: clip.id, score });
+    }
+  }, [clips, currentIndex, user, guestSwipeCount, swipedCount, skipCategories, toast, advanceCard]);
+
+  const handleCategoryConfirm = useCallback(async (categories: CategoryScores) => {
+    if (!pendingScore || !user) return;
+    const { clipId, score } = pendingScore;
+    setPendingScore(null);
+
+    // Check if any category was adjusted
+    const adjusted = Object.values(categories).some(v => v !== score);
+    if (adjusted) {
+      trackEvent('swipe_categories_tuned', {
+        clip_id: clipId,
+        changed: Object.entries(categories)
+          .filter(([, v]) => v !== score)
+          .map(([k]) => k),
+      });
+    }
+
+    setSaving(true);
+    try {
+      await saveSwipeLabel(clipId, score, user.token, categories);
+      trackEvent('swipe_save_success', { clip_id: clipId });
+    } catch (e) {
+      console.error('Save failed:', e);
+      toast('Rating failed to save — try again', { variant: 'error', duration: 4000 });
+      trackEvent('swipe_save_failed', { clip_id: clipId, error: String(e) });
+    }
+    setSaving(false);
+    advanceCard();
+  }, [pendingScore, user, toast, advanceCard]);
+
+  const handleSkipToggle = useCallback((skip: boolean) => {
+    setSkipCategories(skip);
+    if (skip) {
+      localStorage.setItem('swipe_skip_categories', 'true');
+      trackEvent('swipe_categories_skipped');
+    } else {
+      localStorage.removeItem('swipe_skip_categories');
+    }
+  }, []);
 
   const currentClip = clips[currentIndex];
 
-  // Build video URL — match pattern from VideoPlayer component
   const getVideoUrl = (clip: ClipItem): string => {
     if (clip.video_url) return clip.video_url;
     return `/videos/${clip.filename}`;
@@ -186,6 +265,15 @@ const SwipeMode: React.FC = () => {
         <div className="swipe-footer-instructions">
           ← drag to score 1–5 →
         </div>
+        {skipCategories && (
+          <span
+            className="swipe-footer-categories"
+            onClick={() => handleSkipToggle(false)}
+            title="Click to re-enable category tuning"
+          >
+            Categories: auto
+          </span>
+        )}
         <div className="swipe-footer-count">
           {swipedCount} rated · {clips.length - currentIndex} left
         </div>
@@ -194,6 +282,17 @@ const SwipeMode: React.FC = () => {
       {showGuestPrompt && (
         <SwipeGuestPrompt onContinue={() => setShowGuestPrompt(false)} />
       )}
+
+      {pendingScore && (
+        <SwipeCategoryTuner
+          overallScore={pendingScore.score}
+          skipCategories={skipCategories}
+          onConfirm={handleCategoryConfirm}
+          onSkipToggle={handleSkipToggle}
+        />
+      )}
+
+      <ToastContainer toasts={toasts} onDismiss={dismiss} />
     </div>
   );
 };

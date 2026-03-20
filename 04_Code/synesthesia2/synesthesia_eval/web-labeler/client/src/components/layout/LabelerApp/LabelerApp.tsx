@@ -53,6 +53,8 @@ const LabelerApp: React.FC = () => {
     }
     getMe()
       .then((u) => {
+        localStorage.setItem('username', u.username);
+        localStorage.setItem('userId', String(u.id));
         setUser(u);
         setAuthChecked(true);
       })
@@ -77,11 +79,15 @@ const LabelerApp: React.FC = () => {
 
   const handleLogin = useCallback((u: User, token: string) => {
     localStorage.setItem('token', token);
+    localStorage.setItem('username', u.username);
+    localStorage.setItem('userId', String(u.id));
     setUser(u);
   }, []);
 
   const handleLogout = useCallback(() => {
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('userId');
     setUser(null);
     setClips([]);
     setSelectedClipId(null);

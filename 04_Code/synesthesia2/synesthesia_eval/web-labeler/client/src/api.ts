@@ -85,6 +85,30 @@ export const saveLabel = (clipId: string, data: LabelData): Promise<unknown> =>
     return json;
   });
 
+export const saveSwipeLabel = async (
+  clipId: string,
+  score: number,
+  token: string | null,
+  categories?: { sync_quality: number; harmony: number; aesthetic_quality: number; motion_smoothness: number }
+): Promise<unknown> => {
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
+  const body: Record<string, unknown> = { overall_impression: score, notes: '' };
+  if (categories) Object.assign(body, categories);
+  const r = await fetch(`${API}/labels/${clipId}`, {
+    method: 'PUT',
+    headers,
+    body: JSON.stringify(body),
+  });
+  if (!r.ok) {
+    const json = await r.json().catch(() => ({ error: 'Unknown error' }));
+    const err = new Error(json.error || `Save failed (${r.status})`);
+    (err as any).status = r.status;
+    throw err;
+  }
+  return r.json();
+};
+
 export const deleteLabel = (clipId: string, labeler: string): Promise<unknown> =>
   fetch(`${API}/labels/${clipId}/${encodeURIComponent(labeler)}`, {
     method: 'DELETE',
@@ -133,3 +157,38 @@ export const getUserProfile = (username: string): Promise<UserProfile> =>
     if (!r.ok) throw new Error('User not found');
     return r.json();
   });
+
+// Creator Attribution API
+export const claimClip = async (clipId: string, youtubeUrl: string, token: string): Promise<unknown> => {
+  const r = await fetch(`${API}/clips/${clipId}/claim`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ youtube_url: youtubeUrl }),
+  });
+  const json = await r.json();
+  if (!r.ok) throw new Error(json.error || 'Claim failed');
+  return json;
+};
+
+export const unclaimClip = async (clipId: string, token: string): Promise<void> => {
+  const r = await fetch(`${API}/clips/${clipId}/claim`, {
+    method: 'DELETE',
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!r.ok) { const json = await r.json(); throw new Error(json.error || 'Unclaim failed'); }
+};
+
+export const updateCreatorDisplay = async (
+  clipId: string,
+  data: { display_credit?: string; display_link?: string; credit_visible?: boolean },
+  token: string
+): Promise<unknown> => {
+  const r = await fetch(`${API}/clips/${clipId}/creator`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify(data),
+  });
+  const json = await r.json();
+  if (!r.ok) throw new Error(json.error || 'Update failed');
+  return json;
+};
