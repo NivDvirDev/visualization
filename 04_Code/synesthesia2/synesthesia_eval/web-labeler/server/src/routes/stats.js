@@ -235,6 +235,74 @@ router.get('/me/profile', authRequired, async (req, res, next) => {
   }
 });
 
+// GET /api/stats/ratings — clear breakdown of all ratings for verification
+router.get('/ratings', async (req, res, next) => {
+  try {
+    const { rows: [counts] } = await pool.query(`
+      SELECT
+        COUNT(*) FILTER (WHERE user_id IS NOT NULL)                          AS registered_ratings,
+        COUNT(DISTINCT user_id) FILTER (WHERE user_id IS NOT NULL)           AS registered_raters,
+        COUNT(*) FILTER (WHERE user_id IS NULL AND labeler LIKE 'anon_%')    AS anonymous_ratings,
+        COUNT(DISTINCT labeler) FILTER (WHERE user_id IS NULL AND labeler LIKE 'anon_%') AS anonymous_sessions,
+        COUNT(*) FILTER (WHERE user_id IS NULL AND labeler NOT LIKE 'anon_%') AS auto_ratings,
+        COUNT(*)                                                              AS total_ratings,
+        COUNT(DISTINCT clip_id)                                               AS clips_with_ratings
+      FROM labels
+    `);
+
+    const { rows: recent } = await pool.query(`
+      SELECT labeler, clip_id, overall_impression, created_at,
+        CASE
+          WHEN user_id IS NOT NULL THEN 'registered'
+          WHEN labeler LIKE 'anon_%' THEN 'anonymous'
+          ELSE 'auto'
+        END AS source
+      FROM labels
+      ORDER BY created_at DESC
+      LIMIT 20
+    `);
+
+    const { rows: hourly } = await pool.query(`
+      SELECT
+        date_trunc('hour', created_at) AS hour,
+        COUNT(*) FILTER (WHERE user_id IS NOT NULL)                          AS registered,
+        COUNT(*) FILTER (WHERE user_id IS NULL AND labeler LIKE 'anon_%')    AS anonymous,
+        COUNT(*) FILTER (WHERE user_id IS NULL AND labeler NOT LIKE 'anon_%') AS auto
+      FROM labels
+      WHERE created_at >= NOW() - INTERVAL '48 hours'
+      GROUP BY date_trunc('hour', created_at)
+      ORDER BY hour DESC
+    `);
+
+    res.json({
+      summary: {
+        registered_ratings: parseInt(counts.registered_ratings, 10),
+        registered_raters: parseInt(counts.registered_raters, 10),
+        anonymous_ratings: parseInt(counts.anonymous_ratings, 10),
+        anonymous_sessions: parseInt(counts.anonymous_sessions, 10),
+        auto_ratings: parseInt(counts.auto_ratings, 10),
+        total_ratings: parseInt(counts.total_ratings, 10),
+        clips_with_ratings: parseInt(counts.clips_with_ratings, 10),
+      },
+      recent_activity: recent.map(r => ({
+        labeler: r.labeler,
+        clip_id: r.clip_id,
+        score: r.overall_impression,
+        source: r.source,
+        time: r.created_at,
+      })),
+      hourly_last_48h: hourly.map(r => ({
+        hour: r.hour,
+        registered: parseInt(r.registered, 10),
+        anonymous: parseInt(r.anonymous, 10),
+        auto: parseInt(r.auto, 10),
+      })),
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
 // GET /api/stats/challenge
 router.get('/challenge', async (req, res, next) => {
   try {
