@@ -10,6 +10,93 @@ Detailed rules also in `/Project/.claude/rules/web-labeler.md`.
 
 ---
 
+## DEPLOYMENT — MUST READ
+
+This directory is a **nested git repo** (`NivDvirDev/synesthesia-labeler`), separate from the parent monorepo (`NivDvirDev/visualization`). **Render deploys from THIS repo only.**
+
+```bash
+# To deploy: commit and push FROM THIS DIRECTORY
+cd synesthesia_eval/web-labeler
+git add <files> && git commit -m "msg" && git push origin main
+
+# Pushing from the parent monorepo does NOT deploy to Render!
+```
+
+---
+
+## ⚛️ Atoms Library — UI First Principle
+
+> **MANDATORY RULE:** When building any new UI feature, **look in the Atoms library FIRST**.
+> Compose from existing atoms before writing any new CSS or component from scratch.
+> Only create custom styles when no existing atom covers the need.
+
+### Atom Components (`client/src/components/atoms/`)
+
+**Containers & Layout**
+| Atom | Key Props |
+|------|-----------|
+| `GlassPanel` | variant: default\|strong\|overlay; padding |
+| `Card` · `CardHeader` · `CardTitle` · `CardDescription` · `CardContent` · `CardFooter` | variant: default\|elevated\|glass\|outlined; hoverable; onClick |
+| `Divider` | variant: subtle\|default\|strong; orientation; spacing |
+| `Modal` | open; onClose; size: sm\|md\|lg\|full; title; footer |
+
+**Actions & Feedback**
+| Atom | Key Props |
+|------|-----------|
+| `Button` | variant: primary\|secondary\|ghost\|danger; size: sm\|md\|lg; loading |
+| `Alert` | variant: info\|success\|warning\|error; dismissible; icon |
+| `Toast` · `ToastContainer` · `useToast` | variant: default\|success\|warning\|error; duration (0=persistent) |
+
+**Indicators & Labels**
+| Atom | Key Props |
+|------|-----------|
+| `Badge` | variant: accent\|success\|error\|warning\|neutral\|bright; dot |
+| `Tag` · `TagGroup` | variant: default\|accent\|teal\|success\|warning\|error\|outline; removable; active |
+| `ScoreBar` | value; max; showLabel; size: sm\|md\|lg |
+| `Avatar` · `AvatarGroup` | src; name (→initials); size: xs–xl; status: online\|offline\|away |
+| `Skeleton` · `SkeletonText` · `SkeletonCard` | variant: text\|rect\|circle\|card; animated |
+
+**Navigation & Selection**
+| Atom | Key Props |
+|------|-----------|
+| `Tabs` · `TabPanel` | tabs[]; activeTab; onChange; variant: default\|pills\|underline |
+| `Accordion` | items[]; allowMultiple; defaultOpen[]; variant: default\|flush\|glass |
+| `Carousel` | children[]; autoPlay; showDots; showArrows; loop |
+| `Select` | options[]; value; onChange; placeholder; size; error; label |
+
+**Form Controls**
+| Atom | Key Props |
+|------|-----------|
+| `Input` | label; error; hint + all HTML input attributes |
+| `Checkbox` | checked; onChange; label; size; indeterminate; error |
+| `Switch` | checked; onChange; label; size; variant: default\|accent |
+| `Slider` | value; min; max; step; showValue; marks[]; variant: default\|accent |
+
+**Contextual**
+| Atom | Key Props |
+|------|-----------|
+| `Typography` | variant: display-xl/lg/md/sm, body-lg/md/sm, label, caption, mono |
+| `Tooltip` | content; placement: top\|bottom\|left\|right; delay |
+
+Import from barrel: `import { Button, Card, Modal, Select, Tabs, Avatar, Toast, useToast } from '../atoms';`
+
+Browse all atoms in Storybook → **"Atoms"** section: `cd client && npm run storybook`
+
+### Brand Atoms (`client/src/components/brand/`)
+- `WellspringIcon` — animated SVG flame+water logo mark (`brand/WellspringLogo/WellspringIcon/`)
+- `WellspringLogo` — full hero section (icon + headline + CTAs) (`brand/WellspringLogo/`)
+- `FlameIcon` — compact cochlear flame icon (`brand/FlameIcon/`)
+
+### Design Tokens (`client/src/styles/tokens.css`)
+- **Colors:** `--color-accent` (flame #FF6B35), `--color-bg-primary` (parchment #F5F1E8), `--color-teal` (#2BA5A5), status colors
+- **Fonts:** `--font-display` (Orbitron), `--font-body` (Inter), `--font-mono` (Space Mono)
+- **Gradients:** `--gradient-accent`, `--gradient-brand`, `--gradient-elevated`
+- **Glass:** `--color-glass-bg`, `--color-glass-bg-strong`
+- **NEVER** use raw hex values — always reference a `--color-*` token
+- **NEVER** use raw font-family strings — always use a `--font-*` token
+
+---
+
 ## Quick Commands
 
 ```bash

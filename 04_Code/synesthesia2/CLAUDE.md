@@ -12,10 +12,10 @@ Detailed component instructions are in `.claude/rules/` at the project root (vis
 
 | Version | File | Description |
 |---------|------|-------------|
-| 3.0 "Enhanced" | `experiments/generators/generate_enhanced.py` | Circles with glow, white-hot cores |
-| 3.5 "Radial Seismograph" | `experiments/generators/generate_hybrid_trails.py` | Trails expand outward |
-| 3.5-sharp/sharper | — | Crisp trails (`order=0`, high `fade_rate`, low `accumulation_strength`) |
-| Harmonic Forces (NEW) | `harmonic_connections.py` | Physics-based consonance/dissonance lines |
+| **Mesh3D (NEW)** | `mesh_renderer.py` | ModernGL 3D wireframe double-helix — reproduces MATLAB YouTube look |
+| 2D Spiral | `spiral_renderer_2d.py` | PIL 2D circles with glow — default renderer |
+| Harmonic Forces | `harmonic_connections.py` | Physics-based consonance/dissonance lines |
+| 3.0-3.5 experiments | `archive/experiments/` | Archived: enhanced circles, seismograph, merkabah, etc. |
 
 ---
 
@@ -24,13 +24,14 @@ Detailed component instructions are in `.claude/rules/` at the project root (vis
 | File | Description |
 |------|-------------|
 | `audio_analyzer.py` | FFT analysis (381 logarithmic bins, 20Hz-8kHz) |
-| `spiral_renderer_2d.py` | 2D spiral renderer (PIL) — primary renderer |
-| `video_generator.py` | Full pipeline with FFmpeg |
-| `video_generator_temporal.py` | Temporal intelligence pipeline |
-| `ai_overlay.py` | ViT classification overlay |
-| `synesthesia_cli.py` | CLI (v2.0), `synesthesia3_cli.py` (v3.0) |
+| `mesh_renderer.py` | **ModernGL 3D wireframe renderer** — port of MATLAB piperecord11 |
+| `mesh_colormap.py` | Per-octave HSV rainbow colormap (myjet port) |
+| `flow_amp.py` | Energy envelope for wave speed modulation (flowAMP port) |
+| `spiral_renderer_2d.py` | 2D spiral renderer (PIL) — default renderer |
+| `video_generator.py` | Full 2D pipeline with FFmpeg |
+| `synesthesia_cli.py` | CLI — use `--renderer mesh3d` for 3D wireframe |
 | `harmonic_connections.py` | Harmonic forces visualization |
-| `experiments/` | Generators, renderers, merkabah, legacy experiments |
+| `archive/` | Archived experiments (merkabah, seismograph, PyVista, etc.) |
 | `outputs/` | Generated media files (.mp4, .png, .gif) |
 
 ---
@@ -49,6 +50,28 @@ source .venv/bin/activate
 
 ### Dependencies
 Core: torch, torchvision, librosa, numpy, scipy, Pillow, FFmpeg, PyVista, CuPy (optional)
+
+---
+
+## CRITICAL: Web-Labeler Deployment (Dual-Repo)
+
+The web-labeler has a **nested git repo** inside the monorepo. Render deploys from the nested repo, NOT this one.
+
+| Repo | Path | Remote | Deploys? |
+|------|------|--------|----------|
+| **Monorepo** | `/Users/guydvir/Project/04_Code/synesthesia2/` | `NivDvirDev/visualization` | NO |
+| **Nested (Render)** | `synesthesia_eval/web-labeler/` | `NivDvirDev/synesthesia-labeler` | **YES** |
+
+**When changing web-labeler files, ALWAYS push to BOTH repos:**
+```bash
+# 1. Push to nested repo FIRST (this triggers Render deploy)
+cd synesthesia_eval/web-labeler && git add <files> && git commit -m "msg" && git push
+
+# 2. Then push to monorepo (keeps history in sync)
+cd ../.. && git add <files> && git commit -m "msg" && git push
+```
+
+Pushing only to the monorepo will NOT deploy. This caused a critical incident on 2026-03-20 where fixes were committed but never reached production.
 
 ---
 
