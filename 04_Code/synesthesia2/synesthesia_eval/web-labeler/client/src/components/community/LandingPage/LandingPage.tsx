@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import WellspringLogo from '../../brand/WellspringLogo/WellspringLogo';
 import { getStats, getClipRankings, getLeaderboard } from '../../../api';
 import { Stats, ClipRanking, LeaderboardEntry } from '../../../types';
@@ -16,6 +16,21 @@ const LandingPage: React.FC = () => {
   const [stats, setStats] = useState<Stats | null>(null);
   const [topClips, setTopClips] = useState<ClipRanking[]>([]);
   const [topRaters, setTopRaters] = useState<LeaderboardEntry[]>([]);
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  // Auto-redirect ad traffic straight to swipe mode
+  useEffect(() => {
+    if (searchParams.get('utm_source') || searchParams.get('gclid')) {
+      trackEvent('ad_redirect_to_swipe', {
+        utm_source: searchParams.get('utm_source'),
+        utm_medium: searchParams.get('utm_medium'),
+        utm_campaign: searchParams.get('utm_campaign'),
+      });
+      navigate('/swipe', { replace: true });
+      return;
+    }
+  }, [searchParams, navigate]);
 
   useEffect(() => {
     getStats().then(setStats).catch(() => {});
