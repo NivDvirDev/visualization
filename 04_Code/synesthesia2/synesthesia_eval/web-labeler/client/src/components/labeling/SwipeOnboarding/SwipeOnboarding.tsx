@@ -76,14 +76,19 @@ const SwipeOnboarding: React.FC = () => {
   const dismiss = useCallback(() => {
     if (dismissedRef.current) return;
     dismissedRef.current = true;
+    console.log('[onboarding] dismiss called, stack:', new Error().stack);
     setFading(true);
     localStorage.setItem('wellspring_onboarded', '1');
     trackEvent('onboarding_dismissed');
     setTimeout(() => setVisible(false), 300);
   }, []);
 
+  // Check localStorage once on mount — use ref to survive re-renders
+  const shouldShow = useRef(localStorage.getItem('wellspring_onboarded') !== '1');
+
   useEffect(() => {
-    if (localStorage.getItem('wellspring_onboarded') === '1') return;
+    console.log('[onboarding] useEffect, shouldShow:', shouldShow.current, 'localStorage:', localStorage.getItem('wellspring_onboarded'));
+    if (!shouldShow.current) return;
     setVisible(true);
     startRef.current = performance.now();
 
@@ -107,17 +112,24 @@ const SwipeOnboarding: React.FC = () => {
     };
     rafRef.current = requestAnimationFrame(animate);
 
-    const timer = setTimeout(dismiss, 8000);
+    const timer = setTimeout(() => {
+      console.log('[onboarding] auto-dismiss timer fired');
+      dismiss();
+    }, 8000);
 
-    // Use 'click' (not pointerdown) to avoid false triggers from video autoplay/page load.
-    // Delay 1s to skip any initial browser-generated events.
-    const handleInteraction = () => dismiss();
+    // Dismiss on user tap — delayed 1.5s to avoid false triggers
+    const handleInteraction = () => {
+      console.log('[onboarding] interaction dismiss');
+      dismiss();
+    };
     const listenerDelay = setTimeout(() => {
+      console.log('[onboarding] registering click/touch listeners');
       window.addEventListener('click', handleInteraction, { capture: true, once: true });
       window.addEventListener('touchstart', handleInteraction, { capture: true, once: true });
-    }, 1000);
+    }, 1500);
 
     return () => {
+      console.log('[onboarding] cleanup');
       cancelAnimationFrame(rafRef.current);
       clearTimeout(timer);
       clearTimeout(listenerDelay);
