@@ -109,17 +109,20 @@ const SwipeOnboarding: React.FC = () => {
 
     const timer = setTimeout(dismiss, 8000);
 
-    // Delay registering the dismiss listener to avoid false triggers during page load
+    // Use 'click' (not pointerdown) to avoid false triggers from video autoplay/page load.
+    // Delay 1s to skip any initial browser-generated events.
     const handleInteraction = () => dismiss();
     const listenerDelay = setTimeout(() => {
-      window.addEventListener('pointerdown', handleInteraction, { capture: true, once: true });
-    }, 600);
+      window.addEventListener('click', handleInteraction, { capture: true, once: true });
+      window.addEventListener('touchstart', handleInteraction, { capture: true, once: true });
+    }, 1000);
 
     return () => {
       cancelAnimationFrame(rafRef.current);
       clearTimeout(timer);
       clearTimeout(listenerDelay);
-      window.removeEventListener('pointerdown', handleInteraction, { capture: true });
+      window.removeEventListener('click', handleInteraction, { capture: true });
+      window.removeEventListener('touchstart', handleInteraction, { capture: true });
     };
   }, [dismiss]);
 
