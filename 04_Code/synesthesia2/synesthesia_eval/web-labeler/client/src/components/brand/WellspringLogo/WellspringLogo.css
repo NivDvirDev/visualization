@@ -1,29 +1,92 @@
 .landing-hero {
+  position: relative;
   text-align: center;
-  padding: 60px 0 40px;
+  padding: 80px 20px 60px;
+  margin: -20px -20px 0;
+  overflow: hidden;
+}
+
+/* Dark immersive background */
+.landing-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero);
+  z-index: 0;
+}
+
+.landing-hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero-accent);
+  z-index: 1;
+}
+
+/* Animated spectrogram-inspired pattern */
+.landing-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(255, 107, 53, 0.03) 0deg,
+      transparent 3deg,
+      transparent 12deg
+    );
+  animation: hero-rotate 120s linear infinite;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@keyframes hero-rotate {
+  from { transform: rotate(0deg) scale(2); }
+  to   { transform: rotate(360deg) scale(2); }
+}
+
+/* Subtle warm glow behind icon */
+.landing-hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.landing-hero-content {
+  position: relative;
+  z-index: 2;
 }
 
 .landing-hero-title {
   font-family: var(--font-display);
-  font-size: 2.4rem;
-  color: var(--text-primary);
+  font-size: 2.6rem;
+  color: var(--color-hero-text);
   margin: 16px 0 8px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 .landing-hero-tagline {
-  font-size: 1.3rem;
-  color: var(--accent-flame);
-  font-weight: 600;
-  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin: 0 0 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .landing-hero-sub {
   font-size: 1.1rem;
-  color: var(--text-secondary);
-  max-width: 520px;
-  margin: 0 auto 28px;
-  line-height: 1.6;
+  color: var(--color-hero-text-muted);
+  max-width: 540px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+  font-style: italic;
 }
 
 .landing-hero-cta {
@@ -34,18 +97,35 @@
 }
 
 .landing-hero-secondary {
-  margin-top: 12px;
+  margin-top: 16px;
   display: flex;
   gap: 8px;
   justify-content: center;
 }
 
+/* Ghost buttons on dark bg need light text */
+.landing-hero-secondary .atom-btn--ghost {
+  color: var(--color-hero-text-muted);
+}
+
+.landing-hero-secondary .atom-btn--ghost:hover {
+  color: var(--color-hero-text);
+}
+
 @media (max-width: 640px) {
+  .landing-hero {
+    padding: 60px 16px 40px;
+  }
+
   .landing-hero-title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
 
   .landing-hero-tagline {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+  }
+
+  .landing-hero-sub {
+    font-size: 1rem;
   }
 }

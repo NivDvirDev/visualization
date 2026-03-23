@@ -6,6 +6,7 @@ import SwipeCategoryTuner, { CategoryScores } from '../SwipeCategoryTuner/SwipeC
 import { WellspringIcon } from '../../brand/WellspringLogo/WellspringIcon/WellspringIcon';
 import { Button, useToast, ToastContainer } from '../../atoms';
 import { saveSwipeLabel, saveAnonymousLabel, getMe } from '../../../api';
+import SwipeOnboarding from '../SwipeOnboarding/SwipeOnboarding';
 import './SwipeMode.css';
 
 const trackEvent = (name: string, params?: Record<string, unknown>) => {
@@ -270,6 +271,7 @@ const SwipeMode: React.FC = () => {
           onMuteToggle={() => setMuted(m => !m)}
         />
         <div className="swipe-hint swipe-hint--right">👍</div>
+        <SwipeOnboarding />
       </div>
 
       <div className="swipe-footer">

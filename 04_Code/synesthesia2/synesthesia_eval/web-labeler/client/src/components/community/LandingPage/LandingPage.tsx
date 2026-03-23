@@ -46,65 +46,57 @@ const LandingPage: React.FC = () => {
     <div className="landing-page">
       <WellspringLogo />
 
-      {/* How it works */}
+      {/* The Journey — 3 Pillars */}
       <section className="landing-section">
-        <h2 className="landing-section-title">How It Works</h2>
-        <div className="landing-steps">
-          <div className="landing-step">
-            <Badge variant="accent">1</Badge>
-            <h3>Watch</h3>
-            <p>Watch short audio visualization clips — sound transformed into visual art</p>
+        <h2 className="landing-section-title">The Journey</h2>
+        <div className="landing-pillars">
+          <div className="landing-pillar">
+            <div className="landing-pillar-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="1.5" opacity="0.3"/>
+                <path d="M19 16v16l14-8z" fill="var(--color-accent)" opacity="0.9"/>
+              </svg>
+            </div>
+            <h3 className="landing-pillar-title">Experience</h3>
+            <p className="landing-pillar-desc">Watch sound become light. Rate audio-visual creations and discover how your perception compares to AI.</p>
+            <Link to="/swipe" className="landing-pillar-link" onClick={() => trackEvent('landing_pillar_clicked', { pillar: 'experience' })}>
+              <Button variant="secondary" size="sm">Start Watching</Button>
+            </Link>
           </div>
-          <div className="landing-step">
-            <Badge variant="accent">2</Badge>
-            <h3>Rate</h3>
-            <p>Score each clip on sync quality, aesthetics, harmony, and motion smoothness</p>
+
+          <div className="landing-pillar landing-pillar--coming">
+            <Badge variant="accent" className="landing-pillar-badge">Coming Soon</Badge>
+            <div className="landing-pillar-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="1.5" opacity="0.3"/>
+                <path d="M24 12v12l8 4" stroke="var(--color-accent)" strokeWidth="2.5" strokeLinecap="round" opacity="0.9"/>
+                <circle cx="24" cy="24" r="3" fill="var(--color-accent)" opacity="0.7"/>
+              </svg>
+            </div>
+            <h3 className="landing-pillar-title">Create</h3>
+            <p className="landing-pillar-desc">Shape your own harmony. Browser-based tools to transform sound into moving visual art — no installation needed.</p>
           </div>
-          <div className="landing-step">
-            <Badge variant="accent">3</Badge>
-            <h3>Compare</h3>
-            <p>See how your ratings stack up against AI predictions and other raters</p>
+
+          <div className="landing-pillar landing-pillar--coming">
+            <Badge variant="accent" className="landing-pillar-badge">Coming Soon</Badge>
+            <div className="landing-pillar-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="1.5" opacity="0.3"/>
+                <circle cx="18" cy="22" r="4" stroke="var(--color-accent)" strokeWidth="2" opacity="0.8"/>
+                <circle cx="30" cy="22" r="4" stroke="var(--color-accent)" strokeWidth="2" opacity="0.8"/>
+                <path d="M14 32c2-3 6-5 10-5s8 2 10 5" stroke="var(--color-accent)" strokeWidth="2" strokeLinecap="round" opacity="0.6"/>
+              </svg>
+            </div>
+            <h3 className="landing-pillar-title">Connect</h3>
+            <p className="landing-pillar-desc">Find your resonance. Share techniques, learn from others, and join a global community of audio-visual creators.</p>
           </div>
         </div>
       </section>
 
-      {/* Live stats */}
-      {stats && (
-        <section className="landing-section">
-          <h2 className="landing-section-title">The Dataset So Far</h2>
-          <div className="landing-stats">
-            <Card variant="glass" padding="md" className="landing-stat-card-wrap">
-              <CardContent>
-                <span className="landing-stat-value">{stats.total_clips}</span>
-                <span className="landing-stat-label">Clips</span>
-              </CardContent>
-            </Card>
-            <Card variant="glass" padding="md" className="landing-stat-card-wrap">
-              <CardContent>
-                <span className="landing-stat-value">{stats.labeled_auto}</span>
-                <span className="landing-stat-label">AI Ratings</span>
-              </CardContent>
-            </Card>
-            <Card variant="glass" padding="md" className="landing-stat-card-wrap">
-              <CardContent>
-                <span className="landing-stat-value">{stats.labeled_human}</span>
-                <span className="landing-stat-label">Human Ratings</span>
-              </CardContent>
-            </Card>
-            <Card variant="glass" padding="md" className="landing-stat-card-wrap accent">
-              <CardContent>
-                <span className="landing-stat-value">{stats.total_users}</span>
-                <span className="landing-stat-label">Human Raters</span>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-      )}
-
-      {/* Top rated clips */}
+      {/* Featured Creations */}
       {topClips.length > 0 && (
-        <section className="landing-section">
-          <h2 className="landing-section-title">Top Rated Clips</h2>
+        <section className="landing-section" id="featured">
+          <h2 className="landing-section-title">Featured Creations</h2>
           <div className="landing-clips">
             {topClips.map((clip) => (
               <Link
@@ -130,20 +122,49 @@ const LandingPage: React.FC = () => {
             ))}
           </div>
           <div className="landing-section-cta">
-            <Link to="/rankings" onClick={() => trackEvent('landing_cta_clicked', { cta: 'view_rankings' })}><Button variant="secondary">View All Rankings</Button></Link>
+            <Link to="/rankings" onClick={() => trackEvent('landing_cta_clicked', { cta: 'explore_all' })}>
+              <Button variant="secondary">Explore All</Button>
+            </Link>
           </div>
         </section>
       )}
 
-      {/* Leaderboard teaser */}
+      {/* Live Pulse */}
+      {stats && (
+        <section className="landing-section">
+          <h2 className="landing-section-title">Live Pulse</h2>
+          <div className="landing-stats">
+            <Card variant="glass" padding="md" className="landing-stat-card-wrap">
+              <CardContent>
+                <span className="landing-stat-value">{stats.total_clips}</span>
+                <span className="landing-stat-label">Creations</span>
+              </CardContent>
+            </Card>
+            <Card variant="glass" padding="md" className="landing-stat-card-wrap">
+              <CardContent>
+                <span className="landing-stat-value">{(stats.labeled_auto || 0) + (stats.labeled_human || 0)}</span>
+                <span className="landing-stat-label">Ratings Given</span>
+              </CardContent>
+            </Card>
+            <Card variant="glass" padding="md" className="landing-stat-card-wrap accent">
+              <CardContent>
+                <span className="landing-stat-value">{stats.total_users}</span>
+                <span className="landing-stat-label">Active Members</span>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      )}
+
+      {/* Top Raters */}
       {topRaters.length > 0 && (
         <section className="landing-section">
-          <h2 className="landing-section-title">Top Raters</h2>
+          <h2 className="landing-section-title">Top Contributors</h2>
           <div className="landing-leaderboard">
             {topRaters.map((entry, i) => (
               <div key={entry.username} className="landing-rater">
                 <span className="landing-rater-medal">
-                  {i === 0 ? '🏆' : i === 1 ? '🥈' : '🥉'}
+                  {i === 0 ? '\u{1F3C6}' : i === 1 ? '\u{1F948}' : '\u{1F949}'}
                 </span>
                 <span className="landing-rater-name">{entry.username}</span>
                 <Badge variant="neutral">Lv.{entry.level}</Badge>
@@ -152,20 +173,37 @@ const LandingPage: React.FC = () => {
             ))}
           </div>
           <div className="landing-section-cta">
-            <Link to="/swipe" onClick={() => trackEvent('landing_cta_clicked', { cta: 'join_leaderboard' })}><Button variant="primary">Join the Leaderboard</Button></Link>
+            <Link to="/swipe" onClick={() => trackEvent('landing_cta_clicked', { cta: 'join_leaderboard' })}>
+              <Button variant="primary">Join the Leaderboard</Button>
+            </Link>
           </div>
         </section>
       )}
 
+      {/* The Call — Vision statement */}
+      <section className="landing-call">
+        <div className="landing-call-content">
+          <h2 className="landing-call-title">A Collective Journey</h2>
+          <p className="landing-call-text">
+            This is a collective journey whose resonance goes back to the first ancient dance
+            humans ever made. Once again we raise a global call — come together to see what
+            beautiful harmony we could reach through proper coordination between sound and
+            moving image. Now as we stand on new ground of capabilities.
+          </p>
+          <Link to="/swipe" onClick={() => trackEvent('landing_cta_clicked', { cta: 'begin_journey' })}>
+            <Button variant="primary" size="lg">Begin Your Journey</Button>
+          </Link>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="landing-footer">
         <p>
-          Part of the <strong>Synesthesia</strong> research project — building an open dataset
-          for AI-powered audio visualization evaluation.
+          Built by <strong>Niv Dvir</strong> — part of the <strong>Synesthesia</strong> research project.
         </p>
         <nav className="landing-footer-legal">
           <Link to="/privacy" className="landing-footer-legal-link">Privacy Policy</Link>
-          <span className="landing-footer-legal-sep">·</span>
+          <span className="landing-footer-legal-sep">&middot;</span>
           <Link to="/terms" className="landing-footer-legal-link">Terms of Service</Link>
         </nav>
       </footer>

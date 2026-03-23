@@ -1,0 +1,202 @@
+/* ===== Swipe Onboarding Overlay ===== */
+
+.onboarding-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.onboarding-fadeout {
+  opacity: 0;
+}
+
+/* ── Unified unit ────────────────────── */
+
+.onboarding-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ── Drag demo area: card + hand ─────── */
+
+.demo-drag-area {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mini card — replicates real SwipeCard drag */
+
+.demo-card {
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  top: 10px;
+  left: 50%;
+  margin-left: -75px;
+  background: #1e2028;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  animation: onboarding-card-drag 5s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Score overlay on the mini card */
+
+.demo-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  gap: 2px;
+  opacity: 0;
+}
+
+.demo-overlay-score {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  line-height: 1;
+}
+
+.demo-overlay-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Lottie hand — drags the card ────── */
+
+.demo-hand {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  bottom: 0;
+  left: 50%;
+  margin-left: -55px;
+  z-index: 2;
+  filter: brightness(1.8) saturate(0) drop-shadow(0 0 14px rgba(255, 255, 255, 0.25));
+  animation: onboarding-card-drag 5s ease-in-out infinite;
+}
+
+/* ── Score track ─────────────────────── */
+
+.onboarding-track {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 270px;
+  position: relative;
+}
+
+.onboarding-rail {
+  position: absolute;
+  top: 11px;
+  left: 22px;
+  right: 22px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg,
+    #D84315 0%, #E65100 25%, #8B7355 50%, #43A047 75%, #2E7D32 100%);
+  opacity: 0.25;
+}
+
+.onboarding-segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 44px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s ease;
+}
+
+.onboarding-segment.active {
+  transform: scale(1.25);
+}
+
+.onboarding-segment svg {
+  width: 22px;
+  height: 22px;
+  color: var(--seg-color);
+  opacity: 0.2;
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+
+.onboarding-segment.active svg {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+.onboarding-score-num {
+  font-family: var(--font-display, 'Orbitron', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--seg-color);
+  opacity: 0.15;
+  transition: opacity 0.25s ease;
+}
+
+.onboarding-segment.active .onboarding-score-num {
+  opacity: 1;
+}
+
+/* ── Card + hand drag animation ──────── */
+
+@keyframes onboarding-card-drag {
+  0%   { transform: translateX(0)     rotate(0deg); }
+  10%  { transform: translateX(-40px)  rotate(-4deg); }
+  20%  { transform: translateX(-80px)  rotate(-8deg); }
+  25%  { transform: translateX(-80px)  rotate(-8deg); }
+  40%  { transform: translateX(0)      rotate(0deg); }
+  50%  { transform: translateX(0)      rotate(0deg); }
+  60%  { transform: translateX(40px)   rotate(4deg); }
+  70%  { transform: translateX(80px)   rotate(8deg); }
+  75%  { transform: translateX(80px)   rotate(8deg); }
+  90%  { transform: translateX(0)      rotate(0deg); }
+  100% { transform: translateX(0)      rotate(0deg); }
+}
+
+/* ── Mobile ──────────────────────────── */
+
+@media (max-width: 600px) {
+  .demo-drag-area { width: 180px; height: 270px; }
+  .demo-card { width: 130px; height: 175px; margin-left: -65px; }
+  .demo-hand { width: 90px; height: 90px; margin-left: -45px; }
+  .demo-overlay-score { font-size: 2.2rem; }
+  .onboarding-track { width: 240px; }
+
+  @keyframes onboarding-card-drag {
+    0%   { transform: translateX(0)     rotate(0deg); }
+    10%  { transform: translateX(-30px)  rotate(-4deg); }
+    20%  { transform: translateX(-60px)  rotate(-7deg); }
+    25%  { transform: translateX(-60px)  rotate(-7deg); }
+    40%  { transform: translateX(0)      rotate(0deg); }
+    50%  { transform: translateX(0)      rotate(0deg); }
+    60%  { transform: translateX(30px)   rotate(4deg); }
+    70%  { transform: translateX(60px)   rotate(7deg); }
+    75%  { transform: translateX(60px)   rotate(7deg); }
+    90%  { transform: translateX(0)      rotate(0deg); }
+    100% { transform: translateX(0)      rotate(0deg); }
+  }
+}

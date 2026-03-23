@@ -7,58 +7,93 @@
 
 /* Sections */
 .landing-section {
-  margin-top: 48px;
+  margin-top: 56px;
 }
 
 .landing-section-title {
   font-family: var(--font-display);
   font-size: 1.3rem;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   letter-spacing: 0.03em;
 }
 
 .landing-section-cta {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
-/* Steps */
-.landing-steps {
+/* ---- The Journey: 3 Pillars ---- */
+.landing-pillars {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 20px;
 }
 
-.landing-step {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
-  border-radius: 12px;
-  padding: 24px 16px;
+.landing-pillar {
+  position: relative;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border-light);
+  border-radius: 16px;
+  padding: 32px 20px 28px;
   text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+.landing-pillar:hover {
+  border-color: var(--color-accent-30);
+  box-shadow: 0 4px 24px var(--color-accent-08);
+}
 
-.landing-step h3 {
+.landing-pillar--coming {
+  opacity: 0.75;
+}
+
+.landing-pillar--coming:hover {
+  opacity: 0.9;
+}
+
+.landing-pillar-badge {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.landing-pillar-icon {
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.landing-pillar-title {
   font-family: var(--font-display);
-  font-size: 1rem;
-  color: var(--text-primary);
-  margin: 0 0 6px;
+  font-size: 1.05rem;
+  color: var(--color-text-primary);
+  margin: 0 0 10px;
+  letter-spacing: 0.02em;
 }
 
-.landing-step p {
+.landing-pillar-desc {
   font-size: 0.88rem;
-  color: var(--text-secondary);
-  margin: 0;
-  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin: 0 0 16px;
+  line-height: 1.6;
 }
 
-/* Stats */
+.landing-pillar-link {
+  text-decoration: none;
+}
+
+/* ---- Stats (Live Pulse) ---- */
 .landing-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 
@@ -73,28 +108,28 @@
 }
 
 .landing-stat-card-wrap.accent {
-  border-color: var(--accent-flame);
+  border-color: var(--color-accent);
 }
 
 .landing-stat-value {
   font-family: var(--font-display);
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .landing-stat-card-wrap.accent .landing-stat-value {
-  color: var(--accent-flame);
+  color: var(--color-accent);
 }
 
 .landing-stat-label {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
-/* Clip cards */
+/* ---- Clip cards (Featured Creations) ---- */
 .landing-clips {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -105,9 +140,9 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border-light);
   border-radius: 12px;
   padding: 16px;
   text-decoration: none;
@@ -115,8 +150,8 @@
 }
 
 .landing-clip-card:hover {
-  border-color: var(--accent-flame);
-  box-shadow: 0 2px 12px var(--accent-alpha-10);
+  border-color: var(--color-accent);
+  box-shadow: 0 2px 12px var(--color-accent-10);
 }
 
 .landing-clip-score {
@@ -130,12 +165,12 @@
   font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--accent-flame);
+  color: var(--color-accent);
 }
 
 .landing-clip-score-label {
   font-size: 0.65rem;
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -149,7 +184,7 @@
 
 .landing-clip-name {
   font-size: 0.9rem;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -158,10 +193,10 @@
 
 .landing-clip-raters {
   font-size: 0.78rem;
-  color: var(--text-muted);
+  color: var(--color-text-muted);
 }
 
-/* Leaderboard */
+/* ---- Leaderboard (Top Contributors) ---- */
 .landing-leaderboard {
   display: flex;
   flex-direction: column;
@@ -174,9 +209,9 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border-light);
   border-radius: 10px;
   padding: 12px 16px;
 }
@@ -187,27 +222,67 @@
 
 .landing-rater-name {
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
   flex: 1;
 }
 
-
 .landing-rater-labels {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--color-text-muted);
 }
 
-/* Footer */
+/* ---- The Call (Vision section) ---- */
+.landing-call {
+  margin-top: 64px;
+  padding: 48px 24px;
+  background: var(--color-hero-bg);
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-call::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(255, 107, 53, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.landing-call-content {
+  position: relative;
+  z-index: 1;
+}
+
+.landing-call-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-hero-text);
+  margin: 0 0 20px;
+  letter-spacing: 0.04em;
+}
+
+.landing-call-text {
+  font-size: 1rem;
+  color: var(--color-hero-text-muted);
+  max-width: 600px;
+  margin: 0 auto 28px;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+/* ---- Footer ---- */
 .landing-footer {
   margin-top: 60px;
   text-align: center;
   padding: 24px 0;
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid var(--color-glass-border-light);
 }
 
 .landing-footer p {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   margin: 0 0 12px;
 }
 
@@ -221,7 +296,7 @@
 
 .landing-footer-legal-link {
   font-size: 0.75rem;
-  color: rgba(224, 221, 213, 0.5);
+  color: var(--color-text-muted);
   text-decoration: none;
   transition: color 0.15s;
 }
@@ -232,20 +307,26 @@
 
 .landing-footer-legal-sep {
   font-size: 0.75rem;
-  color: rgba(224, 221, 213, 0.3);
+  color: var(--color-text-dim);
 }
 
-/* Responsive */
+/* ---- Responsive ---- */
 @media (max-width: 640px) {
-  .landing-steps {
+  .landing-pillars {
     grid-template-columns: 1fr;
   }
 
   .landing-stats {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .landing-clips {
     grid-template-columns: 1fr;
+  }
+
+  .landing-call {
+    margin-left: -20px;
+    margin-right: -20px;
+    border-radius: 0;
   }
 }
