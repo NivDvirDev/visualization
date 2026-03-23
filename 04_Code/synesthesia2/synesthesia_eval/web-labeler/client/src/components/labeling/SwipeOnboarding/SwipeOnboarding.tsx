@@ -108,12 +108,17 @@ const SwipeOnboarding: React.FC = () => {
     rafRef.current = requestAnimationFrame(animate);
 
     const timer = setTimeout(dismiss, 8000);
+
+    // Delay registering the dismiss listener to avoid false triggers during page load
     const handleInteraction = () => dismiss();
-    window.addEventListener('pointerdown', handleInteraction, { capture: true, once: true });
+    const listenerDelay = setTimeout(() => {
+      window.addEventListener('pointerdown', handleInteraction, { capture: true, once: true });
+    }, 600);
 
     return () => {
       cancelAnimationFrame(rafRef.current);
       clearTimeout(timer);
+      clearTimeout(listenerDelay);
       window.removeEventListener('pointerdown', handleInteraction, { capture: true });
     };
   }, [dismiss]);
