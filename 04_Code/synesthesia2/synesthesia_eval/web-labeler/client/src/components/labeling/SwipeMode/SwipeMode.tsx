@@ -36,6 +36,7 @@ const SwipeMode: React.FC = () => {
   const [authChecked, setAuthChecked] = useState(false);
   const [guestSwipeCount, setGuestSwipeCount] = useState(0);
   const [showGuestPrompt, setShowGuestPrompt] = useState(false);
+  const [guestUnlimited, setGuestUnlimited] = useState(false);
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(true);
   const [swipedCount, setSwipedCount] = useState(0);
@@ -122,7 +123,7 @@ const SwipeMode: React.FC = () => {
 
     // Guest mode: save anonymously, prompt sign-up after 3
     if (!user) {
-      if (guestSwipeCount >= 3) {
+      if (guestSwipeCount >= 3 && !guestUnlimited) {
         trackEvent('guest_limit_reached');
         trackEvent('signup_modal_shown');
         setShowGuestPrompt(true);
@@ -161,7 +162,7 @@ const SwipeMode: React.FC = () => {
       // Show category tuner overlay
       setPendingScore({ clipId: clip.id, score });
     }
-  }, [clips, currentIndex, user, guestSwipeCount, swipedCount, skipCategories, toast, advanceCard]);
+  }, [clips, currentIndex, user, guestSwipeCount, guestUnlimited, swipedCount, skipCategories, toast, advanceCard]);
 
   const handleCategoryConfirm = useCallback(async (categories: CategoryScores) => {
     if (!pendingScore || !user) return;
@@ -293,7 +294,7 @@ const SwipeMode: React.FC = () => {
       </div>
 
       {showGuestPrompt && (
-        <SwipeGuestPrompt onContinue={() => setShowGuestPrompt(false)} />
+        <SwipeGuestPrompt onContinue={() => { setShowGuestPrompt(false); setGuestUnlimited(true); }} />
       )}
 
       {pendingScore && (

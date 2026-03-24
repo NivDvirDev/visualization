@@ -24,7 +24,7 @@ const SwipeGuestPrompt: React.FC<Props> = ({ onContinue }) => {
           Sign Up to Save Scores
         </button>
         <button className="guest-prompt-skip" onClick={() => { trackEvent('guest_continue_clicked'); onContinue(); }}>
-          Keep exploring (scores won't be saved)
+          Keep rating anonymously
         </button>
       </div>
     </div>
