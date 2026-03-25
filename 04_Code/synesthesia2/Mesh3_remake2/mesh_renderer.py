@@ -118,10 +118,12 @@ class MeshRenderConfig:
     inner_circle_points: int = 60     # MATLAB InerCircel=60 (latest)
     use_spiral_freqs: bool = True
 
-    # Tube parameters — MATLAB uses 0.00003 but with much larger raw amplitude
-    # We compensate by using higher amp_target
-    tube_base: float = 0.001
-    tube_amp_scale: float = 0.003
+    # Tube parameters — calibrated to our amplitude range
+    # MATLAB uses 0.00003 with ~30 amp range → product 0.0009
+    # Our amp range after scaling is ~0-110, so we use 0.0005
+    # to get proportional deformation (tsul ≈ 0.5-1.0 at peaks)
+    tube_base: float = 0.0002
+    tube_amp_scale: float = 0.0015
 
     # Amplitude normalization
     amp_target: float = 110.0
