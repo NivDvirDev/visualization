@@ -83,6 +83,10 @@ For more information, visit: https://youtube.com/@NivDvir-ND
     parser.add_argument("--demo-duration", type=float, default=10,
                         help="Demo duration in seconds (default: 10)")
 
+    # Renderer selection
+    parser.add_argument("--renderer", choices=["2d", "mesh3d"], default="2d",
+                        help="Renderer: '2d' (default, PIL circles) or 'mesh3d' (ModernGL 3D wireframe)")
+
     # Debug
     parser.add_argument("--keep-frames", action="store_true", help="Keep rendered frames after encoding")
     parser.add_argument("--test-frame", action="store_true", help="Generate single test frame only")
@@ -95,7 +99,7 @@ For more information, visit: https://youtube.com/@NivDvir-ND
 
     # Import modules (delayed to speed up --help)
     from video_generator import VideoGenerator, VideoConfig, generate_demo_video
-    from spiral_renderer import render_test_frame
+    from spiral_renderer_2d import render_test_frame_2d as render_test_frame
 
     # Handle test frame mode
     if args.test_frame:
@@ -120,17 +124,9 @@ For more information, visit: https://youtube.com/@NivDvir-ND
         print(f"Error: Audio file not found: {args.audio_file}")
         return 1
 
-    # Configure video generation
-    config = VideoConfig(
-        output_width=3840 if args.use_4k else args.width,
-        output_height=2160 if args.use_4k else args.height,
-        frame_rate=args.fps,
-        video_crf=args.quality,
-        video_preset=args.preset,
-        keep_frames=args.keep_frames,
-        enable_ai_overlay=args.ai_overlay,
-        ai_model_path=args.instrument_model
-    )
+    # Resolve resolution
+    width = 3840 if args.use_4k else args.width
+    height = 2160 if args.use_4k else args.height
 
     # Progress callback
     def progress(current, total, stage):
@@ -141,9 +137,10 @@ For more information, visit: https://youtube.com/@NivDvir-ND
             print()
 
     # Generate video
-    print(f"Input:  {args.audio_file}")
-    print(f"Output: {args.output}")
-    print(f"Resolution: {config.output_width}x{config.output_height} @ {config.frame_rate}fps")
+    print(f"Input:    {args.audio_file}")
+    print(f"Output:   {args.output}")
+    print(f"Renderer: {args.renderer}")
+    print(f"Resolution: {width}x{height} @ {args.fps}fps")
     if args.start > 0:
         print(f"Start time: {args.start}s")
     if args.duration:
@@ -151,19 +148,60 @@ For more information, visit: https://youtube.com/@NivDvir-ND
     print()
 
     try:
-        generator = VideoGenerator(video_config=config)
-        generator.generate(
-            audio_path=args.audio_file,
-            output_path=args.output,
-            start_time=args.start,
-            duration=args.duration,
-            progress_callback=progress if args.verbose else None
-        )
-        print(f"\n✅ Video generated successfully: {args.output}")
+        if args.renderer == "mesh3d":
+            # 3D wireframe renderer (ModernGL) — reproduces MATLAB visuals
+            from Mesh3_remake1.mesh_renderer import MeshRenderer, MeshRenderConfig
+            mesh_config = MeshRenderConfig(
+                width=width,
+                height=height,
+                fps=args.fps,
+                video_crf=args.quality,
+                video_preset=args.preset,
+            )
+            renderer = MeshRenderer(mesh_config)
+            try:
+                renderer.render_video(
+                    audio_path=args.audio_file,
+                    output_path=args.output,
+                    start_time=args.start,
+                    duration=args.duration,
+                    progress_callback=progress if args.verbose else None,
+                )
+            finally:
+                renderer.cleanup()
+        else:
+            # Default 2D spiral renderer (PIL)
+            config = VideoConfig(
+                output_width=width,
+                output_height=height,
+                frame_rate=args.fps,
+                video_crf=args.quality,
+                video_preset=args.preset,
+                keep_frames=args.keep_frames,
+                enable_ai_overlay=args.ai_overlay,
+                ai_model_path=args.instrument_model,
+            )
+            generator = VideoGenerator(video_config=config)
+            generator.generate(
+                audio_path=args.audio_file,
+                output_path=args.output,
+                start_time=args.start,
+                duration=args.duration,
+                progress_callback=progress if args.verbose else None,
+            )
+
+        print(f"\nVideo generated successfully: {args.output}")
         return 0
 
+    except ImportError as e:
+        print(f"\nMissing dependency: {e}")
+        if args.renderer == "mesh3d":
+            print("Install ModernGL: pip install moderngl")
+            print("Or use the default 2D renderer (omit --renderer)")
+        return 1
+
     except Exception as e:
-        print(f"\n❌ Error: {e}")
+        print(f"\nError: {e}")
         if args.verbose:
             import traceback
             traceback.print_exc()

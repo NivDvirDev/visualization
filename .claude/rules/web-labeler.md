@@ -58,11 +58,86 @@ Node.js + Express | React 18 (TypeScript) | PostgreSQL | HuggingFace Hub (`NivDv
 | client/src/components/Leaderboard.tsx | User rankings |
 | client/src/components/RatingsTable.tsx | Human vs auto label comparison |
 
+## UI Development — Atoms-First Rule
+
+> **MANDATORY:** Before writing any new UI element, check the Atoms library FIRST.
+> Compose from existing atoms before writing any new CSS or component from scratch.
+> Only create custom styles when no existing atom covers the need.
+
+### Atoms Library
+Path: `client/src/components/atoms/`
+Barrel: `import { ... } from '../atoms'`
+Storybook: `cd client && npm run storybook` → http://localhost:6006 → **"Atoms"** section
+
+**Containers & Layout**
+| Atom | Use for |
+|------|---------|
+| `GlassPanel` | Glass/frosted containers — replaces `.glass-panel` |
+| `Card` · `CardHeader` · `CardTitle` · `CardDescription` · `CardContent` · `CardFooter` | Any card-style content block; variant: default\|elevated\|glass\|outlined |
+| `Divider` | Section separators — replaces raw `<hr>` and `border-top` |
+| `Modal` | All overlay dialogs — size: sm\|md\|lg\|full |
+
+**Actions & Feedback**
+| Atom | Use for |
+|------|---------|
+| `Button` | ALL interactive buttons — variant: primary\|secondary\|ghost\|danger; loading state |
+| `Alert` | Inline status messages — variant: info\|success\|warning\|error; dismissible |
+| `Toast` · `ToastContainer` · `useToast` | Pop-up notifications — call `toast(msg, { variant })` via the hook |
+
+**Indicators & Labels**
+| Atom | Use for |
+|------|---------|
+| `Badge` | Count bubbles, status chips — variant: accent\|success\|error\|warning\|neutral\|bright |
+| `Tag` · `TagGroup` | Removable / clickable labels — replaces custom pill styles |
+| `ScoreBar` | Score/progress bars — replaces `.score-bar-container` / `.score-bar-fill` |
+| `Avatar` · `AvatarGroup` | User avatars with initials fallback; status indicator dot |
+| `Skeleton` · `SkeletonText` · `SkeletonCard` | Loading placeholders |
+
+**Navigation & Selection**
+| Atom | Use for |
+|------|---------|
+| `Tabs` · `TabPanel` | Tab bars — variant: default\|pills\|underline |
+| `Accordion` | Collapsible sections — variant: default\|flush\|glass |
+| `Carousel` | Sliding content — autoPlay, dots, arrows, keyboard nav |
+| `Select` | Custom dropdown — keyboard navigable, matches Input styling |
+
+**Form Controls**
+| Atom | Use for |
+|------|---------|
+| `Input` | ALL text fields — label + error + hint + all HTML input types |
+| `Checkbox` | Checkboxes — label, description, indeterminate, error states |
+| `Switch` | Toggle switches — variant: default (teal)\|accent (flame) |
+| `Slider` | Range inputs — marks, showValue, variant: default\|accent |
+
+**Typography & Contextual**
+| Atom | Use for |
+|------|---------|
+| `Typography` | ALL text — Display (Orbitron), Body (Inter), Mono (Space Mono) |
+| `Tooltip` | Hover info bubbles — placement: top\|bottom\|left\|right; delay |
+
+### Brand Atoms (co-located in `brand/`)
+| Atom | Path | Use for |
+|------|------|---------|
+| `WellspringIcon` | `brand/WellspringLogo/WellspringIcon/` | Animated SVG flame+water icon |
+| `WellspringLogo` | `brand/WellspringLogo/` | Full hero section component |
+| `FlameIcon` | `brand/FlameIcon/` | Compact flame icon |
+
+### Design Tokens
+Single source of truth: `client/src/styles/tokens.css`
+- **Never** use raw hex values — always reference a `--color-*` token
+- **Never** use raw font-family strings — always use `--font-display`, `--font-body`, or `--font-mono`
+- Key tokens: `--color-accent` (#FF6B35), `--color-bg-primary` (#F5F1E8), `--color-teal` (#2BA5A5), `--color-glass-bg`, `--gradient-accent`
+
+### CSS Co-location Rule
+Each atom (and every component) owns its own CSS file in the same folder — e.g. `Button/Button.css`.
+Never add component-specific styles to `global.css`.
+
 ## Development
 
 ```bash
 cd server && npm run dev     # Backend (port 3001)
 cd client && npm start       # Frontend (port 3000, proxied)
+cd client && npm run storybook  # Storybook (port 6006) — browse Atoms + all components
 cd server && npm test        # Jest tests (auth, labels)
 ```
 

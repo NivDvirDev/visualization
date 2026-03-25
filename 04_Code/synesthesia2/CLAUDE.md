@@ -12,7 +12,7 @@ Detailed component instructions are in `.claude/rules/` at the project root (vis
 
 | Version | File | Description |
 |---------|------|-------------|
-| **Mesh3D (NEW)** | `mesh_renderer.py` | ModernGL 3D wireframe double-helix — reproduces MATLAB YouTube look |
+| **Mesh3D (NEW)** | `Mesh3_remake1/mesh_renderer.py` | ModernGL 3D wireframe double-helix — reproduces MATLAB YouTube look |
 | 2D Spiral | `spiral_renderer_2d.py` | PIL 2D circles with glow — default renderer |
 | Harmonic Forces | `harmonic_connections.py` | Physics-based consonance/dissonance lines |
 | 3.0-3.5 experiments | `archive/experiments/` | Archived: enhanced circles, seismograph, merkabah, etc. |
@@ -24,9 +24,11 @@ Detailed component instructions are in `.claude/rules/` at the project root (vis
 | File | Description |
 |------|-------------|
 | `audio_analyzer.py` | FFT analysis (381 logarithmic bins, 20Hz-8kHz) |
-| `mesh_renderer.py` | **ModernGL 3D wireframe renderer** — port of MATLAB piperecord11 |
-| `mesh_colormap.py` | Per-octave HSV rainbow colormap (myjet port) |
-| `flow_amp.py` | Energy envelope for wave speed modulation (flowAMP port) |
+| `Mesh3_remake1/` | **3D wireframe renderer package** — Python port of MATLAB Mesh3 |
+| `Mesh3_remake1/mesh_renderer.py` | ModernGL 3D wireframe renderer — port of piperecord11 |
+| `Mesh3_remake1/mesh_colormap.py` | Per-octave HSV rainbow colormap (myjet port) |
+| `Mesh3_remake1/flow_amp.py` | Energy envelope for wave speed modulation (flowAMP port) |
+| `Mesh3_remake1/outputs/` | Generated mesh3d demo videos and frame captures |
 | `spiral_renderer_2d.py` | 2D spiral renderer (PIL) — default renderer |
 | `video_generator.py` | Full 2D pipeline with FFmpeg |
 | `synesthesia_cli.py` | CLI — use `--renderer mesh3d` for 3D wireframe |

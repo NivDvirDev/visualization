@@ -22,9 +22,12 @@ Component-specific instructions are in `.claude/rules/` (web-labeler, evaluation
 ### Video Generation
 
 ```bash
-# Generate visualization from audio
+# Generate visualization from audio (default 2D renderer)
 cd 04_Code/synesthesia2
 python synesthesia_cli.py input.wav -o output.mp4
+
+# 3D wireframe renderer (reproduces MATLAB YouTube visuals)
+python synesthesia_cli.py input.wav -o output.mp4 --renderer mesh3d
 
 # 4K output
 python synesthesia_cli.py input.wav -o output.mp4 --4k
