@@ -295,7 +295,8 @@ class MeshRenderer:
         self.flip_u = np.minimum(raw_flip, 20.0)  # Cap at 20 (was up to ~50)
 
         # Colormap
-        self.colormap = create_myjet_colormap(cfg.num_freq_bins)
+        # Colormap: hue derived from spiral angle (octave-aligned)
+        self.colormap = create_myjet_colormap(cfg.num_freq_bins, theta=self.theta)
 
         # Precompute wireframe topology (constant across frames)
         line_indices = self._build_line_indices()

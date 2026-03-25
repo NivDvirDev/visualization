@@ -1,35 +1,55 @@
 """
-Port of MATLAB myjet colormap — per-octave HSV rainbow + amplitude modulation.
+Port of MATLAB myjet colormap — octave-aligned HSV rainbow.
 From sound8_LEF.m colormap construction.
 
-The MATLAB builds the colormap by concatenating hsv(n) segments per octave,
-creating a repeating rainbow that cycles through all hues within each octave.
+FUNDAMENTAL PRINCIPLE:
+  Each 360° spiral revolution = one octave (frequency doubles per turn).
+  The 7 musical pitches (Do Re Mi Fa Sol La Si) within each octave
+  align radially — the same note at every octave falls on the same
+  radial line from center outward. The colormap reinforces this:
+  hue is determined by angular position within the turn, so the same
+  pitch gets the same color across all octaves.
 """
 
 import numpy as np
 import colorsys
 
 
-def create_myjet_colormap(num_bins: int = 381) -> np.ndarray:
+def create_myjet_colormap(num_bins: int = 381,
+                          theta: np.ndarray = None) -> np.ndarray:
     """
-    Create the myjet colormap: repeating HSV rainbow per octave.
+    Create the myjet colormap: HSV rainbow cycling once per octave.
 
-    The MATLAB spiral has ~7 octaves across 381 frequency bins.
-    Each octave cycles through the full hue spectrum.
+    If theta (spiral angles) is provided, hue is derived from the
+    angular position within each 2π revolution. This ensures:
+    - Same radial direction = same color across all octaves
+    - 7 pitches per octave get 7 distinct hue bands
+    - Color pattern repeats every 360°
 
     Args:
-        num_bins: Number of frequency bins (default: 381)
+        num_bins: Number of frequency bins
+        theta: Spiral angle for each bin (from spiral_freq_data.npz).
+               If None, falls back to uniform hue cycling.
 
     Returns:
         [num_bins, 3] RGB float values in [0, 1]
     """
-    bins_per_octave = num_bins / 7.0
-
     colors = np.zeros((num_bins, 3), dtype=np.float32)
-    for i in range(num_bins):
-        hue = (i % bins_per_octave) / bins_per_octave
-        r, g, b = colorsys.hsv_to_rgb(hue, 1.0, 1.0)
-        colors[i] = [r, g, b]
+
+    if theta is not None and len(theta) == num_bins:
+        # Angular position within each revolution determines hue
+        # theta mod 2π gives position within current octave turn
+        for i in range(num_bins):
+            hue = (theta[i] % (2 * np.pi)) / (2 * np.pi)
+            r, g, b = colorsys.hsv_to_rgb(hue, 1.0, 1.0)
+            colors[i] = [r, g, b]
+    else:
+        # Fallback: uniform cycling (less accurate)
+        bins_per_octave = num_bins / 7.0
+        for i in range(num_bins):
+            hue = (i % bins_per_octave) / bins_per_octave
+            r, g, b = colorsys.hsv_to_rgb(hue, 1.0, 1.0)
+            colors[i] = [r, g, b]
 
     return colors
 
@@ -43,9 +63,6 @@ def modulate_colors(base_colors: np.ndarray,
     Faithful port of MATLAB per-frame color computation:
         maxWhite = max(flip(u) .* (0.001 * amp));
         cc = c - flip(u)*0.01 + flip(u)*(0.001*amp) / maxWhite;
-
-    The MATLAB formula is ADDITIVE — it pushes colors toward white
-    where amplitude is high, rather than darkening via multiplication.
 
     Args:
         base_colors: [num_bins, 3] base colormap RGB in [0, 1]
@@ -67,7 +84,7 @@ def modulate_colors(base_colors: np.ndarray,
     else:
         additive = np.zeros((len(amplitude), 1), dtype=np.float32)
 
-    # Uniform ambient: all turns equally visible (matching YouTube look).
+    # Uniform ambient: all turns equally visible.
     # Active regions get amplitude-driven boost preserving hue saturation.
     ambient = base_colors * 0.55
     # Mix hue-preserving boost with white push for glow effect on peaks
