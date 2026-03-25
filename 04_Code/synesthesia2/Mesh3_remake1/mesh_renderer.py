@@ -133,8 +133,8 @@ class MeshRenderConfig:
     theta_line_step: int = 1
 
     # Camera initial values — pulled back to show full spiral like YouTube
-    camera_fov: float = 35.0          # Moderate FOV
-    camera_distance: float = 160.0    # Pulled back to match YouTube framing
+    camera_fov: float = 30.0          # Narrower FOV, further back
+    camera_distance: float = 280.0    # Much further back — spiral has theta up to 77
 
     # Camera animation (piperecord11_LE.m SetCameraMotion)
     # Lowered from MATLAB values for more edge-on YouTube look
@@ -379,8 +379,8 @@ class MeshRenderer:
         eye = eye + center
 
         # MATLAB zoom: newcp = cpos - factor*(cpos - ctarg)
-        # Tuned factor for better framing at all elevation angles
-        factor = 0.35 - 0.15 * np.sin(np.radians(el_deg))
+        # Gentle zoom — don't pull in too much
+        factor = 0.20 - 0.10 * np.sin(np.radians(el_deg))
         eye = eye - factor * (eye - center)
 
         up = np.array([0.0, 0.0, 1.0], dtype=np.float32)
