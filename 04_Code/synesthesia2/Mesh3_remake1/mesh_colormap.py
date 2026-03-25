@@ -58,10 +58,7 @@ def modulate_colors(base_colors: np.ndarray,
     # MATLAB uses flip(u) — reverse theta so low frequencies get larger weight
     flip_u = theta[::-1]
 
-    # Subtract small position-dependent term
-    darken = flip_u[:, np.newaxis] * 0.01
-
-    # Additive brightness from amplitude
+    # Additive brightness from amplitude (MATLAB formula)
     brightness = flip_u * 0.001 * amplitude
     max_white = np.max(brightness)
 
@@ -70,5 +67,10 @@ def modulate_colors(base_colors: np.ndarray,
     else:
         additive = np.zeros((len(amplitude), 1), dtype=np.float32)
 
-    modulated = base_colors - darken + additive
+    # Uniform ambient: all turns equally visible (matching YouTube look).
+    # Active regions get amplitude-driven boost preserving hue saturation.
+    ambient = base_colors * 0.55
+    # Mix hue-preserving boost with white push for glow effect on peaks
+    amp_boost = additive * (base_colors * 1.2 + 0.3)
+    modulated = ambient + amp_boost
     return np.clip(modulated, 0, 1).astype(np.float32)

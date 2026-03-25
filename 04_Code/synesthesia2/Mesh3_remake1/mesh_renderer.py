@@ -1,15 +1,17 @@
 """
 SYNESTHESIA 3D Mesh Renderer — ModernGL
 
-Reproduces the MATLAB wireframe double-helix visualization from
-piperecord11_LE-2C.m using modern OpenGL for fast offline video export.
+Reproduces the MATLAB wireframe spiral tube visualization from
+piperecord11_LE.m / piperecord11_LEF.m using modern OpenGL for
+fast offline video export.
 
 Architecture:
   - Headless ModernGL context → FBO → raw RGB piped to FFmpeg
-  - Two mirrored mesh spirals (DNA-like double helix)
+  - Single spiral tube (cochlear tonotopy)
   - Wireframe-only rendering with interpolated vertex colors
   - Depth-tested alpha blending for clean wireframe occlusion
   - Traveling sine wave along z-axis, amplitude-modulated tube radius
+  - Rotating camera with dynamic elevation (two-phase motion)
 
 Performance target: 60s @ 1080p60 in ~30 seconds.
 """
@@ -23,7 +25,12 @@ from dataclasses import dataclass
 from typing import Optional, Callable
 
 # Ensure parent directory (synesthesia2/) is on sys.path for shared modules
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+_parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_this_dir = os.path.dirname(os.path.abspath(__file__))
+if _parent_dir not in sys.path:
+    sys.path.insert(0, _parent_dir)
+if _this_dir not in sys.path:
+    sys.path.insert(0, _this_dir)
 
 try:
     import moderngl
@@ -83,47 +90,44 @@ class MeshRenderConfig:
     height: int = 1080
     fps: int = 60
 
-    # Spiral geometry (from MATLAB)
+    # Spiral geometry (from MATLAB piperecord11_LE.m)
     num_freq_bins: int = 381
-    inner_circle_points: int = 31     # Reduced from MATLAB's 61 for cleaner wireframe
+    inner_circle_points: int = 21     # Thin tube: ridge-like peaks, not bloated spheres
     spiral_turns: float = 8.0         # ~8 turns matches MATLAB theta range
 
-    # Tube parameters (piperecord11 lines 67, 191)
-    tube_base: float = 0.01
-    tube_amp_scale: float = 0.0015
+    # Tube parameters (piperecord11_LE.m line 97)
+    tube_base: float = 0.001          # Very thin when quiet (single-pixel lines)
+    tube_amp_scale: float = 0.004     # Strong deformation when active
 
-    # Amplitude normalization — Python AudioAnalyzer produces values ~0-100K,
-    # but the MATLAB tube formula expects ~0-100.  We rescale so that the
-    # 99.5th-percentile amplitude maps to this target.
-    amp_target: float = 80.0
+    # Amplitude normalization
+    amp_target: float = 110.0
 
-    # Wave parameters (piperecord11 lines 201-226)
+    # Wave parameters (piperecord11_LE.m lines 132-154)
     wave_lambda: float = 4.8701
     wave_v0: float = 4.7124
     wave_speed: float = 70.0          # speed = 70 * dFrame
 
-    # Double helix offset (line 234)
-    dpol: float = 62.83
-
-    # Z offset (line 226)
+    # Z offset (piperecord11_LE.m line 100)
     z_offset: float = -40.0
 
     # Rendering
-    edge_alpha: float = 1.0           # Fully opaque — MATLAB uses 0.5 but has Phong lighting boost
-    line_width: float = 1.5           # Slightly thicker than default 1.0 for visibility
-    background_color: tuple = (0.01, 0.01, 0.03)
+    edge_alpha: float = 1.0           # MATLAB EdgeAlpha=1
+    line_width: float = 1.5           # Slightly thicker for visibility (YouTube look)
+    background_color: tuple = (0.0, 0.0, 0.0)  # Pure black
 
-    # Wireframe decimation — draw every Nth line along theta axis.
-    # 1 = full density (MATLAB default), 2 = half, 3 = third, etc.
-    theta_line_step: int = 2
+    # Wireframe density — 1 = full MATLAB density
+    theta_line_step: int = 1
 
-    # Camera (lines 159-162, 278-279)
-    camera_azimuth: float = 270.0     # degrees
-    camera_elevation: float = 88.0    # degrees — near top-down (MATLAB uses 90)
-    camera_fov: float = 50.0          # degrees — wider than default 30 to fit both spirals
-    camera_distance: float = 350.0
-    camera_target: tuple = (0.0, 0.0, -25.0)
-    camera_zoom: float = 0.55
+    # Camera initial values (piperecord11_LE.m lines 83-85)
+    camera_fov: float = 50.0          # Wide to fill frame like YouTube
+    camera_distance: float = 65.0     # Close for large spiral
+
+    # Camera animation (piperecord11_LE.m SetCameraMotion)
+    # Lowered from MATLAB values for more edge-on YouTube look
+    cam_el_max: float = 20.0
+    cam_el_min: float = 5.95
+    cam_del: float = 0.05             # Elevation step per frame
+    cam_daz: float = 0.3              # Azimuth rotation per frame
 
     # Video encoding
     video_crf: int = 18
@@ -149,7 +153,13 @@ def _look_at(eye: np.ndarray, center: np.ndarray, up: np.ndarray) -> np.ndarray:
     f = center - eye
     f = f / np.linalg.norm(f)
     s = np.cross(f, up)
-    s = s / np.linalg.norm(s)
+    s_norm = np.linalg.norm(s)
+    if s_norm < 1e-8:
+        # Fallback: pick a different up vector if camera is looking straight up/down
+        up = np.array([0.0, 1.0, 0.0], dtype=np.float32)
+        s = np.cross(f, up)
+        s_norm = np.linalg.norm(s)
+    s = s / s_norm
     u = np.cross(s, f)
 
     m = np.eye(4, dtype=np.float32)
@@ -170,11 +180,11 @@ class MeshRenderer:
     """
     ModernGL-based 3D wireframe mesh renderer.
 
-    Reproduces the MATLAB double-helix spiral visualization with:
-    - Two mirrored mesh spirals (h3 + h4)
-    - Wireframe rendering with per-vertex colors
+    Reproduces the MATLAB single spiral tube visualization with:
+    - Single spiral tube with amplitude-driven deformation
+    - Wireframe rendering with per-vertex rainbow colors
     - Traveling sine wave along z-axis
-    - Amplitude-modulated tube radius
+    - Rotating camera with two-phase elevation animation
     - Direct FFmpeg pipe for video output
     """
 
@@ -200,7 +210,7 @@ class MeshRenderer:
         # Depth testing for proper wireframe occlusion
         self.ctx.enable(moderngl.DEPTH_TEST)
 
-        # Standard alpha blending (not additive — avoids nebula look)
+        # Standard alpha blending
         self.ctx.enable(moderngl.BLEND)
         self.ctx.blend_func = moderngl.SRC_ALPHA, moderngl.ONE_MINUS_SRC_ALPHA
 
@@ -212,7 +222,7 @@ class MeshRenderer:
             depth_attachment=depth_attachment,
         )
 
-        # Line width (thicker = more visible wireframe)
+        # Line width
         self.ctx.line_width = cfg.line_width
 
         # Compile shaders
@@ -238,9 +248,12 @@ class MeshRenderer:
         self.sin_v = np.sin(self.v)
         self.cos_u_p = np.cos(self.u + np.pi / 2)
         self.sin_u_p = np.sin(self.u + np.pi / 2)
-        self.cos_u_m = np.cos(self.u - np.pi / 2)
-        self.sin_u_m = np.sin(self.u - np.pi / 2)
         self.wave_u_arg = (self.u - self.u_min) * (cfg.wave_lambda / self.u_range)
+
+        # flip(u) — MATLAB reverses theta so low frequencies get larger weight
+        # Cap max value to prevent disproportionate outer-turn blobs
+        raw_flip = np.flip(self.u, axis=1)
+        self.flip_u = np.minimum(raw_flip, 20.0)  # Cap at 20 (was up to ~50)
 
         # Colormap
         self.colormap = create_myjet_colormap(cfg.num_freq_bins)
@@ -250,8 +263,8 @@ class MeshRenderer:
         self.num_indices = len(line_indices)
         self.ibo = self.ctx.buffer(line_indices.tobytes())
 
-        # Allocate vertex buffer (updated each frame)
-        num_verts = 2 * cfg.inner_circle_points * cfg.num_freq_bins
+        # Allocate vertex buffer (single spiral)
+        num_verts = cfg.inner_circle_points * cfg.num_freq_bins
         self.vbo = self.ctx.buffer(reserve=num_verts * 6 * 4)
 
         # Create VAO
@@ -261,78 +274,124 @@ class MeshRenderer:
             index_buffer=self.ibo,
         )
 
-        # Compute and upload MVP matrix
-        self._upload_mvp()
+        # Camera state (initialized for Phase 1)
+        self.az = 270.0
+        self.el = cfg.cam_el_max - 0.90 + cfg.cam_del  # ~30.10°
+        self.del_el = cfg.cam_del
+
+        # Upload initial MVP
+        self._upload_mvp_dynamic(self.az, self.el)
 
         # Amplitude scale factor (set during render_video)
         self._amp_scale = 1.0
 
     def _build_line_indices(self) -> np.ndarray:
-        """Build decimated wireframe line indices for two mesh spirals."""
+        """Build wireframe line indices for a single mesh spiral."""
         cfg = self.config
         rows = cfg.inner_circle_points
         cols = cfg.num_freq_bins
         step = cfg.theta_line_step
 
         indices = []
-        for spiral in range(2):
-            offset = spiral * rows * cols
 
-            # Horizontal lines (along theta / frequency axis)
-            # Draw every row but every step-th column connection
-            for i in range(rows):
-                for j in range(0, cols - 1, step):
-                    j_end = min(j + step, cols - 1)
-                    idx0 = offset + i * cols + j
-                    idx1 = offset + i * cols + j_end
-                    indices.append(idx0)
-                    indices.append(idx1)
+        # Horizontal lines (along theta / frequency axis)
+        for i in range(rows):
+            for j in range(0, cols - 1, step):
+                j_end = min(j + step, cols - 1)
+                idx0 = i * cols + j
+                idx1 = i * cols + j_end
+                indices.append(idx0)
+                indices.append(idx1)
 
-            # Vertical lines (around tube circumference)
-            # Draw at every step-th theta position
-            for j in range(0, cols, step):
-                for i in range(rows - 1):
-                    idx = offset + i * cols + j
-                    indices.append(idx)
-                    indices.append(idx + cols)
+        # Vertical lines (around tube circumference)
+        for j in range(0, cols, step):
+            for i in range(rows - 1):
+                idx = i * cols + j
+                indices.append(idx)
+                indices.append(idx + cols)
 
         return np.array(indices, dtype=np.int32)
 
-    def _upload_mvp(self):
-        """Compute and upload the model-view-projection matrix."""
+    def _upload_mvp_dynamic(self, az_deg: float, el_deg: float,
+                            target_z: float = -5.0):
+        """
+        Compute and upload MVP matrix matching MATLAB's view() + camera zoom.
+
+        Port of MATLAB SetCameraMotion camera position logic.
+        """
         cfg = self.config
 
-        fov = np.radians(cfg.camera_fov)
-        aspect = cfg.width / cfg.height
-        proj = _perspective(fov, aspect, 1.0, 1000.0)
+        az = np.radians(az_deg)
+        el = np.radians(el_deg)
 
-        az = np.radians(cfg.camera_azimuth)
-        el = np.radians(cfg.camera_elevation)
+        # Camera target (MATLAB: [-1 -1 target_z])
+        center = np.array([-1.0, -1.0, target_z], dtype=np.float32)
+
+        # Eye position: spherical coordinates relative to origin
         dist = cfg.camera_distance
-
         eye = np.array([
             dist * np.cos(el) * np.cos(az),
             dist * np.cos(el) * np.sin(az),
             dist * np.sin(el),
         ], dtype=np.float32)
 
-        center = np.array(cfg.camera_target, dtype=np.float32)
+        # Offset eye relative to target
+        eye = eye + center
+
+        # MATLAB zoom: newcp = cpos - factor*(cpos - ctarg)
+        # Tuned factor for better framing at all elevation angles
+        factor = 0.35 - 0.15 * np.sin(np.radians(el_deg))
+        eye = eye - factor * (eye - center)
+
         up = np.array([0.0, 0.0, 1.0], dtype=np.float32)
 
-        # Zoom
-        eye = eye - (1.0 - cfg.camera_zoom) * (eye - center)
-
+        fov = np.radians(cfg.camera_fov)
+        aspect = cfg.width / cfg.height
+        proj = _perspective(fov, aspect, 1.0, 2000.0)
         view = _look_at(eye, center, up)
         mvp = (proj @ view).astype(np.float32)
         self.prog['mvp'].write(mvp.tobytes(order='F'))
 
+    def _update_camera(self, frame_idx: int, total_frames: int):
+        """
+        Port of MATLAB SetCameraMotion — two-phase camera animation.
+
+        Phase 1 (first half): elevation ~30° constant, azimuth rotates
+        Phase 2 (second half): elevation oscillates between el_min and el_max
+        """
+        cfg = self.config
+        half = total_frames // 2
+
+        if frame_idx >= half:
+            # Phase 2: elevation oscillates with bounce
+            if self.el >= cfg.cam_el_max:
+                self.del_el = -abs(self.del_el)
+            if self.el <= cfg.cam_el_min:
+                self.del_el = abs(self.del_el)
+            self.el += self.del_el * np.cos(np.pi * self.el / 180.0)
+            self.az -= cfg.cam_daz
+        else:
+            # Phase 1: elevation roughly constant, azimuth rotates
+            self.az -= cfg.cam_daz
+            self.el = cfg.cam_el_max - 0.90 + self.del_el
+
+        # Dynamic camera target Z (MATLAB: -5 - 30*teta_0to1)
+        el_range = cfg.cam_el_max - cfg.cam_el_min
+        teta_0to1 = (self.el - (cfg.cam_el_min + self.del_el)) / el_range
+        teta_0to1 = np.clip(teta_0to1, 0.0, 1.0)
+        target_z = -15.0 - 20.0 * teta_0to1
+
+        # Upload new MVP
+        self._upload_mvp_dynamic(self.az, self.el, target_z)
+
     def _compute_frame_vertices(self,
                                 amplitude: np.ndarray,
                                 flow_amp_value: float,
-                                t: float) -> np.ndarray:
+                                t: float,
+                                el_deg: float) -> np.ndarray:
         """
-        Compute vertex positions and colors for one frame (both spirals).
-        Port of piperecord11_LE-2C.m lines 191-245.
+        Compute vertex positions and colors for one frame (single spiral).
+        Port of piperecord11_LE.m lines 94-106.
         """
         cfg = self.config
         rows = cfg.inner_circle_points
@@ -342,14 +401,19 @@ class MeshRenderer:
         # Normalize amplitude to MATLAB-compatible range
         amp_scaled = amplitude * self._amp_scale
 
-        # Tube radius modulated by amplitude
-        amp_row = amp_scaled[np.newaxis, :]  # [1, cols]
-        tsul = self.u * (cfg.tube_base + cfg.tube_amp_scale * amp_row)
+        # Light smoothing — enough to form ridges but keep distinct peaks separated
+        kernel_size = 7
+        kernel = np.ones(kernel_size) / kernel_size
+        amp_smooth = np.convolve(amp_scaled, kernel, mode='same')
 
-        # Tube cross-section
+        # Tube radius modulated by amplitude (MATLAB: tsul=flip(u).*(0.0001+0.0015*amp'))
+        amp_row = amp_smooth[np.newaxis, :]  # [1, cols]
+        tsul = self.flip_u * (cfg.tube_base + cfg.tube_amp_scale * amp_row)
+
+        # Tube cross-section (MATLAB: xx=(mtheta+(tsul).*cos(v)))
         xx = self.theta[np.newaxis, :] + tsul * self.cos_v
 
-        # Traveling wave phase
+        # Traveling wave phase (MATLAB SetRadialWave)
         T = 100.0 * dFrame
         f_wave = 1.0 / T
         omega = 2.0 * np.pi * f_wave
@@ -357,9 +421,14 @@ class MeshRenderer:
         Xt = speed * flow_amp_value
         phaz = omega * (t + Xt) * (-1.0)
 
-        el_rad = np.radians(cfg.camera_elevation)
-        zz = (2.0 * np.sin(phaz + self.wave_u_arg)
-              + tsul * self.sin_v
+        # Z coordinate with traveling wave (MATLAB line 100)
+        # Rectified wave for upward-only peaks; scale tube Z-contribution
+        # down to create taller/narrower peaks (less blob, more ridge)
+        wave = np.sin(phaz + self.wave_u_arg)
+        wave_rectified = np.maximum(wave, 0.0)
+        el_rad = np.radians(el_deg)
+        zz = (2.0 * wave_rectified
+              + tsul * self.sin_v * 0.5   # Compressed Z: flatter cross-section = ridge-like
               + cfg.z_offset
               + 10.0 * np.cos(el_rad))
 
@@ -368,34 +437,26 @@ class MeshRenderer:
         colors_full = np.broadcast_to(colors[np.newaxis, :, :],
                                        (rows, cols, 3)).copy()
 
-        # Spiral 1 (h3)
+        # Single spiral (MATLAB: h3.XData=xx.*cos(u+pi/2), h3.YData=yy.*sin(u+pi/2))
         x1 = xx * self.cos_u_p
-        y1 = xx * self.sin_u_p - cfg.dpol
+        y1 = xx * self.sin_u_p
 
-        # Spiral 2 (h4)
-        x2 = xx * self.cos_u_m
-        y2 = xx * self.sin_u_m + cfg.dpol
-
-        # Pack vertex buffer
+        # Pack vertex buffer (single spiral)
         n = rows * cols
-        verts = np.empty((2 * n, 6), dtype=np.float32)
+        verts = np.empty((n, 6), dtype=np.float32)
 
-        verts[:n, 0] = x1.ravel()
-        verts[:n, 1] = y1.ravel()
-        verts[:n, 2] = zz.ravel()
-        verts[:n, 3:] = colors_full.reshape(-1, 3)
-
-        verts[n:, 0] = x2.ravel()
-        verts[n:, 1] = y2.ravel()
-        verts[n:, 2] = zz.ravel()
-        verts[n:, 3:] = colors_full.reshape(-1, 3)
+        verts[:, 0] = x1.ravel()
+        verts[:, 1] = y1.ravel()
+        verts[:, 2] = zz.ravel()
+        verts[:, 3:] = colors_full.reshape(-1, 3)
 
         return verts
 
     def render_frame(self,
                      amplitude: np.ndarray,
                      flow_amp_value: float,
-                     t: float) -> np.ndarray:
+                     t: float,
+                     el_deg: float = 30.0) -> np.ndarray:
         """
         Render a single frame to a numpy RGB array.
 
@@ -403,11 +464,12 @@ class MeshRenderer:
             amplitude: [num_freq_bins] amplitude values
             flow_amp_value: energy envelope value for this frame
             t: current time in seconds
+            el_deg: current camera elevation in degrees
 
         Returns:
             [height, width, 3] uint8 RGB array
         """
-        vertex_data = self._compute_frame_vertices(amplitude, flow_amp_value, t)
+        vertex_data = self._compute_frame_vertices(amplitude, flow_amp_value, t, el_deg)
         self.vbo.write(vertex_data.tobytes())
 
         self.fbo.use()
@@ -421,7 +483,20 @@ class MeshRenderer:
             self.config.height, self.config.width, 4
         )
         frame = frame[::-1, :, :3].copy()  # Flip Y, drop alpha
-        return frame
+
+        # Post-processing bloom: downsample, blur, upsample for fast glow
+        h, w = frame.shape[:2]
+        # Downsample 4x for fast blur
+        small = frame[::4, ::4].astype(np.float32)
+        bright = np.maximum(small - 60.0, 0.0)
+        # Simple box blur (fast, ~2px at full res = ~8px effective)
+        from scipy.ndimage import uniform_filter
+        glow_small = uniform_filter(bright, size=(3, 4, 1))
+        # Upsample back with nearest-neighbor
+        glow = np.repeat(np.repeat(glow_small, 4, axis=0), 4, axis=1)
+        glow = glow[:h, :w]  # Trim to exact size
+        result = np.clip(frame.astype(np.float32) + glow * 0.6, 0, 255).astype(np.uint8)
+        return result
 
     def render_video(self,
                      audio_path: str,
@@ -455,6 +530,11 @@ class MeshRenderer:
         flow_amp = compute_flow_amp(analysis.amplitude_data)
         flow_amp_scaled = 0.5 + 2.0 * flow_amp
 
+        # Reset camera state for this render
+        self.az = 270.0
+        self.el = cfg.cam_el_max - 0.90 + cfg.cam_del
+        self.del_el = cfg.cam_del
+
         # Stage 4: Start FFmpeg encoder
         actual_duration = duration or analysis.duration_seconds
         ffmpeg_cmd = [
@@ -485,16 +565,19 @@ class MeshRenderer:
             stderr=subprocess.PIPE,
         )
 
-        # Stage 5: Render loop
+        # Stage 5: Render loop with camera animation
         print("Rendering 3D mesh frames...")
         t = 0.0
         t0 = _time.monotonic()
         try:
             for frame_idx in range(total_frames):
+                # Update camera (rotates azimuth, oscillates elevation)
+                self._update_camera(frame_idx, total_frames)
+
                 amplitude = analysis.amplitude_data[:, frame_idx]
                 fav = flow_amp_scaled[min(frame_idx, len(flow_amp_scaled) - 1)]
 
-                frame = self.render_frame(amplitude, fav, t)
+                frame = self.render_frame(amplitude, fav, t, self.el)
                 proc.stdin.write(frame.tobytes())
 
                 t += dFrame
@@ -504,7 +587,8 @@ class MeshRenderer:
                     fps = (frame_idx + 1) / elapsed if elapsed > 0 else 0
                     pct = 100 * frame_idx / total_frames
                     print(f"  Frame {frame_idx}/{total_frames} "
-                          f"({pct:.1f}%) — {fps:.1f} fps")
+                          f"({pct:.1f}%) — {fps:.1f} fps "
+                          f"az={self.az:.1f} el={self.el:.1f}")
 
                 if progress_callback:
                     progress_callback(frame_idx, total_frames, "Rendering 3D mesh...")
