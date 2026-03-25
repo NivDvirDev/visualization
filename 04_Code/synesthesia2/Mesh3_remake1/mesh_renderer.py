@@ -52,14 +52,27 @@ VERTEX_SHADER = """
 
 in vec3 in_position;
 in vec3 in_color;
+in vec3 in_normal;
 
 uniform mat4 mvp;
+uniform vec3 u_eye_pos;
 
 out vec3 v_color;
 
 void main() {
     gl_Position = mvp * vec4(in_position, 1.0);
-    v_color = in_color;
+
+    // Phong-like headlight lighting (light at camera position)
+    vec3 N = normalize(in_normal);
+    vec3 L = normalize(u_eye_pos - in_position);  // Light direction = toward camera
+    float NdotL = max(dot(N, L), 0.0);
+
+    // Ambient + diffuse (MATLAB AmbientStrength=0.4, rest is diffuse)
+    float ambient = 0.4;
+    float diffuse = 0.6 * NdotL;
+    float lighting = ambient + diffuse;
+
+    v_color = in_color * lighting;
 }
 """
 
@@ -119,9 +132,9 @@ class MeshRenderConfig:
     # Wireframe density — 1 = full MATLAB density
     theta_line_step: int = 1
 
-    # Camera initial values (piperecord11_LE.m lines 83-85)
-    camera_fov: float = 50.0          # Wide to fill frame like YouTube
-    camera_distance: float = 65.0     # Close for large spiral
+    # Camera initial values — pulled back to show full spiral like YouTube
+    camera_fov: float = 35.0          # Moderate FOV
+    camera_distance: float = 160.0    # Pulled back to match YouTube framing
 
     # Camera animation (piperecord11_LE.m SetCameraMotion)
     # Lowered from MATLAB values for more edge-on YouTube look
@@ -289,14 +302,14 @@ class MeshRenderer:
         self.num_indices = len(line_indices)
         self.ibo = self.ctx.buffer(line_indices.tobytes())
 
-        # Allocate vertex buffer (single spiral)
+        # Allocate vertex buffer (single spiral: pos + color + normal = 9 floats)
         num_verts = cfg.inner_circle_points * cfg.num_freq_bins
-        self.vbo = self.ctx.buffer(reserve=num_verts * 6 * 4)
+        self.vbo = self.ctx.buffer(reserve=num_verts * 9 * 4)
 
-        # Create VAO
+        # Create VAO with normal attribute for Phong lighting
         self.vao = self.ctx.vertex_array(
             self.prog,
-            [(self.vbo, '3f 3f', 'in_position', 'in_color')],
+            [(self.vbo, '3f 3f 3f', 'in_position', 'in_color', 'in_normal')],
             index_buffer=self.ibo,
         )
 
@@ -377,6 +390,9 @@ class MeshRenderer:
         view = _look_at(eye, center, up)
         mvp = (proj @ view).astype(np.float32)
         self.prog['mvp'].write(mvp.tobytes(order='F'))
+
+        # Upload eye position for Phong headlight
+        self.prog['u_eye_pos'].value = tuple(eye.tolist())
 
     def _update_camera(self, frame_idx: int, total_frames: int):
         """
@@ -467,14 +483,28 @@ class MeshRenderer:
         x1 = xx * self.cos_u_p
         y1 = xx * self.sin_u_p
 
-        # Pack vertex buffer (single spiral)
+        # Compute surface normals for Phong lighting
+        # Normal points outward from tube center: (cos(v)*cos(u+pi/2), cos(v)*sin(u+pi/2), sin(v))
+        nx = self.cos_v * self.cos_u_p
+        ny = self.cos_v * self.sin_u_p
+        nz = self.sin_v
+        # Normalize
+        n_len = np.sqrt(nx*nx + ny*ny + nz*nz) + 1e-8
+        nx /= n_len
+        ny /= n_len
+        nz /= n_len
+
+        # Pack vertex buffer (single spiral: pos + color + normal = 9 floats)
         n = rows * cols
-        verts = np.empty((n, 6), dtype=np.float32)
+        verts = np.empty((n, 9), dtype=np.float32)
 
         verts[:, 0] = x1.ravel()
         verts[:, 1] = y1.ravel()
         verts[:, 2] = zz.ravel()
-        verts[:, 3:] = colors_full.reshape(-1, 3)
+        verts[:, 3:6] = colors_full.reshape(-1, 3)
+        verts[:, 6] = nx.ravel()
+        verts[:, 7] = ny.ravel()
+        verts[:, 8] = nz.ravel()
 
         return verts
 
