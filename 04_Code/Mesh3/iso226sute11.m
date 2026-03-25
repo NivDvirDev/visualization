@@ -21,7 +21,7 @@ function  [cDisplay5iso226]=iso226sute11(Fs,y,cDisplay5,FreqIndex,Freq,mycolorma
     
     GausRange=1200;
     GausBell_x = -GausRange:1:GausRange;
-    GausBell_y = gaussmf(GausBell_x,[-(length(GausBell_x)*0.100) 0] );
+    GausBell_y =  gaussmf(GausBell_x,[-(length(GausBell_x)*0.100) 0] );
   %  figure
      plot(GausBell_x,GausBell_y);
     axis([-GausRange GausRange 0 1]);
@@ -169,5 +169,23 @@ function  [Smoothe]=CreateSmoothePart(BeginIndex,EndIndex,BeginValue,EndValue)
     
      LongSmoothe=length(BeginIndex:EndIndex);
     Smoothe=(BeginValue):((EndValue-BeginValue)/LongSmoothe):EndValue;
+
+end
+
+%%
+
+function []=test()
+
+% Calculate SPLs
+  phons = [20:10:80];
+  [spl,f] = iso226(phons,[],true);
+
+  % plot
+  figure; semilogx(f,spl)
+  set(gca,'xlim',[min(f(:)) max(f(:))])
+  legend(num2str(phons'),'location','southwest');
+  title('Equal loudness contours for different loudness levels (in phons)')
+  xlabel('Frequency [Hz]')
+  ylabel('SPL [dB]')
 
 end
