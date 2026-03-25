@@ -90,10 +90,11 @@ class MeshRenderConfig:
     height: int = 1080
     fps: int = 60
 
-    # Spiral geometry (from MATLAB piperecord11_LE.m)
-    num_freq_bins: int = 381
+    # Spiral geometry — loaded from MATLAB-derived spiral_freq_data.npz
+    # Set to 0 to auto-load from file; otherwise uses this as subsample count
+    num_freq_bins: int = 1000         # Subsampled from MATLAB's ~10K for performance
     inner_circle_points: int = 21     # Thin tube: ridge-like peaks, not bloated spheres
-    spiral_turns: float = 8.0         # ~8 turns matches MATLAB theta range
+    use_spiral_freqs: bool = True     # Use MATLAB spiral frequencies instead of logspace
 
     # Tube parameters (piperecord11_LE.m line 97)
     tube_base: float = 0.001          # Very thin when quiet (single-pixel lines)
@@ -232,9 +233,34 @@ class MeshRenderer:
         )
         self.prog['u_alpha'].value = cfg.edge_alpha
 
-        # Precompute spiral theta and inner circle R
-        self.theta = np.linspace(0, cfg.spiral_turns * 2 * np.pi,
-                                 cfg.num_freq_bins).astype(np.float32)
+        # Load spiral geometry from MATLAB-derived data or use linspace fallback
+        if cfg.use_spiral_freqs:
+            spiral_data_path = os.path.join(os.path.dirname(__file__),
+                                            'spiral_freq_data.npz')
+            if os.path.exists(spiral_data_path):
+                data = np.load(spiral_data_path)
+                full_theta = data['theta']
+                full_freqs = data['frequencies']
+                # Subsample to requested bin count
+                n_full = len(full_theta)
+                indices = np.linspace(0, n_full - 1, cfg.num_freq_bins).astype(int)
+                self.theta = full_theta[indices].astype(np.float32)
+                self.spiral_frequencies = full_freqs[indices].astype(np.float32)
+                print(f"Loaded MATLAB spiral: {cfg.num_freq_bins} bins, "
+                      f"{self.spiral_frequencies[0]:.1f}-{self.spiral_frequencies[-1]:.0f} Hz, "
+                      f"theta {self.theta[0]:.2f}-{self.theta[-1]:.2f}")
+            else:
+                print(f"Warning: spiral_freq_data.npz not found, using linspace fallback")
+                self.theta = np.linspace(0, 8.0 * 2 * np.pi,
+                                         cfg.num_freq_bins).astype(np.float32)
+                self.spiral_frequencies = np.logspace(
+                    np.log10(20), np.log10(8000), cfg.num_freq_bins).astype(np.float32)
+        else:
+            self.theta = np.linspace(0, 8.0 * 2 * np.pi,
+                                     cfg.num_freq_bins).astype(np.float32)
+            self.spiral_frequencies = np.logspace(
+                np.log10(20), np.log10(8000), cfg.num_freq_bins).astype(np.float32)
+
         self.R = np.linspace(0, 2 * np.pi,
                              cfg.inner_circle_points).astype(np.float32)
 
@@ -512,9 +538,14 @@ class MeshRenderer:
         cfg = self.config
         dFrame = 1.0 / cfg.fps
 
-        # Stage 1: Analyze audio
+        # Stage 1: Analyze audio using spiral frequencies
         print("Analyzing audio...")
-        analyzer = AudioAnalyzer(AudioAnalysisConfig(frame_rate=cfg.fps))
+        audio_config = AudioAnalysisConfig(
+            frame_rate=cfg.fps,
+            num_frequency_bins=len(self.spiral_frequencies),
+            custom_frequencies=self.spiral_frequencies,
+        )
+        analyzer = AudioAnalyzer(audio_config)
         analysis = analyzer.analyze(audio_path, start_time=start_time, duration=duration)
         total_frames = analysis.total_frames
         print(f"Total frames: {total_frames}")

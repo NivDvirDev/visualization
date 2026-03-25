@@ -33,6 +33,7 @@ class AudioAnalysisConfig:
     inner_circle_points: int = 60  # Points around the tube circumference
     window_samples: int = 12000  # Extra samples for windowing (m in MATLAB)
     use_gpu: bool = True  # Use GPU acceleration if available
+    custom_frequencies: Optional[np.ndarray] = None  # Override logspace with MATLAB spiral freqs
 
 
 @dataclass
@@ -97,8 +98,13 @@ def iso226_loudness(phon: float, freq: float) -> float:
 
 def create_frequency_bins(config: AudioAnalysisConfig) -> np.ndarray:
     """
-    Create logarithmically-spaced frequency bins matching the cochlear spiral.
+    Create frequency bins for analysis.
+    Uses custom_frequencies if provided (MATLAB spiral geometry),
+    otherwise falls back to logarithmic spacing.
     """
+    if config.custom_frequencies is not None:
+        return config.custom_frequencies.copy()
+
     # Logarithmic spacing to match human hearing (cochlear tonotopy)
     frequencies = np.logspace(
         np.log10(config.freq_min),
