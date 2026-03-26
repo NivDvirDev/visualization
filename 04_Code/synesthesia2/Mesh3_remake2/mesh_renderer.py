@@ -118,9 +118,10 @@ class MeshRenderConfig:
     inner_circle_points: int = 60     # MATLAB InerCircel=60 (latest)
     use_spiral_freqs: bool = True
 
-    # Tube parameters — need visible deformation (10-20% of spiral radius)
-    tube_base: float = 0.001
-    tube_amp_scale: float = 0.005
+    # Tube parameters — full flip_u range (up to ~77)
+    # Target: visible localized peaks, not giant blobs
+    tube_base: float = 0.0003
+    tube_amp_scale: float = 0.0012
 
     # Amplitude normalization
     amp_target: float = 110.0
@@ -254,13 +255,12 @@ class MeshRenderer:
         self.cos_v = np.cos(self.v)
         self.sin_v = np.sin(self.v)
         # Z modulation: 0.79*cos(v/4)*sin(v) — from latest MATLAB
-        # Z modulation: MATLAB formula scaled up 2x for more dramatic vertical peaks
-        self.z_cross_section = 2.0 * 0.79 * np.cos(self.v / 4.0) * np.sin(self.v)
+        # Z modulation: MATLAB formula (0.79*cos(v/4)*sin(v))
+        self.z_cross_section = 0.79 * np.cos(self.v / 4.0) * np.sin(self.v)
         self.wave_u_arg = (self.u - self.u_min) * (cfg.wave_lambda / self.u_range)
 
-        # flip(u) with cap
-        raw_flip = np.flip(self.u, axis=1)
-        self.flip_u = np.minimum(raw_flip, 25.0)
+        # flip(u) — full range like MATLAB (no cap), use smaller tube_amp_scale instead
+        self.flip_u = np.flip(self.u, axis=1)
 
         # ISO 226 loudness weights
         self.iso226_weights = compute_iso226_weights(self.spiral_frequencies)
@@ -366,13 +366,10 @@ class MeshRenderer:
 
         amp_scaled = amplitude * self._amp_scale
 
-        # Smooth amplitude
-        kernel = np.ones(7) / 7
-        amp_smooth = np.convolve(amp_scaled, kernel, mode='same')
-
         # ISO 226 weighted tube scaling (MATLAB latest formula)
         # tsul = (maxIso226-iso226ForFreq)*flip(u)*(0.00003*amp + 0.00002)
-        amp_row = amp_smooth[np.newaxis, :]
+        # No artificial smoothing — natural frequency correlation creates ridges
+        amp_row = amp_scaled[np.newaxis, :]
         iso_row = self.iso226_factor[np.newaxis, :]
         tsul = iso_row * self.flip_u * (cfg.tube_amp_scale * amp_row + cfg.tube_base)
 
