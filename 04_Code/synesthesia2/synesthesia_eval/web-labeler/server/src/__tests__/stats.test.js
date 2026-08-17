@@ -25,11 +25,23 @@ describe('GET /api/stats', () => {
       unlabeled: 42,
       total_users: 5,
       recent_users_7d: 2,
+      // labeled_* are distinct-CLIP counts; these are rating volume. Anonymous
+      // guest ratings are human — see anon-classification.test.js.
+      human_ratings: 700,
+      registered_ratings: 12,
+      anonymous_ratings: 688,
+      anonymous_sessions: 352,
       avg_scores: {
         sync_quality: 3.5,
         harmony: 4.0,
         aesthetic_quality: 3.8,
         motion_smoothness: 4.2,
+      },
+      avg_scores_auto: {
+        sync_quality: 4.1,
+        harmony: 4.2,
+        aesthetic_quality: 4.3,
+        motion_smoothness: 4.4,
       },
     });
 
@@ -42,6 +54,12 @@ describe('GET /api/stats', () => {
     expect(res.body.unlabeled).toBe(42);
     expect(res.body.avg_scores).toHaveProperty('harmony');
     expect(res.body.avg_scores).not.toHaveProperty('visual_audio_alignment');
+    // Rating-volume fields must survive the route untouched.
+    expect(res.body.human_ratings).toBe(700);
+    expect(res.body.anonymous_ratings).toBe(688);
+    expect(res.body.anonymous_sessions).toBe(352);
+    expect(res.body.registered_ratings).toBe(12);
+    expect(res.body.avg_scores_auto.sync_quality).toBe(4.1);
   });
 
   it('handles zero labels gracefully', async () => {
@@ -52,6 +70,10 @@ describe('GET /api/stats', () => {
       unlabeled: 81,
       total_users: 0,
       recent_users_7d: 0,
+      human_ratings: 0,
+      registered_ratings: 0,
+      anonymous_ratings: 0,
+      anonymous_sessions: 0,
       avg_scores: {
         sync_quality: null,
         harmony: null,
@@ -271,5 +293,38 @@ describe('GET /api/stats/me', () => {
     expect(res.status).toBe(200);
     expect(res.body.clips_remaining).toBe(0);
     expect(res.body.badges).toContain('completionist');
+  });
+});
+
+// GET /api/stats/ratings builds its own SQL from ../models/ratingSource rather than
+// from the Label model — which is auto-mocked in this file. If it ever reads the
+// predicates off Label again, they interpolate as "undefined" and the query breaks.
+describe('GET /api/stats/ratings', () => {
+  beforeEach(() => jest.clearAllMocks());
+
+  it('classifies anonymous ratings as human without depending on the Label model', async () => {
+    pool.query
+      .mockResolvedValueOnce({
+        rows: [{
+          registered_ratings: 0, registered_raters: 0,
+          anonymous_ratings: 700, anonymous_sessions: 352,
+          auto_ratings: 81, human_ratings: 700,
+          total_ratings: 781, clips_with_ratings: 81,
+        }],
+      })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] });
+
+    const res = await request(app).get('/api/stats/ratings');
+
+    expect(res.status).toBe(200);
+    expect(res.body.summary.anonymous_ratings).toBe(700);
+    expect(res.body.summary.human_ratings).toBe(700);
+    expect(res.body.summary.auto_ratings).toBe(81);
+
+    const sql = pool.query.mock.calls.map((c) => c[0]).join('\n');
+    expect(sql).not.toMatch(/undefined/);
+    expect(sql).toMatch(/labeler LIKE 'anon_%'/);
+    expect(sql).toMatch(/labeler NOT LIKE 'anon_%'/);
   });
 });

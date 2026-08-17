@@ -142,7 +142,15 @@ const LandingPage: React.FC = () => {
             </Card>
             <Card variant="glass" padding="md" className="landing-stat-card-wrap">
               <CardContent>
-                <span className="landing-stat-value">{(stats.labeled_auto || 0) + (stats.labeled_human || 0)}</span>
+                {/* Actual rating volume. This used to add labeled_human + labeled_auto,
+                    which are distinct-CLIP counts — it capped at total_clips * 2 and hid
+                    every repeat rating. Falls back to the old sum if the API predates
+                    human_ratings. */}
+                <span className="landing-stat-value">
+                  {stats.human_ratings != null
+                    ? stats.human_ratings
+                    : (stats.labeled_auto || 0) + (stats.labeled_human || 0)}
+                </span>
                 <span className="landing-stat-label">Ratings Given</span>
               </CardContent>
             </Card>

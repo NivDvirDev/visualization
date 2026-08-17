@@ -141,7 +141,17 @@ export interface Stats {
   unlabeled: number;
   total_users: number;
   recent_users_7d: number;
+  /**
+   * labeled_human / labeled_auto are DISTINCT-CLIP counts and saturate at total_clips.
+   * The *_ratings fields below are the actual rating volume — use those for engagement.
+   * Anonymous guest ratings count as human.
+   */
+  human_ratings?: number;
+  registered_ratings?: number;
+  anonymous_ratings?: number;
+  anonymous_sessions?: number;
   avg_scores?: AvgScores | null;
+  avg_scores_auto?: AvgScores | null;
 }
 
 export interface LabelData {

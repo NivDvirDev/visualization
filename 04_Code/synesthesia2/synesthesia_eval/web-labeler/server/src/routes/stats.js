@@ -2,6 +2,12 @@ const { Router } = require('express');
 const Label = require('../models/label');
 const { pool } = require('../config');
 const { authRequired } = require('../middleware/auth');
+const {
+  REGISTERED_SQL,
+  ANON_SQL,
+  HUMAN_LABEL_SQL,
+  AUTO_LABEL_SQL,
+} = require('../models/ratingSource');
 
 const router = Router();
 
@@ -240,11 +246,12 @@ router.get('/ratings', async (req, res, next) => {
   try {
     const { rows: [counts] } = await pool.query(`
       SELECT
-        COUNT(*) FILTER (WHERE user_id IS NOT NULL)                          AS registered_ratings,
-        COUNT(DISTINCT user_id) FILTER (WHERE user_id IS NOT NULL)           AS registered_raters,
-        COUNT(*) FILTER (WHERE user_id IS NULL AND labeler LIKE 'anon_%')    AS anonymous_ratings,
-        COUNT(DISTINCT labeler) FILTER (WHERE user_id IS NULL AND labeler LIKE 'anon_%') AS anonymous_sessions,
-        COUNT(*) FILTER (WHERE user_id IS NULL AND labeler NOT LIKE 'anon_%') AS auto_ratings,
+        COUNT(*) FILTER (WHERE ${REGISTERED_SQL})                  AS registered_ratings,
+        COUNT(DISTINCT user_id) FILTER (WHERE ${REGISTERED_SQL})   AS registered_raters,
+        COUNT(*) FILTER (WHERE ${ANON_SQL})                        AS anonymous_ratings,
+        COUNT(DISTINCT labeler) FILTER (WHERE ${ANON_SQL})         AS anonymous_sessions,
+        COUNT(*) FILTER (WHERE ${AUTO_LABEL_SQL})                  AS auto_ratings,
+        COUNT(*) FILTER (WHERE ${HUMAN_LABEL_SQL})                 AS human_ratings,
         COUNT(*)                                                              AS total_ratings,
         COUNT(DISTINCT clip_id)                                               AS clips_with_ratings
       FROM labels
@@ -265,9 +272,9 @@ router.get('/ratings', async (req, res, next) => {
     const { rows: hourly } = await pool.query(`
       SELECT
         date_trunc('hour', created_at) AS hour,
-        COUNT(*) FILTER (WHERE user_id IS NOT NULL)                          AS registered,
-        COUNT(*) FILTER (WHERE user_id IS NULL AND labeler LIKE 'anon_%')    AS anonymous,
-        COUNT(*) FILTER (WHERE user_id IS NULL AND labeler NOT LIKE 'anon_%') AS auto
+        COUNT(*) FILTER (WHERE ${REGISTERED_SQL})                  AS registered,
+        COUNT(*) FILTER (WHERE ${ANON_SQL})                        AS anonymous,
+        COUNT(*) FILTER (WHERE ${AUTO_LABEL_SQL})                  AS auto
       FROM labels
       WHERE created_at >= NOW() - INTERVAL '48 hours'
       GROUP BY date_trunc('hour', created_at)
@@ -280,6 +287,7 @@ router.get('/ratings', async (req, res, next) => {
         registered_raters: parseInt(counts.registered_raters, 10),
         anonymous_ratings: parseInt(counts.anonymous_ratings, 10),
         anonymous_sessions: parseInt(counts.anonymous_sessions, 10),
+        human_ratings: parseInt(counts.human_ratings, 10),
         auto_ratings: parseInt(counts.auto_ratings, 10),
         total_ratings: parseInt(counts.total_ratings, 10),
         clips_with_ratings: parseInt(counts.clips_with_ratings, 10),

@@ -37,6 +37,10 @@ describe('Landing API — GET /api/stats', () => {
       unlabeled: 0,
       total_users: 12,
       recent_users_7d: 3,
+      human_ratings: 700,
+      registered_ratings: 12,
+      anonymous_ratings: 688,
+      anonymous_sessions: 352,
       avg_scores: {
         sync_quality: 3.5,
         harmony: 4.0,
@@ -55,6 +59,10 @@ describe('Landing API — GET /api/stats', () => {
     expect(res.body).toHaveProperty('labeled_auto');
     expect(typeof res.body.total_clips).toBe('number');
     expect(typeof res.body.total_users).toBe('number');
+    // "Ratings Given" reads human_ratings — labeled_human + labeled_auto are
+    // distinct-CLIP counts and cap at total_clips, hiding every repeat rating.
+    expect(res.body).toHaveProperty('human_ratings');
+    expect(res.body.human_ratings).toBe(700);
   });
 
   it('returns valid stats even when everything is zero', async () => {
@@ -65,6 +73,10 @@ describe('Landing API — GET /api/stats', () => {
       unlabeled: 0,
       total_users: 0,
       recent_users_7d: 0,
+      human_ratings: 0,
+      registered_ratings: 0,
+      anonymous_ratings: 0,
+      anonymous_sessions: 0,
       avg_scores: {
         sync_quality: null,
         harmony: null,
